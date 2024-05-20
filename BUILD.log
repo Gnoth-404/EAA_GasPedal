@@ -1,0 +1,167 @@
+--------------- Build Started: 05/15/2024 10:23:10 Project: GasPedal, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+cydsfit.exe -.appdatapath "C:\Users\vboxuser\AppData\Local\Cypress Semiconductor\PSoC Creator\4.4" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p Z:\SS24_Lab\EAA_Folder\TFTJson.cyprj.Archive01\GasPedal.cydsn\GasPedal.cyprj -d CY8C5888LTQ-LP097 -s Z:\SS24_Lab\EAA_Folder\TFTJson.cyprj.Archive01\GasPedal.cydsn\Generated_Source\PSoC5 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+Elaborating Design...
+ADD: sdb.M0065: information: Analog terminal "vdac_ref" on ADC_SAR_SEQ_v2_10 is unconnected.
+ * C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\ADC_SAR_SEQ_v2_10\PSoC5\ADC_SAR_SEQ_v2_10.cysch (Signal: vdac_ref)
+ * C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\ADC_SAR_SEQ_v2_10\PSoC5\ADC_SAR_SEQ_v2_10.cysch (Shape_798)
+ * C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\ADC_SAR_SEQ_v2_10\PSoC5\ADC_SAR_SEQ_v2_10.cysch (Shape_885)
+ADD: fit.M0032: warning: Clock Warning: (TFT_SPI_IntClock's accuracy range '24 MHz +/- 1%, (23.76 MHz - 24.24 MHz)' is not within the specified tolerance range '66 MHz +/- 5%, (62.7 MHz - 69.3 MHz)'.).
+ * C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\SPI_Master_v2_50\SPI_Master_v2_50.cysch (Instance:IntClock)
+ * Z:\SS24_Lab\EAA_Folder\TFTJson.cyprj.Archive01\GasPedal.cydsn\GasPedal.cydwr (TFT_SPI_IntClock)
+HDL Generation...
+Synthesis...
+Tech Mapping...
+ADD: pft.M0040: information: The following 6 pin(s) will be assigned a location by the fitter: TFT_CS(0), TFT_DC(0), TFT_LED(0), TFT_RES(0), TFT_SCL(0), TFT_SDA(0)
+Analog Placement...
+Info: apr.M0002: Analog signal "Net_2267" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2286" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2316" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2295" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2296" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2319" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2299" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2300" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2335" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2303" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2304" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2336" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2245" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2246" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2306" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2249" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2250" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2307" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2253" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2254" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2308" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2257" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2258" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2309" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2261" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2262" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2310" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2266" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2268" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2311" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2271" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2272" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2312" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2275" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2276" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2313" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2279" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2280" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2314" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2283" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2284" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2315" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2288" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2290" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2317" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2293" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2318" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2320" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2321" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2322" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2323" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2324" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2325" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2326" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2327" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2328" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2329" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2330" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2331" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2332" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2333" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_2334" is connected to one terminal only. (App=cydsfit)
+Log: apr.M0058: The analog placement iterative improvement is 35% done. (App=cydsfit)
+Log: apr.M0058: The analog placement iterative improvement is 80% done. (App=cydsfit)
+Analog Routing...
+Analog Code Generation...
+Digital Placement...
+Digital Routing...
+Bitstream Generation...
+Bitstream Verification...
+Static timing analysis...
+API Generation...
+Dependency Generation...
+Cleanup...
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\asw -I.\bsw -I.\bsw\LabBoard -I.\bsw\Services -I.\bsw\tft\fonts -I.\bsw\tft -I.\bsw\rte -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/main.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c asw\main.c -o .\CortexM3\ARM_GCC_541\Debug\main.o
+In file included from Generated_Source\PSoC5/ErikaOS_1_ee_api.inc:73:0,
+                 from Generated_Source\PSoC5/ErikaOS_1_ee.h:129,
+                 from Generated_Source\PSoC5/project.h:22,
+                 from asw\main.c:12:
+.\bsw\Services/ringbuffer.h: In function 'Ringbuffer_Write':
+Generated_Source\PSoC5/ErikaOS_1_ee_oo_api.inc:136:35: warning: implicit declaration of function 'EE_oo_GetResource' [-Wimplicit-function-declaration]
+ #define GetResource               EE_oo_GetResource
+                                   ^
+.\bsw\Services/ringbuffer.h:78:9: note: in expansion of macro 'GetResource'
+         GetResource(rb->erika_ressource);
+         ^
+Generated_Source\PSoC5/ErikaOS_1_ee_oo_api.inc:140:35: warning: implicit declaration of function 'EE_oo_ReleaseResource' [-Wimplicit-function-declaration]
+ #define ReleaseResource           EE_oo_ReleaseResource
+                                   ^
+.\bsw\Services/ringbuffer.h:99:9: note: in expansion of macro 'ReleaseResource'
+         ReleaseResource(rb->erika_ressource);
+         ^
+asw\main.c: In function 'Functsk_init':
+asw\main.c:52:5: warning: implicit declaration of function 'RG_init' [-Wimplicit-function-declaration]
+     RG_init();
+     ^
+asw\main.c: In function 'Functsk_Glower':
+asw\main.c:75:23: warning: implicit declaration of function 'RG_Glower_run' [-Wimplicit-function-declaration]
+     if (RC_SUCCESS != RG_Glower_run())
+                       ^
+asw\main.c: In function 'Functsk_Fader':
+asw\main.c:84:23: warning: implicit declaration of function 'RG_Fader_run' [-Wimplicit-function-declaration]
+     if (RC_SUCCESS != RG_Fader_run())
+                       ^
+asw\main.c: In function 'Functsk_reactionGame':
+asw\main.c:106:9: warning: implicit declaration of function 'RG_handleEvent' [-Wimplicit-function-declaration]
+         RG_handleEvent(&ev);
+         ^
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\asw -I.\bsw -I.\bsw\LabBoard -I.\bsw\Services -I.\bsw\tft\fonts -I.\bsw\tft -I.\bsw\rte -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/tsk_background.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c asw\tsk_background.c -o .\CortexM3\ARM_GCC_541\Debug\tsk_background.o
+In file included from .\bsw\rte/rte.h:82:0,
+                 from asw\tsk_background.c:20:
+.\bsw\rte/rte_types.h:46:0: warning: "GetResource" redefined
+     #define GetResource(A)
+ ^
+In file included from Generated_Source\PSoC5/ErikaOS_1_ee_api.inc:73:0,
+                 from Generated_Source\PSoC5/ErikaOS_1_ee.h:129,
+                 from Generated_Source\PSoC5/project.h:22,
+                 from asw\tsk_background.c:18:
+Generated_Source\PSoC5/ErikaOS_1_ee_oo_api.inc:136:0: note: this is the location of the previous definition
+ #define GetResource               EE_oo_GetResource
+ ^
+In file included from .\bsw\rte/rte.h:82:0,
+                 from asw\tsk_background.c:20:
+.\bsw\rte/rte_types.h:47:0: warning: "ReleaseResource" redefined
+     #define ReleaseResource(A)
+ ^
+In file included from Generated_Source\PSoC5/ErikaOS_1_ee_api.inc:73:0,
+                 from Generated_Source\PSoC5/ErikaOS_1_ee.h:129,
+                 from Generated_Source\PSoC5/project.h:22,
+                 from asw\tsk_background.c:18:
+Generated_Source\PSoC5/ErikaOS_1_ee_oo_api.inc:140:0: note: this is the location of the previous definition
+ #define ReleaseResource           EE_oo_ReleaseResource
+ ^
+asw\tsk_background.c: In function 'Functsk_background':
+The command 'arm-none-eabi-gcc.exe' failed with exit code '1'.
+Generated_Source\PSoC5/ErikaOS_1_ee_oo_api.inc:154:35: error: too few arguments to function 'EE_oo_WaitEvent'
+ #define WaitEvent                 EE_oo_WaitEvent
+                                   ^
+asw\tsk_background.c:73:9: note: in expansion of macro 'WaitEvent'
+         WaitEvent();
+         ^
+In file included from Generated_Source\PSoC5/ErikaOS_1_ee.h:88:0,
+                 from Generated_Source\PSoC5/project.h:22,
+                 from asw\tsk_background.c:18:
+Generated_Source\PSoC5/ErikaOS_1_ee_oo_kernel.inc:345:12: note: declared here
+ StatusType EE_oo_WaitEvent(EventMaskType Mask);
+            ^
+asw\tsk_background.c:74:18: error: 'tsk_background' undeclared (first use in this function)
+         GetEvent(tsk_background,&ev);
+                  ^
+asw\tsk_background.c:74:18: note: each undeclared identifier is reported only once for each function it appears in
+--------------- Build Failed: 05/15/2024 10:23:48 ---------------

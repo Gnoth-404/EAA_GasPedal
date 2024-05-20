@@ -1,0 +1,6 @@
+Z:\SS24_Lab\EAA_Folder\TFTJson.cyprj.Archive01\GasPedal.cydsn\GasPedal.cyprj|c34934e7-70a0-4c80-84c2-af2b54aea068
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|3750a098-47af-452a-bc73-8819ed255394
+C:\Users\vboxuser\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|72ff61ad-74ff-478a-a08e-5c382ccf75a4
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|aa89243c-a94a-49de-8d37-44be9a864ea0
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|54a80f93-9849-44d1-86bb-9159607a8b0e
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|c715414c-a52c-4444-a6d9-39a94e3e553d
