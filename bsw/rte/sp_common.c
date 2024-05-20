@@ -23,16 +23,16 @@
 
 /* USER CODE END SP_COMMON_INCLUDE */
 
-#include "sc_gaspedal.h"
-#include "sc_gaspedal_type.h"
-#include "sc_gaspedal.h"
-#include "sc_gaspedal_type.h"
+#include "sc_joystick.h"
+#include "sc_joystick_type.h"
+#include "sc_speed.h"
+#include "sc_speed_type.h"
 
 
 
 /* signal configuration */
 /*
- * description: A Signal
+ * description: Joystick input signal
  * indriver: default
  * name: so_joystick
  * onDataError: 0
@@ -40,7 +40,7 @@
  * outdriver: default
  * resource: None
  * shortname: joystick
- * signalclass: sc_gaspedal
+ * signalclass: sc_joystick
  * signalpool: sp_common
  */
 
@@ -49,10 +49,10 @@
 const TaskTypeArray so_joystick_updTasks = { tsk_control };
  
 
-static const SC_GASPEDAL_cfg_t SO_JOYSTICK_cfg = 
+static const SC_JOYSTICK_cfg_t SO_JOYSTICK_cfg = 
 {
-   /* indriver           */  SC_GASPEDAL_driverIn,
-   /* outdriver          */  SC_GASPEDAL_driverOut,
+   /* indriver           */  SC_JOYSTICK_driverIn,
+   /* outdriver          */  SC_JOYSTICK_driverOut,
 
    /* onUpdate           */  ev_onUpdate,
    /* onError            */  0,
@@ -69,9 +69,9 @@ static const SC_GASPEDAL_cfg_t SO_JOYSTICK_cfg =
 
 /* signal data */
 
-SC_GASPEDAL_t SO_JOYSTICK_signal= 
+SC_JOYSTICK_t SO_JOYSTICK_signal= 
 {
-   /* init value    */  SC_GASPEDAL_INIT_DATA,
+   /* init value    */  SC_JOYSTICK_INIT_DATA,
    /* status        */  RTE_SIGNALSTATUS_STARTUP,
    /* age           */  0,
    /* cfg           */  &SO_JOYSTICK_cfg,
@@ -87,7 +87,7 @@ SC_GASPEDAL_t SO_JOYSTICK_signal=
  * outdriver: default
  * resource: None
  * shortname: speed
- * signalclass: sc_gaspedal
+ * signalclass: sc_speed
  * signalpool: sp_common
  */
 
@@ -96,10 +96,10 @@ SC_GASPEDAL_t SO_JOYSTICK_signal=
 const TaskTypeArray so_speed_updTasks = { tsk_control };
  
 
-static const SC_GASPEDAL_cfg_t SO_SPEED_cfg = 
+static const SC_SPEED_cfg_t SO_SPEED_cfg = 
 {
-   /* indriver           */  SC_GASPEDAL_driverIn,
-   /* outdriver          */  SC_GASPEDAL_driverOut,
+   /* indriver           */  SC_SPEED_driverIn,
+   /* outdriver          */  SC_SPEED_driverOut,
 
    /* onUpdate           */  ev_onUpdate,
    /* onError            */  0,
@@ -116,9 +116,9 @@ static const SC_GASPEDAL_cfg_t SO_SPEED_cfg =
 
 /* signal data */
 
-SC_GASPEDAL_t SO_SPEED_signal= 
+SC_SPEED_t SO_SPEED_signal= 
 {
-   /* init value    */  SC_GASPEDAL_INIT_DATA,
+   /* init value    */  SC_SPEED_INIT_DATA,
    /* status        */  RTE_SIGNALSTATUS_STARTUP,
    /* age           */  0,
    /* cfg           */  &SO_SPEED_cfg,
@@ -130,8 +130,8 @@ SC_GASPEDAL_t SO_SPEED_signal=
  * Increments the age of the signals in this pool 
  */
 void RTE_timertick_sp_common_tick(uint32_t tick){
-   RTE_SC_GASPEDAL_incAge( &SO_JOYSTICK_signal, tick); 
-   RTE_SC_GASPEDAL_incAge( &SO_SPEED_signal, tick); 
+   RTE_SC_JOYSTICK_incAge( &SO_JOYSTICK_signal, tick); 
+   RTE_SC_SPEED_incAge( &SO_SPEED_signal, tick); 
    
 }
 
@@ -139,8 +139,8 @@ void RTE_timertick_sp_common_tick(uint32_t tick){
  * Reset all signals in this pool
  */
 void RTE_reset_sp_common(){
-   RTE_SC_GASPEDAL_init( &SO_JOYSTICK_signal); 
-   RTE_SC_GASPEDAL_init( &SO_SPEED_signal); 
+   RTE_SC_JOYSTICK_init( &SO_JOYSTICK_signal); 
+   RTE_SC_SPEED_init( &SO_SPEED_signal); 
    
 }		
 

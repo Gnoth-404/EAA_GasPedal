@@ -20,13 +20,13 @@
 
 
 
-#include "sc_gaspedal.h"
-#include "sc_gaspedal.h"
+#include "sc_joystick.h"
+#include "sc_speed.h"
 
 
 
 /*
- * description: A Signal
+ * description: Joystick input signal
  * indriver: default
  * name: so_joystick
  * onDataError: 0
@@ -34,10 +34,10 @@
  * outdriver: default
  * resource: None
  * shortname: joystick
- * signalclass: sc_gaspedal
+ * signalclass: sc_joystick
  * signalpool: sp_common
  */
-extern SC_GASPEDAL_t SO_JOYSTICK_signal;
+extern SC_JOYSTICK_t SO_JOYSTICK_signal;
 
 
 /*
@@ -49,10 +49,10 @@ extern SC_GASPEDAL_t SO_JOYSTICK_signal;
  * outdriver: default
  * resource: None
  * shortname: speed
- * signalclass: sc_gaspedal
+ * signalclass: sc_speed
  * signalpool: sp_common
  */
-extern SC_GASPEDAL_t SO_SPEED_signal;
+extern SC_SPEED_t SO_SPEED_signal;
 
 
 
