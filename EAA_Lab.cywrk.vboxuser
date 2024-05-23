@@ -481,46 +481,6 @@
 <VisibleNodeIds>
 <v>EAA_Lab</v>
 <v>EAA_Lab\GasPedal</v>
-<v>EAA_Lab\GasPedal\CortexM3</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\button.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\BUTTON_1.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\BUTTON_2.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\BUTTON_3.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\BUTTON_4.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\CLK_LED.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_1.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\ErikaOS_1_common_ee_hal_structs.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\ErikaOS_1_cortex_mx_ee_context.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\ErikaOS_1_cortex_mx_ee_system_timer.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\ErikaOS_1_cortex_mx_ee_utils.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\ErikaOS_1_ee_activate.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\ErikaOS_1_ee_alcancel.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\ErikaOS_1_ee_alget.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\ErikaOS_1_ee_algetbase.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\ErikaOS_1_ee_alsetabs.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\ErikaOS_1_ee_alsetrel.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\ErikaOS_1_ee_altick.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\ErikaOS_1_ee_chaintas.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\ErikaOS_1_ee_evclear.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\ErikaOS_1_ee_evget.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\ErikaOS_1_ee_evset.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\ErikaOS_1_ee_evwait.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\ErikaOS_1_ee_force_schedule.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\ErikaOS_1_ee_getcountervalue.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -535,6 +495,26 @@
 <v>EAA_Lab\GasPedal\PSoC 5LP Architecture TRM</v>
 <v>EAA_Lab\GasPedal\CY8C58LP Family Datasheet</v>
 <v>EAA_Lab\GasPedal\System Reference Guides</v>
+<v>EAA_Lab\GasPedal\System Reference Guides\cy_boot_v6_10</v>
+<v>EAA_Lab\GasPedal\ADC_SAR_SEQ_v2_10.pdf</v>
+<v>EAA_Lab\GasPedal\cy_clock_v2_20</v>
+<v>EAA_Lab\GasPedal\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
+<v>EAA_Lab\GasPedal\cy_constant_v1_0</v>
+<v>EAA_Lab\GasPedal\cy_constant_v1_0\cy_constant_v1_0.pdf</v>
+<v>EAA_Lab\GasPedal\cy_isr_v1_71</v>
+<v>EAA_Lab\GasPedal\cy_isr_v1_71\cy_isr_v1_71.pdf</v>
+<v>EAA_Lab\GasPedal\cy_pins_v2_20</v>
+<v>EAA_Lab\GasPedal\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>EAA_Lab\GasPedal\CyControlReg_v1_80.pdf</v>
+<v>EAA_Lab\GasPedal\ErikaOS_v2_5_3.pdf</v>
+<v>EAA_Lab\GasPedal\Gnd_v1_0.pdf</v>
+<v>EAA_Lab\GasPedal\or_v1_0.pdf</v>
+<v>EAA_Lab\GasPedal\Power_v1_0.pdf</v>
+<v>EAA_Lab\GasPedal\PWM_v3_30</v>
+<v>EAA_Lab\GasPedal\PWM_v3_30\PWM_v3_30.pdf</v>
+<v>EAA_Lab\GasPedal\Resistor_v1_0.pdf</v>
+<v>EAA_Lab\GasPedal\SPI_Master_v2_50.pdf</v>
+<v>EAA_Lab\GasPedal\UART_v2_50.pdf</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>EAA_Lab</v>
@@ -542,6 +522,26 @@
 <v>EAA_Lab\GasPedal\PSoC 5LP Architecture TRM</v>
 <v>EAA_Lab\GasPedal\CY8C58LP Family Datasheet</v>
 <v>EAA_Lab\GasPedal\System Reference Guides</v>
+<v>EAA_Lab\GasPedal\System Reference Guides\cy_boot_v6_10</v>
+<v>EAA_Lab\GasPedal\ADC_SAR_SEQ_v2_10.pdf</v>
+<v>EAA_Lab\GasPedal\cy_clock_v2_20</v>
+<v>EAA_Lab\GasPedal\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
+<v>EAA_Lab\GasPedal\cy_constant_v1_0</v>
+<v>EAA_Lab\GasPedal\cy_constant_v1_0\cy_constant_v1_0.pdf</v>
+<v>EAA_Lab\GasPedal\cy_isr_v1_71</v>
+<v>EAA_Lab\GasPedal\cy_isr_v1_71\cy_isr_v1_71.pdf</v>
+<v>EAA_Lab\GasPedal\cy_pins_v2_20</v>
+<v>EAA_Lab\GasPedal\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>EAA_Lab\GasPedal\CyControlReg_v1_80.pdf</v>
+<v>EAA_Lab\GasPedal\ErikaOS_v2_5_3.pdf</v>
+<v>EAA_Lab\GasPedal\Gnd_v1_0.pdf</v>
+<v>EAA_Lab\GasPedal\or_v1_0.pdf</v>
+<v>EAA_Lab\GasPedal\Power_v1_0.pdf</v>
+<v>EAA_Lab\GasPedal\PWM_v3_30</v>
+<v>EAA_Lab\GasPedal\PWM_v3_30\PWM_v3_30.pdf</v>
+<v>EAA_Lab\GasPedal\Resistor_v1_0.pdf</v>
+<v>EAA_Lab\GasPedal\SPI_Master_v2_50.pdf</v>
+<v>EAA_Lab\GasPedal\UART_v2_50.pdf</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
