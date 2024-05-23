@@ -18,7 +18,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="EAA_Lab\GasPedal\bsw\LabBoard">
 <ExpandedNodeIds>
 <v>EAA_Lab</v>
 <v>EAA_Lab\GasPedal</v>
@@ -71,7 +71,6 @@
 <v>EAA_Lab\GasPedal\bsw\rte\sc_speed_type.h</v>
 <v>EAA_Lab\GasPedal\bsw\rte\sp_common.c</v>
 <v>EAA_Lab\GasPedal\bsw\rte\sp_common.h</v>
-<v>EAA_Lab\GasPedal\bsw\services</v>
 <v>EAA_Lab\GasPedal\bsw\services\logging.c</v>
 <v>EAA_Lab\GasPedal\bsw\services\logging.h</v>
 <v>EAA_Lab\GasPedal\bsw\services\logging_cfg.h</v>
@@ -140,27 +139,6 @@
 <v>EAA_Lab\GasPedal\Generated_Source\PSoC5</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
-<v>EAA_Lab</v>
-<v>EAA_Lab\GasPedal</v>
-<v>EAA_Lab\GasPedal\TopDesign</v>
-<v>EAA_Lab\GasPedal\GasPedal.cydwr</v>
-<v>EAA_Lab\GasPedal\GasPedal.cydwr\Pins</v>
-<v>EAA_Lab\GasPedal\GasPedal.cydwr\Analog</v>
-<v>EAA_Lab\GasPedal\GasPedal.cydwr\Clocks</v>
-<v>EAA_Lab\GasPedal\GasPedal.cydwr\Interrupts</v>
-<v>EAA_Lab\GasPedal\GasPedal.cydwr\DMA</v>
-<v>EAA_Lab\GasPedal\GasPedal.cydwr\System</v>
-<v>EAA_Lab\GasPedal\GasPedal.cydwr\Directives</v>
-<v>EAA_Lab\GasPedal\GasPedal.cydwr\Flash Security</v>
-<v>EAA_Lab\GasPedal\GasPedal.cydwr\EEPROM</v>
-<v>EAA_Lab\GasPedal\asw</v>
-<v>EAA_Lab\GasPedal\asw\main.c</v>
-<v>EAA_Lab\GasPedal\asw\swc_gaspedal.c</v>
-<v>EAA_Lab\GasPedal\asw\swc_gaspedal.h</v>
-<v>EAA_Lab\GasPedal\asw\tsk_background.c</v>
-<v>EAA_Lab\GasPedal\asw\tsk_background.h</v>
-<v>EAA_Lab\GasPedal\asw\tsk_control.c</v>
-<v>EAA_Lab\GasPedal\asw\tsk_control.h</v>
 <v>EAA_Lab\GasPedal\asw\tsk_init.c</v>
 <v>EAA_Lab\GasPedal\asw\tsk_init.h</v>
 <v>EAA_Lab\GasPedal\asw\tsk_input.c</v>
@@ -182,6 +160,10 @@
 <v>EAA_Lab\GasPedal\bsw\rte\rte.h</v>
 <v>EAA_Lab\GasPedal\bsw\rte\rte_types.h</v>
 <v>EAA_Lab\GasPedal\bsw\rte\sc_joystick.c</v>
+<v>EAA_Lab\GasPedal\bsw\rte\sc_joystick.h</v>
+<v>EAA_Lab\GasPedal\bsw\rte\sc_joystick_type.c</v>
+<v>EAA_Lab\GasPedal\bsw\rte\sc_joystick_type.h</v>
+<v>EAA_Lab\GasPedal\bsw\rte\sc_speed.c</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -322,23 +304,6 @@
 <v>EAA_Lab\GasPedal\ErikaOS_v2_5_3\API\ee_activate.c</v>
 <v>EAA_Lab\GasPedal\ErikaOS_v2_5_3\API\ee_alcancel.c</v>
 <v>EAA_Lab\GasPedal\ErikaOS_v2_5_3\API\ee_alget.c</v>
-<v>EAA_Lab\GasPedal\ErikaOS_v2_5_3\API\ee_algetbase.c</v>
-<v>EAA_Lab\GasPedal\ErikaOS_v2_5_3\API\ee_alsetabs.c</v>
-<v>EAA_Lab\GasPedal\ErikaOS_v2_5_3\API\ee_alsetrel.c</v>
-<v>EAA_Lab\GasPedal\ErikaOS_v2_5_3\API\ee_altick.c</v>
-<v>EAA_Lab\GasPedal\ErikaOS_v2_5_3\API\ee_api.inc</v>
-<v>EAA_Lab\GasPedal\ErikaOS_v2_5_3\API\ee_as_internal.inc</v>
-<v>EAA_Lab\GasPedal\ErikaOS_v2_5_3\API\ee_as_kernel.inc</v>
-<v>EAA_Lab\GasPedal\ErikaOS_v2_5_3\API\ee_as_timing_prot.inc</v>
-<v>EAA_Lab\GasPedal\ErikaOS_v2_5_3\API\ee_chaintas.c</v>
-<v>EAA_Lab\GasPedal\ErikaOS_v2_5_3\API\ee_evclear.c</v>
-<v>EAA_Lab\GasPedal\ErikaOS_v2_5_3\API\ee_evget.c</v>
-<v>EAA_Lab\GasPedal\ErikaOS_v2_5_3\API\ee_evset.c</v>
-<v>EAA_Lab\GasPedal\ErikaOS_v2_5_3\API\ee_evwait.c</v>
-<v>EAA_Lab\GasPedal\ErikaOS_v2_5_3\API\ee_force_schedule.c</v>
-<v>EAA_Lab\GasPedal\ErikaOS_v2_5_3\API\ee_getcountervalue.c</v>
-<v>EAA_Lab\GasPedal\ErikaOS_v2_5_3\API\ee_getelapsedvalue.c</v>
-<v>EAA_Lab\GasPedal\ErikaOS_v2_5_3\API\ee_gettaskid.c</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -507,23 +472,6 @@
 <v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
 <v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
 <v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\DieTemp_1.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\ErikaOS_1_common_ee_hal_structs.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\ErikaOS_1_cortex_mx_ee_context.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\ErikaOS_1_cortex_mx_ee_system_timer.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\ErikaOS_1_cortex_mx_ee_utils.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\ErikaOS_1_ee_activate.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\ErikaOS_1_ee_alcancel.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\ErikaOS_1_ee_alget.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\ErikaOS_1_ee_algetbase.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\ErikaOS_1_ee_alsetabs.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\ErikaOS_1_ee_alsetrel.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\ErikaOS_1_ee_altick.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\ErikaOS_1_ee_chaintas.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\ErikaOS_1_ee_evclear.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\ErikaOS_1_ee_evget.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\ErikaOS_1_ee_evset.lst</v>
-<v>EAA_Lab\GasPedal\CortexM3\ARM_GCC_541\Debug\Listing Files\ErikaOS_1_ee_evwait.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -538,26 +486,6 @@
 <v>EAA_Lab\GasPedal\PSoC 5LP Architecture TRM</v>
 <v>EAA_Lab\GasPedal\CY8C58LP Family Datasheet</v>
 <v>EAA_Lab\GasPedal\System Reference Guides</v>
-<v>EAA_Lab\GasPedal\System Reference Guides\cy_boot_v6_10</v>
-<v>EAA_Lab\GasPedal\ADC_SAR_SEQ_v2_10.pdf</v>
-<v>EAA_Lab\GasPedal\cy_clock_v2_20</v>
-<v>EAA_Lab\GasPedal\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
-<v>EAA_Lab\GasPedal\cy_constant_v1_0</v>
-<v>EAA_Lab\GasPedal\cy_constant_v1_0\cy_constant_v1_0.pdf</v>
-<v>EAA_Lab\GasPedal\cy_isr_v1_71</v>
-<v>EAA_Lab\GasPedal\cy_isr_v1_71\cy_isr_v1_71.pdf</v>
-<v>EAA_Lab\GasPedal\cy_pins_v2_20</v>
-<v>EAA_Lab\GasPedal\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
-<v>EAA_Lab\GasPedal\CyControlReg_v1_80.pdf</v>
-<v>EAA_Lab\GasPedal\ErikaOS_v2_5_3.pdf</v>
-<v>EAA_Lab\GasPedal\Gnd_v1_0.pdf</v>
-<v>EAA_Lab\GasPedal\or_v1_0.pdf</v>
-<v>EAA_Lab\GasPedal\Power_v1_0.pdf</v>
-<v>EAA_Lab\GasPedal\PWM_v3_30</v>
-<v>EAA_Lab\GasPedal\PWM_v3_30\PWM_v3_30.pdf</v>
-<v>EAA_Lab\GasPedal\Resistor_v1_0.pdf</v>
-<v>EAA_Lab\GasPedal\SPI_Master_v2_50.pdf</v>
-<v>EAA_Lab\GasPedal\UART_v2_50.pdf</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>EAA_Lab</v>
@@ -565,26 +493,6 @@
 <v>EAA_Lab\GasPedal\PSoC 5LP Architecture TRM</v>
 <v>EAA_Lab\GasPedal\CY8C58LP Family Datasheet</v>
 <v>EAA_Lab\GasPedal\System Reference Guides</v>
-<v>EAA_Lab\GasPedal\System Reference Guides\cy_boot_v6_10</v>
-<v>EAA_Lab\GasPedal\ADC_SAR_SEQ_v2_10.pdf</v>
-<v>EAA_Lab\GasPedal\cy_clock_v2_20</v>
-<v>EAA_Lab\GasPedal\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
-<v>EAA_Lab\GasPedal\cy_constant_v1_0</v>
-<v>EAA_Lab\GasPedal\cy_constant_v1_0\cy_constant_v1_0.pdf</v>
-<v>EAA_Lab\GasPedal\cy_isr_v1_71</v>
-<v>EAA_Lab\GasPedal\cy_isr_v1_71\cy_isr_v1_71.pdf</v>
-<v>EAA_Lab\GasPedal\cy_pins_v2_20</v>
-<v>EAA_Lab\GasPedal\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
-<v>EAA_Lab\GasPedal\CyControlReg_v1_80.pdf</v>
-<v>EAA_Lab\GasPedal\ErikaOS_v2_5_3.pdf</v>
-<v>EAA_Lab\GasPedal\Gnd_v1_0.pdf</v>
-<v>EAA_Lab\GasPedal\or_v1_0.pdf</v>
-<v>EAA_Lab\GasPedal\Power_v1_0.pdf</v>
-<v>EAA_Lab\GasPedal\PWM_v3_30</v>
-<v>EAA_Lab\GasPedal\PWM_v3_30\PWM_v3_30.pdf</v>
-<v>EAA_Lab\GasPedal\Resistor_v1_0.pdf</v>
-<v>EAA_Lab\GasPedal\SPI_Master_v2_50.pdf</v>
-<v>EAA_Lab\GasPedal\UART_v2_50.pdf</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
@@ -593,14 +501,21 @@
 </userData>
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
-<OpenDocs />
+<OpenDocs>
+<name v=".\asw\tsk_background.c" />
+<name v=".\asw\tsk_init.h" />
+<name v=".\asw\tsk_init.c" />
+<name v=".\asw\tsk_input.h" />
+<name v=".\asw\tsk_output.h" />
+<name v=".\asw\tsk_output.c" />
+</OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
   Actipro Docking/MDI for WinForms
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal" /><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1230, 595" SelectedTabbedMdiWindow="33a1542c-5c22-42a8-bf7f-562c9b73f0da"><DocumentWindow Key="C:\GasPedal.cydsn\asw\tsk_background.c" Guid="1c5427fb-895b-47f6-a484-f945b1ddf725" /><DocumentWindow Key="C:\GasPedal.cydsn\asw\tsk_init.h" Guid="33a1542c-5c22-42a8-bf7f-562c9b73f0da" /><DocumentWindow Key="C:\GasPedal.cydsn\asw\tsk_init.c" Guid="c0a369c7-8ebb-4045-b307-cbb9f90f24fb" /><DocumentWindow Key="C:\GasPedal.cydsn\asw\tsk_input.h" Guid="dfa5ab39-2565-4a84-8222-3cad822411a5" /><DocumentWindow Key="C:\GasPedal.cydsn\asw\tsk_output.h" Guid="b676b371-b074-46af-b649-d469866f9373" /><DocumentWindow Key="C:\GasPedal.cydsn\asw\tsk_output.c" Guid="c481db30-2f56-4b2c-b0b5-240e422e6aed" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

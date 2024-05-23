@@ -32,7 +32,8 @@ typedef
 /* USER CODE START SC_JOYSTICK_SIGNALDATADEFINITION */
 struct
 {
-	#error "Provide your data structure"
+	sint8_t xPos;
+    sint8_t yPos;
 } 
 /* USER CODE END SC_JOYSTICK_SIGNALDATADEFINITION */
 SC_JOYSTICK_data_t;
