@@ -32,8 +32,7 @@ typedef
 /* USER CODE START SC_JOYSTICK_SIGNALDATADEFINITION */
 struct
 {
-	sint8_t xPos;
-    sint8_t yPos;
+	#error "Provide your data structure"
 } 
 /* USER CODE END SC_JOYSTICK_SIGNALDATADEFINITION */
 SC_JOYSTICK_data_t;
@@ -52,13 +51,6 @@ SC_JOYSTICK_data_t;
 RC_t SC_JOYSTICK_driverIn(SC_JOYSTICK_data_t *const data);
 
 
-
-/**
- * Default OUT driver API
- * \param const SC_JOYSTICK_data_t  *const data : [IN] signal data for the driver, will be scaled in this function
- * \return RC_SUCCESS is all was ok, error code otherwise
- */
-RC_t SC_JOYSTICK_driverOut(const SC_JOYSTICK_data_t  *const data);
 
 
 /* USER CODE START SC_JOYSTICK_USERFUNCTIONS */
