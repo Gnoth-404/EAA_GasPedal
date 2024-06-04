@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="EAA_Lab\GasPedal\asw">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="EAA_Lab\GasPedal\bsw\rte">
 <ExpandedNodeIds>
 <v>EAA_Lab</v>
 <v>EAA_Lab\GasPedal</v>
@@ -30,6 +30,16 @@
 <v>EAA_Lab\GasPedal\GasPedal.cydwr\EEPROM</v>
 <v>EAA_Lab\GasPedal\asw</v>
 <v>EAA_Lab\GasPedal\asw\main.c</v>
+<v>EAA_Lab\GasPedal\asw\swc_gaspedal .h</v>
+<v>EAA_Lab\GasPedal\asw\swc_gaspedal.c</v>
+<v>EAA_Lab\GasPedal\asw\tsk_control.c</v>
+<v>EAA_Lab\GasPedal\asw\tsk_control.h</v>
+<v>EAA_Lab\GasPedal\asw\tsk_io.c</v>
+<v>EAA_Lab\GasPedal\asw\tsk_io.h</v>
+<v>EAA_Lab\GasPedal\asw\tsk_system.c</v>
+<v>EAA_Lab\GasPedal\asw\tsk_system.h</v>
+<v>EAA_Lab\GasPedal\asw\tsk_tft.c</v>
+<v>EAA_Lab\GasPedal\asw\tsk_tft.h</v>
 <v>EAA_Lab\GasPedal\bsw</v>
 <v>EAA_Lab\GasPedal\bsw\LabBoard</v>
 <v>EAA_Lab\GasPedal\bsw\LabBoard\button.c</v>
@@ -46,10 +56,26 @@
 <v>EAA_Lab\GasPedal\bsw\rte\rte.c</v>
 <v>EAA_Lab\GasPedal\bsw\rte\rte.h</v>
 <v>EAA_Lab\GasPedal\bsw\rte\rte_types.h</v>
+<v>EAA_Lab\GasPedal\bsw\rte\sc_breaklight.c</v>
+<v>EAA_Lab\GasPedal\bsw\rte\sc_breaklight.h</v>
+<v>EAA_Lab\GasPedal\bsw\rte\sc_breaklight_type.c</v>
+<v>EAA_Lab\GasPedal\bsw\rte\sc_breaklight_type.h</v>
+<v>EAA_Lab\GasPedal\bsw\rte\sc_breakpedal.c</v>
+<v>EAA_Lab\GasPedal\bsw\rte\sc_breakpedal.h</v>
+<v>EAA_Lab\GasPedal\bsw\rte\sc_breakpedal_type.c</v>
+<v>EAA_Lab\GasPedal\bsw\rte\sc_breakpedal_type.h</v>
+<v>EAA_Lab\GasPedal\bsw\rte\sc_engine.c</v>
+<v>EAA_Lab\GasPedal\bsw\rte\sc_engine.h</v>
+<v>EAA_Lab\GasPedal\bsw\rte\sc_engine_type.c</v>
+<v>EAA_Lab\GasPedal\bsw\rte\sc_engine_type.h</v>
 <v>EAA_Lab\GasPedal\bsw\rte\sc_joystick.c</v>
 <v>EAA_Lab\GasPedal\bsw\rte\sc_joystick.h</v>
 <v>EAA_Lab\GasPedal\bsw\rte\sc_joystick_type.c</v>
 <v>EAA_Lab\GasPedal\bsw\rte\sc_joystick_type.h</v>
+<v>EAA_Lab\GasPedal\bsw\rte\sc_screen.c</v>
+<v>EAA_Lab\GasPedal\bsw\rte\sc_screen.h</v>
+<v>EAA_Lab\GasPedal\bsw\rte\sc_screen_type.c</v>
+<v>EAA_Lab\GasPedal\bsw\rte\sc_screen_type.h</v>
 <v>EAA_Lab\GasPedal\bsw\rte\sc_speed.c</v>
 <v>EAA_Lab\GasPedal\bsw\rte\sc_speed.h</v>
 <v>EAA_Lab\GasPedal\bsw\rte\sc_speed_type.c</v>
@@ -124,21 +150,9 @@
 <v>EAA_Lab\GasPedal\Generated_Source\PSoC5</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
-<v>EAA_Lab</v>
-<v>EAA_Lab\GasPedal</v>
-<v>EAA_Lab\GasPedal\TopDesign</v>
-<v>EAA_Lab\GasPedal\GasPedal.cydwr</v>
-<v>EAA_Lab\GasPedal\GasPedal.cydwr\Pins</v>
-<v>EAA_Lab\GasPedal\GasPedal.cydwr\Analog</v>
-<v>EAA_Lab\GasPedal\GasPedal.cydwr\Clocks</v>
-<v>EAA_Lab\GasPedal\GasPedal.cydwr\Interrupts</v>
-<v>EAA_Lab\GasPedal\GasPedal.cydwr\DMA</v>
-<v>EAA_Lab\GasPedal\GasPedal.cydwr\System</v>
-<v>EAA_Lab\GasPedal\GasPedal.cydwr\Directives</v>
-<v>EAA_Lab\GasPedal\GasPedal.cydwr\Flash Security</v>
-<v>EAA_Lab\GasPedal\GasPedal.cydwr\EEPROM</v>
-<v>EAA_Lab\GasPedal\asw</v>
-<v>EAA_Lab\GasPedal\asw\main.c</v>
+<v>EAA_Lab\GasPedal\asw\tsk_system.h</v>
+<v>EAA_Lab\GasPedal\asw\tsk_tft.c</v>
+<v>EAA_Lab\GasPedal\asw\tsk_tft.h</v>
 <v>EAA_Lab\GasPedal\bsw</v>
 <v>EAA_Lab\GasPedal\bsw\LabBoard</v>
 <v>EAA_Lab\GasPedal\bsw\LabBoard\button.c</v>
@@ -155,17 +169,29 @@
 <v>EAA_Lab\GasPedal\bsw\rte\rte.c</v>
 <v>EAA_Lab\GasPedal\bsw\rte\rte.h</v>
 <v>EAA_Lab\GasPedal\bsw\rte\rte_types.h</v>
+<v>EAA_Lab\GasPedal\bsw\rte\sc_breaklight.c</v>
+<v>EAA_Lab\GasPedal\bsw\rte\sc_breaklight.h</v>
+<v>EAA_Lab\GasPedal\bsw\rte\sc_breaklight_type.c</v>
+<v>EAA_Lab\GasPedal\bsw\rte\sc_breaklight_type.h</v>
+<v>EAA_Lab\GasPedal\bsw\rte\sc_breakpedal.c</v>
+<v>EAA_Lab\GasPedal\bsw\rte\sc_breakpedal.h</v>
+<v>EAA_Lab\GasPedal\bsw\rte\sc_breakpedal_type.c</v>
+<v>EAA_Lab\GasPedal\bsw\rte\sc_breakpedal_type.h</v>
+<v>EAA_Lab\GasPedal\bsw\rte\sc_engine.c</v>
+<v>EAA_Lab\GasPedal\bsw\rte\sc_engine.h</v>
+<v>EAA_Lab\GasPedal\bsw\rte\sc_engine_type.c</v>
+<v>EAA_Lab\GasPedal\bsw\rte\sc_engine_type.h</v>
 <v>EAA_Lab\GasPedal\bsw\rte\sc_joystick.c</v>
 <v>EAA_Lab\GasPedal\bsw\rte\sc_joystick.h</v>
 <v>EAA_Lab\GasPedal\bsw\rte\sc_joystick_type.c</v>
 <v>EAA_Lab\GasPedal\bsw\rte\sc_joystick_type.h</v>
+<v>EAA_Lab\GasPedal\bsw\rte\sc_screen.c</v>
+<v>EAA_Lab\GasPedal\bsw\rte\sc_screen.h</v>
+<v>EAA_Lab\GasPedal\bsw\rte\sc_screen_type.c</v>
+<v>EAA_Lab\GasPedal\bsw\rte\sc_screen_type.h</v>
 <v>EAA_Lab\GasPedal\bsw\rte\sc_speed.c</v>
 <v>EAA_Lab\GasPedal\bsw\rte\sc_speed.h</v>
 <v>EAA_Lab\GasPedal\bsw\rte\sc_speed_type.c</v>
-<v>EAA_Lab\GasPedal\bsw\rte\sc_speed_type.h</v>
-<v>EAA_Lab\GasPedal\bsw\rte\sp_common.c</v>
-<v>EAA_Lab\GasPedal\bsw\rte\sp_common.h</v>
-<v>EAA_Lab\GasPedal\bsw\services</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -586,15 +612,8 @@
 <name v=".\Lab 1\GasPedal.cydsn\bsw\LabBoard\watchdog.h" />
 <name v=".\Lab 1\GasPedal.cydsn\bsw\LabBoard\watchdog.c" />
 <name v=".\Lab 1\GasPedal.cydsn\bsw\rte\sc_speed_type.h" />
-<name v=".\Lab 1\GasPedal.cydsn\asw\tsk_input.c" />
-<name v=".\Lab 1\GasPedal.cydsn\asw\tsk_input.h" />
-<name v=".\Lab 1\GasPedal.cydsn\asw\swc_gaspedal.h" />
-<name v=".\Lab 1\GasPedal.cydsn\asw\swc_gaspedal.c" />
 <name v=".\Lab 1\GasPedal.cydsn\bsw\rte\sp_common.h" />
 <name v=".\Lab 1\GasPedal.cydsn\bsw\rte\sc_speed.h" />
-<name v=".\Lab 1\GasPedal.cydsn\asw\tsk_output.h" />
-<name v=".\Lab 1\GasPedal.cydsn\asw\tsk_output.c" />
-<name v=".\Lab 1\GasPedal.cydsn\asw\tsk_control.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -602,7 +621,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1451, 594" SelectedTabbedMdiWindow="2cc9363c-675f-4935-b3f3-855c1a5eaeea"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="292dd1e2-f260-4555-87b0-6d6dba602d35" /><DocumentWindow Key="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn\bsw\LabBoard\watchdog.h" Guid="d190c545-a4d1-446b-8e6a-a74d5a02e48a" /><DocumentWindow Key="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn\bsw\LabBoard\watchdog.c" Guid="37ed0f47-a734-42d1-ac50-dc4d69471661" /><DocumentWindow Key="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn\bsw\rte\sc_speed_type.h" Guid="43f0665f-f1cf-41ff-bee7-eeb438ebeb45" /><DocumentWindow Key="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn\asw\tsk_input.c" Guid="1b0a3fe4-796c-42a5-8b90-9fc226606097" /><DocumentWindow Key="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn\asw\tsk_input.h" Guid="9ebdbfde-212a-4c13-9e75-4a769df2343c" /><DocumentWindow Key="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn\asw\swc_gaspedal.h" Guid="90742f74-e19c-4d0a-a8dc-49ffee77ea77" /><DocumentWindow Key="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn\asw\swc_gaspedal.c" Guid="deb78dd2-7948-462e-9a3d-af9ee576dc64" /><DocumentWindow Key="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn\bsw\rte\sp_common.h" Guid="2eee2036-0c17-466b-8416-96b5d34b4fcf" /><DocumentWindow Key="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn\bsw\rte\sc_speed.h" Guid="b82df872-b182-4a1d-bd73-33f49a7499b7" /><DocumentWindow Key="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn\asw\tsk_output.h" Guid="5a29b139-398a-42f1-ae25-146180be3c25" /><DocumentWindow Key="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn\asw\tsk_output.c" Guid="69fe2a59-ebb7-4d9c-b917-c058fabd9223" /><DocumentWindow Key="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn\asw\tsk_control.c" Guid="2cc9363c-675f-4935-b3f3-855c1a5eaeea" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1197, 594" SelectedTabbedMdiWindow="b82df872-b182-4a1d-bd73-33f49a7499b7"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="292dd1e2-f260-4555-87b0-6d6dba602d35" /><DocumentWindow Key="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn\bsw\LabBoard\watchdog.h" Guid="d190c545-a4d1-446b-8e6a-a74d5a02e48a" /><DocumentWindow Key="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn\bsw\LabBoard\watchdog.c" Guid="37ed0f47-a734-42d1-ac50-dc4d69471661" /><DocumentWindow Key="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn\bsw\rte\sc_speed_type.h" Guid="43f0665f-f1cf-41ff-bee7-eeb438ebeb45" /><DocumentWindow Key="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn\bsw\rte\sp_common.h" Guid="2eee2036-0c17-466b-8416-96b5d34b4fcf" /><DocumentWindow Key="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn\bsw\rte\sc_speed.h" Guid="b82df872-b182-4a1d-bd73-33f49a7499b7" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
