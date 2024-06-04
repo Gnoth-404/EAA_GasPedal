@@ -29,7 +29,7 @@
  * signalpoolsRO: sp_common
  * signalpoolsRW: sp_common
  * tickEvent: 0
- * timertickperiod: 1
+ * timertickperiod: 0
  */
 DeclareTask(tsk_system);
 

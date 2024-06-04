@@ -11,7 +11,7 @@
  * signalpoolsRO: sp_common
  * signalpoolsRW: sp_common
  * tickEvent: 0
- * timertickperiod: 1
+ * timertickperiod: 0
  *
  */
 
@@ -53,19 +53,19 @@
  * signalpoolsRO: sp_common
  * signalpoolsRW: sp_common
  * tickEvent: 0
- * timertickperiod: 1
+ * timertickperiod: 0
  */
 TASK(tsk_system)
 {
 	//Increment the age of all signals
-	//Ticktime of the task: 1 ms
+	//Ticktime of the task: 0 ms
     
 	/* USER CODE START TSK_SYSTEM_TASKBOBY_PRE */
 
 	/* USER CODE END TSK_SYSTEM_TASKBODY_PRE */
 	
     // tick for signalpool sp_common
-    RTE_timertick_sp_common_tick(1);
+    RTE_timertick_sp_common_tick(0);
     
     /* USER CODE START TSK_SYSTEM_TASKBODY_POST */
 

@@ -22,14 +22,14 @@
 
 /*
  * description: Task reading and writing input and output 
- * events: ev_10ms|ev_breakpedal_onData|ev_speed_onData
+ * events: ev_5ms|ev_breakpedal_onData|ev_speed_onData
  * mode: Cyclic and Event
  * name: tsk_io
  * shortname: io
  * signalpoolsRO: sp_common
  * signalpoolsRW: sp_common
- * tickEvent: ev_10ms
- * timertickperiod: 1
+ * tickEvent: ev_5ms
+ * timertickperiod: 5
  */
 DeclareTask(tsk_io);
 

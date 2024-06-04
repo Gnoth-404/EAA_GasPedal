@@ -41,7 +41,7 @@
 
 /* Event Table */
 const RTE_eventTable_t RTE_eventActivationTable_tsk_tft[] = {
-    { GASPEDAL_HMI_run, ev_screen_onData },  //Runnable
+    { GASPEDAL_HMI_run, ev_screen_onData },  //Output touch screen runnable
 }; 
 const uint16_t RTE_eventActivation_tsk_tft_size = sizeof (RTE_eventActivationTable_tsk_tft) / sizeof(RTE_eventTable_t);
 
