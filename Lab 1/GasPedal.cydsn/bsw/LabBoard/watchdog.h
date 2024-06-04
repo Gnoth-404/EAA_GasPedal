@@ -72,8 +72,8 @@
 
 
  
-#ifndef FILE_H
-#define FILE_H
+#ifndef WATCHDOG_H
+#define WATCHDOG_H
 
 #include "global.h"
 
@@ -82,67 +82,57 @@
 /*****************************************************************************/
 
 //####################### Defines/Macros
-/** 
- * \brief a brief description of what the define is representing
-*
-* If needed, a more detailed description can be given below */
-#define TOP_DOCUMENTED_DEFINE                    0x1
-#define AFTER_DOCUMENTED_DEFINE                  0x2         /**< \brief by putting a < next to the comment-start. The documentation referes to the left instead to the next line. */
 
-//####################### Enumerations
-/**
-* \brief Enumerations. Use brief, otherwise the index won't have a brief explanation.
-*
-* Detailed explaination of the enumeration.
-*/
- enum eMyEnum{
-  ENUM_FIRST,  /**< \brief Some documentation first. */
-  ENUM_SECOND, /**< \brief Some documentation second. */
-  ENUM_ETC     /**< \brief Etc. */
-} ;
-typedef enum eMyEnum myEnum_t;
-
-//####################### Structures
-/**
-* \brief The purpose as well as the members of a structure have to be documented.
-*
-* Make clear what the structure is used for and what is the purpose of the members.
-*/
-struct sMyStruct {
-  int a;    /**< Some documentation for the member myStruct_t#a. */
-  int b;    /**< Some documentation for the member myStruct_t#b. */
-  double c; /**< Etc. */
-};
-typedef struct sMyStruct myStruct_t;
-
-// Wrapper to allow representing the file in Together as class
-#ifdef TOGETHER
-
-class FILE
-{
-public:
-#endif /* Together */
-
-/*****************************************************************************/
-/* Extern global variables                                                   */
-/*****************************************************************************/
-
-/**
- * <description>
- */
-extern type FILE_variable;
+    
+// Global bit field macro
 
 /*****************************************************************************/
 /* API functions                                                             */
 /*****************************************************************************/
 
-/**
- * <Description>
- * \param <Format: copy of the parameter type and name - [IN OUT] description>
- * \return <return description>
- */
-RC_t FILE_function();
+typedef enum{
+    TIMEOUT_2s,
+    TIMEOUT_256ms,
+    TIMEOUT_32ms,
+    TIMEOUT_4ms,
+}WDT_Timeout_t;
 
+
+/**
+ * Activate the Watchdog trigger
+ * \param WDT_Timeout_t - [IN] Timeout period
+ * \return RC_SUCCESS
+ */
+
+RC_t WD_Start(WDT_Timeout_t timeout);
+
+
+
+/**
+ * Service the Watchdog trigger
+ 
+ * \return RC_SUCCESS
+*/
+RC_t WD_Trigger();
+
+
+/**
+* This function sets the bit at the corresponding position.
+* It is called by every runnable using a uniqe position.
+* 1 = JoyStick_run, 2 = Control_run, 3 = Engine_run, 4 = brakelight_run
+* @return RC_SUCCESS
+*/
+
+RC_t WD_Alive(uint8_t myBitPosition);
+
+
+/**
+ * Check the watchdog bit
+
+ * \return TRUE if watchdog reset bit was set
+ */
+
+boolean_t WD_CheckResetBit();
 
 /*****************************************************************************/
 /* Private stuff, only visible for Together, declared static in cpp - File   */
