@@ -35,36 +35,7 @@
  
  
 
-/**
- * Default IN driver API
- */
-inline RC_t SC_SPEED_driverIn(SC_SPEED_data_t *const data)
-{
-	/* USER CODE START driverInSC_SPEED */
-#error "Add your code here"
 
-	//Read data from the MCAL driver
-
-	//Scale it to the application type
-
-	return RC_SUCCESS;
-	/* USER CODE END driverInSC_SPEED */
-}
-/**
- * Default OUT driver API
- */
-inline RC_t SC_SPEED_driverOut(const SC_SPEED_data_t  *const data)
-{
-	/* USER CODE START driverOutSC_SPEED */
-#error "Add your code here"
-
-	//Scale application data to drive format
-
-	//Write scaled data to driver
-
-	return RC_SUCCESS;
-	/* USER CODE END driverOutSC_SPEED */
-}
 
 
 

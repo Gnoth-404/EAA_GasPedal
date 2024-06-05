@@ -25,21 +25,21 @@
  **********************************************************************/
 
 /* USER CODE START SC_BREAKLIGHT_USERDEFINITIONS */
-
+#include "led.h"
 /* USER CODE END SC_BREAKLIGHT_USERDEFINITIONS */
 
 typedef 
 /* USER CODE START SC_BREAKLIGHT_SIGNALDATADEFINITION */
 struct
 {
-	#error "Provide your data structure"
+	uint8_t breakLightStatus;
 } 
 /* USER CODE END SC_BREAKLIGHT_SIGNALDATADEFINITION */
 SC_BREAKLIGHT_data_t;
 
 /* USER CODE START InitSC_BREAKLIGHT */
-#error "Provide a sensible init value"
-#define SC_BREAKLIGHT_INIT_DATA ((SC_BREAKLIGHT_data_t){})
+
+#define SC_BREAKLIGHT_INIT_DATA ((SC_BREAKLIGHT_data_t){0})
 /* USER CODE END InitSC_BREAKLIGHT */
 
 

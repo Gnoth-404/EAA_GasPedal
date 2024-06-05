@@ -19,7 +19,7 @@
  **************************************************************************/
 
     /* TASK definition */
-    #define EE_MAX_TASK 5
+    #define EE_MAX_TASK 6
     #if EE_MAX_TASK > 0
     #define tsk_background 0
     #endif
@@ -27,16 +27,16 @@
     #define tsk_init 1
     #endif
     #if EE_MAX_TASK > 2
-    #define tsk_input 2
+    #define tsk_io 2
     #endif
     #if EE_MAX_TASK > 3
-    #define tsk_output 3
+    #define tsk_control 3
     #endif
     #if EE_MAX_TASK > 4
-    #define tsk_control 4
+    #define tsk_system 4
     #endif
     #if EE_MAX_TASK > 5
-    #define Task_6 5
+    #define tsk_tft 5
     #endif
     #if EE_MAX_TASK > 6
     #define Task_7 6
@@ -86,12 +86,12 @@
     #endif
     
     /* ALARM definition */
-    #define EE_MAX_ALARM 3U
+    #define EE_MAX_ALARM 1U
     #if EE_MAX_ALARM > 0
-    #define alrm_Tick1ms 0U
+    #define alrm_Tick5ms 0U
     #endif
     #if EE_MAX_ALARM > 1
-    #define alrm_waitingTick 1U
+    #define alrm_Fader 1U
     #endif
     #if EE_MAX_ALARM > 2
     #define alrm_Fader 2U
@@ -299,7 +299,7 @@ extern void ISR_16(void);
  **************************************************************************/
 #if EE_MAX_COUNTER > 0
 #define OSMAXALLOWEDVALUE_cnt_systick 10000U
-#define OSTICKSPERBASE_cnt_systick    0U
+#define OSTICKSPERBASE_cnt_systick    1U
 #define OSMINCYCLE_cnt_systick        0U
 #endif
 #if EE_MAX_COUNTER > 1
@@ -336,22 +336,22 @@ extern void ISR_16(void);
     #else
         #define TSK2_STCK 0
     #endif
-    #if (1 == 2) && (EE_MAX_TASK > 2)
+    #if (2 == 2) && (EE_MAX_TASK > 2)
         #define TSK3_STCK 1
     #else
         #define TSK3_STCK 0
     #endif
-    #if (1 == 2) && (EE_MAX_TASK > 3)
+    #if (2 == 2) && (EE_MAX_TASK > 3)
         #define TSK4_STCK 1
     #else
         #define TSK4_STCK 0
     #endif
-    #if (2 == 2) && (EE_MAX_TASK > 4)
+    #if (1 == 2) && (EE_MAX_TASK > 4)
         #define TSK5_STCK 1
     #else
         #define TSK5_STCK 0
     #endif
-    #if (1 == 2) && (EE_MAX_TASK > 5)
+    #if (2 == 2) && (EE_MAX_TASK > 5)
         #define TSK6_STCK 1
     #else
         #define TSK6_STCK 0

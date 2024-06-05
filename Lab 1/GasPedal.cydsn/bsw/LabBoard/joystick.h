@@ -78,9 +78,13 @@
 #include "global.h"
 
     
+    
 /*****************************************************************************/
 /* Global pre-processor symbols/macros and type declarations                 */
 /*****************************************************************************/
+
+    
+#define JOYSTICK_DRIFTX 7
 
 
 

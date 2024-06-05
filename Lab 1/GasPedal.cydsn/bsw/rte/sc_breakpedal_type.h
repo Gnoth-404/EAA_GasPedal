@@ -25,21 +25,21 @@
  **********************************************************************/
 
 /* USER CODE START SC_BREAKPEDAL_USERDEFINITIONS */
-
+#include "button.h"
 /* USER CODE END SC_BREAKPEDAL_USERDEFINITIONS */
 
 typedef 
 /* USER CODE START SC_BREAKPEDAL_SIGNALDATADEFINITION */
 struct
 {
-	#error "Provide your data structure"
+	boolean_t breakPedalPressed;
 } 
 /* USER CODE END SC_BREAKPEDAL_SIGNALDATADEFINITION */
 SC_BREAKPEDAL_data_t;
 
 /* USER CODE START InitSC_BREAKPEDAL */
-#error "Provide a sensible init value"
-#define SC_BREAKPEDAL_INIT_DATA ((SC_BREAKPEDAL_data_t){})
+
+#define SC_BREAKPEDAL_INIT_DATA ((SC_BREAKPEDAL_data_t){0})
 /* USER CODE END InitSC_BREAKPEDAL */
 
 

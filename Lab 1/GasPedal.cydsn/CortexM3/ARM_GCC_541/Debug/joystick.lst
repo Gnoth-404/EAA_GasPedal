@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 1
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccEqBaHu.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 1
   28:bsw\LabBoard/joystick.c **** 
   29:bsw\LabBoard/joystick.c **** /*****************************************************************************/
   30:bsw\LabBoard/joystick.c **** /* Local pre-processor symbols/macros ('#define')                            */
-ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 2
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccEqBaHu.s 			page 2
 
 
   31:bsw\LabBoard/joystick.c **** /*****************************************************************************/
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 1
   44 000c 08BD     		pop	{r3, pc}
   45              		.cfi_endproc
   46              	.LFE110:
-ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 3
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccEqBaHu.s 			page 3
 
 
   47              		.size	JOYSTICK_Init, .-JOYSTICK_Init
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 1
   84:bsw\LabBoard/joystick.c ****     //Convert to scaled 8bit signal
   85:bsw\LabBoard/joystick.c ****     *x = (sint8_t)((2048 - posX) / 16);
   86              		.loc 1 85 0
-ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 4
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccEqBaHu.s 			page 4
 
 
   87 001c D4F50064 		rsbs	r4, r4, #2048
@@ -225,58 +225,58 @@ ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 1
  124 0006 00000000 		.4byte	.Ldebug_abbrev0
  125 000a 04       		.byte	0x4
  126 000b 01       		.uleb128 0x1
- 127 000c 04030000 		.4byte	.LASF63
+ 127 000c 0C030000 		.4byte	.LASF63
  128 0010 0C       		.byte	0xc
- 129 0011 F1010000 		.4byte	.LASF64
- 130 0015 09020000 		.4byte	.LASF65
+ 129 0011 36020000 		.4byte	.LASF64
+ 130 0015 32000000 		.4byte	.LASF65
  131 0019 00000000 		.4byte	.Ldebug_ranges0+0
  132 001d 00000000 		.4byte	0
  133 0021 00000000 		.4byte	.Ldebug_line0
  134 0025 02       		.uleb128 0x2
  135 0026 01       		.byte	0x1
  136 0027 06       		.byte	0x6
- 137 0028 7D020000 		.4byte	.LASF0
+ 137 0028 85020000 		.4byte	.LASF0
  138 002c 02       		.uleb128 0x2
  139 002d 01       		.byte	0x1
-ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 5
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccEqBaHu.s 			page 5
 
 
  140 002e 08       		.byte	0x8
- 141 002f 52020000 		.4byte	.LASF1
+ 141 002f 5A020000 		.4byte	.LASF1
  142 0033 02       		.uleb128 0x2
  143 0034 02       		.byte	0x2
  144 0035 05       		.byte	0x5
- 145 0036 32000000 		.4byte	.LASF2
+ 145 0036 77000000 		.4byte	.LASF2
  146 003a 03       		.uleb128 0x3
- 147 003b 9F000000 		.4byte	.LASF4
+ 147 003b E4000000 		.4byte	.LASF4
  148 003f 02       		.byte	0x2
  149 0040 2B       		.byte	0x2b
  150 0041 45000000 		.4byte	0x45
  151 0045 02       		.uleb128 0x2
  152 0046 02       		.byte	0x2
  153 0047 07       		.byte	0x7
- 154 0048 F1020000 		.4byte	.LASF3
+ 154 0048 F9020000 		.4byte	.LASF3
  155 004c 03       		.uleb128 0x3
- 156 004d 1B040000 		.4byte	.LASF5
+ 156 004d 23040000 		.4byte	.LASF5
  157 0051 02       		.byte	0x2
  158 0052 3F       		.byte	0x3f
  159 0053 57000000 		.4byte	0x57
  160 0057 02       		.uleb128 0x2
  161 0058 04       		.byte	0x4
  162 0059 05       		.byte	0x5
- 163 005a 85010000 		.4byte	.LASF6
+ 163 005a CA010000 		.4byte	.LASF6
  164 005e 02       		.uleb128 0x2
  165 005f 04       		.byte	0x4
  166 0060 07       		.byte	0x7
- 167 0061 EC030000 		.4byte	.LASF7
+ 167 0061 F4030000 		.4byte	.LASF7
  168 0065 02       		.uleb128 0x2
  169 0066 08       		.byte	0x8
  170 0067 05       		.byte	0x5
- 171 0068 3A010000 		.4byte	.LASF8
+ 171 0068 7F010000 		.4byte	.LASF8
  172 006c 02       		.uleb128 0x2
  173 006d 08       		.byte	0x8
  174 006e 07       		.byte	0x7
- 175 006f 89020000 		.4byte	.LASF9
+ 175 006f 91020000 		.4byte	.LASF9
  176 0073 04       		.uleb128 0x4
  177 0074 04       		.byte	0x4
  178 0075 05       		.byte	0x5
@@ -284,67 +284,67 @@ ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 1
  180 007a 02       		.uleb128 0x2
  181 007b 04       		.byte	0x4
  182 007c 07       		.byte	0x7
- 183 007d A0020000 		.4byte	.LASF10
+ 183 007d A8020000 		.4byte	.LASF10
  184 0081 03       		.uleb128 0x3
- 185 0082 BB020000 		.4byte	.LASF11
+ 185 0082 C3020000 		.4byte	.LASF11
  186 0086 03       		.byte	0x3
  187 0087 24       		.byte	0x24
  188 0088 3A000000 		.4byte	0x3a
  189 008c 03       		.uleb128 0x3
- 190 008d AC030000 		.4byte	.LASF12
+ 190 008d B4030000 		.4byte	.LASF12
  191 0091 03       		.byte	0x3
  192 0092 2C       		.byte	0x2c
  193 0093 4C000000 		.4byte	0x4c
  194 0097 02       		.uleb128 0x2
  195 0098 04       		.byte	0x4
  196 0099 04       		.byte	0x4
-ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 6
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccEqBaHu.s 			page 6
 
 
- 197 009a 1B010000 		.4byte	.LASF13
+ 197 009a 60010000 		.4byte	.LASF13
  198 009e 02       		.uleb128 0x2
  199 009f 08       		.byte	0x8
  200 00a0 04       		.byte	0x4
- 201 00a1 FE030000 		.4byte	.LASF14
+ 201 00a1 06040000 		.4byte	.LASF14
  202 00a5 02       		.uleb128 0x2
  203 00a6 01       		.byte	0x1
  204 00a7 08       		.byte	0x8
- 205 00a8 92030000 		.4byte	.LASF15
+ 205 00a8 9A030000 		.4byte	.LASF15
  206 00ac 02       		.uleb128 0x2
  207 00ad 08       		.byte	0x8
  208 00ae 04       		.byte	0x4
- 209 00af 46020000 		.4byte	.LASF16
+ 209 00af 4E020000 		.4byte	.LASF16
  210 00b3 03       		.uleb128 0x3
- 211 00b4 E8020000 		.4byte	.LASF17
+ 211 00b4 F0020000 		.4byte	.LASF17
  212 00b8 04       		.byte	0x4
  213 00b9 53       		.byte	0x53
  214 00ba 73000000 		.4byte	0x73
  215 00be 03       		.uleb128 0x3
- 216 00bf 95000000 		.4byte	.LASF18
+ 216 00bf DA000000 		.4byte	.LASF18
  217 00c3 04       		.byte	0x4
  218 00c4 54       		.byte	0x54
  219 00c5 7A000000 		.4byte	0x7a
  220 00c9 03       		.uleb128 0x3
- 221 00ca 13040000 		.4byte	.LASF19
+ 221 00ca 1B040000 		.4byte	.LASF19
  222 00ce 05       		.byte	0x5
  223 00cf 4D       		.byte	0x4d
  224 00d0 BE000000 		.4byte	0xbe
  225 00d4 03       		.uleb128 0x3
- 226 00d5 79000000 		.4byte	.LASF20
+ 226 00d5 BE000000 		.4byte	.LASF20
  227 00d9 05       		.byte	0x5
  228 00da 4F       		.byte	0x4f
  229 00db BE000000 		.4byte	0xbe
  230 00df 03       		.uleb128 0x3
- 231 00e0 AA000000 		.4byte	.LASF21
+ 231 00e0 EF000000 		.4byte	.LASF21
  232 00e4 05       		.byte	0x5
  233 00e5 78       		.byte	0x78
  234 00e6 B3000000 		.4byte	0xb3
  235 00ea 02       		.uleb128 0x2
  236 00eb 04       		.byte	0x4
  237 00ec 07       		.byte	0x7
- 238 00ed 62000000 		.4byte	.LASF22
+ 238 00ed A7000000 		.4byte	.LASF22
  239 00f1 03       		.uleb128 0x3
- 240 00f2 B6040000 		.4byte	.LASF23
+ 240 00f2 BE040000 		.4byte	.LASF23
  241 00f6 06       		.byte	0x6
  242 00f7 90       		.byte	0x90
  243 00f8 25000000 		.4byte	0x25
@@ -358,46 +358,46 @@ ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 1
  251 0109 13000000 		.4byte	.LASF24
  252 010d 00       		.byte	0
  253 010e 07       		.uleb128 0x7
-ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 7
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccEqBaHu.s 			page 7
 
 
- 254 010f 4E040000 		.4byte	.LASF25
+ 254 010f 56040000 		.4byte	.LASF25
  255 0113 7F       		.sleb128 -1
  256 0114 07       		.uleb128 0x7
- 257 0115 C4020000 		.4byte	.LASF26
+ 257 0115 CC020000 		.4byte	.LASF26
  258 0119 7E       		.sleb128 -2
  259 011a 07       		.uleb128 0x7
- 260 011b 6B000000 		.4byte	.LASF27
+ 260 011b B0000000 		.4byte	.LASF27
  261 011f 7D       		.sleb128 -3
  262 0120 07       		.uleb128 0x7
- 263 0121 6D040000 		.4byte	.LASF28
+ 263 0121 75040000 		.4byte	.LASF28
  264 0125 7C       		.sleb128 -4
  265 0126 07       		.uleb128 0x7
- 266 0127 0C010000 		.4byte	.LASF29
+ 266 0127 51010000 		.4byte	.LASF29
  267 012b 7B       		.sleb128 -5
  268 012c 07       		.uleb128 0x7
- 269 012d 3C000000 		.4byte	.LASF30
+ 269 012d 81000000 		.4byte	.LASF30
  270 0131 7A       		.sleb128 -6
  271 0132 07       		.uleb128 0x7
- 272 0133 8E010000 		.4byte	.LASF31
+ 272 0133 D3010000 		.4byte	.LASF31
  273 0137 79       		.sleb128 -7
  274 0138 07       		.uleb128 0x7
- 275 0139 97030000 		.4byte	.LASF32
+ 275 0139 9F030000 		.4byte	.LASF32
  276 013d 78       		.sleb128 -8
  277 013e 07       		.uleb128 0x7
- 278 013f D2020000 		.4byte	.LASF33
+ 278 013f DA020000 		.4byte	.LASF33
  279 0143 77       		.sleb128 -9
  280 0144 07       		.uleb128 0x7
- 281 0145 A0010000 		.4byte	.LASF34
+ 281 0145 E5010000 		.4byte	.LASF34
  282 0149 76       		.sleb128 -10
  283 014a 07       		.uleb128 0x7
- 284 014b BE040000 		.4byte	.LASF35
+ 284 014b C6040000 		.4byte	.LASF35
  285 014f 75       		.sleb128 -11
  286 0150 07       		.uleb128 0x7
- 287 0151 AD020000 		.4byte	.LASF36
+ 287 0151 B5020000 		.4byte	.LASF36
  288 0155 74       		.sleb128 -12
  289 0156 07       		.uleb128 0x7
- 290 0157 C7030000 		.4byte	.LASF37
+ 290 0157 CF030000 		.4byte	.LASF37
  291 015b 73       		.sleb128 -13
  292 015c 07       		.uleb128 0x7
  293 015d 00000000 		.4byte	.LASF38
@@ -406,46 +406,46 @@ ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 1
  296 0163 1E000000 		.4byte	.LASF39
  297 0167 71       		.sleb128 -15
  298 0168 07       		.uleb128 0x7
- 299 0169 AE010000 		.4byte	.LASF40
+ 299 0169 F3010000 		.4byte	.LASF40
  300 016d 70       		.sleb128 -16
  301 016e 07       		.uleb128 0x7
- 302 016f 81000000 		.4byte	.LASF41
+ 302 016f C6000000 		.4byte	.LASF41
  303 0173 6F       		.sleb128 -17
  304 0174 07       		.uleb128 0x7
- 305 0175 4D000000 		.4byte	.LASF42
+ 305 0175 92000000 		.4byte	.LASF42
  306 0179 6E       		.sleb128 -18
  307 017a 07       		.uleb128 0x7
- 308 017b 61010000 		.4byte	.LASF43
+ 308 017b A6010000 		.4byte	.LASF43
  309 017f 6D       		.sleb128 -19
  310 0180 07       		.uleb128 0x7
-ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 8
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccEqBaHu.s 			page 8
 
 
- 311 0181 B4030000 		.4byte	.LASF44
+ 311 0181 BC030000 		.4byte	.LASF44
  312 0185 6C       		.sleb128 -20
  313 0186 07       		.uleb128 0x7
- 314 0187 BF010000 		.4byte	.LASF45
+ 314 0187 04020000 		.4byte	.LASF45
  315 018b 6B       		.sleb128 -21
  316 018c 07       		.uleb128 0x7
- 317 018d 25040000 		.4byte	.LASF46
+ 317 018d 2D040000 		.4byte	.LASF46
  318 0191 6A       		.sleb128 -22
  319 0192 07       		.uleb128 0x7
- 320 0193 C7000000 		.4byte	.LASF47
+ 320 0193 0C010000 		.4byte	.LASF47
  321 0197 69       		.sleb128 -23
  322 0198 07       		.uleb128 0x7
- 323 0199 74010000 		.4byte	.LASF48
+ 323 0199 B9010000 		.4byte	.LASF48
  324 019d 68       		.sleb128 -24
  325 019e 07       		.uleb128 0x7
- 326 019f 21010000 		.4byte	.LASF49
+ 326 019f 66010000 		.4byte	.LASF49
  327 01a3 67       		.sleb128 -25
  328 01a4 00       		.byte	0
  329 01a5 03       		.uleb128 0x3
- 330 01a6 B1040000 		.4byte	.LASF50
+ 330 01a6 B9040000 		.4byte	.LASF50
  331 01aa 06       		.byte	0x6
  332 01ab EA       		.byte	0xea
  333 01ac FC000000 		.4byte	0xfc
  334 01b0 08       		.uleb128 0x8
- 335 01b1 05040000 		.4byte	.LASF66
+ 335 01b1 0D040000 		.4byte	.LASF66
  336 01b5 01       		.byte	0x1
  337 01b6 3C       		.byte	0x3c
  338 01b7 A5010000 		.4byte	0x1a5
@@ -462,7 +462,7 @@ ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 1
  349 01d7 BC020000 		.4byte	0x2bc
  350 01db 00       		.byte	0
  351 01dc 0A       		.uleb128 0xa
- 352 01dd 57040000 		.4byte	.LASF67
+ 352 01dd 5F040000 		.4byte	.LASF67
  353 01e1 01       		.byte	0x1
  354 01e2 4B       		.byte	0x4b
  355 01e3 A5010000 		.4byte	0x1a5
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 1
  365 01fa 63020000 		.4byte	0x263
  366 01fe 00000000 		.4byte	.LLST0
  367 0202 0B       		.uleb128 0xb
-ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 9
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccEqBaHu.s 			page 9
 
 
  368 0203 7900     		.ascii	"y\000"
@@ -487,13 +487,13 @@ ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 1
  371 0207 63020000 		.4byte	0x263
  372 020b 1E000000 		.4byte	.LLST1
  373 020f 0C       		.uleb128 0xc
- 374 0210 37040000 		.4byte	.LASF51
+ 374 0210 3F040000 		.4byte	.LASF51
  375 0214 01       		.byte	0x1
  376 0215 51       		.byte	0x51
  377 0216 81000000 		.4byte	0x81
  378 021a 3C000000 		.4byte	.LLST2
  379 021e 0C       		.uleb128 0xc
- 380 021f 3C040000 		.4byte	.LASF52
+ 380 021f 44040000 		.4byte	.LASF52
  381 0223 01       		.byte	0x1
  382 0224 52       		.byte	0x52
  383 0225 81000000 		.4byte	0x81
@@ -532,58 +532,58 @@ ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 1
  416 0264 04       		.byte	0x4
  417 0265 F1000000 		.4byte	0xf1
  418 0269 11       		.uleb128 0x11
- 419 026a 7D040000 		.4byte	.LASF53
+ 419 026a 85040000 		.4byte	.LASF53
  420 026e 07       		.byte	0x7
  421 026f 40       		.byte	0x40
  422 0270 C9000000 		.4byte	0xc9
  423 0274 11       		.uleb128 0x11
- 424 0275 48010000 		.4byte	.LASF54
-ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 10
+ 424 0275 8D010000 		.4byte	.LASF54
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccEqBaHu.s 			page 10
 
 
  425 0279 07       		.byte	0x7
  426 027a 47       		.byte	0x47
  427 027b D4000000 		.4byte	0xd4
  428 027f 11       		.uleb128 0x11
- 429 0280 D9030000 		.4byte	.LASF55
+ 429 0280 E1030000 		.4byte	.LASF55
  430 0284 07       		.byte	0x7
  431 0285 4A       		.byte	0x4a
  432 0286 C9000000 		.4byte	0xc9
  433 028a 11       		.uleb128 0x11
- 434 028b F3000000 		.4byte	.LASF56
+ 434 028b 38010000 		.4byte	.LASF56
  435 028f 08       		.byte	0x8
  436 0290 48       		.byte	0x48
  437 0291 DF000000 		.4byte	0xdf
  438 0295 11       		.uleb128 0x11
- 439 0296 DE000000 		.4byte	.LASF57
+ 439 0296 23010000 		.4byte	.LASF57
  440 029a 09       		.byte	0x9
  441 029b 44       		.byte	0x44
  442 029c C9000000 		.4byte	0xc9
  443 02a0 12       		.uleb128 0x12
- 444 02a1 41040000 		.4byte	.LASF58
+ 444 02a1 49040000 		.4byte	.LASF58
  445 02a5 0A       		.byte	0xa
  446 02a6 1207     		.2byte	0x712
  447 02a8 AC020000 		.4byte	0x2ac
  448 02ac 13       		.uleb128 0x13
  449 02ad 8C000000 		.4byte	0x8c
  450 02b1 14       		.uleb128 0x14
- 451 02b2 B1000000 		.4byte	.LASF59
- 452 02b6 B1000000 		.4byte	.LASF59
+ 451 02b2 F6000000 		.4byte	.LASF59
+ 452 02b6 F6000000 		.4byte	.LASF59
  453 02ba 0B       		.byte	0xb
  454 02bb 31       		.byte	0x31
  455 02bc 14       		.uleb128 0x14
- 456 02bd 60020000 		.4byte	.LASF60
- 457 02c1 60020000 		.4byte	.LASF60
+ 456 02bd 68020000 		.4byte	.LASF60
+ 457 02c1 68020000 		.4byte	.LASF60
  458 02c5 0B       		.byte	0xb
  459 02c6 A1       		.byte	0xa1
  460 02c7 14       		.uleb128 0x14
- 461 02c8 D1010000 		.4byte	.LASF61
- 462 02cc D1010000 		.4byte	.LASF61
+ 461 02c8 16020000 		.4byte	.LASF61
+ 462 02cc 16020000 		.4byte	.LASF61
  463 02d0 0B       		.byte	0xb
  464 02d1 34       		.byte	0x34
  465 02d2 14       		.uleb128 0x14
- 466 02d3 95040000 		.4byte	.LASF62
- 467 02d7 95040000 		.4byte	.LASF62
+ 466 02d3 9D040000 		.4byte	.LASF62
+ 467 02d7 9D040000 		.4byte	.LASF62
  468 02db 0B       		.byte	0xb
  469 02dc 35       		.byte	0x35
  470 02dd 00       		.byte	0
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 1
  479 0006 0B       		.uleb128 0xb
  480 0007 03       		.uleb128 0x3
  481 0008 0E       		.uleb128 0xe
-ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 11
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccEqBaHu.s 			page 11
 
 
  482 0009 1B       		.uleb128 0x1b
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 1
  536 003f 3B       		.uleb128 0x3b
  537 0040 0B       		.uleb128 0xb
  538 0041 01       		.uleb128 0x1
-ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 12
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccEqBaHu.s 			page 12
 
 
  539 0042 13       		.uleb128 0x13
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 1
  593 007b 00       		.byte	0
  594 007c 0A       		.uleb128 0xa
  595 007d 2E       		.uleb128 0x2e
-ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 13
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccEqBaHu.s 			page 13
 
 
  596 007e 01       		.byte	0x1
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 1
  650 00b5 00       		.byte	0
  651 00b6 0D       		.uleb128 0xd
  652 00b7 898201   		.uleb128 0x4109
-ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 14
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccEqBaHu.s 			page 14
 
 
  653 00ba 01       		.byte	0x1
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 1
  707 00f5 34       		.uleb128 0x34
  708 00f6 00       		.byte	0
  709 00f7 03       		.uleb128 0x3
-ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 15
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccEqBaHu.s 			page 15
 
 
  710 00f8 0E       		.uleb128 0xe
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 1
  764 0026 0100     		.2byte	0x1
  765 0028 51       		.byte	0x51
  766 0029 0B000000 		.4byte	.LVL4-1
-ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 16
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccEqBaHu.s 			page 16
 
 
  767 002d 3C000000 		.4byte	.LFE111
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 1
  813              	.LASF24:
  814 0013 52435F53 		.ascii	"RC_SUCCESS\000"
  814      55434345 
-ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 17
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccEqBaHu.s 			page 17
 
 
  814      535300
@@ -968,359 +968,360 @@ ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 1
  816      5F575249 
  816      54455F4F 
  816      4E4C5900 
- 817              	.LASF2:
- 818 0032 73686F72 		.ascii	"short int\000"
- 818      7420696E 
- 818      7400
- 819              	.LASF30:
- 820 003c 52435F45 		.ascii	"RC_ERROR_OVERRUN\000"
- 820      52524F52 
- 820      5F4F5645 
- 820      5252554E 
- 820      00
- 821              	.LASF42:
- 822 004d 52435F45 		.ascii	"RC_ERROR_WRITE_FAILS\000"
- 822      52524F52 
- 822      5F575249 
- 822      54455F46 
- 822      41494C53 
- 823              	.LASF22:
- 824 0062 73697A65 		.ascii	"sizetype\000"
- 824      74797065 
- 824      00
- 825              	.LASF27:
- 826 006b 52435F45 		.ascii	"RC_ERROR_ZERO\000"
- 826      52524F52 
- 826      5F5A4552 
- 826      4F00
- 827              	.LASF20:
- 828 0079 45455F46 		.ascii	"EE_FREG\000"
- 828      52454700 
- 829              	.LASF41:
- 830 0081 52435F45 		.ascii	"RC_ERROR_READ_FAILS\000"
- 830      52524F52 
- 830      5F524541 
- 830      445F4641 
- 830      494C5300 
- 831              	.LASF18:
- 832 0095 45455F55 		.ascii	"EE_UINT32\000"
- 832      494E5433 
- 832      3200
- 833              	.LASF4:
- 834 009f 5F5F7569 		.ascii	"__uint16_t\000"
- 834      6E743136 
- 834      5F7400
- 835              	.LASF21:
- 836 00aa 45455F54 		.ascii	"EE_TID\000"
- 836      494400
- 837              	.LASF59:
- 838 00b1 4A4F5953 		.ascii	"JOYSTICK_ADC_XY_Start\000"
- 838      5449434B 
- 838      5F414443 
- 838      5F58595F 
-ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 18
+ 817              	.LASF65:
+ 818 0032 433A5C55 		.ascii	"C:\\Users\\vboxuser\\Documents\\GitHub\\EAA_GasPeda"
+ 818      73657273 
+ 818      5C76626F 
+ 818      78757365 
+ 818      725C446F 
+ 819 0060 6C5C4C61 		.ascii	"l\\Lab 1\\GasPedal.cydsn\000"
+ 819      6220315C 
+ 819      47617350 
+ 819      6564616C 
+ 819      2E637964 
+ 820              	.LASF2:
+ 821 0077 73686F72 		.ascii	"short int\000"
+ 821      7420696E 
+ 821      7400
+ 822              	.LASF30:
+ 823 0081 52435F45 		.ascii	"RC_ERROR_OVERRUN\000"
+ 823      52524F52 
+ 823      5F4F5645 
+ 823      5252554E 
+ 823      00
+ 824              	.LASF42:
+ 825 0092 52435F45 		.ascii	"RC_ERROR_WRITE_FAILS\000"
+ 825      52524F52 
+ 825      5F575249 
+ 825      54455F46 
+ 825      41494C53 
+ 826              	.LASF22:
+ 827 00a7 73697A65 		.ascii	"sizetype\000"
+ 827      74797065 
+ 827      00
+ 828              	.LASF27:
+ 829 00b0 52435F45 		.ascii	"RC_ERROR_ZERO\000"
+ 829      52524F52 
+ 829      5F5A4552 
+ 829      4F00
+ 830              	.LASF20:
+ 831 00be 45455F46 		.ascii	"EE_FREG\000"
+ 831      52454700 
+ 832              	.LASF41:
+ 833 00c6 52435F45 		.ascii	"RC_ERROR_READ_FAILS\000"
+ 833      52524F52 
+ 833      5F524541 
+ 833      445F4641 
+ 833      494C5300 
+ 834              	.LASF18:
+ 835 00da 45455F55 		.ascii	"EE_UINT32\000"
+ 835      494E5433 
+ 835      3200
+ 836              	.LASF4:
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccEqBaHu.s 			page 18
 
 
- 838      53746172 
- 839              	.LASF47:
- 840 00c7 52435F45 		.ascii	"RC_ERROR_INVALID_STATE\000"
- 840      52524F52 
- 840      5F494E56 
- 840      414C4944 
- 840      5F535441 
- 841              	.LASF57:
- 842 00de 45455F49 		.ascii	"EE_IRQ_nesting_level\000"
- 842      52515F6E 
- 842      65737469 
- 842      6E675F6C 
- 842      6576656C 
- 843              	.LASF56:
- 844 00f3 45455F73 		.ascii	"EE_std_endcycle_next_tid\000"
- 844      74645F65 
- 844      6E646379 
- 844      636C655F 
- 844      6E657874 
- 845              	.LASF29:
- 846 010c 52435F45 		.ascii	"RC_ERROR_RANGE\000"
- 846      52524F52 
- 846      5F52414E 
- 846      474500
- 847              	.LASF13:
- 848 011b 666C6F61 		.ascii	"float\000"
- 848      7400
- 849              	.LASF49:
- 850 0121 52435F45 		.ascii	"RC_ERROR_NOT_IMPLEMENTED\000"
- 850      52524F52 
- 850      5F4E4F54 
- 850      5F494D50 
- 850      4C454D45 
- 851              	.LASF8:
- 852 013a 6C6F6E67 		.ascii	"long long int\000"
- 852      206C6F6E 
- 852      6720696E 
- 852      7400
- 853              	.LASF54:
- 854 0148 45455F6F 		.ascii	"EE_oo_IRQ_suspend_status\000"
- 854      6F5F4952 
- 854      515F7375 
- 854      7370656E 
- 854      645F7374 
- 855              	.LASF43:
- 856 0161 52435F45 		.ascii	"RC_ERROR_NOT_MATCH\000"
- 856      52524F52 
- 856      5F4E4F54 
- 856      5F4D4154 
- 856      434800
- 857              	.LASF48:
- 858 0174 52435F45 		.ascii	"RC_ERROR_UNKNOWN\000"
- 858      52524F52 
- 858      5F554E4B 
- 858      4E4F574E 
- 858      00
- 859              	.LASF6:
-ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 19
+ 837 00e4 5F5F7569 		.ascii	"__uint16_t\000"
+ 837      6E743136 
+ 837      5F7400
+ 838              	.LASF21:
+ 839 00ef 45455F54 		.ascii	"EE_TID\000"
+ 839      494400
+ 840              	.LASF59:
+ 841 00f6 4A4F5953 		.ascii	"JOYSTICK_ADC_XY_Start\000"
+ 841      5449434B 
+ 841      5F414443 
+ 841      5F58595F 
+ 841      53746172 
+ 842              	.LASF47:
+ 843 010c 52435F45 		.ascii	"RC_ERROR_INVALID_STATE\000"
+ 843      52524F52 
+ 843      5F494E56 
+ 843      414C4944 
+ 843      5F535441 
+ 844              	.LASF57:
+ 845 0123 45455F49 		.ascii	"EE_IRQ_nesting_level\000"
+ 845      52515F6E 
+ 845      65737469 
+ 845      6E675F6C 
+ 845      6576656C 
+ 846              	.LASF56:
+ 847 0138 45455F73 		.ascii	"EE_std_endcycle_next_tid\000"
+ 847      74645F65 
+ 847      6E646379 
+ 847      636C655F 
+ 847      6E657874 
+ 848              	.LASF29:
+ 849 0151 52435F45 		.ascii	"RC_ERROR_RANGE\000"
+ 849      52524F52 
+ 849      5F52414E 
+ 849      474500
+ 850              	.LASF13:
+ 851 0160 666C6F61 		.ascii	"float\000"
+ 851      7400
+ 852              	.LASF49:
+ 853 0166 52435F45 		.ascii	"RC_ERROR_NOT_IMPLEMENTED\000"
+ 853      52524F52 
+ 853      5F4E4F54 
+ 853      5F494D50 
+ 853      4C454D45 
+ 854              	.LASF8:
+ 855 017f 6C6F6E67 		.ascii	"long long int\000"
+ 855      206C6F6E 
+ 855      6720696E 
+ 855      7400
+ 856              	.LASF54:
+ 857 018d 45455F6F 		.ascii	"EE_oo_IRQ_suspend_status\000"
+ 857      6F5F4952 
+ 857      515F7375 
+ 857      7370656E 
+ 857      645F7374 
+ 858              	.LASF43:
+ 859 01a6 52435F45 		.ascii	"RC_ERROR_NOT_MATCH\000"
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccEqBaHu.s 			page 19
 
 
- 860 0185 6C6F6E67 		.ascii	"long int\000"
- 860      20696E74 
- 860      00
- 861              	.LASF31:
- 862 018e 52435F45 		.ascii	"RC_ERROR_UNDERRUN\000"
- 862      52524F52 
- 862      5F554E44 
- 862      45525255 
- 862      4E00
- 863              	.LASF34:
- 864 01a0 52435F45 		.ascii	"RC_ERROR_BUSY\000"
- 864      52524F52 
- 864      5F425553 
- 864      5900
- 865              	.LASF40:
- 866 01ae 52435F45 		.ascii	"RC_ERROR_INVALID\000"
- 866      52524F52 
- 866      5F494E56 
- 866      414C4944 
- 866      00
- 867              	.LASF45:
- 868 01bf 52435F45 		.ascii	"RC_ERROR_BAD_DATA\000"
- 868      52524F52 
- 868      5F424144 
- 868      5F444154 
- 868      4100
- 869              	.LASF61:
- 870 01d1 4A4F5953 		.ascii	"JOYSTICK_ADC_XY_IsEndConversion\000"
- 870      5449434B 
- 870      5F414443 
- 870      5F58595F 
- 870      4973456E 
- 871              	.LASF64:
- 872 01f1 6273775C 		.ascii	"bsw\\LabBoard\\joystick.c\000"
- 872      4C616242 
- 872      6F617264 
- 872      5C6A6F79 
- 872      73746963 
- 873              	.LASF65:
- 874 0209 5A3A5C53 		.ascii	"Z:\\SS24_Lab\\EAA_Folder\\TFTJson.cyprj.Archive01\\"
- 874      5332345F 
- 874      4C61625C 
- 874      4541415F 
- 874      466F6C64 
- 875 0238 5446544A 		.ascii	"TFTJson.cydsn\000"
- 875      736F6E2E 
- 875      63796473 
- 875      6E00
+ 859      52524F52 
+ 859      5F4E4F54 
+ 859      5F4D4154 
+ 859      434800
+ 860              	.LASF48:
+ 861 01b9 52435F45 		.ascii	"RC_ERROR_UNKNOWN\000"
+ 861      52524F52 
+ 861      5F554E4B 
+ 861      4E4F574E 
+ 861      00
+ 862              	.LASF6:
+ 863 01ca 6C6F6E67 		.ascii	"long int\000"
+ 863      20696E74 
+ 863      00
+ 864              	.LASF31:
+ 865 01d3 52435F45 		.ascii	"RC_ERROR_UNDERRUN\000"
+ 865      52524F52 
+ 865      5F554E44 
+ 865      45525255 
+ 865      4E00
+ 866              	.LASF34:
+ 867 01e5 52435F45 		.ascii	"RC_ERROR_BUSY\000"
+ 867      52524F52 
+ 867      5F425553 
+ 867      5900
+ 868              	.LASF40:
+ 869 01f3 52435F45 		.ascii	"RC_ERROR_INVALID\000"
+ 869      52524F52 
+ 869      5F494E56 
+ 869      414C4944 
+ 869      00
+ 870              	.LASF45:
+ 871 0204 52435F45 		.ascii	"RC_ERROR_BAD_DATA\000"
+ 871      52524F52 
+ 871      5F424144 
+ 871      5F444154 
+ 871      4100
+ 872              	.LASF61:
+ 873 0216 4A4F5953 		.ascii	"JOYSTICK_ADC_XY_IsEndConversion\000"
+ 873      5449434B 
+ 873      5F414443 
+ 873      5F58595F 
+ 873      4973456E 
+ 874              	.LASF64:
+ 875 0236 6273775C 		.ascii	"bsw\\LabBoard\\joystick.c\000"
+ 875      4C616242 
+ 875      6F617264 
+ 875      5C6A6F79 
+ 875      73746963 
  876              	.LASF16:
- 877 0246 6C6F6E67 		.ascii	"long double\000"
+ 877 024e 6C6F6E67 		.ascii	"long double\000"
  877      20646F75 
  877      626C6500 
  878              	.LASF1:
- 879 0252 756E7369 		.ascii	"unsigned char\000"
+ 879 025a 756E7369 		.ascii	"unsigned char\000"
  879      676E6564 
  879      20636861 
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccEqBaHu.s 			page 20
+
+
  879      7200
-ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 20
-
-
  880              	.LASF60:
- 881 0260 4A4F5953 		.ascii	"JOYSTICK_ADC_XY_StartConvert\000"
+ 881 0268 4A4F5953 		.ascii	"JOYSTICK_ADC_XY_StartConvert\000"
  881      5449434B 
  881      5F414443 
  881      5F58595F 
  881      53746172 
  882              	.LASF0:
- 883 027d 7369676E 		.ascii	"signed char\000"
+ 883 0285 7369676E 		.ascii	"signed char\000"
  883      65642063 
  883      68617200 
  884              	.LASF9:
- 885 0289 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 885 0291 6C6F6E67 		.ascii	"long long unsigned int\000"
  885      206C6F6E 
  885      6720756E 
  885      7369676E 
  885      65642069 
  886              	.LASF10:
- 887 02a0 756E7369 		.ascii	"unsigned int\000"
+ 887 02a8 756E7369 		.ascii	"unsigned int\000"
  887      676E6564 
  887      20696E74 
  887      00
  888              	.LASF36:
- 889 02ad 52435F45 		.ascii	"RC_ERROR_OPEN\000"
+ 889 02b5 52435F45 		.ascii	"RC_ERROR_OPEN\000"
  889      52524F52 
  889      5F4F5045 
  889      4E00
  890              	.LASF11:
- 891 02bb 75696E74 		.ascii	"uint16_t\000"
+ 891 02c3 75696E74 		.ascii	"uint16_t\000"
  891      31365F74 
  891      00
  892              	.LASF26:
- 893 02c4 52435F45 		.ascii	"RC_ERROR_NULL\000"
+ 893 02cc 52435F45 		.ascii	"RC_ERROR_NULL\000"
  893      52524F52 
  893      5F4E554C 
  893      4C00
  894              	.LASF33:
- 895 02d2 52435F45 		.ascii	"RC_ERROR_BUFFER_EMTPY\000"
+ 895 02da 52435F45 		.ascii	"RC_ERROR_BUFFER_EMTPY\000"
  895      52524F52 
  895      5F425546 
  895      4645525F 
  895      454D5450 
  896              	.LASF17:
- 897 02e8 45455F49 		.ascii	"EE_INT32\000"
+ 897 02f0 45455F49 		.ascii	"EE_INT32\000"
  897      4E543332 
  897      00
  898              	.LASF3:
- 899 02f1 73686F72 		.ascii	"short unsigned int\000"
+ 899 02f9 73686F72 		.ascii	"short unsigned int\000"
  899      7420756E 
  899      7369676E 
  899      65642069 
  899      6E7400
  900              	.LASF63:
- 901 0304 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 901 030c 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
  901      43313120 
  901      352E342E 
  901      31203230 
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccEqBaHu.s 			page 21
+
+
  901      31363036 
-ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 21
-
-
- 902 0337 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 902 033f 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
  902      20726576 
  902      6973696F 
  902      6E203233 
  902      37373135 
- 903 036a 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 903 0372 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
  903      66756E63 
  903      74696F6E 
  903      2D736563 
  903      74696F6E 
  904              	.LASF15:
- 905 0392 63686172 		.ascii	"char\000"
+ 905 039a 63686172 		.ascii	"char\000"
  905      00
  906              	.LASF32:
- 907 0397 52435F45 		.ascii	"RC_ERROR_BUFFER_FULL\000"
+ 907 039f 52435F45 		.ascii	"RC_ERROR_BUFFER_FULL\000"
  907      52524F52 
  907      5F425546 
  907      4645525F 
  907      46554C4C 
  908              	.LASF12:
- 909 03ac 696E7433 		.ascii	"int32_t\000"
+ 909 03b4 696E7433 		.ascii	"int32_t\000"
  909      325F7400 
  910              	.LASF44:
- 911 03b4 52435F45 		.ascii	"RC_ERROR_BAD_PARAM\000"
+ 911 03bc 52435F45 		.ascii	"RC_ERROR_BAD_PARAM\000"
  911      52524F52 
  911      5F424144 
  911      5F504152 
  911      414D00
  912              	.LASF37:
- 913 03c7 52435F45 		.ascii	"RC_ERROR_CHECKSUM\000"
+ 913 03cf 52435F45 		.ascii	"RC_ERROR_CHECKSUM\000"
  913      52524F52 
  913      5F434845 
  913      434B5355 
  913      4D00
  914              	.LASF55:
- 915 03d9 45455F41 		.ascii	"EE_ApplicationMode\000"
+ 915 03e1 45455F41 		.ascii	"EE_ApplicationMode\000"
  915      70706C69 
  915      63617469 
  915      6F6E4D6F 
  915      646500
  916              	.LASF7:
- 917 03ec 6C6F6E67 		.ascii	"long unsigned int\000"
+ 917 03f4 6C6F6E67 		.ascii	"long unsigned int\000"
  917      20756E73 
  917      69676E65 
  917      6420696E 
  917      7400
  918              	.LASF14:
- 919 03fe 646F7562 		.ascii	"double\000"
+ 919 0406 646F7562 		.ascii	"double\000"
  919      6C6500
  920              	.LASF66:
- 921 0405 4A4F5953 		.ascii	"JOYSTICK_Init\000"
+ 921 040d 4A4F5953 		.ascii	"JOYSTICK_Init\000"
  921      5449434B 
  921      5F496E69 
  921      7400
  922              	.LASF19:
- 923 0413 45455F55 		.ascii	"EE_UREG\000"
+ 923 041b 45455F55 		.ascii	"EE_UREG\000"
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccEqBaHu.s 			page 22
+
+
  923      52454700 
-ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 22
-
-
  924              	.LASF5:
- 925 041b 5F5F696E 		.ascii	"__int32_t\000"
+ 925 0423 5F5F696E 		.ascii	"__int32_t\000"
  925      7433325F 
  925      7400
  926              	.LASF46:
- 927 0425 52435F45 		.ascii	"RC_ERROR_CANCELED\000"
+ 927 042d 52435F45 		.ascii	"RC_ERROR_CANCELED\000"
  927      52524F52 
  927      5F43414E 
  927      43454C45 
  927      4400
  928              	.LASF51:
- 929 0437 706F7358 		.ascii	"posX\000"
+ 929 043f 706F7358 		.ascii	"posX\000"
  929      00
  930              	.LASF52:
- 931 043c 706F7359 		.ascii	"posY\000"
+ 931 0444 706F7359 		.ascii	"posY\000"
  931      00
  932              	.LASF58:
- 933 0441 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 933 0449 49544D5F 		.ascii	"ITM_RxBuffer\000"
  933      52784275 
  933      66666572 
  933      00
  934              	.LASF25:
- 935 044e 52435F45 		.ascii	"RC_ERROR\000"
+ 935 0456 52435F45 		.ascii	"RC_ERROR\000"
  935      52524F52 
  935      00
  936              	.LASF67:
- 937 0457 4A4F5953 		.ascii	"JOYSTICK_ReadPosition\000"
+ 937 045f 4A4F5953 		.ascii	"JOYSTICK_ReadPosition\000"
  937      5449434B 
  937      5F526561 
  937      64506F73 
  937      6974696F 
  938              	.LASF28:
- 939 046d 52435F45 		.ascii	"RC_ERROR_MEMORY\000"
+ 939 0475 52435F45 		.ascii	"RC_ERROR_MEMORY\000"
  939      52524F52 
  939      5F4D454D 
  939      4F525900 
  940              	.LASF53:
- 941 047d 45455F6F 		.ascii	"EE_oo_IRQ_disable_count\000"
+ 941 0485 45455F6F 		.ascii	"EE_oo_IRQ_disable_count\000"
  941      6F5F4952 
  941      515F6469 
  941      7361626C 
  941      655F636F 
  942              	.LASF62:
- 943 0495 4A4F5953 		.ascii	"JOYSTICK_ADC_XY_GetResult16\000"
+ 943 049d 4A4F5953 		.ascii	"JOYSTICK_ADC_XY_GetResult16\000"
  943      5449434B 
  943      5F414443 
  943      5F58595F 
  943      47657452 
  944              	.LASF50:
- 945 04b1 52435F74 		.ascii	"RC_t\000"
+ 945 04b9 52435F74 		.ascii	"RC_t\000"
  945      00
  946              	.LASF23:
- 947 04b6 73696E74 		.ascii	"sint8_t\000"
+ 947 04be 73696E74 		.ascii	"sint8_t\000"
  947      385F7400 
  948              	.LASF35:
- 949 04be 52435F45 		.ascii	"RC_ERROR_TIME_OUT\000"
+ 949 04c6 52435F45 		.ascii	"RC_ERROR_TIME_OUT\000"
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccEqBaHu.s 			page 23
+
+
  949      52524F52 
-ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccq5G406.s 			page 23
-
-
  949      5F54494D 
  949      455F4F55 
  949      5400

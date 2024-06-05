@@ -25,21 +25,21 @@
  **********************************************************************/
 
 /* USER CODE START SC_SPEED_USERDEFINITIONS */
-
+#include "led.h"
 /* USER CODE END SC_SPEED_USERDEFINITIONS */
 
 typedef 
 /* USER CODE START SC_SPEED_SIGNALDATADEFINITION */
 struct
 {
-	#error "Provide your data structure"
+	uint8_t speedValue;
 } 
 /* USER CODE END SC_SPEED_SIGNALDATADEFINITION */
 SC_SPEED_data_t;
 
 /* USER CODE START InitSC_SPEED */
-#error "Provide a sensible init value"
-#define SC_SPEED_INIT_DATA ((SC_SPEED_data_t){})
+
+#define SC_SPEED_INIT_DATA ((SC_SPEED_data_t){0})
 /* USER CODE END InitSC_SPEED */
 
 

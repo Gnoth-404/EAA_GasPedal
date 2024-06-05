@@ -25,21 +25,21 @@
  **********************************************************************/
 
 /* USER CODE START SC_SCREEN_USERDEFINITIONS */
-
+#include "tft.h"
 /* USER CODE END SC_SCREEN_USERDEFINITIONS */
 
 typedef 
 /* USER CODE START SC_SCREEN_SIGNALDATADEFINITION */
 struct
 {
-	#error "Provide your data structure"
+	uint8_t dummy_screen;
 } 
 /* USER CODE END SC_SCREEN_SIGNALDATADEFINITION */
 SC_SCREEN_data_t;
 
 /* USER CODE START InitSC_SCREEN */
-#error "Provide a sensible init value"
-#define SC_SCREEN_INIT_DATA ((SC_SCREEN_data_t){})
+
+#define SC_SCREEN_INIT_DATA ((SC_SCREEN_data_t){0})
 /* USER CODE END InitSC_SCREEN */
 
 

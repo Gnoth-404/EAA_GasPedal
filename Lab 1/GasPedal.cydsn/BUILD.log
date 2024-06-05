@@ -1,129 +1,105 @@
---------------- Build Started: 05/23/2024 19:25:54 Project: GasPedal, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
-cydsfit.exe -.appdatapath "C:\Users\vboxuser\AppData\Local\Cypress Semiconductor\PSoC Creator\4.4" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p "C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn\GasPedal.cyprj" -d CY8C5888LTQ-LP097 -s "C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn\Generated_Source\PSoC5" -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
-Elaborating Design...
-ADD: sdb.M0065: information: Analog terminal "vdac_ref" on ADC_SAR_SEQ_v2_10 is unconnected.
- * C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\ADC_SAR_SEQ_v2_10\PSoC5\ADC_SAR_SEQ_v2_10.cysch (Signal: vdac_ref)
- * C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\ADC_SAR_SEQ_v2_10\PSoC5\ADC_SAR_SEQ_v2_10.cysch (Shape_798)
- * C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\ADC_SAR_SEQ_v2_10\PSoC5\ADC_SAR_SEQ_v2_10.cysch (Shape_885)
-ADD: fit.M0032: warning: Clock Warning: (TFT_SPI_IntClock's accuracy range '24 MHz +/- 1%, (23.76 MHz - 24.24 MHz)' is not within the specified tolerance range '66 MHz +/- 5%, (62.7 MHz - 69.3 MHz)'.).
- * C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\SPI_Master_v2_50\SPI_Master_v2_50.cysch (Instance:IntClock)
- * C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn\GasPedal.cydwr (TFT_SPI_IntClock)
-HDL Generation...
-Synthesis...
-Tech Mapping...
-ADD: pft.M0040: information: The following 6 pin(s) will be assigned a location by the fitter: TFT_CS(0), TFT_DC(0), TFT_LED(0), TFT_RES(0), TFT_SCL(0), TFT_SDA(0)
-Analog Placement...
-Info: apr.M0002: Analog signal "Net_2267" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2286" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2316" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2295" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2296" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2319" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2299" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2300" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2335" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2303" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2304" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2336" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2245" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2246" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2306" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2249" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2250" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2307" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2253" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2254" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2308" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2257" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2258" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2309" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2261" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2262" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2310" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2266" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2268" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2311" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2271" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2272" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2312" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2275" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2276" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2313" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2279" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2280" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2314" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2283" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2284" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2315" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2288" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2290" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2317" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2293" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2318" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2320" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2321" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2322" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2323" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2324" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2325" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2326" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2327" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2328" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2329" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2330" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2331" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2332" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2333" is connected to one terminal only. (App=cydsfit)
-Info: apr.M0002: Analog signal "Net_2334" is connected to one terminal only. (App=cydsfit)
-Log: apr.M0058: The analog placement iterative improvement is 35% done. (App=cydsfit)
-Log: apr.M0058: The analog placement iterative improvement is 80% done. (App=cydsfit)
-Analog Routing...
-Analog Code Generation...
-Digital Placement...
-Digital Routing...
-Bitstream Generation...
-Bitstream Verification...
-Static timing analysis...
-API Generation...
-Dependency Generation...
-Cleanup...
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\asw -I.\bsw -I.\bsw\LabBoard -I.\bsw\Services -I.\bsw\tft\fonts -I.\bsw\tft -I.\bsw\rte -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/tsk_background.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c asw\tsk_background.c -o .\CortexM3\ARM_GCC_541\Debug\tsk_background.o
-In file included from .\bsw\rte/rte.h:82:0,
-                 from asw\tsk_background.c:20:
-.\bsw\rte/rte_types.h:46:0: warning: "GetResource" redefined
+--------------- Build Started: 06/05/2024 02:05:10 Project: GasPedal, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+The code generation step is up to date.
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\asw -I.\bsw -I.\bsw\LabBoard -I.\bsw\Services -I.\bsw\tft\fonts -I.\bsw\tft -I.\bsw\rte -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/watchdog.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c bsw\LabBoard\watchdog.c -o .\CortexM3\ARM_GCC_541\Debug\watchdog.o
+In file included from Generated_Source\PSoC5/cyfitter_cfg.h:20:0,
+                 from Generated_Source\PSoC5/project.h:17,
+                 from bsw\LabBoard\watchdog.h:79,
+                 from bsw\LabBoard\watchdog.c:24:
+Generated_Source\PSoC5/cytypes.h:1377:0: warning: "LO8" redefined
+ #define LO8(x)                  ((uint8) ((x) & 0xFFu))
+ ^
+In file included from bsw\LabBoard\watchdog.h:78:0,
+                 from bsw\LabBoard\watchdog.c:24:
+.\bsw/global.h:306:0: note: this is the location of the previous definition
+  # define LO8(x)   ((uint8_t) ((x) & 0xFFu))
+ ^
+In file included from Generated_Source\PSoC5/cyfitter_cfg.h:20:0,
+                 from Generated_Source\PSoC5/project.h:17,
+                 from bsw\LabBoard\watchdog.h:79,
+                 from bsw\LabBoard\watchdog.c:24:
+Generated_Source\PSoC5/cytypes.h:1378:0: warning: "HI8" redefined
+ #define HI8(x)                  ((uint8) ((uint16)(x) >> 8))
+ ^
+In file included from bsw\LabBoard\watchdog.h:78:0,
+                 from bsw\LabBoard\watchdog.c:24:
+.\bsw/global.h:311:0: note: this is the location of the previous definition
+  # define HI8(x)   ((uint8_t) ((uint16_t)(x) >> 8))
+ ^
+In file included from Generated_Source\PSoC5/cyfitter_cfg.h:20:0,
+                 from Generated_Source\PSoC5/project.h:17,
+                 from bsw\LabBoard\watchdog.h:79,
+                 from bsw\LabBoard\watchdog.c:24:
+Generated_Source\PSoC5/cytypes.h:1381:0: warning: "LO16" redefined
+ #define LO16(x)                 ((uint16) ((x) & 0xFFFFu))
+ ^
+In file included from bsw\LabBoard\watchdog.h:78:0,
+                 from bsw\LabBoard\watchdog.c:24:
+.\bsw/global.h:316:0: note: this is the location of the previous definition
+  # define LO16(x)   ((uint16_t) ((x) & 0xFFFFu))
+ ^
+In file included from Generated_Source\PSoC5/cyfitter_cfg.h:20:0,
+                 from Generated_Source\PSoC5/project.h:17,
+                 from bsw\LabBoard\watchdog.h:79,
+                 from bsw\LabBoard\watchdog.c:24:
+Generated_Source\PSoC5/cytypes.h:1382:0: warning: "HI16" redefined
+ #define HI16(x)                 ((uint16) ((uint32)(x) >> 16))
+ ^
+In file included from bsw\LabBoard\watchdog.h:78:0,
+                 from bsw\LabBoard\watchdog.c:24:
+.\bsw/global.h:321:0: note: this is the location of the previous definition
+  # define HI16(x)   ((uint16_t) ((uint32_t)(x) >> 16))
+ ^
+In file included from Generated_Source\PSoC5/ErikaOS_1_ee_api.inc:73:0,
+                 from Generated_Source\PSoC5/ErikaOS_1_ee.h:129,
+                 from Generated_Source\PSoC5/project.h:22,
+                 from bsw\LabBoard\watchdog.h:79,
+                 from bsw\LabBoard\watchdog.c:24:
+.\bsw\Services/ringbuffer.h: In function 'Ringbuffer_Write':
+Generated_Source\PSoC5/ErikaOS_1_ee_oo_api.inc:136:35: warning: implicit declaration of function 'EE_oo_GetResource' [-Wimplicit-function-declaration]
+ #define GetResource               EE_oo_GetResource
+                                   ^
+.\bsw\Services/ringbuffer.h:78:9: note: in expansion of macro 'GetResource'
+         GetResource(rb->erika_ressource);
+         ^
+Generated_Source\PSoC5/ErikaOS_1_ee_oo_api.inc:140:35: warning: implicit declaration of function 'EE_oo_ReleaseResource' [-Wimplicit-function-declaration]
+ #define ReleaseResource           EE_oo_ReleaseResource
+                                   ^
+.\bsw\Services/ringbuffer.h:99:9: note: in expansion of macro 'ReleaseResource'
+         ReleaseResource(rb->erika_ressource);
+         ^
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\asw -I.\bsw -I.\bsw\LabBoard -I.\bsw\Services -I.\bsw\tft\fonts -I.\bsw\tft -I.\bsw\rte -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/sc_joystick_type.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c bsw\rte\sc_joystick_type.c -o .\CortexM3\ARM_GCC_541\Debug\sc_joystick_type.o
+In file included from bsw\rte\rte.h:82:0,
+                 from bsw\rte\sc_joystick_type.c:14:
+bsw\rte\rte_types.h:46:0: warning: "GetResource" redefined
      #define GetResource(A)
  ^
 In file included from Generated_Source\PSoC5/ErikaOS_1_ee_api.inc:73:0,
                  from Generated_Source\PSoC5/ErikaOS_1_ee.h:129,
                  from Generated_Source\PSoC5/project.h:22,
-                 from asw\tsk_background.c:18:
+                 from bsw\rte\sc_joystick_type.c:12:
 Generated_Source\PSoC5/ErikaOS_1_ee_oo_api.inc:136:0: note: this is the location of the previous definition
  #define GetResource               EE_oo_GetResource
  ^
-In file included from .\bsw\rte/rte.h:82:0,
-                 from asw\tsk_background.c:20:
-.\bsw\rte/rte_types.h:47:0: warning: "ReleaseResource" redefined
+In file included from bsw\rte\rte.h:82:0,
+                 from bsw\rte\sc_joystick_type.c:14:
+bsw\rte\rte_types.h:47:0: warning: "ReleaseResource" redefined
      #define ReleaseResource(A)
  ^
 In file included from Generated_Source\PSoC5/ErikaOS_1_ee_api.inc:73:0,
                  from Generated_Source\PSoC5/ErikaOS_1_ee.h:129,
                  from Generated_Source\PSoC5/project.h:22,
-                 from asw\tsk_background.c:18:
+                 from bsw\rte\sc_joystick_type.c:12:
 Generated_Source\PSoC5/ErikaOS_1_ee_oo_api.inc:140:0: note: this is the location of the previous definition
  #define ReleaseResource           EE_oo_ReleaseResource
  ^
-asw\tsk_background.c: In function 'Functsk_background':
-Generated_Source\PSoC5/ErikaOS_1_ee_oo_api.inc:154:35: error: too few arguments to function 'EE_oo_WaitEvent'
- #define WaitEvent                 EE_oo_WaitEvent
-                                   ^
-asw\tsk_background.c:73:9: note: in expansion of macro 'WaitEvent'
-         WaitEvent();
-         ^
-In file included from Generated_Source\PSoC5/ErikaOS_1_ee.h:88:0,
-                 from Generated_Source\PSoC5/project.h:22,
-                 from asw\tsk_background.c:18:
-Generated_Source\PSoC5/ErikaOS_1_ee_oo_kernel.inc:345:12: note: declared here
- StatusType EE_oo_WaitEvent(EventMaskType Mask);
-            ^
-The command 'arm-none-eabi-gcc.exe' failed with exit code '1'.
---------------- Build Failed: 05/23/2024 19:26:17 ---------------
+arm-none-eabi-ar.exe -rs .\CortexM3\ARM_GCC_541\Debug\GasPedal.a .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_activate.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_alcancel.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_alget.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_algetbase.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_alsetabs.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_alsetrel.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_altick.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_chaintas.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_evclear.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_evget.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_evset.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_evwait.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_force_schedule.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_getcountervalue.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_getelapsedvalue.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_gettaskid.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_gettaskstate.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_iparam.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_irqendin.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_lockres.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_lookup.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_rq_exchg.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_rq_first.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_rq_inser.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_schedule.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_semgetvalue.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_sempost.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_semtrywait.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_semwait.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_shtdown.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_startos.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_terminat.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_thendin.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_tnterm.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_tstub.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_ulockallres.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_ulockres.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_cortex_mx_ee_context.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_cortex_mx_ee_system_timer.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_cortex_mx_ee_utils.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_common_ee_hal_structs.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_eecfg.o .\CortexM3\ARM_GCC_541\Debug\SEVEN_reg.o .\CortexM3\ARM_GCC_541\Debug\SEVEN_reg_PM.o .\CortexM3\ARM_GCC_541\Debug\UART_LOG.o .\CortexM3\ARM_GCC_541\Debug\UART_LOG_PM.o .\CortexM3\ARM_GCC_541\Debug\UART_LOG_INT.o .\CortexM3\ARM_GCC_541\Debug\UART_LOG_BOOT.o .\CortexM3\ARM_GCC_541\Debug\RGB_B.o .\CortexM3\ARM_GCC_541\Debug\RGB_G.o .\CortexM3\ARM_GCC_541\Debug\RGB_R.o .\CortexM3\ARM_GCC_541\Debug\Clock_1.o .\CortexM3\ARM_GCC_541\Debug\RGB_PWM_blue.o .\CortexM3\ARM_GCC_541\Debug\RGB_PWM_blue_PM.o .\CortexM3\ARM_GCC_541\Debug\RGB_PWM_green.o .\CortexM3\ARM_GCC_541\Debug\RGB_PWM_green_PM.o .\CortexM3\ARM_GCC_541\Debug\RGB_PWM_red.o .\CortexM3\ARM_GCC_541\Debug\RGB_PWM_red_PM.o .\CortexM3\ARM_GCC_541\Debug\SEVEN_DP.o .\CortexM3\ARM_GCC_541\Debug\SEVEN_G.o .\CortexM3\ARM_GCC_541\Debug\SEVEN_F.o .\CortexM3\ARM_GCC_541\Debug\SEVEN_E.o .\CortexM3\ARM_GCC_541\Debug\SEVEN_D.o .\CortexM3\ARM_GCC_541\Debug\SEVEN_C.o .\CortexM3\ARM_GCC_541\Debug\SEVEN_B.o .\CortexM3\ARM_GCC_541\Debug\SEVEN_A.o .\CortexM3\ARM_GCC_541\Debug\LED_yellow.o .\CortexM3\ARM_GCC_541\Debug\LED_green.o .\CortexM3\ARM_GCC_541\Debug\LED_red.o .\CortexM3\ARM_GCC_541\Debug\SEVEN_SELECT.o .\CortexM3\ARM_GCC_541\Debug\BUTTON_1.o .\CortexM3\ARM_GCC_541\Debug\BUTTON_2.o .\CortexM3\ARM_GCC_541\Debug\BUTTON_3.o .\CortexM3\ARM_GCC_541\Debug\BUTTON_4.o .\CortexM3\ARM_GCC_541\Debug\isr_Button.o .\CortexM3\ARM_GCC_541\Debug\Joystick_horizontal.o .\CortexM3\ARM_GCC_541\Debug\Joystick_button.o .\CortexM3\ARM_GCC_541\Debug\JOYSTICK_ADC_XY.o .\CortexM3\ARM_GCC_541\Debug\JOYSTICK_ADC_XY_PM.o .\CortexM3\ARM_GCC_541\Debug\JOYSTICK_ADC_XY_INT.o .\CortexM3\ARM_GCC_541\Debug\Joystick_vertical.o .\CortexM3\ARM_GCC_541\Debug\TFT_RES.o .\CortexM3\ARM_GCC_541\Debug\TFT_LED.o .\CortexM3\ARM_GCC_541\Debug\TFT_CS.o .\CortexM3\ARM_GCC_541\Debug\TFT_DC.o .\CortexM3\ARM_GCC_541\Debug\TFT_SCL.o .\CortexM3\ARM_GCC_541\Debug\TFT_SPI.o .\CortexM3\ARM_GCC_541\Debug\TFT_SPI_PM.o .\CortexM3\ARM_GCC_541\Debug\TFT_SPI_INT.o .\CortexM3\ARM_GCC_541\Debug\TFT_SDA.o .\CortexM3\ARM_GCC_541\Debug\TFT_BackLight.o .\CortexM3\ARM_GCC_541\Debug\TFT_BackLight_PM.o .\CortexM3\ARM_GCC_541\Debug\CLK_LED.o .\CortexM3\ARM_GCC_541\Debug\isr_Button_Joystick.o .\CortexM3\ARM_GCC_541\Debug\UART_LOG_IntClock.o .\CortexM3\ARM_GCC_541\Debug\JOYSTICK_ADC_XY_SAR.o .\CortexM3\ARM_GCC_541\Debug\JOYSTICK_ADC_XY_SAR_INT.o .\CortexM3\ARM_GCC_541\Debug\JOYSTICK_ADC_XY_SAR_PM.o .\CortexM3\ARM_GCC_541\Debug\JOYSTICK_ADC_XY_IntClock.o .\CortexM3\ARM_GCC_541\Debug\JOYSTICK_ADC_XY_TempBuf_dma.o .\CortexM3\ARM_GCC_541\Debug\JOYSTICK_ADC_XY_FinalBuf_dma.o .\CortexM3\ARM_GCC_541\Debug\JOYSTICK_ADC_XY_IRQ.o .\CortexM3\ARM_GCC_541\Debug\TFT_SPI_IntClock.o .\CortexM3\ARM_GCC_541\Debug\CyDmac.o .\CortexM3\ARM_GCC_541\Debug\CyFlash.o .\CortexM3\ARM_GCC_541\Debug\CyLib.o .\CortexM3\ARM_GCC_541\Debug\cyPm.o .\CortexM3\ARM_GCC_541\Debug\CySpc.o .\CortexM3\ARM_GCC_541\Debug\cyutils.o .\CortexM3\ARM_GCC_541\Debug\cy_em_eeprom.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_gnu_change_context_isr.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_gnu_irq_stack.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_gnu_multi_context.o .\CortexM3\ARM_GCC_541\Debug\ErikaOS_1_ee_gnu_oo.o .\CortexM3\ARM_GCC_541\Debug\CyBootAsmGnu.o
+arm-none-eabi-ar.exe: creating .\CortexM3\ARM_GCC_541\Debug\GasPedal.a
+arm-none-eabi-gcc.exe -Wl,--start-group -o "C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn\CortexM3\ARM_GCC_541\Debug\GasPedal.elf" .\CortexM3\ARM_GCC_541\Debug\main.o .\CortexM3\ARM_GCC_541\Debug\swc_gaspedal.o .\CortexM3\ARM_GCC_541\Debug\tsk_control.o .\CortexM3\ARM_GCC_541\Debug\tsk_io.o .\CortexM3\ARM_GCC_541\Debug\tsk_system.o .\CortexM3\ARM_GCC_541\Debug\tsk_tft.o .\CortexM3\ARM_GCC_541\Debug\button.o .\CortexM3\ARM_GCC_541\Debug\joystick.o .\CortexM3\ARM_GCC_541\Debug\led.o .\CortexM3\ARM_GCC_541\Debug\seven.o .\CortexM3\ARM_GCC_541\Debug\watchdog.o .\CortexM3\ARM_GCC_541\Debug\logging.o .\CortexM3\ARM_GCC_541\Debug\tft.o .\CortexM3\ARM_GCC_541\Debug\rte.o .\CortexM3\ARM_GCC_541\Debug\sc_breaklight.o .\CortexM3\ARM_GCC_541\Debug\sc_breaklight_type.o .\CortexM3\ARM_GCC_541\Debug\sc_breakpedal.o .\CortexM3\ARM_GCC_541\Debug\sc_breakpedal_type.o .\CortexM3\ARM_GCC_541\Debug\sc_engine.o .\CortexM3\ARM_GCC_541\Debug\sc_engine_type.o .\CortexM3\ARM_GCC_541\Debug\sc_joystick.o .\CortexM3\ARM_GCC_541\Debug\sc_joystick_type.o .\CortexM3\ARM_GCC_541\Debug\sc_screen.o .\CortexM3\ARM_GCC_541\Debug\sc_screen_type.o .\CortexM3\ARM_GCC_541\Debug\sc_speed.o .\CortexM3\ARM_GCC_541\Debug\sc_speed_type.o .\CortexM3\ARM_GCC_541\Debug\sp_common.o .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o .\CortexM3\ARM_GCC_541\Debug\cymetadata.o .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o .\CortexM3\ARM_GCC_541\Debug\GasPedal.a "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_541\Debug\CyComponentLibrary.a" -mcpu=cortex-m3 -mthumb -L Generated_Source\PSoC5 -Wl,-Map,.\CortexM3\ARM_GCC_541\Debug/GasPedal.map -T Generated_Source\PSoC5\cm3gcc.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -Og -ffat-lto-objects -Wl,--end-group
+cyelftool.exe -C "C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn\CortexM3\ARM_GCC_541\Debug\GasPedal.elf" --flash_row_size 256 --flash_size 262144 --flash_offset 0x00000000
+No ELF section .cychecksum found, creating one
+Application checksum calculated and stored in ELF section .cychecksum
+Checksum calculated and stored in ELF section .cymeta
+cyelftool.exe -S "C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn\CortexM3\ARM_GCC_541\Debug\GasPedal.elf"
+Flash used: 14822 of 262144 bytes (5.7%).
+SRAM used: 12921 of 65536 bytes (19.7%). Stack: 2048 bytes. Heap: 128 bytes.
+--------------- Build Succeeded: 06/05/2024 02:05:12 ---------------

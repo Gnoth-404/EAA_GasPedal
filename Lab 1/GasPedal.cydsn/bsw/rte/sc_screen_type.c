@@ -40,10 +40,12 @@
 inline RC_t SC_SCREEN_driverOut(const SC_SCREEN_data_t  *const data)
 {
 	/* USER CODE START driverOutSC_SCREEN */
-#error "Add your code here"
+
 
 	//Scale application data to drive format
-
+    uint8_t dummy = data->dummy_screen;
+    TFT_print("Further task");
+    
 	//Write scaled data to driver
 
 	return RC_SUCCESS;

@@ -6,7 +6,7 @@
     <Toolchain Name="ARM GCC Generic" Selected="True">
       <Tool Name="prebuild" Command="" Options="" />
       <Tool Name="assembler" Command="arm-none-eabi-as.exe" Options="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -alh=${OutputDir}/${CompileFile}.lst -g -W" />
-      <Tool Name="compiler" Command="arm-none-eabi-gcc.exe" Options="-mcpu=cortex-m3 -mthumb -I.\asw -I.\bsw -I.\bsw\LabBoard -I.\bsw\Services -I.\bsw\tft\fonts -I.\bsw\tft -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+      <Tool Name="compiler" Command="arm-none-eabi-gcc.exe" Options="-mcpu=cortex-m3 -mthumb -I.\asw -I.\bsw -I.\bsw\LabBoard -I.\bsw\Services -I.\bsw\tft\fonts -I.\bsw\tft -I.\bsw\rte -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
       <Tool Name="linker" Command="arm-none-eabi-gcc.exe" Options="-mcpu=cortex-m3 -mthumb -L Generated_Source\PSoC5 -Wl,-Map,${OutputDir}/${ProjectShortName}.map -T Generated_Source\PSoC5\cm3gcc.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -Og -ffat-lto-objects" />
       <Tool Name="postbuild" Command="" Options="" />
     </Toolchain>
@@ -25,8 +25,8 @@
       <Tool Name="postbuild" Command="" Options="" />
     </Toolchain>
   </Toolchains>
-  <Project Name="TFTJson" Path="Z:\SS24_Lab\EAA_Folder\TFTJson.cyprj.Archive01\TFTJson.cydsn" Version="6.10" Type="Normal">
-    <CMSIS_SVD_File>TFTJson.svd</CMSIS_SVD_File>
+  <Project Name="GasPedal" Path="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn" Version="6.10" Type="Normal">
+    <CMSIS_SVD_File>GasPedal.svd</CMSIS_SVD_File>
     <Datasheet />
     <LinkerFiles>
       <LinkerFile Toolchain="ARM GCC Generic">.\Generated_Source\PSoC5\cm3gcc.ld</LinkerFile>
@@ -34,24 +34,29 @@
       <LinkerFile Toolchain="ARM IAR Generic">.\Generated_Source\PSoC5\Cm3Iar.icf</LinkerFile>
     </LinkerFiles>
     <Folders>
-      <Folder BuildType="STRICT" Path="Z:\SS24_Lab\EAA_Folder\TFTJson.cyprj.Archive01\TFTJson.cydsn">
-        <Files Root="Z:\SS24_Lab\EAA_Folder\TFTJson.cyprj.Archive01\TFTJson.cydsn">
-          <File BuildType="BUILD" Toolchain="">asw\cyapicallbacks.h</File>
+      <Folder BuildType="STRICT" Path="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn">
+        <Files Root="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn">
           <File BuildType="BUILD" Toolchain="">asw\main.c</File>
-          <File BuildType="BUILD" Toolchain="">asw\ReactionGame.c</File>
-          <File BuildType="BUILD" Toolchain="">asw\ReactionGame.h</File>
-          <File BuildType="BUILD" Toolchain="">asw\ArcadianLight.c</File>
-          <File BuildType="BUILD" Toolchain="">asw\ArcadianLight.h</File>
+          <File BuildType="BUILD" Toolchain="">asw\swc_gaspedal .h</File>
+          <File BuildType="BUILD" Toolchain="">asw\swc_gaspedal.c</File>
+          <File BuildType="BUILD" Toolchain="">asw\tsk_control.c</File>
+          <File BuildType="BUILD" Toolchain="">asw\tsk_control.h</File>
+          <File BuildType="BUILD" Toolchain="">asw\tsk_io.c</File>
+          <File BuildType="BUILD" Toolchain="">asw\tsk_io.h</File>
+          <File BuildType="BUILD" Toolchain="">asw\tsk_system.c</File>
+          <File BuildType="BUILD" Toolchain="">asw\tsk_system.h</File>
+          <File BuildType="BUILD" Toolchain="">asw\tsk_tft.c</File>
+          <File BuildType="BUILD" Toolchain="">asw\tsk_tft.h</File>
         </Files>
       </Folder>
-      <Folder BuildType="STRICT" Path="Z:\SS24_Lab\EAA_Folder\TFTJson.cyprj.Archive01\TFTJson.cydsn">
-        <Files Root="Z:\SS24_Lab\EAA_Folder\TFTJson.cyprj.Archive01\TFTJson.cydsn">
+      <Folder BuildType="STRICT" Path="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn">
+        <Files Root="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn">
           <File BuildType="BUILD" Toolchain="">bsw\derivate.h</File>
           <File BuildType="BUILD" Toolchain="">bsw\global.h</File>
         </Files>
       </Folder>
-      <Folder BuildType="STRICT" Path="Z:\SS24_Lab\EAA_Folder\TFTJson.cyprj.Archive01\TFTJson.cydsn">
-        <Files Root="Z:\SS24_Lab\EAA_Folder\TFTJson.cyprj.Archive01\TFTJson.cydsn">
+      <Folder BuildType="STRICT" Path="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn">
+        <Files Root="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn">
           <File BuildType="BUILD" Toolchain="">bsw\LabBoard\button.c</File>
           <File BuildType="BUILD" Toolchain="">bsw\LabBoard\button.h</File>
           <File BuildType="BUILD" Toolchain="">bsw\LabBoard\joystick.c</File>
@@ -60,10 +65,12 @@
           <File BuildType="BUILD" Toolchain="">bsw\LabBoard\led.h</File>
           <File BuildType="BUILD" Toolchain="">bsw\LabBoard\seven.c</File>
           <File BuildType="BUILD" Toolchain="">bsw\LabBoard\seven.h</File>
+          <File BuildType="BUILD" Toolchain="">bsw\LabBoard\watchdog.c</File>
+          <File BuildType="BUILD" Toolchain="">bsw\LabBoard\watchdog.h</File>
         </Files>
       </Folder>
-      <Folder BuildType="STRICT" Path="Z:\SS24_Lab\EAA_Folder\TFTJson.cyprj.Archive01\TFTJson.cydsn">
-        <Files Root="Z:\SS24_Lab\EAA_Folder\TFTJson.cyprj.Archive01\TFTJson.cydsn">
+      <Folder BuildType="STRICT" Path="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn">
+        <Files Root="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn">
           <File BuildType="BUILD" Toolchain="">bsw\Services\logging.c</File>
           <File BuildType="BUILD" Toolchain="">bsw\Services\logging.h</File>
           <File BuildType="BUILD" Toolchain="">bsw\Services\logging_cfg.h</File>
@@ -71,8 +78,8 @@
           <File BuildType="BUILD" Toolchain="">bsw\Services\ringbuffer.h</File>
         </Files>
       </Folder>
-      <Folder BuildType="STRICT" Path="Z:\SS24_Lab\EAA_Folder\TFTJson.cyprj.Archive01\TFTJson.cydsn">
-        <Files Root="Z:\SS24_Lab\EAA_Folder\TFTJson.cyprj.Archive01\TFTJson.cydsn">
+      <Folder BuildType="STRICT" Path="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn">
+        <Files Root="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn">
           <File BuildType="BUILD" Toolchain="">bsw\tft\fonts\FreeMono9pt7b.h</File>
           <File BuildType="BUILD" Toolchain="">bsw\tft\fonts\FreeMono12pt7b.h</File>
           <File BuildType="BUILD" Toolchain="">bsw\tft\fonts\FreeMono18pt7b.h</File>
@@ -128,20 +135,53 @@
           <File BuildType="BUILD" Toolchain="">bsw\tft\fonts\TomThumb.h</File>
         </Files>
       </Folder>
-      <Folder BuildType="STRICT" Path="Z:\SS24_Lab\EAA_Folder\TFTJson.cyprj.Archive01\TFTJson.cydsn">
-        <Files Root="Z:\SS24_Lab\EAA_Folder\TFTJson.cyprj.Archive01\TFTJson.cydsn">
+      <Folder BuildType="STRICT" Path="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn">
+        <Files Root="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn">
           <File BuildType="BUILD" Toolchain="">bsw\tft\ST7735.h</File>
           <File BuildType="BUILD" Toolchain="">bsw\tft\tft.c</File>
           <File BuildType="BUILD" Toolchain="">bsw\tft\tft.h</File>
         </Files>
       </Folder>
-      <Folder BuildType="STRICT" Path="Z:\SS24_Lab\EAA_Folder\TFTJson.cyprj.Archive01\TFTJson.cydsn">
-        <Files Root="Z:\SS24_Lab\EAA_Folder\TFTJson.cyprj.Archive01\TFTJson.cydsn">
+      <Folder BuildType="STRICT" Path="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn">
+        <Files Root="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn">
+          <File BuildType="BUILD" Toolchain="">bsw\rte\rte.c</File>
+          <File BuildType="BUILD" Toolchain="">bsw\rte\rte.h</File>
+          <File BuildType="BUILD" Toolchain="">bsw\rte\rte_types.h</File>
+          <File BuildType="BUILD" Toolchain="">bsw\rte\sc_breaklight.c</File>
+          <File BuildType="BUILD" Toolchain="">bsw\rte\sc_breaklight.h</File>
+          <File BuildType="BUILD" Toolchain="">bsw\rte\sc_breaklight_type.c</File>
+          <File BuildType="BUILD" Toolchain="">bsw\rte\sc_breaklight_type.h</File>
+          <File BuildType="BUILD" Toolchain="">bsw\rte\sc_breakpedal.c</File>
+          <File BuildType="BUILD" Toolchain="">bsw\rte\sc_breakpedal.h</File>
+          <File BuildType="BUILD" Toolchain="">bsw\rte\sc_breakpedal_type.c</File>
+          <File BuildType="BUILD" Toolchain="">bsw\rte\sc_breakpedal_type.h</File>
+          <File BuildType="BUILD" Toolchain="">bsw\rte\sc_engine.c</File>
+          <File BuildType="BUILD" Toolchain="">bsw\rte\sc_engine.h</File>
+          <File BuildType="BUILD" Toolchain="">bsw\rte\sc_engine_type.c</File>
+          <File BuildType="BUILD" Toolchain="">bsw\rte\sc_engine_type.h</File>
+          <File BuildType="BUILD" Toolchain="">bsw\rte\sc_joystick.c</File>
+          <File BuildType="BUILD" Toolchain="">bsw\rte\sc_joystick.h</File>
+          <File BuildType="BUILD" Toolchain="">bsw\rte\sc_joystick_type.c</File>
+          <File BuildType="BUILD" Toolchain="">bsw\rte\sc_joystick_type.h</File>
+          <File BuildType="BUILD" Toolchain="">bsw\rte\sc_screen.c</File>
+          <File BuildType="BUILD" Toolchain="">bsw\rte\sc_screen.h</File>
+          <File BuildType="BUILD" Toolchain="">bsw\rte\sc_screen_type.c</File>
+          <File BuildType="BUILD" Toolchain="">bsw\rte\sc_screen_type.h</File>
+          <File BuildType="BUILD" Toolchain="">bsw\rte\sc_speed.c</File>
+          <File BuildType="BUILD" Toolchain="">bsw\rte\sc_speed.h</File>
+          <File BuildType="BUILD" Toolchain="">bsw\rte\sc_speed_type.c</File>
+          <File BuildType="BUILD" Toolchain="">bsw\rte\sc_speed_type.h</File>
+          <File BuildType="BUILD" Toolchain="">bsw\rte\sp_common.c</File>
+          <File BuildType="BUILD" Toolchain="">bsw\rte\sp_common.h</File>
+        </Files>
+      </Folder>
+      <Folder BuildType="STRICT" Path="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn">
+        <Files Root="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn">
           <File BuildType="BUILD" Toolchain="">cyapicallbacks.h</File>
         </Files>
       </Folder>
-      <Folder BuildType="STRICT" Path="Z:\SS24_Lab\EAA_Folder\TFTJson.cyprj.Archive01\TFTJson.cydsn\Generated_Source\PSoC5">
-        <Files Root="Z:\SS24_Lab\EAA_Folder\TFTJson.cyprj.Archive01\TFTJson.cydsn">
+      <Folder BuildType="STRICT" Path="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn\Generated_Source\PSoC5">
+        <Files Root="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn">
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cyfitter_cfg.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cyfitter_cfg.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cymetadata.c</File>
@@ -330,8 +370,6 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Joystick_vertical_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Joystick_vertical.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Joystick_vertical.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\DieTemp_1.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\DieTemp_1.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\TFT_RES_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\TFT_RES.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\TFT_RES.h</File>
@@ -413,53 +451,53 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cycodeshareimport.scat</File>
         </Files>
       </Folder>
-      <Folder BuildType="STRICT" Path="Z:\SS24_Lab\EAA_Folder\TFTJson.cyprj.Archive01\TFTJson.cydsn\Export\ARM_GCC_Generic">
-        <Files Root="Z:\SS24_Lab\EAA_Folder\TFTJson.cyprj.Archive01\TFTJson.cydsn">
+      <Folder BuildType="STRICT" Path="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn\Export\ARM_GCC_Generic">
+        <Files Root="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn">
           <File BuildType="BUILD" Toolchain="ARM GCC Generic">.\Export\ARM_GCC_Generic\CyComponentLibrary.a</File>
         </Files>
       </Folder>
-      <Folder BuildType="STRICT" Path="Z:\SS24_Lab\EAA_Folder\TFTJson.cyprj.Archive01\TFTJson.cydsn\Export\ARM_MDK_Generic">
-        <Files Root="Z:\SS24_Lab\EAA_Folder\TFTJson.cyprj.Archive01\TFTJson.cydsn">
+      <Folder BuildType="STRICT" Path="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn\Export\ARM_MDK_Generic">
+        <Files Root="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn">
           <File BuildType="BUILD" Toolchain="ARM MDK Generic">.\Export\ARM_MDK_Generic\CyComponentLibrary.a</File>
         </Files>
       </Folder>
-      <Folder BuildType="STRICT" Path="Z:\SS24_Lab\EAA_Folder\TFTJson.cyprj.Archive01\TFTJson.cydsn\Export\ARM_IAR_Generic">
-        <Files Root="Z:\SS24_Lab\EAA_Folder\TFTJson.cyprj.Archive01\TFTJson.cydsn">
+      <Folder BuildType="STRICT" Path="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn\Export\ARM_IAR_Generic">
+        <Files Root="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn">
           <File BuildType="BUILD" Toolchain="ARM IAR Generic">.\Export\ARM_IAR_Generic\CyComponentLibrary.a</File>
         </Files>
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\codegentemp">
-        <Files Root="Z:\SS24_Lab\EAA_Folder\TFTJson.cyprj.Archive01\TFTJson.cydsn" />
+        <Files Root="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\ARM_GCC_441">
-        <Files Root="Z:\SS24_Lab\EAA_Folder\TFTJson.cyprj.Archive01\TFTJson.cydsn" />
+        <Files Root="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\ARM_GCC_473">
-        <Files Root="Z:\SS24_Lab\EAA_Folder\TFTJson.cyprj.Archive01\TFTJson.cydsn" />
+        <Files Root="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\DP8051_Keil_952">
-        <Files Root="Z:\SS24_Lab\EAA_Folder\TFTJson.cyprj.Archive01\TFTJson.cydsn" />
+        <Files Root="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\DP8051">
-        <Files Root="Z:\SS24_Lab\EAA_Folder\TFTJson.cyprj.Archive01\TFTJson.cydsn" />
+        <Files Root="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\CortexM0">
-        <Files Root="Z:\SS24_Lab\EAA_Folder\TFTJson.cyprj.Archive01\TFTJson.cydsn" />
+        <Files Root="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\CortexM0p">
-        <Files Root="Z:\SS24_Lab\EAA_Folder\TFTJson.cyprj.Archive01\TFTJson.cydsn" />
+        <Files Root="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\CortexM3">
-        <Files Root="Z:\SS24_Lab\EAA_Folder\TFTJson.cyprj.Archive01\TFTJson.cydsn" />
+        <Files Root="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\CortexM4">
-        <Files Root="Z:\SS24_Lab\EAA_Folder\TFTJson.cyprj.Archive01\TFTJson.cydsn" />
+        <Files Root="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\CortexM7">
-        <Files Root="Z:\SS24_Lab\EAA_Folder\TFTJson.cyprj.Archive01\TFTJson.cydsn" />
+        <Files Root="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn" />
       </Folder>
-      <Folder BuildType="EXCLUDE" Path="Z:\SS24_Lab\EAA_Folder\TFTJson.cyprj.Archive01\TFTJson.cydsn\ErikaOS_v2_5_3\API">
-        <Files Root="Z:\SS24_Lab\EAA_Folder\TFTJson.cyprj.Archive01\TFTJson.cydsn">
+      <Folder BuildType="EXCLUDE" Path="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn\ErikaOS_v2_5_3\API">
+        <Files Root="C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn">
           <File BuildType="EXCLUDE" Toolchain="">ErikaOS_v2_5_3\API\ee.h</File>
           <File BuildType="EXCLUDE" Toolchain="">ErikaOS_v2_5_3\API\ee_api.inc</File>
           <File BuildType="EXCLUDE" Toolchain="">ErikaOS_v2_5_3\API\ee_internal.inc</File>

@@ -15,7 +15,8 @@
 #include "rte_types.h"
 
 /* USER CODE START SC_JOYSTICK_INCLUDES */
-
+#include "joystick.h"
+#include "logging.h"
 /* USER CODE END SC_JOYSTICK_INCLUDES */
 
 
@@ -32,14 +33,15 @@ typedef
 /* USER CODE START SC_JOYSTICK_SIGNALDATADEFINITION */
 struct
 {
-	#error "Provide your data structure"
+	sint8_t xPos; // horizontal position
+    sint8_t yPos; // veritcal position
 } 
 /* USER CODE END SC_JOYSTICK_SIGNALDATADEFINITION */
 SC_JOYSTICK_data_t;
 
 /* USER CODE START InitSC_JOYSTICK */
-#error "Provide a sensible init value"
-#define SC_JOYSTICK_INIT_DATA ((SC_JOYSTICK_data_t){})
+
+#define SC_JOYSTICK_INIT_DATA ((SC_JOYSTICK_data_t){0,0})
 /* USER CODE END InitSC_JOYSTICK */
 
 

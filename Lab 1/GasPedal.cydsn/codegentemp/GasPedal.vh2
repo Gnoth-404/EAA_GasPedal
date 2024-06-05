@@ -2,7 +2,7 @@
 --	Conversion of GasPedal.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Thu May 23 19:25:59 2024
+--	Wed Jun 05 01:54:40 2024
 --
 
 USE cypress.cypress.all;
@@ -4783,7 +4783,7 @@ LED_yellow:cy_psoc3_pins_v1_10
 		invert_out_reset=>'0',
 		io_voltage=>"",
 		layout_mode=>"CONTIGUOUS",
-		output_conn=>"1",
+		output_conn=>"0",
 		output_sync=>"0",
 		output_clk_en=>'0',
 		output_mode=>"0",
@@ -4823,7 +4823,7 @@ LED_yellow:cy_psoc3_pins_v1_10
 		ovt_hyst_trim=>"0",
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(one),
-		y=>Net_2216,
+		y=>(zero),
 		fb=>(tmpFB_0__LED_yellow_net_0),
 		analog=>(open),
 		io=>(tmpIO_0__LED_yellow_net_0),
@@ -4853,7 +4853,7 @@ LED_green:cy_psoc3_pins_v1_10
 		invert_out_reset=>'0',
 		io_voltage=>"",
 		layout_mode=>"CONTIGUOUS",
-		output_conn=>"1",
+		output_conn=>"0",
 		output_sync=>"0",
 		output_clk_en=>'0',
 		output_mode=>"0",
@@ -4893,7 +4893,7 @@ LED_green:cy_psoc3_pins_v1_10
 		ovt_hyst_trim=>"0",
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(one),
-		y=>Net_1727,
+		y=>(zero),
 		fb=>(tmpFB_0__LED_green_net_0),
 		analog=>(open),
 		io=>(tmpIO_0__LED_green_net_0),
@@ -4923,7 +4923,7 @@ LED_red:cy_psoc3_pins_v1_10
 		invert_out_reset=>'0',
 		io_voltage=>"",
 		layout_mode=>"CONTIGUOUS",
-		output_conn=>"1",
+		output_conn=>"0",
 		output_sync=>"0",
 		output_clk_en=>'0',
 		output_mode=>"0",
@@ -4963,7 +4963,7 @@ LED_red:cy_psoc3_pins_v1_10
 		ovt_hyst_trim=>"0",
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(one),
-		y=>Net_1739,
+		y=>(zero),
 		fb=>(tmpFB_0__LED_red_net_0),
 		analog=>(open),
 		io=>(tmpIO_0__LED_red_net_0),
@@ -6515,7 +6515,7 @@ Net_2205:cy_dff
 \RGB_PWM_blue:PWMUDB:pwm2_i_reg\:cy_dff
 	PORT MAP(d=>\RGB_PWM_blue:PWMUDB:pwm2_i\,
 		clk=>\RGB_PWM_blue:PWMUDB:ClockOutFromEnBlock\,
-		q=>Net_2216);
+		q=>\RGB_PWM_blue:PWMUDB:pwm2_i_reg\);
 \RGB_PWM_blue:PWMUDB:tc_i_reg\:cy_dff
 	PORT MAP(d=>\RGB_PWM_blue:PWMUDB:status_2\,
 		clk=>\RGB_PWM_blue:PWMUDB:ClockOutFromEnBlock\,
@@ -6599,7 +6599,7 @@ Net_2205:cy_dff
 \RGB_PWM_green:PWMUDB:pwm2_i_reg\:cy_dff
 	PORT MAP(d=>\RGB_PWM_green:PWMUDB:pwm2_i\,
 		clk=>\RGB_PWM_green:PWMUDB:ClockOutFromEnBlock\,
-		q=>Net_1727);
+		q=>\RGB_PWM_green:PWMUDB:pwm2_i_reg\);
 \RGB_PWM_green:PWMUDB:tc_i_reg\:cy_dff
 	PORT MAP(d=>\RGB_PWM_green:PWMUDB:status_2\,
 		clk=>\RGB_PWM_green:PWMUDB:ClockOutFromEnBlock\,
@@ -6683,7 +6683,7 @@ Net_2205:cy_dff
 \RGB_PWM_red:PWMUDB:pwm2_i_reg\:cy_dff
 	PORT MAP(d=>\RGB_PWM_red:PWMUDB:pwm2_i\,
 		clk=>\RGB_PWM_red:PWMUDB:ClockOutFromEnBlock\,
-		q=>Net_1739);
+		q=>\RGB_PWM_red:PWMUDB:pwm2_i_reg\);
 \RGB_PWM_red:PWMUDB:tc_i_reg\:cy_dff
 	PORT MAP(d=>\RGB_PWM_red:PWMUDB:status_2\,
 		clk=>\RGB_PWM_red:PWMUDB:ClockOutFromEnBlock\,

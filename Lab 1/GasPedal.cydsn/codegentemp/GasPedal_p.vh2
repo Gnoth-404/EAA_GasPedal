@@ -1,5 +1,5 @@
 -- Project:   GasPedal
--- Generated: 05/23/2024 19:26:02
+-- Generated: 06/05/2024 01:54:44
 -- PSoC Creator  4.4
 
 ENTITY GasPedal IS
@@ -68,11 +68,8 @@ ARCHITECTURE __DEFAULT__ OF GasPedal IS
     SIGNAL LED_red(0)__PA : bit;
     SIGNAL LED_yellow(0)__PA : bit;
     SIGNAL Net_130 : bit;
-    SIGNAL Net_1727 : bit;
-    SIGNAL Net_1739 : bit;
     SIGNAL Net_200 : bit;
     SIGNAL Net_2202 : bit;
-    SIGNAL Net_2216 : bit;
     SIGNAL Net_2242 : bit;
     SIGNAL Net_2337 : bit;
     SIGNAL Net_2338 : bit;
@@ -436,9 +433,9 @@ ARCHITECTURE __DEFAULT__ OF GasPedal IS
     ATTRIBUTE lib_model OF LED_yellow(0) : LABEL IS "iocell14";
     ATTRIBUTE Location OF LED_yellow(0) : LABEL IS "P2[0]";
     ATTRIBUTE lib_model OF LED_green(0) : LABEL IS "iocell15";
-    ATTRIBUTE Location OF LED_green(0) : LABEL IS "P0[6]";
+    ATTRIBUTE Location OF LED_green(0) : LABEL IS "P0[7]";
     ATTRIBUTE lib_model OF LED_red(0) : LABEL IS "iocell16";
-    ATTRIBUTE Location OF LED_red(0) : LABEL IS "P0[7]";
+    ATTRIBUTE Location OF LED_red(0) : LABEL IS "P0[6]";
     ATTRIBUTE lib_model OF SEVEN_SELECT(0) : LABEL IS "iocell17";
     ATTRIBUTE Location OF SEVEN_SELECT(0) : LABEL IS "P3[5]";
     ATTRIBUTE lib_model OF BUTTON_1(0) : LABEL IS "iocell18";
@@ -522,103 +519,100 @@ ARCHITECTURE __DEFAULT__ OF GasPedal IS
     ATTRIBUTE lib_model OF \RGB_PWM_blue:PWMUDB:status_0\ : LABEL IS "macrocell40";
     ATTRIBUTE lib_model OF \RGB_PWM_blue:PWMUDB:status_1\ : LABEL IS "macrocell41";
     ATTRIBUTE lib_model OF Net_686 : LABEL IS "macrocell42";
-    ATTRIBUTE lib_model OF Net_2216 : LABEL IS "macrocell43";
-    ATTRIBUTE lib_model OF \RGB_PWM_green:PWMUDB:runmode_enable\ : LABEL IS "macrocell44";
-    ATTRIBUTE lib_model OF \RGB_PWM_green:PWMUDB:prevCompare1\ : LABEL IS "macrocell45";
-    ATTRIBUTE lib_model OF \RGB_PWM_green:PWMUDB:prevCompare2\ : LABEL IS "macrocell46";
-    ATTRIBUTE lib_model OF \RGB_PWM_green:PWMUDB:status_0\ : LABEL IS "macrocell47";
-    ATTRIBUTE lib_model OF \RGB_PWM_green:PWMUDB:status_1\ : LABEL IS "macrocell48";
-    ATTRIBUTE lib_model OF Net_200 : LABEL IS "macrocell49";
-    ATTRIBUTE lib_model OF Net_1727 : LABEL IS "macrocell50";
-    ATTRIBUTE lib_model OF \RGB_PWM_red:PWMUDB:runmode_enable\ : LABEL IS "macrocell51";
-    ATTRIBUTE lib_model OF \RGB_PWM_red:PWMUDB:prevCompare1\ : LABEL IS "macrocell52";
-    ATTRIBUTE lib_model OF \RGB_PWM_red:PWMUDB:prevCompare2\ : LABEL IS "macrocell53";
-    ATTRIBUTE lib_model OF \RGB_PWM_red:PWMUDB:status_0\ : LABEL IS "macrocell54";
-    ATTRIBUTE lib_model OF \RGB_PWM_red:PWMUDB:status_1\ : LABEL IS "macrocell55";
-    ATTRIBUTE lib_model OF Net_130 : LABEL IS "macrocell56";
-    ATTRIBUTE lib_model OF Net_1739 : LABEL IS "macrocell57";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_old_id_5\ : LABEL IS "macrocell58";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_old_id_4\ : LABEL IS "macrocell59";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_old_id_3\ : LABEL IS "macrocell60";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_old_id_2\ : LABEL IS "macrocell61";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_old_id_1\ : LABEL IS "macrocell62";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_old_id_0\ : LABEL IS "macrocell63";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_0\ : LABEL IS "macrocell64";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_1\ : LABEL IS "macrocell65";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_2\ : LABEL IS "macrocell66";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_3\ : LABEL IS "macrocell67";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_4\ : LABEL IS "macrocell68";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_5\ : LABEL IS "macrocell69";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_6\ : LABEL IS "macrocell70";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_7\ : LABEL IS "macrocell71";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_8\ : LABEL IS "macrocell72";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_9\ : LABEL IS "macrocell73";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_10\ : LABEL IS "macrocell74";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_11\ : LABEL IS "macrocell75";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_12\ : LABEL IS "macrocell76";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_13\ : LABEL IS "macrocell77";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_14\ : LABEL IS "macrocell78";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_15\ : LABEL IS "macrocell79";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_16\ : LABEL IS "macrocell80";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_17\ : LABEL IS "macrocell81";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_18\ : LABEL IS "macrocell82";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_19\ : LABEL IS "macrocell83";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_20\ : LABEL IS "macrocell84";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_21\ : LABEL IS "macrocell85";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_22\ : LABEL IS "macrocell86";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_23\ : LABEL IS "macrocell87";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_24\ : LABEL IS "macrocell88";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_25\ : LABEL IS "macrocell89";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_26\ : LABEL IS "macrocell90";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_27\ : LABEL IS "macrocell91";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_28\ : LABEL IS "macrocell92";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_29\ : LABEL IS "macrocell93";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_30\ : LABEL IS "macrocell94";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_31\ : LABEL IS "macrocell95";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_32\ : LABEL IS "macrocell96";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_33\ : LABEL IS "macrocell97";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_34\ : LABEL IS "macrocell98";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_35\ : LABEL IS "macrocell99";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_36\ : LABEL IS "macrocell100";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_37\ : LABEL IS "macrocell101";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_38\ : LABEL IS "macrocell102";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_39\ : LABEL IS "macrocell103";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_40\ : LABEL IS "macrocell104";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_41\ : LABEL IS "macrocell105";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_42\ : LABEL IS "macrocell106";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_43\ : LABEL IS "macrocell107";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_44\ : LABEL IS "macrocell108";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_45\ : LABEL IS "macrocell109";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_46\ : LABEL IS "macrocell110";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_47\ : LABEL IS "macrocell111";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_48\ : LABEL IS "macrocell112";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_49\ : LABEL IS "macrocell113";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_50\ : LABEL IS "macrocell114";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_51\ : LABEL IS "macrocell115";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_52\ : LABEL IS "macrocell116";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_53\ : LABEL IS "macrocell117";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_54\ : LABEL IS "macrocell118";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_55\ : LABEL IS "macrocell119";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_56\ : LABEL IS "macrocell120";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_57\ : LABEL IS "macrocell121";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_58\ : LABEL IS "macrocell122";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_59\ : LABEL IS "macrocell123";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_60\ : LABEL IS "macrocell124";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_61\ : LABEL IS "macrocell125";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_62\ : LABEL IS "macrocell126";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_63\ : LABEL IS "macrocell127";
-    ATTRIBUTE lib_model OF Net_2337 : LABEL IS "macrocell128";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:bSAR_SEQ:bus_clk_nrq_reg\ : LABEL IS "macrocell129";
-    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:bSAR_SEQ:nrq_reg\ : LABEL IS "macrocell130";
-    ATTRIBUTE lib_model OF wTFT_SCL : LABEL IS "macrocell131";
-    ATTRIBUTE lib_model OF wTFT_SDA : LABEL IS "macrocell132";
-    ATTRIBUTE lib_model OF \TFT_SPI:BSPIM:state_2\ : LABEL IS "macrocell133";
-    ATTRIBUTE lib_model OF \TFT_SPI:BSPIM:state_1\ : LABEL IS "macrocell134";
-    ATTRIBUTE lib_model OF \TFT_SPI:BSPIM:state_0\ : LABEL IS "macrocell135";
-    ATTRIBUTE lib_model OF Net_2440 : LABEL IS "macrocell136";
-    ATTRIBUTE lib_model OF \TFT_SPI:BSPIM:load_cond\ : LABEL IS "macrocell137";
-    ATTRIBUTE lib_model OF \TFT_SPI:BSPIM:ld_ident\ : LABEL IS "macrocell138";
-    ATTRIBUTE lib_model OF \TFT_SPI:BSPIM:cnt_enable\ : LABEL IS "macrocell139";
+    ATTRIBUTE lib_model OF \RGB_PWM_green:PWMUDB:runmode_enable\ : LABEL IS "macrocell43";
+    ATTRIBUTE lib_model OF \RGB_PWM_green:PWMUDB:prevCompare1\ : LABEL IS "macrocell44";
+    ATTRIBUTE lib_model OF \RGB_PWM_green:PWMUDB:prevCompare2\ : LABEL IS "macrocell45";
+    ATTRIBUTE lib_model OF \RGB_PWM_green:PWMUDB:status_0\ : LABEL IS "macrocell46";
+    ATTRIBUTE lib_model OF \RGB_PWM_green:PWMUDB:status_1\ : LABEL IS "macrocell47";
+    ATTRIBUTE lib_model OF Net_200 : LABEL IS "macrocell48";
+    ATTRIBUTE lib_model OF \RGB_PWM_red:PWMUDB:runmode_enable\ : LABEL IS "macrocell49";
+    ATTRIBUTE lib_model OF \RGB_PWM_red:PWMUDB:prevCompare1\ : LABEL IS "macrocell50";
+    ATTRIBUTE lib_model OF \RGB_PWM_red:PWMUDB:prevCompare2\ : LABEL IS "macrocell51";
+    ATTRIBUTE lib_model OF \RGB_PWM_red:PWMUDB:status_0\ : LABEL IS "macrocell52";
+    ATTRIBUTE lib_model OF \RGB_PWM_red:PWMUDB:status_1\ : LABEL IS "macrocell53";
+    ATTRIBUTE lib_model OF Net_130 : LABEL IS "macrocell54";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_old_id_5\ : LABEL IS "macrocell55";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_old_id_4\ : LABEL IS "macrocell56";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_old_id_3\ : LABEL IS "macrocell57";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_old_id_2\ : LABEL IS "macrocell58";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_old_id_1\ : LABEL IS "macrocell59";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_old_id_0\ : LABEL IS "macrocell60";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_0\ : LABEL IS "macrocell61";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_1\ : LABEL IS "macrocell62";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_2\ : LABEL IS "macrocell63";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_3\ : LABEL IS "macrocell64";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_4\ : LABEL IS "macrocell65";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_5\ : LABEL IS "macrocell66";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_6\ : LABEL IS "macrocell67";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_7\ : LABEL IS "macrocell68";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_8\ : LABEL IS "macrocell69";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_9\ : LABEL IS "macrocell70";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_10\ : LABEL IS "macrocell71";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_11\ : LABEL IS "macrocell72";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_12\ : LABEL IS "macrocell73";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_13\ : LABEL IS "macrocell74";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_14\ : LABEL IS "macrocell75";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_15\ : LABEL IS "macrocell76";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_16\ : LABEL IS "macrocell77";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_17\ : LABEL IS "macrocell78";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_18\ : LABEL IS "macrocell79";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_19\ : LABEL IS "macrocell80";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_20\ : LABEL IS "macrocell81";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_21\ : LABEL IS "macrocell82";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_22\ : LABEL IS "macrocell83";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_23\ : LABEL IS "macrocell84";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_24\ : LABEL IS "macrocell85";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_25\ : LABEL IS "macrocell86";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_26\ : LABEL IS "macrocell87";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_27\ : LABEL IS "macrocell88";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_28\ : LABEL IS "macrocell89";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_29\ : LABEL IS "macrocell90";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_30\ : LABEL IS "macrocell91";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_31\ : LABEL IS "macrocell92";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_32\ : LABEL IS "macrocell93";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_33\ : LABEL IS "macrocell94";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_34\ : LABEL IS "macrocell95";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_35\ : LABEL IS "macrocell96";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_36\ : LABEL IS "macrocell97";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_37\ : LABEL IS "macrocell98";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_38\ : LABEL IS "macrocell99";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_39\ : LABEL IS "macrocell100";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_40\ : LABEL IS "macrocell101";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_41\ : LABEL IS "macrocell102";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_42\ : LABEL IS "macrocell103";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_43\ : LABEL IS "macrocell104";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_44\ : LABEL IS "macrocell105";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_45\ : LABEL IS "macrocell106";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_46\ : LABEL IS "macrocell107";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_47\ : LABEL IS "macrocell108";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_48\ : LABEL IS "macrocell109";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_49\ : LABEL IS "macrocell110";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_50\ : LABEL IS "macrocell111";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_51\ : LABEL IS "macrocell112";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_52\ : LABEL IS "macrocell113";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_53\ : LABEL IS "macrocell114";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_54\ : LABEL IS "macrocell115";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_55\ : LABEL IS "macrocell116";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_56\ : LABEL IS "macrocell117";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_57\ : LABEL IS "macrocell118";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_58\ : LABEL IS "macrocell119";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_59\ : LABEL IS "macrocell120";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_60\ : LABEL IS "macrocell121";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_61\ : LABEL IS "macrocell122";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_62\ : LABEL IS "macrocell123";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_63\ : LABEL IS "macrocell124";
+    ATTRIBUTE lib_model OF Net_2337 : LABEL IS "macrocell125";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:bSAR_SEQ:bus_clk_nrq_reg\ : LABEL IS "macrocell126";
+    ATTRIBUTE lib_model OF \JOYSTICK_ADC_XY:bSAR_SEQ:nrq_reg\ : LABEL IS "macrocell127";
+    ATTRIBUTE lib_model OF wTFT_SCL : LABEL IS "macrocell128";
+    ATTRIBUTE lib_model OF wTFT_SDA : LABEL IS "macrocell129";
+    ATTRIBUTE lib_model OF \TFT_SPI:BSPIM:state_2\ : LABEL IS "macrocell130";
+    ATTRIBUTE lib_model OF \TFT_SPI:BSPIM:state_1\ : LABEL IS "macrocell131";
+    ATTRIBUTE lib_model OF \TFT_SPI:BSPIM:state_0\ : LABEL IS "macrocell132";
+    ATTRIBUTE lib_model OF Net_2440 : LABEL IS "macrocell133";
+    ATTRIBUTE lib_model OF \TFT_SPI:BSPIM:load_cond\ : LABEL IS "macrocell134";
+    ATTRIBUTE lib_model OF \TFT_SPI:BSPIM:ld_ident\ : LABEL IS "macrocell135";
+    ATTRIBUTE lib_model OF \TFT_SPI:BSPIM:cnt_enable\ : LABEL IS "macrocell136";
     COMPONENT clockblockcell
         PORT (
             dclk_0 : OUT std_ulogic;
@@ -2290,7 +2284,7 @@ BEGIN
             oe_sync => "0",
             output_clk_en => 0,
             output_clock_mode => "0",
-            output_conn => "1",
+            output_conn => "0",
             output_mode => "0",
             output_reset => 0,
             output_sync => "0",
@@ -2344,12 +2338,10 @@ BEGIN
             oe_sync_mode => 0,
             logicalport => "LED_yellow",
             logicalport_pin_id => 0,
-            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
         PORT MAP(
             pa_out => LED_yellow(0)__PA,
             oe => open,
-            pin_input => Net_2216,
-            pad_out => LED_yellow(0)_PAD,
             pad_in => LED_yellow(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
@@ -2382,7 +2374,7 @@ BEGIN
             oe_sync => "0",
             output_clk_en => 0,
             output_clock_mode => "0",
-            output_conn => "1",
+            output_conn => "0",
             output_mode => "0",
             output_reset => 0,
             output_sync => "0",
@@ -2436,12 +2428,10 @@ BEGIN
             oe_sync_mode => 0,
             logicalport => "LED_green",
             logicalport_pin_id => 0,
-            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
         PORT MAP(
             pa_out => LED_green(0)__PA,
             oe => open,
-            pin_input => Net_1727,
-            pad_out => LED_green(0)_PAD,
             pad_in => LED_green(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
@@ -2474,7 +2464,7 @@ BEGIN
             oe_sync => "0",
             output_clk_en => 0,
             output_clock_mode => "0",
-            output_conn => "1",
+            output_conn => "0",
             output_mode => "0",
             output_reset => 0,
             output_sync => "0",
@@ -2528,12 +2518,10 @@ BEGIN
             oe_sync_mode => 0,
             logicalport => "LED_red",
             logicalport_pin_id => 0,
-            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
         PORT MAP(
             pa_out => LED_red(0)__PA,
             oe => open,
-            pin_input => Net_1739,
-            pad_out => LED_red(0)_PAD,
             pad_in => LED_red(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
@@ -5194,18 +5182,6 @@ BEGIN
             main_0 => \RGB_PWM_blue:PWMUDB:runmode_enable\,
             main_1 => \RGB_PWM_blue:PWMUDB:cmp1_less\);
 
-    Net_2216:macrocell
-        GENERIC MAP(
-            eqn_main => "(main_0 * main_1)",
-            regmode => 1,
-            clk_inv => '0',
-            clken_mode => 1)
-        PORT MAP(
-            q => Net_2216,
-            clock_0 => Net_236,
-            main_0 => \RGB_PWM_blue:PWMUDB:runmode_enable\,
-            main_1 => \RGB_PWM_blue:PWMUDB:cmp2_less\);
-
     \RGB_PWM_green:PWMUDB:runmode_enable\:macrocell
         GENERIC MAP(
             eqn_main => "(main_0)",
@@ -5275,18 +5251,6 @@ BEGIN
             main_0 => \RGB_PWM_green:PWMUDB:runmode_enable\,
             main_1 => \RGB_PWM_green:PWMUDB:cmp1_less\);
 
-    Net_1727:macrocell
-        GENERIC MAP(
-            eqn_main => "(main_0 * main_1)",
-            regmode => 1,
-            clk_inv => '0',
-            clken_mode => 1)
-        PORT MAP(
-            q => Net_1727,
-            clock_0 => Net_236,
-            main_0 => \RGB_PWM_green:PWMUDB:runmode_enable\,
-            main_1 => \RGB_PWM_green:PWMUDB:cmp2_less\);
-
     \RGB_PWM_red:PWMUDB:runmode_enable\:macrocell
         GENERIC MAP(
             eqn_main => "(main_0)",
@@ -5355,18 +5319,6 @@ BEGIN
             clock_0 => Net_236,
             main_0 => \RGB_PWM_red:PWMUDB:runmode_enable\,
             main_1 => \RGB_PWM_red:PWMUDB:cmp1_less\);
-
-    Net_1739:macrocell
-        GENERIC MAP(
-            eqn_main => "(main_0 * main_1)",
-            regmode => 1,
-            clk_inv => '0',
-            clken_mode => 1)
-        PORT MAP(
-            q => Net_1739,
-            clock_0 => Net_236,
-            main_0 => \RGB_PWM_red:PWMUDB:runmode_enable\,
-            main_1 => \RGB_PWM_red:PWMUDB:cmp2_less\);
 
     \JOYSTICK_ADC_XY:AMuxHw_2_Decoder_old_id_5\:macrocell
         GENERIC MAP(

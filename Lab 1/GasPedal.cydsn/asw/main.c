@@ -12,10 +12,12 @@
 #include "project.h"
 #include "global.h"
 
+#include <stdlib.h>
+#include <stdio.h>
+#include "joystick.h"
+#include "watchdog.h"
 #include "button.h"
 #include "led.h"
-#include "seven.h"
-
 //ISR which will increment the systick counter every ms
 ISR(systick_handler)
 {
@@ -40,7 +42,16 @@ void unhandledException()
     //Ooops, something terrible happened....check the call stack to see how we got here...
     __asm("bkpt");
 }
-
+void hardware_init()
+{
+    
+    CyGlobalIntDisable;
+    
+    JOYSTICK_Init();
+    UART_LOG_Start();
+    LED_Init();
+    CyGlobalIntEnable;
+}
 /********************************************************************************
  * Task Definitions
  ********************************************************************************/
@@ -49,21 +60,34 @@ TASK(tsk_init)
 {
     
     //Init MCAL Drivers
-    LED_Init();
-    SEVEN_Init();
+
     
+    hardware_init();
+    WD_Start(TIMEOUT_2s);
     //Reconfigure ISRs with OS parameters.
     //This line MUST be called after the hardware driver initialisation!
     EE_system_init();
-	
+	UART_LOG_PutString("EAA Lab1 - Nguyen Tien Anh Ha\n");
     //Start SysTick
 	//Must be done here, because otherwise the isr vector is not overwritten yet
     EE_systick_start();  
-	
-    //Start the alarm with 100ms cycle time
-    SetRelAlarm(alarm_ledBlink,100,100);
- 
-    ActivateTask(tsk_sevenSet);
+    
+	if(WD_CheckResetBit())
+    {
+        UART_LOG_PutString("The system has been reset due to WatchDog Timer!!!\n");
+    }
+    else
+    {
+        UART_LOG_PutString("The system has been reset through Power on button!!!\n");
+    }
+    
+    //Start the alarm with 5ms cycle time
+    SetRelAlarm(alrm_Tick5ms,5,5);
+    
+    ActivateTask(tsk_io);
+    ActivateTask(tsk_control);
+    ActivateTask(tsk_tft);
+    ActivateTask(tsk_system);
     ActivateTask(tsk_background);
     
     TerminateTask();
@@ -71,58 +95,17 @@ TASK(tsk_init)
 }
 
 
-TASK(tsk_ledBlink)
-{
-    static uint8_t counter = 0;
-    
-    //After 10 calls == 1s fire the 1s event to the sevenSet task
-    counter++;
-    if (10 == counter)
-    {
-        counter = 0;
-        SetEvent(tsk_sevenSet, ev_1s);
-    }
-    
-    
-    LED_Toggle(LED_ALL);
-    TerminateTask();
-    
-}
 
-TASK(tsk_sevenSet)
-{
- 
-    static uint8_t count = 0;
-    
-    EventMaskType ev = 0;
-    while(1)
-    {
-        //Wait, read and clear the event
-        WaitEvent(ev_1s | ev_reset);
-        GetEvent(tsk_sevenSet,&ev);
-        ClearEvent(ev);
-        
-        if (ev & ev_1s)
-        {
-            SEVEN_SetHex(++count);
-        }
 
-        if (ev & ev_reset)
-        {
-            count = 0;
-            SEVEN_SetHex(count);
-        }
-
-        
-    }
-}
 
 TASK(tsk_background)
 {
     while(1)
     {
         //do something with low prioroty
-        __asm("nop");
+        // feed our lovely watchdog if runnables are running
+        WD_Trigger();
+        
     }
 }
 
@@ -131,8 +114,5 @@ TASK(tsk_background)
  * ISR Definitions
  ********************************************************************************/
 
-ISR2(isr_Button)
-{
-    SetEvent(tsk_sevenSet,ev_reset);   
-}
+
 /* [] END OF FILE */

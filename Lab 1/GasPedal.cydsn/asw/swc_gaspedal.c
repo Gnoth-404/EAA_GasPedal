@@ -18,7 +18,7 @@
 
 
 /* USER CODE START SWC_GASPEDAL_INCLUDE */
-
+#include "watchdog.h"
 /* USER CODE END SWC_GASPEDAL_INCLUDE */
 
 
@@ -44,7 +44,10 @@
 void GASPEDAL_readJoystick_run(RTE_event ev){
 	
 	/* USER CODE START GASPEDAL_readJoystick_run */
-
+    ev =0;
+    RTE_SC_JOYSTICK_pullPort(&SO_JOYSTICK_signal);
+    
+    WD_Alive(WD_RUN_READJOYSTICK);
     /* USER CODE END GASPEDAL_readJoystick_run */
 }
 
@@ -62,7 +65,33 @@ void GASPEDAL_readJoystick_run(RTE_event ev){
 void GASPEDAL_calcControl_run(RTE_event ev){
 	
 	/* USER CODE START GASPEDAL_calcControl_run */
+    if ((ev & ev_joystick_onData) | (ev & ev_breakpedal_onData)){
+        
+        SC_SPEED_data_t speedSignal = SC_SPEED_INIT_DATA;
+        SC_JOYSTICK_data_t joystickSignal = SC_JOYSTICK_INIT_DATA;
+        
 
+        if (RTE_SC_JOYSTICK_getStatus(&SO_JOYSTICK_signal) ==RTE_SIGNALSTATUS_VALID){
+            joystickSignal.xPos = RTE_SC_JOYSTICK_get(&SO_JOYSTICK_signal).xPos;
+        }
+        
+            //Set the X value of the joystick to the speed data based on the condition given.
+        if(joystickSignal.xPos > JOYSTICK_DRIFTX)
+        {
+            speedSignal.speedValue = 2 * (joystickSignal.xPos);
+        }
+        else if(joystickSignal.xPos <= JOYSTICK_DRIFTX)
+        {
+            speedSignal.speedValue = 0;
+        }
+        
+
+        // Set the value to output speed signal
+        RTE_SC_SPEED_set(&SO_SPEED_signal, speedSignal);
+        WD_Alive(WD_RUN_CALCCONTROL); 
+        
+    }
+    
     /* USER CODE END GASPEDAL_calcControl_run */
 }
 
@@ -80,7 +109,39 @@ void GASPEDAL_calcControl_run(RTE_event ev){
 void GASPEDAL_setEngine_run(RTE_event ev){
 	
 	/* USER CODE START GASPEDAL_setEngine_run */
-
+    ev =0;
+    
+    SC_SPEED_data_t speedSignal = SC_SPEED_INIT_DATA;
+    static uint32_t speedSignalAge = 0;
+    
+    SC_ENGINE_data_t engineSignal = SC_ENGINE_INIT_DATA;
+    
+    
+    // Get speed signal and check valid
+    if(RTE_SC_SPEED_getStatus(&SO_SPEED_signal) == RTE_SIGNALSTATUS_VALID) {
+        speedSignal.speedValue = RTE_SC_SPEED_get(&SO_SPEED_signal).speedValue;
+    }
+    
+    // Check speed signal Age
+    // If age > 500ms , turn off engine 
+    // Advanced error handling required later on !!!!
+    speedSignalAge = RTE_SC_SPEED_getAge(&SO_SPEED_signal);
+    
+    if(speedSignalAge < 500) {
+        engineSignal.engineValue = speedSignal.speedValue;
+    }
+    else{
+        engineSignal.engineValue = 0;
+        //UART_LOG_PutString("Too old speed signal data");  
+    }
+    
+    RTE_SC_ENGINE_set(&SO_ENGINE_signal, engineSignal);
+    WD_Alive(WD_RUN_SETENGINE); 
+    // Driver out of signal is LED Driver -> push out data to peripheral
+    if (RTE_SC_ENGINE_pushPort(&SO_ENGINE_signal) != RC_SUCCESS){
+        // Further error handling 
+    }
+    
     /* USER CODE END GASPEDAL_setEngine_run */
 }
 
@@ -98,7 +159,33 @@ void GASPEDAL_setEngine_run(RTE_event ev){
 void GASPEDAL_setBrakeLight_run(RTE_event ev){
 	
 	/* USER CODE START GASPEDAL_setBrakeLight_run */
-
+    
+    if (ev & ev_speed_onData){
+        
+        
+        SC_SPEED_data_t speedSignal = SC_SPEED_INIT_DATA;
+    
+        // Get a valid speed signal
+        if(RTE_SC_SPEED_getStatus(&SO_SPEED_signal) == RTE_SIGNALSTATUS_VALID){
+            speedSignal = RTE_SC_SPEED_get(&SO_SPEED_signal);
+        }
+        SC_BREAKLIGHT_data_t brakeLight = SC_BREAKLIGHT_INIT_DATA;
+        
+        if(speedSignal.speedValue == 0){
+            brakeLight.breakLightStatus = TRUE;
+        }
+        else{
+            brakeLight.breakLightStatus = FALSE;
+        }
+        
+        RTE_SC_BREAKLIGHT_set(&SO_BREAKLIGHT_signal, brakeLight);
+        
+        WD_Alive(WD_RUN_SETBRAKELIGHT); 
+        if (RTE_SC_BREAKLIGHT_pushPort(&SO_BREAKLIGHT_signal) != RC_SUCCESS){
+            // Further error handling
+        }
+    }
+    
     /* USER CODE END GASPEDAL_setBrakeLight_run */
 }
 
@@ -116,7 +203,11 @@ void GASPEDAL_setBrakeLight_run(RTE_event ev){
 void GASPEDAL_HMI_run(RTE_event ev){
 	
 	/* USER CODE START GASPEDAL_HMI_run */
-
+    if (ev_screen_onData & ev)
+    {
+        // To do list
+    }
+    WD_Alive(WD_RUN_HMI); 
     /* USER CODE END GASPEDAL_HMI_run */
 }
 

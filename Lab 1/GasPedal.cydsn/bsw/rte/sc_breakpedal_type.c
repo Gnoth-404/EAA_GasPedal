@@ -41,10 +41,10 @@
 inline RC_t SC_BREAKPEDAL_driverIn(SC_BREAKPEDAL_data_t *const data)
 {
 	/* USER CODE START driverInSC_BREAKPEDAL */
-#error "Add your code here"
+
 
 	//Read data from the MCAL driver
-
+    // Further doing
 	//Scale it to the application type
 
 	return RC_SUCCESS;

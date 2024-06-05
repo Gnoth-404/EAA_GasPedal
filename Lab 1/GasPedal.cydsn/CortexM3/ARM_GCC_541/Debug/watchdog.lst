@@ -1,0 +1,1481 @@
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccd07qlk.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"watchdog.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.WD_Start,"ax",%progbits
+  20              		.align	2
+  21              		.global	WD_Start
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	WD_Start, %function
+  25              	WD_Start:
+  26              	.LFB114:
+  27              		.file 1 "bsw\\LabBoard\\watchdog.c"
+   1:bsw\LabBoard/watchdog.c **** /**
+   2:bsw\LabBoard/watchdog.c **** * \file <filename>
+   3:bsw\LabBoard/watchdog.c **** * \author <author-name>
+   4:bsw\LabBoard/watchdog.c **** * \date <date>
+   5:bsw\LabBoard/watchdog.c **** *
+   6:bsw\LabBoard/watchdog.c **** * \brief <Symbolic File name>
+   7:bsw\LabBoard/watchdog.c **** *
+   8:bsw\LabBoard/watchdog.c **** * \copyright Copyright ©2016
+   9:bsw\LabBoard/watchdog.c **** * Department of electrical engineering and information technology, Hochschule Darmstadt - Universit
+  10:bsw\LabBoard/watchdog.c **** * Permission to use, copy, modify, and distribute this software and its documentation for education
+  11:bsw\LabBoard/watchdog.c **** * (unless permitted by h_da) and official h_da projects, is hereby granted for enrolled students of
+  12:bsw\LabBoard/watchdog.c **** * this paragraph and the following paragraph appear in all copies, modifications, and distributions
+  13:bsw\LabBoard/watchdog.c **** * Contact Prof.Dr.-Ing. Peter Fromm, peter.fromm@h-da.de, Birkenweg 8 64295 Darmstadt - GERMANY for
+  14:bsw\LabBoard/watchdog.c **** *
+  15:bsw\LabBoard/watchdog.c **** * \warning This software is a PROTOTYPE version and is not designed or intended for use in producti
+  16:bsw\LabBoard/watchdog.c **** * The user represents and warrants that it will NOT use or redistribute the Software for such purpo
+  17:bsw\LabBoard/watchdog.c **** * This prototype is for research purposes only. This software is provided "AS IS," without a warran
+  18:bsw\LabBoard/watchdog.c **** */
+  19:bsw\LabBoard/watchdog.c **** 
+  20:bsw\LabBoard/watchdog.c **** /*****************************************************************************/
+  21:bsw\LabBoard/watchdog.c **** /* Include files                                                             */
+  22:bsw\LabBoard/watchdog.c **** /*****************************************************************************/
+  23:bsw\LabBoard/watchdog.c **** 
+  24:bsw\LabBoard/watchdog.c **** #include "watchdog.h"
+  25:bsw\LabBoard/watchdog.c **** #include "project.h"
+  26:bsw\LabBoard/watchdog.c **** #include "logging.h"
+  27:bsw\LabBoard/watchdog.c **** #include <stdio.h>
+  28:bsw\LabBoard/watchdog.c **** #include <stdlib.h>
+  29:bsw\LabBoard/watchdog.c **** /*****************************************************************************/
+  30:bsw\LabBoard/watchdog.c **** /* Local pre-processor symbols/macros ('#define')                            */
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccd07qlk.s 			page 2
+
+
+  31:bsw\LabBoard/watchdog.c **** /*****************************************************************************/
+  32:bsw\LabBoard/watchdog.c **** 
+  33:bsw\LabBoard/watchdog.c **** /*****************************************************************************/
+  34:bsw\LabBoard/watchdog.c **** /* Global variable definitions (declared in header file with 'extern')       */
+  35:bsw\LabBoard/watchdog.c **** /*****************************************************************************/
+  36:bsw\LabBoard/watchdog.c **** 
+  37:bsw\LabBoard/watchdog.c **** /*****************************************************************************/
+  38:bsw\LabBoard/watchdog.c **** /* Local type definitions ('typedef')                                        */
+  39:bsw\LabBoard/watchdog.c **** /*****************************************************************************/
+  40:bsw\LabBoard/watchdog.c **** 
+  41:bsw\LabBoard/watchdog.c **** /*****************************************************************************/
+  42:bsw\LabBoard/watchdog.c **** /* Local variable definitions ('static')                                     */
+  43:bsw\LabBoard/watchdog.c **** /*****************************************************************************/
+  44:bsw\LabBoard/watchdog.c **** 
+  45:bsw\LabBoard/watchdog.c **** 
+  46:bsw\LabBoard/watchdog.c **** 
+  47:bsw\LabBoard/watchdog.c **** /*****************************************************************************/
+  48:bsw\LabBoard/watchdog.c **** /* Local function prototypes ('static')                                      */
+  49:bsw\LabBoard/watchdog.c **** /*****************************************************************************/
+  50:bsw\LabBoard/watchdog.c **** static int8_t WD_RunnableAliveBitField;
+  51:bsw\LabBoard/watchdog.c **** 
+  52:bsw\LabBoard/watchdog.c **** /*****************************************************************************/
+  53:bsw\LabBoard/watchdog.c **** /* Function implementation - global ('extern') and local ('static')          */
+  54:bsw\LabBoard/watchdog.c **** /*****************************************************************************/
+  55:bsw\LabBoard/watchdog.c **** 
+  56:bsw\LabBoard/watchdog.c **** 
+  57:bsw\LabBoard/watchdog.c **** 
+  58:bsw\LabBoard/watchdog.c **** 
+  59:bsw\LabBoard/watchdog.c **** /**
+  60:bsw\LabBoard/watchdog.c ****  * Activate the Watchdog trigger
+  61:bsw\LabBoard/watchdog.c ****  * \param WDT_Timeout_t - [IN] Timeout period
+  62:bsw\LabBoard/watchdog.c ****  * \return RC_SUCCESS
+  63:bsw\LabBoard/watchdog.c ****  */
+  64:bsw\LabBoard/watchdog.c **** 
+  65:bsw\LabBoard/watchdog.c **** RC_t WD_Start(WDT_Timeout_t timeout){
+  28              		.loc 1 65 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              	.LVL0:
+  33 0000 08B5     		push	{r3, lr}
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 3, -8
+  36              		.cfi_offset 14, -4
+  66:bsw\LabBoard/watchdog.c ****     CyWdtStart(timeout, CYWDT_LPMODE_NOCHANGE);
+  37              		.loc 1 66 0
+  38 0002 0021     		movs	r1, #0
+  39 0004 FFF7FEFF 		bl	CyWdtStart
+  40              	.LVL1:
+  67:bsw\LabBoard/watchdog.c ****     return RC_SUCCESS;
+  68:bsw\LabBoard/watchdog.c **** }
+  41              		.loc 1 68 0
+  42 0008 0020     		movs	r0, #0
+  43 000a 08BD     		pop	{r3, pc}
+  44              		.cfi_endproc
+  45              	.LFE114:
+  46              		.size	WD_Start, .-WD_Start
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccd07qlk.s 			page 3
+
+
+  47              		.section	.text.WD_Trigger,"ax",%progbits
+  48              		.align	2
+  49              		.global	WD_Trigger
+  50              		.thumb
+  51              		.thumb_func
+  52              		.type	WD_Trigger, %function
+  53              	WD_Trigger:
+  54              	.LFB115:
+  69:bsw\LabBoard/watchdog.c **** 
+  70:bsw\LabBoard/watchdog.c **** 
+  71:bsw\LabBoard/watchdog.c **** 
+  72:bsw\LabBoard/watchdog.c **** /**
+  73:bsw\LabBoard/watchdog.c ****  * Service the Watchdog trigger
+  74:bsw\LabBoard/watchdog.c ****  
+  75:bsw\LabBoard/watchdog.c ****  * \return RC_SUCCESS
+  76:bsw\LabBoard/watchdog.c **** */
+  77:bsw\LabBoard/watchdog.c **** RC_t WD_Trigger(){
+  55              		.loc 1 77 0
+  56              		.cfi_startproc
+  57              		@ args = 0, pretend = 0, frame = 0
+  58              		@ frame_needed = 0, uses_anonymous_args = 0
+  59 0000 08B5     		push	{r3, lr}
+  60              		.cfi_def_cfa_offset 8
+  61              		.cfi_offset 3, -8
+  62              		.cfi_offset 14, -4
+  78:bsw\LabBoard/watchdog.c ****     
+  79:bsw\LabBoard/watchdog.c ****     if(WD_RunnableAliveBitField == 0x0f) // 11111 5 runnables alive, TFT is on to do list, set 4 ru
+  63              		.loc 1 79 0
+  64 0002 064B     		ldr	r3, .L6
+  65 0004 93F90030 		ldrsb	r3, [r3]
+  66 0008 0F2B     		cmp	r3, #15
+  67 000a 04D1     		bne	.L4
+  80:bsw\LabBoard/watchdog.c ****     {
+  81:bsw\LabBoard/watchdog.c ****         CyWdtClear();
+  68              		.loc 1 81 0
+  69 000c FFF7FEFF 		bl	CyWdtClear
+  70              	.LVL2:
+  82:bsw\LabBoard/watchdog.c ****         WD_RunnableAliveBitField = 0; // reset bit field
+  71              		.loc 1 82 0
+  72 0010 0022     		movs	r2, #0
+  73 0012 024B     		ldr	r3, .L6
+  74 0014 1A70     		strb	r2, [r3]
+  75              	.L4:
+  83:bsw\LabBoard/watchdog.c ****     }    
+  84:bsw\LabBoard/watchdog.c ****     return RC_SUCCESS;
+  85:bsw\LabBoard/watchdog.c **** }
+  76              		.loc 1 85 0
+  77 0016 0020     		movs	r0, #0
+  78 0018 08BD     		pop	{r3, pc}
+  79              	.L7:
+  80 001a 00BF     		.align	2
+  81              	.L6:
+  82 001c 00000000 		.word	.LANCHOR0
+  83              		.cfi_endproc
+  84              	.LFE115:
+  85              		.size	WD_Trigger, .-WD_Trigger
+  86              		.section	.text.WD_Alive,"ax",%progbits
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccd07qlk.s 			page 4
+
+
+  87              		.align	2
+  88              		.global	WD_Alive
+  89              		.thumb
+  90              		.thumb_func
+  91              		.type	WD_Alive, %function
+  92              	WD_Alive:
+  93              	.LFB116:
+  86:bsw\LabBoard/watchdog.c **** 
+  87:bsw\LabBoard/watchdog.c **** 
+  88:bsw\LabBoard/watchdog.c **** /**
+  89:bsw\LabBoard/watchdog.c **** * This function sets the bit at the corresponding position ( 8 bit datatype) 
+  90:bsw\LabBoard/watchdog.c **** * Can monitor upto 8 alive runnables
+  91:bsw\LabBoard/watchdog.c **** * It is called by every runnable using a uniqe position.
+  92:bsw\LabBoard/watchdog.c **** * 0 = readJoystick, 1 = calcControl, 2 = setEngine, 3 = setBrakeLight , 4 = HMI
+  93:bsw\LabBoard/watchdog.c **** * @return RC_SUCCESS
+  94:bsw\LabBoard/watchdog.c **** */
+  95:bsw\LabBoard/watchdog.c **** 
+  96:bsw\LabBoard/watchdog.c **** 
+  97:bsw\LabBoard/watchdog.c **** RC_t WD_Alive(uint8_t myBitPosition){
+  94              		.loc 1 97 0
+  95              		.cfi_startproc
+  96              		@ args = 0, pretend = 0, frame = 0
+  97              		@ frame_needed = 0, uses_anonymous_args = 0
+  98              		@ link register save eliminated.
+  99              	.LVL3:
+  98:bsw\LabBoard/watchdog.c ****     
+  99:bsw\LabBoard/watchdog.c ****     WD_RunnableAliveBitField |= (1U) << myBitPosition;
+ 100              		.loc 1 99 0
+ 101 0000 0123     		movs	r3, #1
+ 102 0002 03FA00F0 		lsl	r0, r3, r0
+ 103              	.LVL4:
+ 104 0006 034A     		ldr	r2, .L9
+ 105 0008 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 106 000a 1843     		orrs	r0, r0, r3
+ 107 000c 1070     		strb	r0, [r2]
+ 100:bsw\LabBoard/watchdog.c ****     return RC_SUCCESS;
+ 101:bsw\LabBoard/watchdog.c **** }
+ 108              		.loc 1 101 0
+ 109 000e 0020     		movs	r0, #0
+ 110 0010 7047     		bx	lr
+ 111              	.L10:
+ 112 0012 00BF     		.align	2
+ 113              	.L9:
+ 114 0014 00000000 		.word	.LANCHOR0
+ 115              		.cfi_endproc
+ 116              	.LFE116:
+ 117              		.size	WD_Alive, .-WD_Alive
+ 118              		.section	.text.WD_CheckResetBit,"ax",%progbits
+ 119              		.align	2
+ 120              		.global	WD_CheckResetBit
+ 121              		.thumb
+ 122              		.thumb_func
+ 123              		.type	WD_CheckResetBit, %function
+ 124              	WD_CheckResetBit:
+ 125              	.LFB117:
+ 102:bsw\LabBoard/watchdog.c **** 
+ 103:bsw\LabBoard/watchdog.c **** 
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccd07qlk.s 			page 5
+
+
+ 104:bsw\LabBoard/watchdog.c **** /**
+ 105:bsw\LabBoard/watchdog.c ****  * Check the watchdog bit
+ 106:bsw\LabBoard/watchdog.c **** 
+ 107:bsw\LabBoard/watchdog.c ****  * \return TRUE if watchdog reset bit was set
+ 108:bsw\LabBoard/watchdog.c ****  */
+ 109:bsw\LabBoard/watchdog.c **** 
+ 110:bsw\LabBoard/watchdog.c **** boolean_t WD_CheckResetBit(){
+ 126              		.loc 1 110 0
+ 127              		.cfi_startproc
+ 128              		@ args = 0, pretend = 0, frame = 0
+ 129              		@ frame_needed = 0, uses_anonymous_args = 0
+ 130              		@ link register save eliminated.
+ 111:bsw\LabBoard/watchdog.c ****     if(CyResetStatus & CY_RESET_WD) // Check the Watchdog register to determine the cause of the re
+ 131              		.loc 1 111 0
+ 132 0000 044B     		ldr	r3, .L13
+ 133 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 134 0004 03F00803 		and	r3, r3, #8
+ 135 0008 03F0FF00 		and	r0, r3, #255
+ 136 000c 03B1     		cbz	r3, .L12
+ 112:bsw\LabBoard/watchdog.c ****     {
+ 113:bsw\LabBoard/watchdog.c ****         return TRUE;
+ 137              		.loc 1 113 0
+ 138 000e 0120     		movs	r0, #1
+ 139              	.L12:
+ 114:bsw\LabBoard/watchdog.c ****     }
+ 115:bsw\LabBoard/watchdog.c ****     else
+ 116:bsw\LabBoard/watchdog.c ****     {
+ 117:bsw\LabBoard/watchdog.c ****         return FALSE;
+ 118:bsw\LabBoard/watchdog.c ****     }
+ 119:bsw\LabBoard/watchdog.c **** }
+ 140              		.loc 1 119 0
+ 141 0010 7047     		bx	lr
+ 142              	.L14:
+ 143 0012 00BF     		.align	2
+ 144              	.L13:
+ 145 0014 00000000 		.word	CyResetStatus
+ 146              		.cfi_endproc
+ 147              	.LFE117:
+ 148              		.size	WD_CheckResetBit, .-WD_CheckResetBit
+ 149              		.bss
+ 150              		.set	.LANCHOR0,. + 0
+ 151              		.type	WD_RunnableAliveBitField, %object
+ 152              		.size	WD_RunnableAliveBitField, 1
+ 153              	WD_RunnableAliveBitField:
+ 154 0000 00       		.space	1
+ 155              		.text
+ 156              	.Letext0:
+ 157              		.file 2 ".\\bsw/global.h"
+ 158              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 159              		.file 4 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 160              		.file 5 "Generated_Source\\PSoC5/cytypes.h"
+ 161              		.file 6 "Generated_Source\\PSoC5/ErikaOS_1_common_ee_types.inc"
+ 162              		.file 7 "Generated_Source\\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc"
+ 163              		.file 8 "bsw\\LabBoard\\watchdog.h"
+ 164              		.file 9 "Generated_Source\\PSoC5/ErikaOS_1_ee_oo_intfunc.inc"
+ 165              		.file 10 "Generated_Source\\PSoC5/ErikaOS_1_cortex_mx_ee_context.inc"
+ 166              		.file 11 "Generated_Source\\PSoC5/ErikaOS_1_common_ee_primitives.inc"
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccd07qlk.s 			page 6
+
+
+ 167              		.file 12 "Generated_Source\\PSoC5/CyLib.h"
+ 168              		.file 13 "Generated_Source\\PSoC5/core_cm3.h"
+ 169              		.section	.debug_info,"",%progbits
+ 170              	.Ldebug_info0:
+ 171 0000 07030000 		.4byte	0x307
+ 172 0004 0400     		.2byte	0x4
+ 173 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 174 000a 04       		.byte	0x4
+ 175 000b 01       		.uleb128 0x1
+ 176 000c FB020000 		.4byte	.LASF71
+ 177 0010 0C       		.byte	0xc
+ 178 0011 68040000 		.4byte	.LASF72
+ 179 0015 4C000000 		.4byte	.LASF73
+ 180 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 181 001d 00000000 		.4byte	0
+ 182 0021 00000000 		.4byte	.Ldebug_line0
+ 183 0025 02       		.uleb128 0x2
+ 184 0026 01       		.byte	0x1
+ 185 0027 06       		.byte	0x6
+ 186 0028 66020000 		.4byte	.LASF0
+ 187 002c 03       		.uleb128 0x3
+ 188 002d 06010000 		.4byte	.LASF10
+ 189 0031 02       		.byte	0x2
+ 190 0032 91       		.byte	0x91
+ 191 0033 37000000 		.4byte	0x37
+ 192 0037 02       		.uleb128 0x2
+ 193 0038 01       		.byte	0x1
+ 194 0039 08       		.byte	0x8
+ 195 003a 58020000 		.4byte	.LASF1
+ 196 003e 02       		.uleb128 0x2
+ 197 003f 02       		.byte	0x2
+ 198 0040 05       		.byte	0x5
+ 199 0041 91000000 		.4byte	.LASF2
+ 200 0045 02       		.uleb128 0x2
+ 201 0046 02       		.byte	0x2
+ 202 0047 07       		.byte	0x7
+ 203 0048 DF020000 		.4byte	.LASF3
+ 204 004c 02       		.uleb128 0x2
+ 205 004d 04       		.byte	0x4
+ 206 004e 05       		.byte	0x5
+ 207 004f E3010000 		.4byte	.LASF4
+ 208 0053 02       		.uleb128 0x2
+ 209 0054 04       		.byte	0x4
+ 210 0055 07       		.byte	0x7
+ 211 0056 F0030000 		.4byte	.LASF5
+ 212 005a 02       		.uleb128 0x2
+ 213 005b 04       		.byte	0x4
+ 214 005c 04       		.byte	0x4
+ 215 005d 79010000 		.4byte	.LASF6
+ 216 0061 02       		.uleb128 0x2
+ 217 0062 08       		.byte	0x8
+ 218 0063 04       		.byte	0x4
+ 219 0064 02040000 		.4byte	.LASF7
+ 220 0068 02       		.uleb128 0x2
+ 221 0069 08       		.byte	0x8
+ 222 006a 05       		.byte	0x5
+ 223 006b 98010000 		.4byte	.LASF8
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccd07qlk.s 			page 7
+
+
+ 224 006f 02       		.uleb128 0x2
+ 225 0070 08       		.byte	0x8
+ 226 0071 07       		.byte	0x7
+ 227 0072 72020000 		.4byte	.LASF9
+ 228 0076 03       		.uleb128 0x3
+ 229 0077 2F020000 		.4byte	.LASF11
+ 230 007b 02       		.byte	0x2
+ 231 007c 9C       		.byte	0x9c
+ 232 007d 37000000 		.4byte	0x37
+ 233 0081 02       		.uleb128 0x2
+ 234 0082 01       		.byte	0x1
+ 235 0083 08       		.byte	0x8
+ 236 0084 89030000 		.4byte	.LASF12
+ 237 0088 04       		.uleb128 0x4
+ 238 0089 01       		.byte	0x1
+ 239 008a 25000000 		.4byte	0x25
+ 240 008e 02       		.byte	0x2
+ 241 008f CF       		.byte	0xcf
+ 242 0090 31010000 		.4byte	0x131
+ 243 0094 05       		.uleb128 0x5
+ 244 0095 1B000000 		.4byte	.LASF13
+ 245 0099 00       		.byte	0
+ 246 009a 06       		.uleb128 0x6
+ 247 009b AD040000 		.4byte	.LASF14
+ 248 009f 7F       		.sleb128 -1
+ 249 00a0 06       		.uleb128 0x6
+ 250 00a1 A4020000 		.4byte	.LASF15
+ 251 00a5 7E       		.sleb128 -2
+ 252 00a6 06       		.uleb128 0x6
+ 253 00a7 CA000000 		.4byte	.LASF16
+ 254 00ab 7D       		.sleb128 -3
+ 255 00ac 06       		.uleb128 0x6
+ 256 00ad B6040000 		.4byte	.LASF17
+ 257 00b1 7C       		.sleb128 -4
+ 258 00b2 06       		.uleb128 0x6
+ 259 00b3 6A010000 		.4byte	.LASF18
+ 260 00b7 7B       		.sleb128 -5
+ 261 00b8 06       		.uleb128 0x6
+ 262 00b9 9B000000 		.4byte	.LASF19
+ 263 00bd 7A       		.sleb128 -6
+ 264 00be 06       		.uleb128 0x6
+ 265 00bf EC010000 		.4byte	.LASF20
+ 266 00c3 79       		.sleb128 -7
+ 267 00c4 06       		.uleb128 0x6
+ 268 00c5 8E030000 		.4byte	.LASF21
+ 269 00c9 78       		.sleb128 -8
+ 270 00ca 06       		.uleb128 0x6
+ 271 00cb B2020000 		.4byte	.LASF22
+ 272 00cf 77       		.sleb128 -9
+ 273 00d0 06       		.uleb128 0x6
+ 274 00d1 FE010000 		.4byte	.LASF23
+ 275 00d5 76       		.sleb128 -10
+ 276 00d6 06       		.uleb128 0x6
+ 277 00d7 F6040000 		.4byte	.LASF24
+ 278 00db 75       		.sleb128 -11
+ 279 00dc 06       		.uleb128 0x6
+ 280 00dd 96020000 		.4byte	.LASF25
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccd07qlk.s 			page 8
+
+
+ 281 00e1 74       		.sleb128 -12
+ 282 00e2 06       		.uleb128 0x6
+ 283 00e3 09040000 		.4byte	.LASF26
+ 284 00e7 73       		.sleb128 -13
+ 285 00e8 06       		.uleb128 0x6
+ 286 00e9 39020000 		.4byte	.LASF27
+ 287 00ed 72       		.sleb128 -14
+ 288 00ee 06       		.uleb128 0x6
+ 289 00ef 38000000 		.4byte	.LASF28
+ 290 00f3 71       		.sleb128 -15
+ 291 00f4 06       		.uleb128 0x6
+ 292 00f5 0C020000 		.4byte	.LASF29
+ 293 00f9 70       		.sleb128 -16
+ 294 00fa 06       		.uleb128 0x6
+ 295 00fb B6030000 		.4byte	.LASF30
+ 296 00ff 6F       		.sleb128 -17
+ 297 0100 06       		.uleb128 0x6
+ 298 0101 AC000000 		.4byte	.LASF31
+ 299 0105 6E       		.sleb128 -18
+ 300 0106 06       		.uleb128 0x6
+ 301 0107 BF010000 		.4byte	.LASF32
+ 302 010b 6D       		.sleb128 -19
+ 303 010c 06       		.uleb128 0x6
+ 304 010d CA030000 		.4byte	.LASF33
+ 305 0111 6C       		.sleb128 -20
+ 306 0112 06       		.uleb128 0x6
+ 307 0113 1D020000 		.4byte	.LASF34
+ 308 0117 6B       		.sleb128 -21
+ 309 0118 06       		.uleb128 0x6
+ 310 0119 80040000 		.4byte	.LASF35
+ 311 011d 6A       		.sleb128 -22
+ 312 011e 06       		.uleb128 0x6
+ 313 011f 0E010000 		.4byte	.LASF36
+ 314 0123 69       		.sleb128 -23
+ 315 0124 06       		.uleb128 0x6
+ 316 0125 D2010000 		.4byte	.LASF37
+ 317 0129 68       		.sleb128 -24
+ 318 012a 06       		.uleb128 0x6
+ 319 012b 7F010000 		.4byte	.LASF38
+ 320 012f 67       		.sleb128 -25
+ 321 0130 00       		.byte	0
+ 322 0131 03       		.uleb128 0x3
+ 323 0132 E6040000 		.4byte	.LASF39
+ 324 0136 02       		.byte	0x2
+ 325 0137 EA       		.byte	0xea
+ 326 0138 88000000 		.4byte	0x88
+ 327 013c 03       		.uleb128 0x3
+ 328 013d F2020000 		.4byte	.LASF40
+ 329 0141 03       		.byte	0x3
+ 330 0142 1B       		.byte	0x1b
+ 331 0143 25000000 		.4byte	0x25
+ 332 0147 03       		.uleb128 0x3
+ 333 0148 23040000 		.4byte	.LASF41
+ 334 014c 03       		.byte	0x3
+ 335 014d 3F       		.byte	0x3f
+ 336 014e 4C000000 		.4byte	0x4c
+ 337 0152 07       		.uleb128 0x7
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccd07qlk.s 			page 9
+
+
+ 338 0153 04       		.byte	0x4
+ 339 0154 05       		.byte	0x5
+ 340 0155 696E7400 		.ascii	"int\000"
+ 341 0159 02       		.uleb128 0x2
+ 342 015a 04       		.byte	0x4
+ 343 015b 07       		.byte	0x7
+ 344 015c 89020000 		.4byte	.LASF42
+ 345 0160 03       		.uleb128 0x3
+ 346 0161 26000000 		.4byte	.LASF43
+ 347 0165 04       		.byte	0x4
+ 348 0166 14       		.byte	0x14
+ 349 0167 3C010000 		.4byte	0x13c
+ 350 016b 03       		.uleb128 0x3
+ 351 016c A3030000 		.4byte	.LASF44
+ 352 0170 04       		.byte	0x4
+ 353 0171 2C       		.byte	0x2c
+ 354 0172 47010000 		.4byte	0x147
+ 355 0176 08       		.uleb128 0x8
+ 356 0177 36010000 		.4byte	.LASF45
+ 357 017b 05       		.byte	0x5
+ 358 017c E901     		.2byte	0x1e9
+ 359 017e 37000000 		.4byte	0x37
+ 360 0182 02       		.uleb128 0x2
+ 361 0183 08       		.byte	0x8
+ 362 0184 04       		.byte	0x4
+ 363 0185 4C020000 		.4byte	.LASF46
+ 364 0189 03       		.uleb128 0x3
+ 365 018a C8020000 		.4byte	.LASF47
+ 366 018e 06       		.byte	0x6
+ 367 018f 53       		.byte	0x53
+ 368 0190 52010000 		.4byte	0x152
+ 369 0194 03       		.uleb128 0x3
+ 370 0195 E9000000 		.4byte	.LASF48
+ 371 0199 06       		.byte	0x6
+ 372 019a 54       		.byte	0x54
+ 373 019b 59010000 		.4byte	0x159
+ 374 019f 03       		.uleb128 0x3
+ 375 01a0 1B040000 		.4byte	.LASF49
+ 376 01a4 07       		.byte	0x7
+ 377 01a5 4D       		.byte	0x4d
+ 378 01a6 94010000 		.4byte	0x194
+ 379 01aa 03       		.uleb128 0x3
+ 380 01ab D8000000 		.4byte	.LASF50
+ 381 01af 07       		.byte	0x7
+ 382 01b0 4F       		.byte	0x4f
+ 383 01b1 94010000 		.4byte	0x194
+ 384 01b5 03       		.uleb128 0x3
+ 385 01b6 F3000000 		.4byte	.LASF51
+ 386 01ba 07       		.byte	0x7
+ 387 01bb 78       		.byte	0x78
+ 388 01bc 89010000 		.4byte	0x189
+ 389 01c0 02       		.uleb128 0x2
+ 390 01c1 04       		.byte	0x4
+ 391 01c2 07       		.byte	0x7
+ 392 01c3 C1000000 		.4byte	.LASF52
+ 393 01c7 04       		.uleb128 0x4
+ 394 01c8 01       		.byte	0x1
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccd07qlk.s 			page 10
+
+
+ 395 01c9 37000000 		.4byte	0x37
+ 396 01cd 08       		.byte	0x8
+ 397 01ce 59       		.byte	0x59
+ 398 01cf EC010000 		.4byte	0x1ec
+ 399 01d3 05       		.uleb128 0x5
+ 400 01d4 54040000 		.4byte	.LASF53
+ 401 01d8 03       		.byte	0x3
+ 402 01d9 05       		.uleb128 0x5
+ 403 01da 92040000 		.4byte	.LASF54
+ 404 01de 02       		.byte	0x2
+ 405 01df 05       		.uleb128 0x5
+ 406 01e0 00000000 		.4byte	.LASF55
+ 407 01e4 01       		.byte	0x1
+ 408 01e5 05       		.uleb128 0x5
+ 409 01e6 FA000000 		.4byte	.LASF56
+ 410 01ea 00       		.byte	0
+ 411 01eb 00       		.byte	0
+ 412 01ec 03       		.uleb128 0x3
+ 413 01ed 2D040000 		.4byte	.LASF57
+ 414 01f1 08       		.byte	0x8
+ 415 01f2 5E       		.byte	0x5e
+ 416 01f3 C7010000 		.4byte	0x1c7
+ 417 01f7 09       		.uleb128 0x9
+ 418 01f8 E0000000 		.4byte	.LASF58
+ 419 01fc 01       		.byte	0x1
+ 420 01fd 41       		.byte	0x41
+ 421 01fe 31010000 		.4byte	0x131
+ 422 0202 00000000 		.4byte	.LFB114
+ 423 0206 0C000000 		.4byte	.LFE114-.LFB114
+ 424 020a 01       		.uleb128 0x1
+ 425 020b 9C       		.byte	0x9c
+ 426 020c 2F020000 		.4byte	0x22f
+ 427 0210 0A       		.uleb128 0xa
+ 428 0211 DE040000 		.4byte	.LASF60
+ 429 0215 01       		.byte	0x1
+ 430 0216 41       		.byte	0x41
+ 431 0217 EC010000 		.4byte	0x1ec
+ 432 021b 00000000 		.4byte	.LLST0
+ 433 021f 0B       		.uleb128 0xb
+ 434 0220 08000000 		.4byte	.LVL1
+ 435 0224 F4020000 		.4byte	0x2f4
+ 436 0228 0C       		.uleb128 0xc
+ 437 0229 01       		.uleb128 0x1
+ 438 022a 51       		.byte	0x51
+ 439 022b 01       		.uleb128 0x1
+ 440 022c 30       		.byte	0x30
+ 441 022d 00       		.byte	0
+ 442 022e 00       		.byte	0
+ 443 022f 0D       		.uleb128 0xd
+ 444 0230 2D000000 		.4byte	.LASF74
+ 445 0234 01       		.byte	0x1
+ 446 0235 4D       		.byte	0x4d
+ 447 0236 31010000 		.4byte	0x131
+ 448 023a 00000000 		.4byte	.LFB115
+ 449 023e 20000000 		.4byte	.LFE115-.LFB115
+ 450 0242 01       		.uleb128 0x1
+ 451 0243 9C       		.byte	0x9c
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccd07qlk.s 			page 11
+
+
+ 452 0244 52020000 		.4byte	0x252
+ 453 0248 0E       		.uleb128 0xe
+ 454 0249 10000000 		.4byte	.LVL2
+ 455 024d FF020000 		.4byte	0x2ff
+ 456 0251 00       		.byte	0
+ 457 0252 09       		.uleb128 0x9
+ 458 0253 5F040000 		.4byte	.LASF59
+ 459 0257 01       		.byte	0x1
+ 460 0258 61       		.byte	0x61
+ 461 0259 31010000 		.4byte	0x131
+ 462 025d 00000000 		.4byte	.LFB116
+ 463 0261 18000000 		.4byte	.LFE116-.LFB116
+ 464 0265 01       		.uleb128 0x1
+ 465 0266 9C       		.byte	0x9c
+ 466 0267 7B020000 		.4byte	0x27b
+ 467 026b 0A       		.uleb128 0xa
+ 468 026c 0D000000 		.4byte	.LASF61
+ 469 0270 01       		.byte	0x1
+ 470 0271 61       		.byte	0x61
+ 471 0272 2C000000 		.4byte	0x2c
+ 472 0276 21000000 		.4byte	.LLST1
+ 473 027a 00       		.byte	0
+ 474 027b 0F       		.uleb128 0xf
+ 475 027c 25010000 		.4byte	.LASF75
+ 476 0280 01       		.byte	0x1
+ 477 0281 6E       		.byte	0x6e
+ 478 0282 76000000 		.4byte	0x76
+ 479 0286 00000000 		.4byte	.LFB117
+ 480 028a 18000000 		.4byte	.LFE117-.LFB117
+ 481 028e 01       		.uleb128 0x1
+ 482 028f 9C       		.byte	0x9c
+ 483 0290 10       		.uleb128 0x10
+ 484 0291 3B040000 		.4byte	.LASF76
+ 485 0295 01       		.byte	0x1
+ 486 0296 32       		.byte	0x32
+ 487 0297 60010000 		.4byte	0x160
+ 488 029b 05       		.uleb128 0x5
+ 489 029c 03       		.byte	0x3
+ 490 029d 00000000 		.4byte	WD_RunnableAliveBitField
+ 491 02a1 11       		.uleb128 0x11
+ 492 02a2 C6040000 		.4byte	.LASF62
+ 493 02a6 09       		.byte	0x9
+ 494 02a7 40       		.byte	0x40
+ 495 02a8 9F010000 		.4byte	0x19f
+ 496 02ac 11       		.uleb128 0x11
+ 497 02ad A6010000 		.4byte	.LASF63
+ 498 02b1 09       		.byte	0x9
+ 499 02b2 47       		.byte	0x47
+ 500 02b3 AA010000 		.4byte	0x1aa
+ 501 02b7 11       		.uleb128 0x11
+ 502 02b8 DD030000 		.4byte	.LASF64
+ 503 02bc 09       		.byte	0x9
+ 504 02bd 4A       		.byte	0x4a
+ 505 02be 9F010000 		.4byte	0x19f
+ 506 02c2 11       		.uleb128 0x11
+ 507 02c3 51010000 		.4byte	.LASF65
+ 508 02c7 0A       		.byte	0xa
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccd07qlk.s 			page 12
+
+
+ 509 02c8 48       		.byte	0x48
+ 510 02c9 B5010000 		.4byte	0x1b5
+ 511 02cd 11       		.uleb128 0x11
+ 512 02ce 3C010000 		.4byte	.LASF66
+ 513 02d2 0B       		.byte	0xb
+ 514 02d3 44       		.byte	0x44
+ 515 02d4 9F010000 		.4byte	0x19f
+ 516 02d8 11       		.uleb128 0x11
+ 517 02d9 D1020000 		.4byte	.LASF67
+ 518 02dd 0C       		.byte	0xc
+ 519 02de 2C       		.byte	0x2c
+ 520 02df 76010000 		.4byte	0x176
+ 521 02e3 12       		.uleb128 0x12
+ 522 02e4 A0040000 		.4byte	.LASF68
+ 523 02e8 0D       		.byte	0xd
+ 524 02e9 1207     		.2byte	0x712
+ 525 02eb EF020000 		.4byte	0x2ef
+ 526 02ef 13       		.uleb128 0x13
+ 527 02f0 6B010000 		.4byte	0x16b
+ 528 02f4 14       		.uleb128 0x14
+ 529 02f5 AB030000 		.4byte	.LASF69
+ 530 02f9 AB030000 		.4byte	.LASF69
+ 531 02fd 0C       		.byte	0xc
+ 532 02fe 72       		.byte	0x72
+ 533 02ff 14       		.uleb128 0x14
+ 534 0300 EB040000 		.4byte	.LASF70
+ 535 0304 EB040000 		.4byte	.LASF70
+ 536 0308 0C       		.byte	0xc
+ 537 0309 73       		.byte	0x73
+ 538 030a 00       		.byte	0
+ 539              		.section	.debug_abbrev,"",%progbits
+ 540              	.Ldebug_abbrev0:
+ 541 0000 01       		.uleb128 0x1
+ 542 0001 11       		.uleb128 0x11
+ 543 0002 01       		.byte	0x1
+ 544 0003 25       		.uleb128 0x25
+ 545 0004 0E       		.uleb128 0xe
+ 546 0005 13       		.uleb128 0x13
+ 547 0006 0B       		.uleb128 0xb
+ 548 0007 03       		.uleb128 0x3
+ 549 0008 0E       		.uleb128 0xe
+ 550 0009 1B       		.uleb128 0x1b
+ 551 000a 0E       		.uleb128 0xe
+ 552 000b 55       		.uleb128 0x55
+ 553 000c 17       		.uleb128 0x17
+ 554 000d 11       		.uleb128 0x11
+ 555 000e 01       		.uleb128 0x1
+ 556 000f 10       		.uleb128 0x10
+ 557 0010 17       		.uleb128 0x17
+ 558 0011 00       		.byte	0
+ 559 0012 00       		.byte	0
+ 560 0013 02       		.uleb128 0x2
+ 561 0014 24       		.uleb128 0x24
+ 562 0015 00       		.byte	0
+ 563 0016 0B       		.uleb128 0xb
+ 564 0017 0B       		.uleb128 0xb
+ 565 0018 3E       		.uleb128 0x3e
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccd07qlk.s 			page 13
+
+
+ 566 0019 0B       		.uleb128 0xb
+ 567 001a 03       		.uleb128 0x3
+ 568 001b 0E       		.uleb128 0xe
+ 569 001c 00       		.byte	0
+ 570 001d 00       		.byte	0
+ 571 001e 03       		.uleb128 0x3
+ 572 001f 16       		.uleb128 0x16
+ 573 0020 00       		.byte	0
+ 574 0021 03       		.uleb128 0x3
+ 575 0022 0E       		.uleb128 0xe
+ 576 0023 3A       		.uleb128 0x3a
+ 577 0024 0B       		.uleb128 0xb
+ 578 0025 3B       		.uleb128 0x3b
+ 579 0026 0B       		.uleb128 0xb
+ 580 0027 49       		.uleb128 0x49
+ 581 0028 13       		.uleb128 0x13
+ 582 0029 00       		.byte	0
+ 583 002a 00       		.byte	0
+ 584 002b 04       		.uleb128 0x4
+ 585 002c 04       		.uleb128 0x4
+ 586 002d 01       		.byte	0x1
+ 587 002e 0B       		.uleb128 0xb
+ 588 002f 0B       		.uleb128 0xb
+ 589 0030 49       		.uleb128 0x49
+ 590 0031 13       		.uleb128 0x13
+ 591 0032 3A       		.uleb128 0x3a
+ 592 0033 0B       		.uleb128 0xb
+ 593 0034 3B       		.uleb128 0x3b
+ 594 0035 0B       		.uleb128 0xb
+ 595 0036 01       		.uleb128 0x1
+ 596 0037 13       		.uleb128 0x13
+ 597 0038 00       		.byte	0
+ 598 0039 00       		.byte	0
+ 599 003a 05       		.uleb128 0x5
+ 600 003b 28       		.uleb128 0x28
+ 601 003c 00       		.byte	0
+ 602 003d 03       		.uleb128 0x3
+ 603 003e 0E       		.uleb128 0xe
+ 604 003f 1C       		.uleb128 0x1c
+ 605 0040 0B       		.uleb128 0xb
+ 606 0041 00       		.byte	0
+ 607 0042 00       		.byte	0
+ 608 0043 06       		.uleb128 0x6
+ 609 0044 28       		.uleb128 0x28
+ 610 0045 00       		.byte	0
+ 611 0046 03       		.uleb128 0x3
+ 612 0047 0E       		.uleb128 0xe
+ 613 0048 1C       		.uleb128 0x1c
+ 614 0049 0D       		.uleb128 0xd
+ 615 004a 00       		.byte	0
+ 616 004b 00       		.byte	0
+ 617 004c 07       		.uleb128 0x7
+ 618 004d 24       		.uleb128 0x24
+ 619 004e 00       		.byte	0
+ 620 004f 0B       		.uleb128 0xb
+ 621 0050 0B       		.uleb128 0xb
+ 622 0051 3E       		.uleb128 0x3e
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccd07qlk.s 			page 14
+
+
+ 623 0052 0B       		.uleb128 0xb
+ 624 0053 03       		.uleb128 0x3
+ 625 0054 08       		.uleb128 0x8
+ 626 0055 00       		.byte	0
+ 627 0056 00       		.byte	0
+ 628 0057 08       		.uleb128 0x8
+ 629 0058 16       		.uleb128 0x16
+ 630 0059 00       		.byte	0
+ 631 005a 03       		.uleb128 0x3
+ 632 005b 0E       		.uleb128 0xe
+ 633 005c 3A       		.uleb128 0x3a
+ 634 005d 0B       		.uleb128 0xb
+ 635 005e 3B       		.uleb128 0x3b
+ 636 005f 05       		.uleb128 0x5
+ 637 0060 49       		.uleb128 0x49
+ 638 0061 13       		.uleb128 0x13
+ 639 0062 00       		.byte	0
+ 640 0063 00       		.byte	0
+ 641 0064 09       		.uleb128 0x9
+ 642 0065 2E       		.uleb128 0x2e
+ 643 0066 01       		.byte	0x1
+ 644 0067 3F       		.uleb128 0x3f
+ 645 0068 19       		.uleb128 0x19
+ 646 0069 03       		.uleb128 0x3
+ 647 006a 0E       		.uleb128 0xe
+ 648 006b 3A       		.uleb128 0x3a
+ 649 006c 0B       		.uleb128 0xb
+ 650 006d 3B       		.uleb128 0x3b
+ 651 006e 0B       		.uleb128 0xb
+ 652 006f 27       		.uleb128 0x27
+ 653 0070 19       		.uleb128 0x19
+ 654 0071 49       		.uleb128 0x49
+ 655 0072 13       		.uleb128 0x13
+ 656 0073 11       		.uleb128 0x11
+ 657 0074 01       		.uleb128 0x1
+ 658 0075 12       		.uleb128 0x12
+ 659 0076 06       		.uleb128 0x6
+ 660 0077 40       		.uleb128 0x40
+ 661 0078 18       		.uleb128 0x18
+ 662 0079 9742     		.uleb128 0x2117
+ 663 007b 19       		.uleb128 0x19
+ 664 007c 01       		.uleb128 0x1
+ 665 007d 13       		.uleb128 0x13
+ 666 007e 00       		.byte	0
+ 667 007f 00       		.byte	0
+ 668 0080 0A       		.uleb128 0xa
+ 669 0081 05       		.uleb128 0x5
+ 670 0082 00       		.byte	0
+ 671 0083 03       		.uleb128 0x3
+ 672 0084 0E       		.uleb128 0xe
+ 673 0085 3A       		.uleb128 0x3a
+ 674 0086 0B       		.uleb128 0xb
+ 675 0087 3B       		.uleb128 0x3b
+ 676 0088 0B       		.uleb128 0xb
+ 677 0089 49       		.uleb128 0x49
+ 678 008a 13       		.uleb128 0x13
+ 679 008b 02       		.uleb128 0x2
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccd07qlk.s 			page 15
+
+
+ 680 008c 17       		.uleb128 0x17
+ 681 008d 00       		.byte	0
+ 682 008e 00       		.byte	0
+ 683 008f 0B       		.uleb128 0xb
+ 684 0090 898201   		.uleb128 0x4109
+ 685 0093 01       		.byte	0x1
+ 686 0094 11       		.uleb128 0x11
+ 687 0095 01       		.uleb128 0x1
+ 688 0096 31       		.uleb128 0x31
+ 689 0097 13       		.uleb128 0x13
+ 690 0098 00       		.byte	0
+ 691 0099 00       		.byte	0
+ 692 009a 0C       		.uleb128 0xc
+ 693 009b 8A8201   		.uleb128 0x410a
+ 694 009e 00       		.byte	0
+ 695 009f 02       		.uleb128 0x2
+ 696 00a0 18       		.uleb128 0x18
+ 697 00a1 9142     		.uleb128 0x2111
+ 698 00a3 18       		.uleb128 0x18
+ 699 00a4 00       		.byte	0
+ 700 00a5 00       		.byte	0
+ 701 00a6 0D       		.uleb128 0xd
+ 702 00a7 2E       		.uleb128 0x2e
+ 703 00a8 01       		.byte	0x1
+ 704 00a9 3F       		.uleb128 0x3f
+ 705 00aa 19       		.uleb128 0x19
+ 706 00ab 03       		.uleb128 0x3
+ 707 00ac 0E       		.uleb128 0xe
+ 708 00ad 3A       		.uleb128 0x3a
+ 709 00ae 0B       		.uleb128 0xb
+ 710 00af 3B       		.uleb128 0x3b
+ 711 00b0 0B       		.uleb128 0xb
+ 712 00b1 49       		.uleb128 0x49
+ 713 00b2 13       		.uleb128 0x13
+ 714 00b3 11       		.uleb128 0x11
+ 715 00b4 01       		.uleb128 0x1
+ 716 00b5 12       		.uleb128 0x12
+ 717 00b6 06       		.uleb128 0x6
+ 718 00b7 40       		.uleb128 0x40
+ 719 00b8 18       		.uleb128 0x18
+ 720 00b9 9742     		.uleb128 0x2117
+ 721 00bb 19       		.uleb128 0x19
+ 722 00bc 01       		.uleb128 0x1
+ 723 00bd 13       		.uleb128 0x13
+ 724 00be 00       		.byte	0
+ 725 00bf 00       		.byte	0
+ 726 00c0 0E       		.uleb128 0xe
+ 727 00c1 898201   		.uleb128 0x4109
+ 728 00c4 00       		.byte	0
+ 729 00c5 11       		.uleb128 0x11
+ 730 00c6 01       		.uleb128 0x1
+ 731 00c7 31       		.uleb128 0x31
+ 732 00c8 13       		.uleb128 0x13
+ 733 00c9 00       		.byte	0
+ 734 00ca 00       		.byte	0
+ 735 00cb 0F       		.uleb128 0xf
+ 736 00cc 2E       		.uleb128 0x2e
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccd07qlk.s 			page 16
+
+
+ 737 00cd 00       		.byte	0
+ 738 00ce 3F       		.uleb128 0x3f
+ 739 00cf 19       		.uleb128 0x19
+ 740 00d0 03       		.uleb128 0x3
+ 741 00d1 0E       		.uleb128 0xe
+ 742 00d2 3A       		.uleb128 0x3a
+ 743 00d3 0B       		.uleb128 0xb
+ 744 00d4 3B       		.uleb128 0x3b
+ 745 00d5 0B       		.uleb128 0xb
+ 746 00d6 49       		.uleb128 0x49
+ 747 00d7 13       		.uleb128 0x13
+ 748 00d8 11       		.uleb128 0x11
+ 749 00d9 01       		.uleb128 0x1
+ 750 00da 12       		.uleb128 0x12
+ 751 00db 06       		.uleb128 0x6
+ 752 00dc 40       		.uleb128 0x40
+ 753 00dd 18       		.uleb128 0x18
+ 754 00de 9742     		.uleb128 0x2117
+ 755 00e0 19       		.uleb128 0x19
+ 756 00e1 00       		.byte	0
+ 757 00e2 00       		.byte	0
+ 758 00e3 10       		.uleb128 0x10
+ 759 00e4 34       		.uleb128 0x34
+ 760 00e5 00       		.byte	0
+ 761 00e6 03       		.uleb128 0x3
+ 762 00e7 0E       		.uleb128 0xe
+ 763 00e8 3A       		.uleb128 0x3a
+ 764 00e9 0B       		.uleb128 0xb
+ 765 00ea 3B       		.uleb128 0x3b
+ 766 00eb 0B       		.uleb128 0xb
+ 767 00ec 49       		.uleb128 0x49
+ 768 00ed 13       		.uleb128 0x13
+ 769 00ee 02       		.uleb128 0x2
+ 770 00ef 18       		.uleb128 0x18
+ 771 00f0 00       		.byte	0
+ 772 00f1 00       		.byte	0
+ 773 00f2 11       		.uleb128 0x11
+ 774 00f3 34       		.uleb128 0x34
+ 775 00f4 00       		.byte	0
+ 776 00f5 03       		.uleb128 0x3
+ 777 00f6 0E       		.uleb128 0xe
+ 778 00f7 3A       		.uleb128 0x3a
+ 779 00f8 0B       		.uleb128 0xb
+ 780 00f9 3B       		.uleb128 0x3b
+ 781 00fa 0B       		.uleb128 0xb
+ 782 00fb 49       		.uleb128 0x49
+ 783 00fc 13       		.uleb128 0x13
+ 784 00fd 3F       		.uleb128 0x3f
+ 785 00fe 19       		.uleb128 0x19
+ 786 00ff 3C       		.uleb128 0x3c
+ 787 0100 19       		.uleb128 0x19
+ 788 0101 00       		.byte	0
+ 789 0102 00       		.byte	0
+ 790 0103 12       		.uleb128 0x12
+ 791 0104 34       		.uleb128 0x34
+ 792 0105 00       		.byte	0
+ 793 0106 03       		.uleb128 0x3
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccd07qlk.s 			page 17
+
+
+ 794 0107 0E       		.uleb128 0xe
+ 795 0108 3A       		.uleb128 0x3a
+ 796 0109 0B       		.uleb128 0xb
+ 797 010a 3B       		.uleb128 0x3b
+ 798 010b 05       		.uleb128 0x5
+ 799 010c 49       		.uleb128 0x49
+ 800 010d 13       		.uleb128 0x13
+ 801 010e 3F       		.uleb128 0x3f
+ 802 010f 19       		.uleb128 0x19
+ 803 0110 3C       		.uleb128 0x3c
+ 804 0111 19       		.uleb128 0x19
+ 805 0112 00       		.byte	0
+ 806 0113 00       		.byte	0
+ 807 0114 13       		.uleb128 0x13
+ 808 0115 35       		.uleb128 0x35
+ 809 0116 00       		.byte	0
+ 810 0117 49       		.uleb128 0x49
+ 811 0118 13       		.uleb128 0x13
+ 812 0119 00       		.byte	0
+ 813 011a 00       		.byte	0
+ 814 011b 14       		.uleb128 0x14
+ 815 011c 2E       		.uleb128 0x2e
+ 816 011d 00       		.byte	0
+ 817 011e 3F       		.uleb128 0x3f
+ 818 011f 19       		.uleb128 0x19
+ 819 0120 3C       		.uleb128 0x3c
+ 820 0121 19       		.uleb128 0x19
+ 821 0122 6E       		.uleb128 0x6e
+ 822 0123 0E       		.uleb128 0xe
+ 823 0124 03       		.uleb128 0x3
+ 824 0125 0E       		.uleb128 0xe
+ 825 0126 3A       		.uleb128 0x3a
+ 826 0127 0B       		.uleb128 0xb
+ 827 0128 3B       		.uleb128 0x3b
+ 828 0129 0B       		.uleb128 0xb
+ 829 012a 00       		.byte	0
+ 830 012b 00       		.byte	0
+ 831 012c 00       		.byte	0
+ 832              		.section	.debug_loc,"",%progbits
+ 833              	.Ldebug_loc0:
+ 834              	.LLST0:
+ 835 0000 00000000 		.4byte	.LVL0
+ 836 0004 07000000 		.4byte	.LVL1-1
+ 837 0008 0100     		.2byte	0x1
+ 838 000a 50       		.byte	0x50
+ 839 000b 07000000 		.4byte	.LVL1-1
+ 840 000f 0C000000 		.4byte	.LFE114
+ 841 0013 0400     		.2byte	0x4
+ 842 0015 F3       		.byte	0xf3
+ 843 0016 01       		.uleb128 0x1
+ 844 0017 50       		.byte	0x50
+ 845 0018 9F       		.byte	0x9f
+ 846 0019 00000000 		.4byte	0
+ 847 001d 00000000 		.4byte	0
+ 848              	.LLST1:
+ 849 0021 00000000 		.4byte	.LVL3
+ 850 0025 06000000 		.4byte	.LVL4
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccd07qlk.s 			page 18
+
+
+ 851 0029 0100     		.2byte	0x1
+ 852 002b 50       		.byte	0x50
+ 853 002c 06000000 		.4byte	.LVL4
+ 854 0030 18000000 		.4byte	.LFE116
+ 855 0034 0400     		.2byte	0x4
+ 856 0036 F3       		.byte	0xf3
+ 857 0037 01       		.uleb128 0x1
+ 858 0038 50       		.byte	0x50
+ 859 0039 9F       		.byte	0x9f
+ 860 003a 00000000 		.4byte	0
+ 861 003e 00000000 		.4byte	0
+ 862              		.section	.debug_aranges,"",%progbits
+ 863 0000 34000000 		.4byte	0x34
+ 864 0004 0200     		.2byte	0x2
+ 865 0006 00000000 		.4byte	.Ldebug_info0
+ 866 000a 04       		.byte	0x4
+ 867 000b 00       		.byte	0
+ 868 000c 0000     		.2byte	0
+ 869 000e 0000     		.2byte	0
+ 870 0010 00000000 		.4byte	.LFB114
+ 871 0014 0C000000 		.4byte	.LFE114-.LFB114
+ 872 0018 00000000 		.4byte	.LFB115
+ 873 001c 20000000 		.4byte	.LFE115-.LFB115
+ 874 0020 00000000 		.4byte	.LFB116
+ 875 0024 18000000 		.4byte	.LFE116-.LFB116
+ 876 0028 00000000 		.4byte	.LFB117
+ 877 002c 18000000 		.4byte	.LFE117-.LFB117
+ 878 0030 00000000 		.4byte	0
+ 879 0034 00000000 		.4byte	0
+ 880              		.section	.debug_ranges,"",%progbits
+ 881              	.Ldebug_ranges0:
+ 882 0000 00000000 		.4byte	.LFB114
+ 883 0004 0C000000 		.4byte	.LFE114
+ 884 0008 00000000 		.4byte	.LFB115
+ 885 000c 20000000 		.4byte	.LFE115
+ 886 0010 00000000 		.4byte	.LFB116
+ 887 0014 18000000 		.4byte	.LFE116
+ 888 0018 00000000 		.4byte	.LFB117
+ 889 001c 18000000 		.4byte	.LFE117
+ 890 0020 00000000 		.4byte	0
+ 891 0024 00000000 		.4byte	0
+ 892              		.section	.debug_line,"",%progbits
+ 893              	.Ldebug_line0:
+ 894 0000 87020000 		.section	.debug_str,"MS",%progbits,1
+ 894      02003602 
+ 894      00000201 
+ 894      FB0E0D00 
+ 894      01010101 
+ 895              	.LASF55:
+ 896 0000 54494D45 		.ascii	"TIMEOUT_32ms\000"
+ 896      4F55545F 
+ 896      33326D73 
+ 896      00
+ 897              	.LASF61:
+ 898 000d 6D794269 		.ascii	"myBitPosition\000"
+ 898      74506F73 
+ 898      6974696F 
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccd07qlk.s 			page 19
+
+
+ 898      6E00
+ 899              	.LASF13:
+ 900 001b 52435F53 		.ascii	"RC_SUCCESS\000"
+ 900      55434345 
+ 900      535300
+ 901              	.LASF43:
+ 902 0026 696E7438 		.ascii	"int8_t\000"
+ 902      5F7400
+ 903              	.LASF74:
+ 904 002d 57445F54 		.ascii	"WD_Trigger\000"
+ 904      72696767 
+ 904      657200
+ 905              	.LASF28:
+ 906 0038 52435F45 		.ascii	"RC_ERROR_WRITE_ONLY\000"
+ 906      52524F52 
+ 906      5F575249 
+ 906      54455F4F 
+ 906      4E4C5900 
+ 907              	.LASF73:
+ 908 004c 433A5C55 		.ascii	"C:\\Users\\vboxuser\\Documents\\GitHub\\EAA_GasPeda"
+ 908      73657273 
+ 908      5C76626F 
+ 908      78757365 
+ 908      725C446F 
+ 909 007a 6C5C4C61 		.ascii	"l\\Lab 1\\GasPedal.cydsn\000"
+ 909      6220315C 
+ 909      47617350 
+ 909      6564616C 
+ 909      2E637964 
+ 910              	.LASF2:
+ 911 0091 73686F72 		.ascii	"short int\000"
+ 911      7420696E 
+ 911      7400
+ 912              	.LASF19:
+ 913 009b 52435F45 		.ascii	"RC_ERROR_OVERRUN\000"
+ 913      52524F52 
+ 913      5F4F5645 
+ 913      5252554E 
+ 913      00
+ 914              	.LASF31:
+ 915 00ac 52435F45 		.ascii	"RC_ERROR_WRITE_FAILS\000"
+ 915      52524F52 
+ 915      5F575249 
+ 915      54455F46 
+ 915      41494C53 
+ 916              	.LASF52:
+ 917 00c1 73697A65 		.ascii	"sizetype\000"
+ 917      74797065 
+ 917      00
+ 918              	.LASF16:
+ 919 00ca 52435F45 		.ascii	"RC_ERROR_ZERO\000"
+ 919      52524F52 
+ 919      5F5A4552 
+ 919      4F00
+ 920              	.LASF50:
+ 921 00d8 45455F46 		.ascii	"EE_FREG\000"
+ 921      52454700 
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccd07qlk.s 			page 20
+
+
+ 922              	.LASF58:
+ 923 00e0 57445F53 		.ascii	"WD_Start\000"
+ 923      74617274 
+ 923      00
+ 924              	.LASF48:
+ 925 00e9 45455F55 		.ascii	"EE_UINT32\000"
+ 925      494E5433 
+ 925      3200
+ 926              	.LASF51:
+ 927 00f3 45455F54 		.ascii	"EE_TID\000"
+ 927      494400
+ 928              	.LASF56:
+ 929 00fa 54494D45 		.ascii	"TIMEOUT_4ms\000"
+ 929      4F55545F 
+ 929      346D7300 
+ 930              	.LASF10:
+ 931 0106 75696E74 		.ascii	"uint8_t\000"
+ 931      385F7400 
+ 932              	.LASF36:
+ 933 010e 52435F45 		.ascii	"RC_ERROR_INVALID_STATE\000"
+ 933      52524F52 
+ 933      5F494E56 
+ 933      414C4944 
+ 933      5F535441 
+ 934              	.LASF75:
+ 935 0125 57445F43 		.ascii	"WD_CheckResetBit\000"
+ 935      6865636B 
+ 935      52657365 
+ 935      74426974 
+ 935      00
+ 936              	.LASF45:
+ 937 0136 75696E74 		.ascii	"uint8\000"
+ 937      3800
+ 938              	.LASF66:
+ 939 013c 45455F49 		.ascii	"EE_IRQ_nesting_level\000"
+ 939      52515F6E 
+ 939      65737469 
+ 939      6E675F6C 
+ 939      6576656C 
+ 940              	.LASF65:
+ 941 0151 45455F73 		.ascii	"EE_std_endcycle_next_tid\000"
+ 941      74645F65 
+ 941      6E646379 
+ 941      636C655F 
+ 941      6E657874 
+ 942              	.LASF18:
+ 943 016a 52435F45 		.ascii	"RC_ERROR_RANGE\000"
+ 943      52524F52 
+ 943      5F52414E 
+ 943      474500
+ 944              	.LASF6:
+ 945 0179 666C6F61 		.ascii	"float\000"
+ 945      7400
+ 946              	.LASF38:
+ 947 017f 52435F45 		.ascii	"RC_ERROR_NOT_IMPLEMENTED\000"
+ 947      52524F52 
+ 947      5F4E4F54 
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccd07qlk.s 			page 21
+
+
+ 947      5F494D50 
+ 947      4C454D45 
+ 948              	.LASF8:
+ 949 0198 6C6F6E67 		.ascii	"long long int\000"
+ 949      206C6F6E 
+ 949      6720696E 
+ 949      7400
+ 950              	.LASF63:
+ 951 01a6 45455F6F 		.ascii	"EE_oo_IRQ_suspend_status\000"
+ 951      6F5F4952 
+ 951      515F7375 
+ 951      7370656E 
+ 951      645F7374 
+ 952              	.LASF32:
+ 953 01bf 52435F45 		.ascii	"RC_ERROR_NOT_MATCH\000"
+ 953      52524F52 
+ 953      5F4E4F54 
+ 953      5F4D4154 
+ 953      434800
+ 954              	.LASF37:
+ 955 01d2 52435F45 		.ascii	"RC_ERROR_UNKNOWN\000"
+ 955      52524F52 
+ 955      5F554E4B 
+ 955      4E4F574E 
+ 955      00
+ 956              	.LASF4:
+ 957 01e3 6C6F6E67 		.ascii	"long int\000"
+ 957      20696E74 
+ 957      00
+ 958              	.LASF20:
+ 959 01ec 52435F45 		.ascii	"RC_ERROR_UNDERRUN\000"
+ 959      52524F52 
+ 959      5F554E44 
+ 959      45525255 
+ 959      4E00
+ 960              	.LASF23:
+ 961 01fe 52435F45 		.ascii	"RC_ERROR_BUSY\000"
+ 961      52524F52 
+ 961      5F425553 
+ 961      5900
+ 962              	.LASF29:
+ 963 020c 52435F45 		.ascii	"RC_ERROR_INVALID\000"
+ 963      52524F52 
+ 963      5F494E56 
+ 963      414C4944 
+ 963      00
+ 964              	.LASF34:
+ 965 021d 52435F45 		.ascii	"RC_ERROR_BAD_DATA\000"
+ 965      52524F52 
+ 965      5F424144 
+ 965      5F444154 
+ 965      4100
+ 966              	.LASF11:
+ 967 022f 626F6F6C 		.ascii	"boolean_t\000"
+ 967      65616E5F 
+ 967      7400
+ 968              	.LASF27:
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccd07qlk.s 			page 22
+
+
+ 969 0239 52435F45 		.ascii	"RC_ERROR_READ_ONLY\000"
+ 969      52524F52 
+ 969      5F524541 
+ 969      445F4F4E 
+ 969      4C5900
+ 970              	.LASF46:
+ 971 024c 6C6F6E67 		.ascii	"long double\000"
+ 971      20646F75 
+ 971      626C6500 
+ 972              	.LASF1:
+ 973 0258 756E7369 		.ascii	"unsigned char\000"
+ 973      676E6564 
+ 973      20636861 
+ 973      7200
+ 974              	.LASF0:
+ 975 0266 7369676E 		.ascii	"signed char\000"
+ 975      65642063 
+ 975      68617200 
+ 976              	.LASF9:
+ 977 0272 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 977      206C6F6E 
+ 977      6720756E 
+ 977      7369676E 
+ 977      65642069 
+ 978              	.LASF42:
+ 979 0289 756E7369 		.ascii	"unsigned int\000"
+ 979      676E6564 
+ 979      20696E74 
+ 979      00
+ 980              	.LASF25:
+ 981 0296 52435F45 		.ascii	"RC_ERROR_OPEN\000"
+ 981      52524F52 
+ 981      5F4F5045 
+ 981      4E00
+ 982              	.LASF15:
+ 983 02a4 52435F45 		.ascii	"RC_ERROR_NULL\000"
+ 983      52524F52 
+ 983      5F4E554C 
+ 983      4C00
+ 984              	.LASF22:
+ 985 02b2 52435F45 		.ascii	"RC_ERROR_BUFFER_EMTPY\000"
+ 985      52524F52 
+ 985      5F425546 
+ 985      4645525F 
+ 985      454D5450 
+ 986              	.LASF47:
+ 987 02c8 45455F49 		.ascii	"EE_INT32\000"
+ 987      4E543332 
+ 987      00
+ 988              	.LASF67:
+ 989 02d1 43795265 		.ascii	"CyResetStatus\000"
+ 989      73657453 
+ 989      74617475 
+ 989      7300
+ 990              	.LASF3:
+ 991 02df 73686F72 		.ascii	"short unsigned int\000"
+ 991      7420756E 
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccd07qlk.s 			page 23
+
+
+ 991      7369676E 
+ 991      65642069 
+ 991      6E7400
+ 992              	.LASF40:
+ 993 02f2 5F5F696E 		.ascii	"__int8_t\000"
+ 993      74385F74 
+ 993      00
+ 994              	.LASF71:
+ 995 02fb 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 995      43313120 
+ 995      352E342E 
+ 995      31203230 
+ 995      31363036 
+ 996 032e 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 996      20726576 
+ 996      6973696F 
+ 996      6E203233 
+ 996      37373135 
+ 997 0361 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 997      66756E63 
+ 997      74696F6E 
+ 997      2D736563 
+ 997      74696F6E 
+ 998              	.LASF12:
+ 999 0389 63686172 		.ascii	"char\000"
+ 999      00
+ 1000              	.LASF21:
+ 1001 038e 52435F45 		.ascii	"RC_ERROR_BUFFER_FULL\000"
+ 1001      52524F52 
+ 1001      5F425546 
+ 1001      4645525F 
+ 1001      46554C4C 
+ 1002              	.LASF44:
+ 1003 03a3 696E7433 		.ascii	"int32_t\000"
+ 1003      325F7400 
+ 1004              	.LASF69:
+ 1005 03ab 43795764 		.ascii	"CyWdtStart\000"
+ 1005      74537461 
+ 1005      727400
+ 1006              	.LASF30:
+ 1007 03b6 52435F45 		.ascii	"RC_ERROR_READ_FAILS\000"
+ 1007      52524F52 
+ 1007      5F524541 
+ 1007      445F4641 
+ 1007      494C5300 
+ 1008              	.LASF33:
+ 1009 03ca 52435F45 		.ascii	"RC_ERROR_BAD_PARAM\000"
+ 1009      52524F52 
+ 1009      5F424144 
+ 1009      5F504152 
+ 1009      414D00
+ 1010              	.LASF64:
+ 1011 03dd 45455F41 		.ascii	"EE_ApplicationMode\000"
+ 1011      70706C69 
+ 1011      63617469 
+ 1011      6F6E4D6F 
+ 1011      646500
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccd07qlk.s 			page 24
+
+
+ 1012              	.LASF5:
+ 1013 03f0 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1013      20756E73 
+ 1013      69676E65 
+ 1013      6420696E 
+ 1013      7400
+ 1014              	.LASF7:
+ 1015 0402 646F7562 		.ascii	"double\000"
+ 1015      6C6500
+ 1016              	.LASF26:
+ 1017 0409 52435F45 		.ascii	"RC_ERROR_CHECKSUM\000"
+ 1017      52524F52 
+ 1017      5F434845 
+ 1017      434B5355 
+ 1017      4D00
+ 1018              	.LASF49:
+ 1019 041b 45455F55 		.ascii	"EE_UREG\000"
+ 1019      52454700 
+ 1020              	.LASF41:
+ 1021 0423 5F5F696E 		.ascii	"__int32_t\000"
+ 1021      7433325F 
+ 1021      7400
+ 1022              	.LASF57:
+ 1023 042d 5744545F 		.ascii	"WDT_Timeout_t\000"
+ 1023      54696D65 
+ 1023      6F75745F 
+ 1023      7400
+ 1024              	.LASF76:
+ 1025 043b 57445F52 		.ascii	"WD_RunnableAliveBitField\000"
+ 1025      756E6E61 
+ 1025      626C6541 
+ 1025      6C697665 
+ 1025      42697446 
+ 1026              	.LASF53:
+ 1027 0454 54494D45 		.ascii	"TIMEOUT_2s\000"
+ 1027      4F55545F 
+ 1027      327300
+ 1028              	.LASF59:
+ 1029 045f 57445F41 		.ascii	"WD_Alive\000"
+ 1029      6C697665 
+ 1029      00
+ 1030              	.LASF72:
+ 1031 0468 6273775C 		.ascii	"bsw\\LabBoard\\watchdog.c\000"
+ 1031      4C616242 
+ 1031      6F617264 
+ 1031      5C776174 
+ 1031      6368646F 
+ 1032              	.LASF35:
+ 1033 0480 52435F45 		.ascii	"RC_ERROR_CANCELED\000"
+ 1033      52524F52 
+ 1033      5F43414E 
+ 1033      43454C45 
+ 1033      4400
+ 1034              	.LASF54:
+ 1035 0492 54494D45 		.ascii	"TIMEOUT_256ms\000"
+ 1035      4F55545F 
+ 1035      3235366D 
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccd07qlk.s 			page 25
+
+
+ 1035      7300
+ 1036              	.LASF68:
+ 1037 04a0 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1037      52784275 
+ 1037      66666572 
+ 1037      00
+ 1038              	.LASF14:
+ 1039 04ad 52435F45 		.ascii	"RC_ERROR\000"
+ 1039      52524F52 
+ 1039      00
+ 1040              	.LASF17:
+ 1041 04b6 52435F45 		.ascii	"RC_ERROR_MEMORY\000"
+ 1041      52524F52 
+ 1041      5F4D454D 
+ 1041      4F525900 
+ 1042              	.LASF62:
+ 1043 04c6 45455F6F 		.ascii	"EE_oo_IRQ_disable_count\000"
+ 1043      6F5F4952 
+ 1043      515F6469 
+ 1043      7361626C 
+ 1043      655F636F 
+ 1044              	.LASF60:
+ 1045 04de 74696D65 		.ascii	"timeout\000"
+ 1045      6F757400 
+ 1046              	.LASF39:
+ 1047 04e6 52435F74 		.ascii	"RC_t\000"
+ 1047      00
+ 1048              	.LASF70:
+ 1049 04eb 43795764 		.ascii	"CyWdtClear\000"
+ 1049      74436C65 
+ 1049      617200
+ 1050              	.LASF24:
+ 1051 04f6 52435F45 		.ascii	"RC_ERROR_TIME_OUT\000"
+ 1051      52524F52 
+ 1051      5F54494D 
+ 1051      455F4F55 
+ 1051      5400
+ 1052              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

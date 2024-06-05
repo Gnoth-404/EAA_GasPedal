@@ -22,7 +22,10 @@
 /*****************************************************************************/
 
 #include "watchdog.h"
-
+#include "project.h"
+#include "logging.h"
+#include <stdio.h>
+#include <stdlib.h>
 /*****************************************************************************/
 /* Local pre-processor symbols/macros ('#define')                            */
 /*****************************************************************************/
@@ -44,15 +47,74 @@
 /*****************************************************************************/
 /* Local function prototypes ('static')                                      */
 /*****************************************************************************/
-
+static int8_t WD_RunnableAliveBitField;
 
 /*****************************************************************************/
 /* Function implementation - global ('extern') and local ('static')          */
 /*****************************************************************************/
 
+
+
+
 /**
- * <Description>
- * \param <first para>
- * \return <return value>
+ * Activate the Watchdog trigger
+ * \param WDT_Timeout_t - [IN] Timeout period
+ * \return RC_SUCCESS
  */
-RC_t FILE_function(type para)
+
+RC_t WD_Start(WDT_Timeout_t timeout){
+    CyWdtStart(timeout, CYWDT_LPMODE_NOCHANGE);
+    return RC_SUCCESS;
+}
+
+
+
+/**
+ * Service the Watchdog trigger
+ 
+ * \return RC_SUCCESS
+*/
+RC_t WD_Trigger(){
+    
+    if(WD_RunnableAliveBitField == 0x0f) // 11111 5 runnables alive, TFT is on to do list, set 4 runnable atm
+    {
+        CyWdtClear();
+        WD_RunnableAliveBitField = 0; // reset bit field
+    }    
+    return RC_SUCCESS;
+}
+
+
+/**
+* This function sets the bit at the corresponding position ( 8 bit datatype) 
+* Can monitor upto 8 alive runnables
+* It is called by every runnable using a uniqe position.
+* 0 = readJoystick, 1 = calcControl, 2 = setEngine, 3 = setBrakeLight , 4 = HMI
+* @return RC_SUCCESS
+*/
+
+
+RC_t WD_Alive(uint8_t myBitPosition){
+    
+    WD_RunnableAliveBitField |= (1U) << myBitPosition;
+    return RC_SUCCESS;
+}
+
+
+/**
+ * Check the watchdog bit
+
+ * \return TRUE if watchdog reset bit was set
+ */
+
+boolean_t WD_CheckResetBit(){
+    if(CyResetStatus & CY_RESET_WD) // Check the Watchdog register to determine the cause of the reset
+    {
+        return TRUE;
+    }
+    else
+    {
+        return FALSE;
+    }
+}
+

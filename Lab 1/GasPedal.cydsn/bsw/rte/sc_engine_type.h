@@ -25,21 +25,21 @@
  **********************************************************************/
 
 /* USER CODE START SC_ENGINE_USERDEFINITIONS */
-
+#include "led.h"
 /* USER CODE END SC_ENGINE_USERDEFINITIONS */
 
 typedef 
 /* USER CODE START SC_ENGINE_SIGNALDATADEFINITION */
 struct
 {
-	#error "Provide your data structure"
+	uint8_t engineValue;
 } 
 /* USER CODE END SC_ENGINE_SIGNALDATADEFINITION */
 SC_ENGINE_data_t;
 
 /* USER CODE START InitSC_ENGINE */
-#error "Provide a sensible init value"
-#define SC_ENGINE_INIT_DATA ((SC_ENGINE_data_t){})
+
+#define SC_ENGINE_INIT_DATA ((SC_ENGINE_data_t){0})
 /* USER CODE END InitSC_ENGINE */
 
 

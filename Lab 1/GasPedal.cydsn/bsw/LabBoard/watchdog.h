@@ -76,26 +76,34 @@
 #define WATCHDOG_H
 
 #include "global.h"
-
+#include "project.h"
 /*****************************************************************************/
 /* Global pre-processor symbols/macros and type declarations                 */
 /*****************************************************************************/
 
 //####################### Defines/Macros
 
+
+
+    
+typedef enum{
+    TIMEOUT_2s = CYWDT_1024_TICKS,
+    TIMEOUT_256ms = CYWDT_128_TICKS,
+    TIMEOUT_32ms = CYWDT_16_TICKS,
+    TIMEOUT_4ms = CYWDT_2_TICKS,
+}WDT_Timeout_t;
     
 // Global bit field macro
-
+#define WD_RUN_READJOYSTICK 0u
+#define WD_RUN_CALCCONTROL 1u
+#define WD_RUN_SETENGINE 2u
+#define WD_RUN_SETBRAKELIGHT 3u
+#define WD_RUN_HMI 4u
 /*****************************************************************************/
 /* API functions                                                             */
 /*****************************************************************************/
 
-typedef enum{
-    TIMEOUT_2s,
-    TIMEOUT_256ms,
-    TIMEOUT_32ms,
-    TIMEOUT_4ms,
-}WDT_Timeout_t;
+
 
 
 /**
@@ -109,17 +117,17 @@ RC_t WD_Start(WDT_Timeout_t timeout);
 
 
 /**
- * Service the Watchdog trigger
- 
+ * Service the Watchdog trigger ( Feed the watchdog) 
  * \return RC_SUCCESS
 */
 RC_t WD_Trigger();
 
 
 /**
-* This function sets the bit at the corresponding position.
+* This function sets the bit at the corresponding position ( 8 bit datatype) 
+* Can monitor 8 alive runnables
 * It is called by every runnable using a uniqe position.
-* 1 = JoyStick_run, 2 = Control_run, 3 = Engine_run, 4 = brakelight_run
+* 0 = readJoystick, 1 = calcControl, 2 = setEngine, 3 = setBrakeLight , 4 = HMI
 * @return RC_SUCCESS
 */
 

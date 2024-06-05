@@ -1,6 +1,6 @@
 // ======================================================================
 // GasPedal.v generated from TopDesign.cysch
-// 05/23/2024 at 19:25
+// 06/05/2024 at 01:54
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -1678,12 +1678,12 @@ module top ;
           wire  Net_2216;
           wire  Net_2215;
           wire  Net_2214;
-          wire  Net_2213;
-          wire  Net_2212;
-          wire  Net_2211;
           wire  wTFT_LED;
           wire  wTFT_SDA;
           wire  wTFT_SCL;
+          wire  Net_2213;
+          wire  Net_2212;
+          wire  Net_2211;
           wire  Net_2210;
           wire  Net_2209;
           wire  Net_2208;
@@ -2844,7 +2844,7 @@ module top ;
 		  .oe_sync(1'b0),
 		  .output_clk_en(0),
 		  .output_clock_mode(1'b0),
-		  .output_conn(1'b1),
+		  .output_conn(1'b0),
 		  .output_mode(1'b0),
 		  .output_reset(0),
 		  .output_sync(1'b0),
@@ -2877,7 +2877,7 @@ module top ;
 		  .input_buffer_sel(2'b00))
 		LED_yellow
 		 (.oe(tmpOE__LED_yellow_net),
-		  .y({Net_2216}),
+		  .y({1'b0}),
 		  .fb({tmpFB_0__LED_yellow_net[0:0]}),
 		  .io({tmpIO_0__LED_yellow_net[0:0]}),
 		  .siovref(tmpSIOVREF__LED_yellow_net),
@@ -2919,7 +2919,7 @@ module top ;
 		  .oe_sync(1'b0),
 		  .output_clk_en(0),
 		  .output_clock_mode(1'b0),
-		  .output_conn(1'b1),
+		  .output_conn(1'b0),
 		  .output_mode(1'b0),
 		  .output_reset(0),
 		  .output_sync(1'b0),
@@ -2952,7 +2952,7 @@ module top ;
 		  .input_buffer_sel(2'b00))
 		LED_green
 		 (.oe(tmpOE__LED_green_net),
-		  .y({Net_1727}),
+		  .y({1'b0}),
 		  .fb({tmpFB_0__LED_green_net[0:0]}),
 		  .io({tmpIO_0__LED_green_net[0:0]}),
 		  .siovref(tmpSIOVREF__LED_green_net),
@@ -2994,7 +2994,7 @@ module top ;
 		  .oe_sync(1'b0),
 		  .output_clk_en(0),
 		  .output_clock_mode(1'b0),
-		  .output_conn(1'b1),
+		  .output_conn(1'b0),
 		  .output_mode(1'b0),
 		  .output_reset(0),
 		  .output_sync(1'b0),
@@ -3027,7 +3027,7 @@ module top ;
 		  .input_buffer_sel(2'b00))
 		LED_red
 		 (.oe(tmpOE__LED_red_net),
-		  .y({Net_1739}),
+		  .y({1'b0}),
 		  .fb({tmpFB_0__LED_red_net[0:0]}),
 		  .io({tmpIO_0__LED_red_net[0:0]}),
 		  .siovref(tmpSIOVREF__LED_red_net),

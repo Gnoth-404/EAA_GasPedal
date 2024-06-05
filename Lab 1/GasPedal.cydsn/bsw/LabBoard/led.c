@@ -226,31 +226,5 @@ RC_t LED_RGB_Set(uint8_t red, uint8_t green, uint8_t blue)
     return RC_SUCCESS;
 }
 
-/**
- * Set the brightness of  LED
- * @param LED_id_t ledId Identifier for the LED
- * @param uint8_t brightness Set brightness of the led
- * @return RC_SUCCESS if function was executed as exepected, other error code in case of error
- */
 
-RC_t LED_Brightness_Set(LED_id_t ledId, uint8_t brightness)
-{
-    switch(ledId)
-    {
-            case LED_RED : 
-                RGB_PWM_red_WriteCompare2(LED__Pulse_Width[brightness]);
-            break;
-        
-        case LED_YELLOW : 
-                RGB_PWM_blue_WriteCompare2(LED__Pulse_Width[brightness]);
-            break;
-            
-        case LED_GREEN : 
-                RGB_PWM_green_WriteCompare2(LED__Pulse_Width[brightness]);
-            break; 
-        default:
-            return RC_ERROR_BAD_PARAM;
-    }
-    return RC_SUCCESS;
-}
 

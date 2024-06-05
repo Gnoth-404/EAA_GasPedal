@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc6jREdi.s 			page 1
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc1BW5fq.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc6jREdi.s 			page 1
   28:Generated_Source\PSoC5/JOYSTICK_ADC_XY_FinalBuf_dma.c **** * The following defines are available in Cyfitter.h
   29:Generated_Source\PSoC5/JOYSTICK_ADC_XY_FinalBuf_dma.c **** * 
   30:Generated_Source\PSoC5/JOYSTICK_ADC_XY_FinalBuf_dma.c **** * 
-ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc6jREdi.s 			page 2
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc1BW5fq.s 			page 2
 
 
   31:Generated_Source\PSoC5/JOYSTICK_ADC_XY_FinalBuf_dma.c **** * 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc6jREdi.s 			page 1
   85:Generated_Source\PSoC5/JOYSTICK_ADC_XY_FinalBuf_dma.c **** *   UpperSrcAddress.
   86:Generated_Source\PSoC5/JOYSTICK_ADC_XY_FinalBuf_dma.c **** *       
   87:Generated_Source\PSoC5/JOYSTICK_ADC_XY_FinalBuf_dma.c **** *       
-ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc6jREdi.s 			page 3
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc1BW5fq.s 			page 3
 
 
   88:Generated_Source\PSoC5/JOYSTICK_ADC_XY_FinalBuf_dma.c **** *   UpperDestAddress.
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc6jREdi.s 			page 1
  109:Generated_Source\PSoC5/JOYSTICK_ADC_XY_FinalBuf_dma.c ****                                   (uint8)JOYSTICK_ADC_XY_FinalBuf__TERMIN_SEL);
  110:Generated_Source\PSoC5/JOYSTICK_ADC_XY_FinalBuf_dma.c **** 
  111:Generated_Source\PSoC5/JOYSTICK_ADC_XY_FinalBuf_dma.c ****     /* Set the extended address for the transfers */
-ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc6jREdi.s 			page 4
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc1BW5fq.s 			page 4
 
 
  112:Generated_Source\PSoC5/JOYSTICK_ADC_XY_FinalBuf_dma.c ****     (void)CyDmaChSetExtendedAddress(JOYSTICK_ADC_XY_FinalBuf_DmaHandle, UpperSrcAddress, UpperDestA
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc6jREdi.s 			page 1
  134:Generated_Source\PSoC5/JOYSTICK_ADC_XY_FinalBuf_dma.c **** *
  135:Generated_Source\PSoC5/JOYSTICK_ADC_XY_FinalBuf_dma.c **** *******************************************************************/
  136:Generated_Source\PSoC5/JOYSTICK_ADC_XY_FinalBuf_dma.c **** void JOYSTICK_ADC_XY_FinalBuf_DmaRelease(void) 
-ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc6jREdi.s 			page 5
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc1BW5fq.s 			page 5
 
 
  137:Generated_Source\PSoC5/JOYSTICK_ADC_XY_FinalBuf_dma.c **** {
@@ -283,10 +283,10 @@ ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc6jREdi.s 			page 1
  129 0006 00000000 		.4byte	.Ldebug_abbrev0
  130 000a 04       		.byte	0x4
  131 000b 01       		.uleb128 0x1
- 132 000c 79000000 		.4byte	.LASF24
+ 132 000c B0000000 		.4byte	.LASF24
  133 0010 0C       		.byte	0xc
- 134 0011 30020000 		.4byte	.LASF25
- 135 0015 F3010000 		.4byte	.LASF26
+ 134 0011 38020000 		.4byte	.LASF25
+ 135 0015 6B000000 		.4byte	.LASF26
  136 0019 00000000 		.4byte	.Ldebug_ranges0+0
  137 001d 00000000 		.4byte	0
  138 0021 00000000 		.4byte	.Ldebug_line0
@@ -297,30 +297,30 @@ ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc6jREdi.s 			page 1
  143 002c 03       		.uleb128 0x3
  144 002d 04       		.byte	0x4
  145 002e 07       		.byte	0x7
- 146 002f 38010000 		.4byte	.LASF0
-ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc6jREdi.s 			page 6
+ 146 002f 7D010000 		.4byte	.LASF0
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc1BW5fq.s 			page 6
 
 
  147 0033 03       		.uleb128 0x3
  148 0034 08       		.byte	0x8
  149 0035 05       		.byte	0x5
- 150 0036 9D010000 		.4byte	.LASF1
+ 150 0036 E2010000 		.4byte	.LASF1
  151 003a 03       		.uleb128 0x3
  152 003b 08       		.byte	0x8
  153 003c 04       		.byte	0x4
- 154 003d 74020000 		.4byte	.LASF2
+ 154 003d 7C020000 		.4byte	.LASF2
  155 0041 03       		.uleb128 0x3
  156 0042 01       		.byte	0x1
  157 0043 06       		.byte	0x6
- 158 0044 80020000 		.4byte	.LASF3
+ 158 0044 88020000 		.4byte	.LASF3
  159 0048 03       		.uleb128 0x3
  160 0049 01       		.byte	0x1
  161 004a 08       		.byte	0x8
- 162 004b 6B000000 		.4byte	.LASF4
+ 162 004b 61010000 		.4byte	.LASF4
  163 004f 03       		.uleb128 0x3
  164 0050 02       		.byte	0x2
  165 0051 05       		.byte	0x5
- 166 0052 E9010000 		.4byte	.LASF5
+ 166 0052 2E020000 		.4byte	.LASF5
  167 0056 03       		.uleb128 0x3
  168 0057 02       		.byte	0x2
  169 0058 07       		.byte	0x7
@@ -328,46 +328,46 @@ ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc6jREdi.s 			page 1
  171 005d 03       		.uleb128 0x3
  172 005e 04       		.byte	0x4
  173 005f 05       		.byte	0x5
- 174 0060 66020000 		.4byte	.LASF7
+ 174 0060 6E020000 		.4byte	.LASF7
  175 0064 03       		.uleb128 0x3
  176 0065 04       		.byte	0x4
  177 0066 07       		.byte	0x7
- 178 0067 12010000 		.4byte	.LASF8
+ 178 0067 49010000 		.4byte	.LASF8
  179 006b 03       		.uleb128 0x3
  180 006c 08       		.byte	0x8
  181 006d 07       		.byte	0x7
- 182 006e 6C010000 		.4byte	.LASF9
+ 182 006e B1010000 		.4byte	.LASF9
  183 0072 03       		.uleb128 0x3
  184 0073 04       		.byte	0x4
  185 0074 07       		.byte	0x7
- 186 0075 94010000 		.4byte	.LASF10
+ 186 0075 D9010000 		.4byte	.LASF10
  187 0079 03       		.uleb128 0x3
  188 007a 01       		.byte	0x1
  189 007b 08       		.byte	0x8
- 190 007c 6F020000 		.4byte	.LASF11
+ 190 007c 77020000 		.4byte	.LASF11
  191 0080 04       		.uleb128 0x4
- 192 0081 24010000 		.4byte	.LASF12
+ 192 0081 5B010000 		.4byte	.LASF12
  193 0085 02       		.byte	0x2
  194 0086 E901     		.2byte	0x1e9
  195 0088 48000000 		.4byte	0x48
  196 008c 04       		.uleb128 0x4
- 197 008d 31010000 		.4byte	.LASF13
+ 197 008d 76010000 		.4byte	.LASF13
  198 0091 02       		.byte	0x2
  199 0092 EA01     		.2byte	0x1ea
  200 0094 56000000 		.4byte	0x56
  201 0098 03       		.uleb128 0x3
  202 0099 04       		.byte	0x4
  203 009a 04       		.byte	0x4
-ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc6jREdi.s 			page 7
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc1BW5fq.s 			page 7
 
 
  204 009b 65000000 		.4byte	.LASF14
  205 009f 03       		.uleb128 0x3
  206 00a0 08       		.byte	0x8
  207 00a1 04       		.byte	0x4
- 208 00a2 2A010000 		.4byte	.LASF15
+ 208 00a2 6F010000 		.4byte	.LASF15
  209 00a6 05       		.uleb128 0x5
- 210 00a7 45010000 		.4byte	.LASF27
+ 210 00a7 8A010000 		.4byte	.LASF27
  211 00ab 01       		.byte	0x1
  212 00ac 61       		.byte	0x61
  213 00ad 80000000 		.4byte	0x80
@@ -377,7 +377,7 @@ ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc6jREdi.s 			page 1
  217 00ba 9C       		.byte	0x9c
  218 00bb 4D010000 		.4byte	0x14d
  219 00bf 06       		.uleb128 0x6
- 220 00c0 07010000 		.4byte	.LASF16
+ 220 00c0 3E010000 		.4byte	.LASF16
  221 00c4 01       		.byte	0x1
  222 00c5 61       		.byte	0x61
  223 00c6 80000000 		.4byte	0x80
@@ -395,7 +395,7 @@ ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc6jREdi.s 			page 1
  235 00e4 8C000000 		.4byte	0x8c
  236 00e8 42000000 		.4byte	.LLST2
  237 00ec 06       		.uleb128 0x6
- 238 00ed 83010000 		.4byte	.LASF19
+ 238 00ed C8010000 		.4byte	.LASF19
  239 00f1 01       		.byte	0x1
  240 00f2 61       		.byte	0x61
  241 00f3 8C000000 		.4byte	0x8c
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc6jREdi.s 			page 1
  258 0113 00       		.sleb128 0
  259 0114 08       		.uleb128 0x8
  260 0115 02       		.uleb128 0x2
-ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc6jREdi.s 			page 8
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc1BW5fq.s 			page 8
 
 
  261 0116 7D       		.byte	0x7d
@@ -462,7 +462,7 @@ ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc6jREdi.s 			page 1
  299 014b 00       		.byte	0
  300 014c 00       		.byte	0
  301 014d 0A       		.uleb128 0xa
- 302 014e C5010000 		.4byte	.LASF28
+ 302 014e 0A020000 		.4byte	.LASF28
  303 0152 01       		.byte	0x1
  304 0153 88       		.byte	0x88
  305 0154 00000000 		.4byte	.LFB1
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc6jREdi.s 			page 1
  315 016d 10000000 		.4byte	.LASF29
  316 0171 01       		.byte	0x1
  317 0172 45       		.byte	0x45
-ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc6jREdi.s 			page 9
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc1BW5fq.s 			page 9
 
 
  318 0173 80000000 		.4byte	0x80
@@ -486,13 +486,13 @@ ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc6jREdi.s 			page 1
  320 0178 03       		.byte	0x3
  321 0179 00000000 		.4byte	JOYSTICK_ADC_XY_FinalBuf_DmaHandle
  322 017d 0D       		.uleb128 0xd
- 323 017e 9B020000 		.4byte	.LASF20
- 324 0182 9B020000 		.4byte	.LASF20
+ 323 017e A3020000 		.4byte	.LASF20
+ 324 0182 A3020000 		.4byte	.LASF20
  325 0186 03       		.byte	0x3
  326 0187 33       		.byte	0x33
  327 0188 0D       		.uleb128 0xd
- 328 0189 AB010000 		.4byte	.LASF21
- 329 018d AB010000 		.4byte	.LASF21
+ 328 0189 F0010000 		.4byte	.LASF21
+ 329 018d F0010000 		.4byte	.LASF21
  330 0191 03       		.byte	0x3
  331 0192 2D       		.byte	0x2d
  332 0193 0D       		.uleb128 0xd
@@ -501,8 +501,8 @@ ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc6jREdi.s 			page 1
  335 019c 03       		.byte	0x3
  336 019d 2C       		.byte	0x2c
  337 019e 0D       		.uleb128 0xd
- 338 019f 8C020000 		.4byte	.LASF23
- 339 01a3 8C020000 		.4byte	.LASF23
+ 338 019f 94020000 		.4byte	.LASF23
+ 339 01a3 94020000 		.4byte	.LASF23
  340 01a7 03       		.byte	0x3
  341 01a8 2A       		.byte	0x2a
  342 01a9 00       		.byte	0
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc6jREdi.s 			page 1
  372 001b 08       		.uleb128 0x8
  373 001c 00       		.byte	0
  374 001d 00       		.byte	0
-ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc6jREdi.s 			page 10
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc1BW5fq.s 			page 10
 
 
  375 001e 03       		.uleb128 0x3
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc6jREdi.s 			page 1
  429 0055 03       		.uleb128 0x3
  430 0056 0E       		.uleb128 0xe
  431 0057 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc6jREdi.s 			page 11
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc1BW5fq.s 			page 11
 
 
  432 0058 0B       		.uleb128 0xb
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc6jREdi.s 			page 1
  486 0095 06       		.uleb128 0x6
  487 0096 40       		.uleb128 0x40
  488 0097 18       		.uleb128 0x18
-ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc6jREdi.s 			page 12
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc1BW5fq.s 			page 12
 
 
  489 0098 9742     		.uleb128 0x2117
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc6jREdi.s 			page 1
  543 0004 1A000000 		.4byte	.LVL4
  544 0008 0100     		.2byte	0x1
  545 000a 50       		.byte	0x50
-ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc6jREdi.s 			page 13
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc1BW5fq.s 			page 13
 
 
  546 000b 1A000000 		.4byte	.LVL4
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc6jREdi.s 			page 1
  600 0006 00000000 		.4byte	.Ldebug_info0
  601 000a 04       		.byte	0x4
  602 000b 00       		.byte	0
-ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc6jREdi.s 			page 14
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc1BW5fq.s 			page 14
 
 
  603 000c 0000     		.2byte	0
@@ -834,143 +834,144 @@ ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc6jREdi.s 			page 1
  632              	.LASF14:
  633 0065 666C6F61 		.ascii	"float\000"
  633      7400
- 634              	.LASF4:
- 635 006b 756E7369 		.ascii	"unsigned char\000"
- 635      676E6564 
- 635      20636861 
-ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc6jREdi.s 			page 15
+ 634              	.LASF26:
+ 635 006b 433A5C55 		.ascii	"C:\\Users\\vboxuser\\Documents\\GitHub\\EAA_GasPeda"
+ 635      73657273 
+ 635      5C76626F 
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc1BW5fq.s 			page 15
 
 
- 635      7200
- 636              	.LASF24:
- 637 0079 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 637      43313120 
- 637      352E342E 
- 637      31203230 
- 637      31363036 
- 638 00ac 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
- 638      20726576 
- 638      6973696F 
- 638      6E203233 
- 638      37373135 
- 639 00df 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 639      66756E63 
- 639      74696F6E 
- 639      2D736563 
- 639      74696F6E 
- 640              	.LASF16:
- 641 0107 42757273 		.ascii	"BurstCount\000"
- 641      74436F75 
- 641      6E7400
- 642              	.LASF8:
- 643 0112 6C6F6E67 		.ascii	"long unsigned int\000"
- 643      20756E73 
- 643      69676E65 
- 643      6420696E 
- 643      7400
- 644              	.LASF12:
- 645 0124 75696E74 		.ascii	"uint8\000"
- 645      3800
- 646              	.LASF15:
- 647 012a 646F7562 		.ascii	"double\000"
- 647      6C6500
- 648              	.LASF13:
- 649 0131 75696E74 		.ascii	"uint16\000"
- 649      313600
- 650              	.LASF0:
- 651 0138 756E7369 		.ascii	"unsigned int\000"
- 651      676E6564 
- 651      20696E74 
- 651      00
- 652              	.LASF27:
- 653 0145 4A4F5953 		.ascii	"JOYSTICK_ADC_XY_FinalBuf_DmaInitialize\000"
- 653      5449434B 
- 653      5F414443 
- 653      5F58595F 
- 653      46696E61 
- 654              	.LASF9:
- 655 016c 6C6F6E67 		.ascii	"long long unsigned int\000"
- 655      206C6F6E 
- 655      6720756E 
- 655      7369676E 
- 655      65642069 
- 656              	.LASF19:
- 657 0183 55707065 		.ascii	"UpperDestAddress\000"
- 657      72446573 
- 657      74416464 
-ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc6jREdi.s 			page 16
+ 635      78757365 
+ 635      725C446F 
+ 636 0099 6C5C4C61 		.ascii	"l\\Lab 1\\GasPedal.cydsn\000"
+ 636      6220315C 
+ 636      47617350 
+ 636      6564616C 
+ 636      2E637964 
+ 637              	.LASF24:
+ 638 00b0 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 638      43313120 
+ 638      352E342E 
+ 638      31203230 
+ 638      31363036 
+ 639 00e3 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 639      20726576 
+ 639      6973696F 
+ 639      6E203233 
+ 639      37373135 
+ 640 0116 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 640      66756E63 
+ 640      74696F6E 
+ 640      2D736563 
+ 640      74696F6E 
+ 641              	.LASF16:
+ 642 013e 42757273 		.ascii	"BurstCount\000"
+ 642      74436F75 
+ 642      6E7400
+ 643              	.LASF8:
+ 644 0149 6C6F6E67 		.ascii	"long unsigned int\000"
+ 644      20756E73 
+ 644      69676E65 
+ 644      6420696E 
+ 644      7400
+ 645              	.LASF12:
+ 646 015b 75696E74 		.ascii	"uint8\000"
+ 646      3800
+ 647              	.LASF4:
+ 648 0161 756E7369 		.ascii	"unsigned char\000"
+ 648      676E6564 
+ 648      20636861 
+ 648      7200
+ 649              	.LASF15:
+ 650 016f 646F7562 		.ascii	"double\000"
+ 650      6C6500
+ 651              	.LASF13:
+ 652 0176 75696E74 		.ascii	"uint16\000"
+ 652      313600
+ 653              	.LASF0:
+ 654 017d 756E7369 		.ascii	"unsigned int\000"
+ 654      676E6564 
+ 654      20696E74 
+ 654      00
+ 655              	.LASF27:
+ 656 018a 4A4F5953 		.ascii	"JOYSTICK_ADC_XY_FinalBuf_DmaInitialize\000"
+ 656      5449434B 
+ 656      5F414443 
+ 656      5F58595F 
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc1BW5fq.s 			page 16
 
 
- 657      72657373 
- 657      00
- 658              	.LASF10:
- 659 0194 73697A65 		.ascii	"sizetype\000"
- 659      74797065 
- 659      00
- 660              	.LASF1:
- 661 019d 6C6F6E67 		.ascii	"long long int\000"
- 661      206C6F6E 
- 661      6720696E 
- 661      7400
- 662              	.LASF21:
- 663 01ab 4379446D 		.ascii	"CyDmaChSetExtendedAddress\000"
- 663      61436853 
- 663      65744578 
- 663      74656E64 
- 663      65644164 
- 664              	.LASF28:
- 665 01c5 4A4F5953 		.ascii	"JOYSTICK_ADC_XY_FinalBuf_DmaRelease\000"
- 665      5449434B 
- 665      5F414443 
- 665      5F58595F 
- 665      46696E61 
- 666              	.LASF5:
- 667 01e9 73686F72 		.ascii	"short int\000"
- 667      7420696E 
- 667      7400
- 668              	.LASF26:
- 669 01f3 5A3A5C53 		.ascii	"Z:\\SS24_Lab\\EAA_Folder\\TFTJson.cyprj.Archive01\\"
- 669      5332345F 
- 669      4C61625C 
- 669      4541415F 
- 669      466F6C64 
- 670 0222 5446544A 		.ascii	"TFTJson.cydsn\000"
- 670      736F6E2E 
- 670      63796473 
- 670      6E00
+ 656      46696E61 
+ 657              	.LASF9:
+ 658 01b1 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 658      206C6F6E 
+ 658      6720756E 
+ 658      7369676E 
+ 658      65642069 
+ 659              	.LASF19:
+ 660 01c8 55707065 		.ascii	"UpperDestAddress\000"
+ 660      72446573 
+ 660      74416464 
+ 660      72657373 
+ 660      00
+ 661              	.LASF10:
+ 662 01d9 73697A65 		.ascii	"sizetype\000"
+ 662      74797065 
+ 662      00
+ 663              	.LASF1:
+ 664 01e2 6C6F6E67 		.ascii	"long long int\000"
+ 664      206C6F6E 
+ 664      6720696E 
+ 664      7400
+ 665              	.LASF21:
+ 666 01f0 4379446D 		.ascii	"CyDmaChSetExtendedAddress\000"
+ 666      61436853 
+ 666      65744578 
+ 666      74656E64 
+ 666      65644164 
+ 667              	.LASF28:
+ 668 020a 4A4F5953 		.ascii	"JOYSTICK_ADC_XY_FinalBuf_DmaRelease\000"
+ 668      5449434B 
+ 668      5F414443 
+ 668      5F58595F 
+ 668      46696E61 
+ 669              	.LASF5:
+ 670 022e 73686F72 		.ascii	"short int\000"
+ 670      7420696E 
+ 670      7400
  671              	.LASF25:
- 672 0230 47656E65 		.ascii	"Generated_Source\\PSoC5\\JOYSTICK_ADC_XY_FinalBuf_d"
+ 672 0238 47656E65 		.ascii	"Generated_Source\\PSoC5\\JOYSTICK_ADC_XY_FinalBuf_d"
  672      72617465 
  672      645F536F 
  672      75726365 
  672      5C50536F 
- 673 0261 6D612E63 		.ascii	"ma.c\000"
+ 673 0269 6D612E63 		.ascii	"ma.c\000"
  673      00
  674              	.LASF7:
- 675 0266 6C6F6E67 		.ascii	"long int\000"
+ 675 026e 6C6F6E67 		.ascii	"long int\000"
  675      20696E74 
  675      00
  676              	.LASF11:
- 677 026f 63686172 		.ascii	"char\000"
+ 677 0277 63686172 		.ascii	"char\000"
  677      00
  678              	.LASF2:
- 679 0274 6C6F6E67 		.ascii	"long double\000"
+ 679 027c 6C6F6E67 		.ascii	"long double\000"
  679      20646F75 
  679      626C6500 
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc1BW5fq.s 			page 17
+
+
  680              	.LASF3:
-ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\cc6jREdi.s 			page 17
-
-
- 681 0280 7369676E 		.ascii	"signed char\000"
+ 681 0288 7369676E 		.ascii	"signed char\000"
  681      65642063 
  681      68617200 
  682              	.LASF23:
- 683 028c 4379446D 		.ascii	"CyDmaChDisable\000"
+ 683 0294 4379446D 		.ascii	"CyDmaChDisable\000"
  683      61436844 
  683      69736162 
  683      6C6500
  684              	.LASF20:
- 685 029b 4379446D 		.ascii	"CyDmaChSetConfiguration\000"
+ 685 02a3 4379446D 		.ascii	"CyDmaChSetConfiguration\000"
  685      61436853 
  685      6574436F 
  685      6E666967 

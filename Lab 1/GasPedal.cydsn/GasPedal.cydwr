@@ -253,11 +253,15 @@
     <Group key="Pin">
       <Data key="2a1ed980-0585-4041-8e6a-e7fc5d0e3475" value="SEVEN_A" />
       <Data key="2e2fc967-676d-44c7-9af9-91431810c2f6" value="BUTTON_2" />
+      <Data key="3d3c4daf-353f-40c6-bee0-a2677287dd55" value="TFT_CS" />
       <Data key="4c99f9ad-295e-463c-ab47-fe68e3727c4d" value="LED_yellow" />
       <Data key="8c08a741-f7e6-4f73-85b4-04ef42486882" value="LED_green" />
       <Data key="8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba" value="BUTTON_1" />
       <Data key="8fafdd0f-022c-4d0c-9052-624c5b610b9d" value="BUTTON_3" />
+      <Data key="8ff0fab9-a4ea-4bc5-b6c5-c50d66d48c61" value="TFT_LED" />
       <Data key="26fd2568-a5dd-40c8-a466-adccc908da11" value="SEVEN_SELECT" />
+      <Data key="29c0f251-9a63-4da2-a85c-540b3ed87a70" value="TFT_RES" />
+      <Data key="83b2fde2-60ad-45b6-9e5c-cb3baa6e3f9a" value="TFT_SCL" />
       <Data key="88a16469-a32a-40bb-94ef-95a37ddadfff" value="RGB_B" />
       <Data key="126c64bf-dff6-4eed-bd9f-ca6b0e1e3f2f" value="BUTTON_4" />
       <Data key="810cb75b-01df-4d15-983a-349c40d0793e" value="SEVEN_B" />
@@ -266,12 +270,14 @@
       <Data key="b8b3d6a5-edaa-4510-80a5-54f01363be28" value="SEVEN_DP" />
       <Data key="bc5df63c-f944-4b29-8f61-a1aefda3e9f6" value="SEVEN_C" />
       <Data key="c0ab2431-882e-4e27-8bdb-3be6069cee65" value="SEVEN_G" />
+      <Data key="ccae75a3-bc05-4f35-af8f-d27a9a9ff698" value="TFT_DC" />
       <Data key="d2b713b0-f437-4958-9849-42793d15d9db" value="Joystick_horizontal" />
       <Data key="d4cc4ff5-f80b-48de-9365-3258543ba486" value="SEVEN_E" />
       <Data key="d7a8b12f-1d92-4506-bea6-183af5cf4cd5" value="RGB_G" />
       <Data key="d9018990-3ca9-4654-a0db-7bda5113aca2" value="Joystick_button" />
       <Data key="e35d92b8-d8ca-4df6-ab8c-c32616b8babc" value="LED_red" />
       <Data key="e851a3b9-efb8-48be-bbb8-b303b216c393" value="RGB_R" />
+      <Data key="eb9f192e-d2e9-46c8-8f5c-bd913822af84" value="TFT_SDA" />
       <Data key="ed092b9b-d398-4703-be89-cebf998501f6" value="DEBUG_TX" />
       <Data key="f03ee580-cf4a-4777-9daf-b00fa6f79b63" value="Joystick_vertical" />
       <Data key="f86fa044-b5a3-4352-b693-67ad8e9a15ad" value="SEVEN_D" />
@@ -3378,7 +3384,7 @@
     </Group>
     <Group key="8c08a741-f7e6-4f73-85b4-04ef42486882">
       <Group key="0">
-        <Data key="Port Format" value="0,6" />
+        <Data key="Port Format" value="0,7" />
       </Group>
     </Group>
     <Group key="8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba">
@@ -3458,7 +3464,7 @@
     </Group>
     <Group key="e35d92b8-d8ca-4df6-ab8c-c32616b8babc">
       <Group key="0">
-        <Data key="Port Format" value="0,7" />
+        <Data key="Port Format" value="0,6" />
       </Group>
     </Group>
     <Group key="e851a3b9-efb8-48be-bbb8-b303b216c393">

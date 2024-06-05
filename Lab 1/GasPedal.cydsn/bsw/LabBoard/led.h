@@ -170,7 +170,7 @@ RC_t LED_RGB_Set(uint8_t red, uint8_t green, uint8_t blue);
  * @return RC_SUCCESS if function was executed as exepected, other error code in case of error
  */
 
-RC_t LED_Brightness_Set(LED_id_t ledId, uint8_t brightness);
+
 /*****************************************************************************/
 /* Private stuff, only visible for Together, declared static in cpp - File   */
 /*****************************************************************************/

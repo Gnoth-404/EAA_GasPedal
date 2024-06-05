@@ -1,5 +1,5 @@
 # GasPedal
-# 2024-05-23 17:26:02Z
+# 2024-06-04 23:54:44Z
 
 set_io "DEBUG_RX(0)" iocell 12 6
 set_io "DEBUG_TX(0)" iocell 12 7
@@ -15,8 +15,8 @@ set_io "SEVEN_C(0)" iocell 1 5
 set_io "SEVEN_B(0)" iocell 1 6
 set_io "SEVEN_A(0)" iocell 1 7
 set_io "LED_yellow(0)" iocell 2 0
-set_io "LED_green(0)" iocell 0 6
-set_io "LED_red(0)" iocell 0 7
+set_io "LED_green(0)" iocell 0 7
+set_io "LED_red(0)" iocell 0 6
 set_io "SEVEN_SELECT(0)" iocell 3 5
 set_io "BUTTON_1(0)" iocell 0 3
 set_io "BUTTON_2(0)" iocell 0 4

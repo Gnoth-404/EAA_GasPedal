@@ -41,13 +41,20 @@
 inline RC_t SC_JOYSTICK_driverIn(SC_JOYSTICK_data_t *const data)
 {
 	/* USER CODE START driverInSC_JOYSTICK */
-#error "Add your code here"
+    sint8_t xHorizontal;
+    sint8_t yVertical;
 
+    
 	//Read data from the MCAL driver
+    RC_t result = JOYSTICK_ReadPosition(&xHorizontal, &yVertical);
 
 	//Scale it to the application type
-
-	return RC_SUCCESS;
+    data->xPos  = xHorizontal;
+    
+    //LOG_I("Xposition","%d",xHorizontal);
+    
+    data-> yPos = yVertical;
+	return result;
 	/* USER CODE END driverInSC_JOYSTICK */
 }
 

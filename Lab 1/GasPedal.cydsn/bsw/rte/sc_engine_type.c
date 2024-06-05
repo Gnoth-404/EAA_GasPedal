@@ -40,7 +40,14 @@
 inline RC_t SC_ENGINE_driverOut(const SC_ENGINE_data_t  *const data)
 {
 	/* USER CODE START driverOutSC_ENGINE */
-#error "Add your code here"
+        if(data->engineValue <= 0)
+    {
+        LED_RGB_Set(0, 0, 0);
+    }
+    else
+    {
+        LED_RGB_Set(0, data->engineValue, 0);
+    }
 
 	//Scale application data to drive format
 

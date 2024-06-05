@@ -119,6 +119,12 @@ TASK(tsk_io)
  *******************************************************************************/
 
 /* USER CODE START TSK_IO_ISR */
-
+ISR2(isr_Button)
+{
+    if(BUTTON_IsPressed(BUTTON_1))
+    {
+        ShutdownOS(0);
+    } 
+}
 /* USER CODE END TSK_IO_ISR */
 
