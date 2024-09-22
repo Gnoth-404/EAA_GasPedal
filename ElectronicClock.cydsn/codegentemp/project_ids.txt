@@ -1,0 +1,7 @@
+C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn\GasPedal.cyprj|7aeeddf4-8db4-4891-800d-6810c47c402b
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|521ed194-73b9-44ea-bc2c-ea85ac0dd3c6
+C:\Users\vboxuser\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|1b4cc633-7ef3-41c3-8474-714114e2f659
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|a511f4f3-51b2-44a0-baae-cae0710dec31
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|47f420de-2b34-4952-9f91-2942991e2ad1
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|c64e4200-55f2-4100-bf8f-d486e8758474
+C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\ElectronicClock.cydsn\ElectronicClock.cyprj|576d5886-a3a9-4cc9-9b48-4f1f87ed0184

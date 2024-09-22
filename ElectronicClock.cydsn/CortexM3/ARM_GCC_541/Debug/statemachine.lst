@@ -1,0 +1,2691 @@
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"statemachine.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.STATE__getIndexCurrentState,"ax",%progbits
+  20              		.align	2
+  21              		.global	STATE__getIndexCurrentState
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	STATE__getIndexCurrentState, %function
+  25              	STATE__getIndexCurrentState:
+  26              	.LFB114:
+  27              		.file 1 "asw\\statemachine.c"
+   1:asw/statemachine.c **** /**
+   2:asw/statemachine.c **** * \file <filename>
+   3:asw/statemachine.c **** * \author <author-name>
+   4:asw/statemachine.c **** * \date <date>
+   5:asw/statemachine.c **** *
+   6:asw/statemachine.c **** * \brief <Symbolic File name>
+   7:asw/statemachine.c **** *
+   8:asw/statemachine.c **** * \copyright Copyright ©2016
+   9:asw/statemachine.c **** * Department of electrical engineering and information technology, Hochschule Darmstadt - Universit
+  10:asw/statemachine.c **** * Permission to use, copy, modify, and distribute this software and its documentation for education
+  11:asw/statemachine.c **** * (unless permitted by h_da) and official h_da projects, is hereby granted for enrolled students of
+  12:asw/statemachine.c **** * this paragraph and the following paragraph appear in all copies, modifications, and distributions
+  13:asw/statemachine.c **** * Contact Prof.Dr.-Ing. Peter Fromm, peter.fromm@h-da.de, Birkenweg 8 64295 Darmstadt - GERMANY for
+  14:asw/statemachine.c **** *
+  15:asw/statemachine.c **** * \warning This software is a PROTOTYPE version and is not designed or intended for use in producti
+  16:asw/statemachine.c **** * The user represents and warrants that it will NOT use or redistribute the Software for such purpo
+  17:asw/statemachine.c **** * This prototype is for research purposes only. This software is provided "AS IS," without a warran
+  18:asw/statemachine.c **** */
+  19:asw/statemachine.c **** 
+  20:asw/statemachine.c **** /*****************************************************************************/
+  21:asw/statemachine.c **** /* Include files                                                             */
+  22:asw/statemachine.c **** /*****************************************************************************/
+  23:asw/statemachine.c **** #include "statemachine.h"
+  24:asw/statemachine.c **** #include "logging.h"
+  25:asw/statemachine.c **** 
+  26:asw/statemachine.c **** /*****************************************************************************/
+  27:asw/statemachine.c **** /* Local pre-processor symbols/macros ('#define')                            */
+  28:asw/statemachine.c **** /*****************************************************************************/
+  29:asw/statemachine.c **** 
+  30:asw/statemachine.c **** /*****************************************************************************/
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 2
+
+
+  31:asw/statemachine.c **** /* Global variable definitions (declared in header file with 'extern')       */
+  32:asw/statemachine.c **** /*****************************************************************************/
+  33:asw/statemachine.c **** 
+  34:asw/statemachine.c **** /*****************************************************************************/
+  35:asw/statemachine.c **** /* Local type definitions ('typedef')                                        */
+  36:asw/statemachine.c **** /*****************************************************************************/
+  37:asw/statemachine.c **** 
+  38:asw/statemachine.c **** /*****************************************************************************/
+  39:asw/statemachine.c **** /* Local variable definitions ('static')                                     */
+  40:asw/statemachine.c **** /*****************************************************************************/
+  41:asw/statemachine.c **** 
+  42:asw/statemachine.c **** 
+  43:asw/statemachine.c **** 
+  44:asw/statemachine.c **** /*****************************************************************************/
+  45:asw/statemachine.c **** /* Local function prototypes ('static')                                      */
+  46:asw/statemachine.c **** /*****************************************************************************/
+  47:asw/statemachine.c **** 
+  48:asw/statemachine.c **** 
+  49:asw/statemachine.c **** /*****************************************************************************/
+  50:asw/statemachine.c **** /* Function implementation - global ('extern') and local ('static')          */
+  51:asw/statemachine.c **** /*****************************************************************************/
+  52:asw/statemachine.c **** 
+  53:asw/statemachine.c **** #define INVALIDINDEX -1
+  54:asw/statemachine.c **** 
+  55:asw/statemachine.c **** /** return the index of the provided state in the given table 
+  56:asw/statemachine.c ****  **/
+  57:asw/statemachine.c **** sint16_t STATE__getIndexCurrentState(STATE_t * const me)
+  58:asw/statemachine.c **** {
+  28              		.loc 1 58 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+  34 0000 10B4     		push	{r4}
+  35              		.cfi_def_cfa_offset 4
+  36              		.cfi_offset 4, -4
+  37              	.LVL1:
+  38              	.LBB2:
+  59:asw/statemachine.c ****     
+  60:asw/statemachine.c ****     sint16_t result = INVALIDINDEX; //error
+  61:asw/statemachine.c ****     
+  62:asw/statemachine.c ****     for (uint16_t i = 0; i < me->m_transitionTableSize; i++)
+  39              		.loc 1 62 0
+  40 0002 0023     		movs	r3, #0
+  41 0004 0BE0     		b	.L2
+  42              	.LVL2:
+  43              	.L5:
+  63:asw/statemachine.c ****     {
+  64:asw/statemachine.c ****         if ((*me->m_transitionTable)[i].fromState == me->m_state)
+  44              		.loc 1 64 0
+  45 0006 0468     		ldr	r4, [r0]
+  46 0008 03EB4301 		add	r1, r3, r3, lsl #1
+  47 000c 8A00     		lsls	r2, r1, #2
+  48 000e A15A     		ldrh	r1, [r4, r2]
+  49 0010 C289     		ldrh	r2, [r0, #14]
+  50 0012 9142     		cmp	r1, r2
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 3
+
+
+  51 0014 01D1     		bne	.L3
+  65:asw/statemachine.c ****         {
+  66:asw/statemachine.c ****             return i;
+  52              		.loc 1 66 0
+  53 0016 18B2     		sxth	r0, r3
+  54              	.LVL3:
+  55 0018 06E0     		b	.L4
+  56              	.LVL4:
+  57              	.L3:
+  62:asw/statemachine.c ****     {
+  58              		.loc 1 62 0 discriminator 2
+  59 001a 0133     		adds	r3, r3, #1
+  60              	.LVL5:
+  61 001c 9BB2     		uxth	r3, r3
+  62              	.LVL6:
+  63              	.L2:
+  62:asw/statemachine.c ****     {
+  64              		.loc 1 62 0 is_stmt 0 discriminator 1
+  65 001e 8288     		ldrh	r2, [r0, #4]
+  66 0020 9342     		cmp	r3, r2
+  67 0022 F0D3     		bcc	.L5
+  68              	.LBE2:
+  67:asw/statemachine.c ****         }
+  68:asw/statemachine.c ****     }
+  69:asw/statemachine.c ****     
+  70:asw/statemachine.c ****     return result;
+  69              		.loc 1 70 0 is_stmt 1
+  70 0024 4FF0FF30 		mov	r0, #-1
+  71              	.LVL7:
+  72              	.L4:
+  71:asw/statemachine.c **** }
+  73              		.loc 1 71 0
+  74 0028 10BC     		pop	{r4}
+  75              		.cfi_restore 4
+  76              		.cfi_def_cfa_offset 0
+  77 002a 7047     		bx	lr
+  78              		.cfi_endproc
+  79              	.LFE114:
+  80              		.size	STATE__getIndexCurrentState, .-STATE__getIndexCurrentState
+  81              		.section	.text.STATE_initState,"ax",%progbits
+  82              		.align	2
+  83              		.global	STATE_initState
+  84              		.thumb
+  85              		.thumb_func
+  86              		.type	STATE_initState, %function
+  87              	STATE_initState:
+  88              	.LFB115:
+  72:asw/statemachine.c **** 
+  73:asw/statemachine.c **** /**
+  74:asw/statemachine.c ****  * This function will initialise the state machine and process any state actions of the initial sta
+  75:asw/statemachine.c ****  * The state machine is implemented as a generic object, Several instances and configurations are s
+  76:asw/statemachine.c ****  * \param STATE_t * const me            : IN - Pointer to the state machine object
+  77:asw/statemachine.c ****  * \return RC_SUCCESS or error
+  78:asw/statemachine.c ****  */
+  79:asw/statemachine.c **** RC_t STATE_initState(STATE_t * const me)
+  80:asw/statemachine.c **** {
+  89              		.loc 1 80 0
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 4
+
+
+  90              		.cfi_startproc
+  91              		@ args = 0, pretend = 0, frame = 0
+  92              		@ frame_needed = 0, uses_anonymous_args = 0
+  93              	.LVL8:
+  94 0000 38B5     		push	{r3, r4, r5, lr}
+  95              		.cfi_def_cfa_offset 16
+  96              		.cfi_offset 3, -16
+  97              		.cfi_offset 4, -12
+  98              		.cfi_offset 5, -8
+  99              		.cfi_offset 14, -4
+ 100              	.LVL9:
+  81:asw/statemachine.c ****     
+  82:asw/statemachine.c ****     STATE_ActionPtr_t acEntry = 0;
+  83:asw/statemachine.c ****     
+  84:asw/statemachine.c ****     me->m_state = 0;
+ 101              		.loc 1 84 0
+ 102 0002 0023     		movs	r3, #0
+ 103 0004 C381     		strh	r3, [r0, #14]	@ movhi
+  85:asw/statemachine.c ****     
+  86:asw/statemachine.c ****     //Check if entry actios are present in the init state
+  87:asw/statemachine.c ****     if (0 != me->m_actionTable)
+ 104              		.loc 1 87 0
+ 105 0006 8368     		ldr	r3, [r0, #8]
+ 106 0008 83B9     		cbnz	r3, .L12
+ 107              	.LBB3:
+ 108 000a 14E0     		b	.L9
+ 109              	.LVL10:
+ 110              	.L11:
+  88:asw/statemachine.c ****     {
+  89:asw/statemachine.c ****         for (uint16_t j = 0; j < me->m_actionTableSize; j++)
+  90:asw/statemachine.c ****         {
+  91:asw/statemachine.c **** 
+  92:asw/statemachine.c ****             if (0 == (*me->m_actionTable)[j].state)
+ 111              		.loc 1 92 0
+ 112 000c A968     		ldr	r1, [r5, #8]
+ 113 000e 04EB4402 		add	r2, r4, r4, lsl #1
+ 114 0012 9300     		lsls	r3, r2, #2
+ 115 0014 CB5A     		ldrh	r3, [r1, r3]
+ 116 0016 33B9     		cbnz	r3, .L10
+  93:asw/statemachine.c ****             {
+  94:asw/statemachine.c ****                 acEntry = (*me->m_actionTable)[j].actionEntry;
+ 117              		.loc 1 94 0
+ 118 0018 04EB4402 		add	r2, r4, r4, lsl #1
+ 119 001c 9300     		lsls	r3, r2, #2
+ 120 001e 0B44     		add	r3, r3, r1
+ 121 0020 5B68     		ldr	r3, [r3, #4]
+ 122              	.LVL11:
+  95:asw/statemachine.c ****                 if (0 != acEntry) acEntry();
+ 123              		.loc 1 95 0
+ 124 0022 03B1     		cbz	r3, .L10
+ 125              		.loc 1 95 0 is_stmt 0 discriminator 1
+ 126 0024 9847     		blx	r3
+ 127              	.LVL12:
+ 128              	.L10:
+  89:asw/statemachine.c ****         {
+ 129              		.loc 1 89 0 is_stmt 1 discriminator 2
+ 130 0026 0134     		adds	r4, r4, #1
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 5
+
+
+ 131              	.LVL13:
+ 132 0028 A4B2     		uxth	r4, r4
+ 133              	.LVL14:
+ 134 002a 01E0     		b	.L8
+ 135              	.LVL15:
+ 136              	.L12:
+ 137 002c 0546     		mov	r5, r0
+ 138              	.LBE3:
+ 139 002e 0024     		movs	r4, #0
+ 140              	.LVL16:
+ 141              	.L8:
+ 142              	.LBB4:
+  89:asw/statemachine.c ****         {
+ 143              		.loc 1 89 0 is_stmt 0 discriminator 1
+ 144 0030 AB89     		ldrh	r3, [r5, #12]
+ 145 0032 9C42     		cmp	r4, r3
+ 146 0034 EAD3     		bcc	.L11
+ 147              	.LVL17:
+ 148              	.L9:
+ 149              	.LBE4:
+  96:asw/statemachine.c ****             }
+  97:asw/statemachine.c ****         }
+  98:asw/statemachine.c ****     }
+  99:asw/statemachine.c ****     return RC_SUCCESS;
+ 100:asw/statemachine.c **** }
+ 150              		.loc 1 100 0 is_stmt 1
+ 151 0036 0020     		movs	r0, #0
+ 152 0038 38BD     		pop	{r3, r4, r5, pc}
+ 153              		.cfi_endproc
+ 154              	.LFE115:
+ 155              		.size	STATE_initState, .-STATE_initState
+ 156 003a 00BF     		.section	.text.STATE_processEvent,"ax",%progbits
+ 157              		.align	2
+ 158              		.global	STATE_processEvent
+ 159              		.thumb
+ 160              		.thumb_func
+ 161              		.type	STATE_processEvent, %function
+ 162              	STATE_processEvent:
+ 163              	.LFB116:
+ 101:asw/statemachine.c **** 
+ 102:asw/statemachine.c **** /**
+ 103:asw/statemachine.c ****  * This function will process the event with the defined state machine
+ 104:asw/statemachine.c ****  * The state machine is implemented as a generic object, Several instances and configurations are s
+ 105:asw/statemachine.c ****  * \param STATE_t * const me            : IN/OUT - Pointer to the state machine object
+ 106:asw/statemachine.c ****  * \param uint16_t      ev              : IN - Event to be processed
+ 107:asw/statemachine.c ****  * \return RC_SUCCESS or error
+ 108:asw/statemachine.c ****  */
+ 109:asw/statemachine.c **** RC_t STATE_processEvent(STATE_t * const me,
+ 110:asw/statemachine.c ****                         uint16_t ev)
+ 111:asw/statemachine.c **** {
+ 164              		.loc 1 111 0
+ 165              		.cfi_startproc
+ 166              		@ args = 0, pretend = 0, frame = 0
+ 167              		@ frame_needed = 0, uses_anonymous_args = 0
+ 168              	.LVL18:
+ 169 0000 2DE9F047 		push	{r4, r5, r6, r7, r8, r9, r10, lr}
+ 170              		.cfi_def_cfa_offset 32
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 6
+
+
+ 171              		.cfi_offset 4, -32
+ 172              		.cfi_offset 5, -28
+ 173              		.cfi_offset 6, -24
+ 174              		.cfi_offset 7, -20
+ 175              		.cfi_offset 8, -16
+ 176              		.cfi_offset 9, -12
+ 177              		.cfi_offset 10, -8
+ 178              		.cfi_offset 14, -4
+ 179 0004 8146     		mov	r9, r0
+ 180 0006 8846     		mov	r8, r1
+ 181              	.LVL19:
+ 112:asw/statemachine.c ****     STATE_GuardPtr_t guard = 0;
+ 113:asw/statemachine.c ****     STATE_ActionPtr_t acTransition = 0;
+ 114:asw/statemachine.c ****     STATE_ActionPtr_t acEntry = 0;
+ 115:asw/statemachine.c ****     STATE_ActionPtr_t acExit = 0;
+ 116:asw/statemachine.c ****     
+ 117:asw/statemachine.c ****     
+ 118:asw/statemachine.c ****     //Read the state from the watchdog object;
+ 119:asw/statemachine.c ****     uint16_t currentState = me->m_state;
+ 182              		.loc 1 119 0
+ 183 0008 B0F80EA0 		ldrh	r10, [r0, #14]
+ 184              	.LVL20:
+ 120:asw/statemachine.c ****     uint16_t toState = currentState; //Just in case
+ 121:asw/statemachine.c ****     
+ 122:asw/statemachine.c ****     //Calculate the table index of the outer table
+ 123:asw/statemachine.c **** 
+ 124:asw/statemachine.c ****     sint16_t index = STATE__getIndexCurrentState(me);
+ 185              		.loc 1 124 0
+ 186 000c FFF7FEFF 		bl	STATE__getIndexCurrentState
+ 187              	.LVL21:
+ 125:asw/statemachine.c ****     
+ 126:asw/statemachine.c ****     //This should never happen
+ 127:asw/statemachine.c ****     if (INVALIDINDEX == index)
+ 188              		.loc 1 127 0
+ 189 0010 B0F1FF3F 		cmp	r0, #-1
+ 190 0014 6FD0     		beq	.L30
+ 128:asw/statemachine.c ****     {
+ 129:asw/statemachine.c ****         return RC_ERROR_BAD_PARAM;
+ 130:asw/statemachine.c ****     }
+ 131:asw/statemachine.c ****     
+ 132:asw/statemachine.c ****     STATE_stateInnerTransitionTable_t const* const pInnerTable = (*me->m_transitionTable)[index].pI
+ 191              		.loc 1 132 0
+ 192 0016 D9F80010 		ldr	r1, [r9]
+ 193 001a 00EB4002 		add	r2, r0, r0, lsl #1
+ 194 001e 9300     		lsls	r3, r2, #2
+ 195 0020 1A46     		mov	r2, r3
+ 196 0022 0B44     		add	r3, r3, r1
+ 197 0024 5D68     		ldr	r5, [r3, #4]
+ 198              	.LVL22:
+ 133:asw/statemachine.c **** 	
+ 134:asw/statemachine.c ****     uint16_t innerTableSize = 0;
+ 135:asw/statemachine.c **** 	if (0 != pInnerTable)
+ 199              		.loc 1 135 0
+ 200 0026 1DB1     		cbz	r5, .L31
+ 136:asw/statemachine.c **** 	{
+ 137:asw/statemachine.c **** 		innerTableSize = (*me->m_transitionTable)[index].size;
+ 201              		.loc 1 137 0
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 7
+
+
+ 202 0028 1346     		mov	r3, r2
+ 203 002a 0B44     		add	r3, r3, r1
+ 204 002c 1E89     		ldrh	r6, [r3, #8]
+ 205              	.LVL23:
+ 206 002e 00E0     		b	.L16
+ 207              	.LVL24:
+ 208              	.L31:
+ 134:asw/statemachine.c **** 	if (0 != pInnerTable)
+ 209              		.loc 1 134 0
+ 210 0030 0026     		movs	r6, #0
+ 211              	.LVL25:
+ 212              	.L16:
+ 138:asw/statemachine.c **** 	}
+ 139:asw/statemachine.c ****     
+ 140:asw/statemachine.c ****     if (0 == pInnerTable || 0 == innerTableSize)
+ 213              		.loc 1 140 0
+ 214 0032 002D     		cmp	r5, #0
+ 215 0034 63D0     		beq	.L32
+ 216              		.loc 1 140 0 is_stmt 0 discriminator 1
+ 217 0036 002E     		cmp	r6, #0
+ 218 0038 65D0     		beq	.L33
+ 219 003a 0024     		movs	r4, #0
+ 220 003c 56E0     		b	.L17
+ 221              	.LVL26:
+ 222              	.L29:
+ 223              	.LBB5:
+ 141:asw/statemachine.c ****     {
+ 142:asw/statemachine.c ****         //No transitions in this state
+ 143:asw/statemachine.c ****         return RC_ERROR_INVALID_STATE;
+ 144:asw/statemachine.c ****     }
+ 145:asw/statemachine.c ****     
+ 146:asw/statemachine.c ****     //Iterate through the inner table and find correct transition
+ 147:asw/statemachine.c ****     for (uint16_t i = 0; i < innerTableSize; i++)
+ 148:asw/statemachine.c ****     {
+ 149:asw/statemachine.c ****         // Find correct event transition
+ 150:asw/statemachine.c ****         if ((*pInnerTable)[i].event == ev)
+ 224              		.loc 1 150 0 is_stmt 1
+ 225 003e 2746     		mov	r7, r4
+ 226 0040 04EB4402 		add	r2, r4, r4, lsl #1
+ 227 0044 9300     		lsls	r3, r2, #2
+ 228 0046 EB5A     		ldrh	r3, [r5, r3]
+ 229 0048 4345     		cmp	r3, r8
+ 230 004a 4DD1     		bne	.L18
+ 151:asw/statemachine.c ****         {
+ 152:asw/statemachine.c ****             //Transition found, let's check the guard
+ 153:asw/statemachine.c ****             guard = (*pInnerTable)[i].guard;
+ 231              		.loc 1 153 0
+ 232 004c 04EB4402 		add	r2, r4, r4, lsl #1
+ 233 0050 9300     		lsls	r3, r2, #2
+ 234 0052 2B44     		add	r3, r3, r5
+ 235 0054 5B68     		ldr	r3, [r3, #4]
+ 236              	.LVL27:
+ 154:asw/statemachine.c ****             
+ 155:asw/statemachine.c ****             if (0 == guard || TRUE == guard())
+ 237              		.loc 1 155 0
+ 238 0056 13B1     		cbz	r3, .L19
+ 239              		.loc 1 155 0 is_stmt 0 discriminator 1
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 8
+
+
+ 240 0058 9847     		blx	r3
+ 241              	.LVL28:
+ 242 005a 0128     		cmp	r0, #1
+ 243 005c 44D1     		bne	.L18
+ 244              	.L19:
+ 156:asw/statemachine.c ****             {
+ 157:asw/statemachine.c ****                 //Transition is valid
+ 158:asw/statemachine.c ****                 acTransition = (*pInnerTable)[i].actionTransition;
+ 245              		.loc 1 158 0 is_stmt 1
+ 246 005e 7A00     		lsls	r2, r7, #1
+ 247 0060 D119     		adds	r1, r2, r7
+ 248 0062 8B00     		lsls	r3, r1, #2
+ 249 0064 1946     		mov	r1, r3
+ 250 0066 2B44     		add	r3, r3, r5
+ 251 0068 9E68     		ldr	r6, [r3, #8]
+ 252              	.LVL29:
+ 159:asw/statemachine.c ****                 toState = (*pInnerTable)[i].toState;
+ 253              		.loc 1 159 0
+ 254 006a 0D44     		add	r5, r5, r1
+ 255              	.LVL30:
+ 256 006c 6D88     		ldrh	r5, [r5, #2]
+ 257              	.LVL31:
+ 160:asw/statemachine.c ****                 
+ 161:asw/statemachine.c ****                 //Now lets find exit actions. Note: their might be more than one
+ 162:asw/statemachine.c ****                 if (0 != me->m_actionTable)
+ 258              		.loc 1 162 0
+ 259 006e D9F80830 		ldr	r3, [r9, #8]
+ 260 0072 93B9     		cbnz	r3, .L34
+ 261              	.LBB6:
+ 262 0074 16E0     		b	.L21
+ 263              	.LVL32:
+ 264              	.L23:
+ 163:asw/statemachine.c ****                 {
+ 164:asw/statemachine.c ****                     for (uint16_t j = 0; j < me->m_actionTableSize; j++)
+ 165:asw/statemachine.c ****                     {
+ 166:asw/statemachine.c ****                         if (currentState == (*me->m_actionTable)[j].state)
+ 265              		.loc 1 166 0
+ 266 0076 D9F80810 		ldr	r1, [r9, #8]
+ 267 007a 04EB4402 		add	r2, r4, r4, lsl #1
+ 268 007e 9300     		lsls	r3, r2, #2
+ 269 0080 CB5A     		ldrh	r3, [r1, r3]
+ 270 0082 9A45     		cmp	r10, r3
+ 271 0084 06D1     		bne	.L22
+ 167:asw/statemachine.c ****                         {
+ 168:asw/statemachine.c ****                             acExit = (*me->m_actionTable)[j].actionExit;
+ 272              		.loc 1 168 0
+ 273 0086 04EB4402 		add	r2, r4, r4, lsl #1
+ 274 008a 9300     		lsls	r3, r2, #2
+ 275 008c 1944     		add	r1, r1, r3
+ 276 008e 8B68     		ldr	r3, [r1, #8]
+ 277              	.LVL33:
+ 169:asw/statemachine.c ****                             if (0 != acExit) acExit();
+ 278              		.loc 1 169 0
+ 279 0090 03B1     		cbz	r3, .L22
+ 280              		.loc 1 169 0 is_stmt 0 discriminator 1
+ 281 0092 9847     		blx	r3
+ 282              	.LVL34:
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 9
+
+
+ 283              	.L22:
+ 164:asw/statemachine.c ****                     {
+ 284              		.loc 1 164 0 is_stmt 1 discriminator 2
+ 285 0094 0134     		adds	r4, r4, #1
+ 286              	.LVL35:
+ 287 0096 A4B2     		uxth	r4, r4
+ 288              	.LVL36:
+ 289 0098 00E0     		b	.L20
+ 290              	.LVL37:
+ 291              	.L34:
+ 292              	.LBE6:
+ 293 009a 0024     		movs	r4, #0
+ 294              	.LVL38:
+ 295              	.L20:
+ 296              	.LBB7:
+ 164:asw/statemachine.c ****                     {
+ 297              		.loc 1 164 0 is_stmt 0 discriminator 1
+ 298 009c B9F80C30 		ldrh	r3, [r9, #12]
+ 299 00a0 9C42     		cmp	r4, r3
+ 300 00a2 E8D3     		bcc	.L23
+ 301              	.LVL39:
+ 302              	.L21:
+ 303              	.LBE7:
+ 170:asw/statemachine.c ****                         }
+ 171:asw/statemachine.c ****                     }
+ 172:asw/statemachine.c ****                 }
+ 173:asw/statemachine.c **** 
+ 174:asw/statemachine.c ****                 //Lets call the transition action
+ 175:asw/statemachine.c ****                 if (0 != acTransition) acTransition();
+ 304              		.loc 1 175 0 is_stmt 1
+ 305 00a4 06B1     		cbz	r6, .L24
+ 306              		.loc 1 175 0 is_stmt 0 discriminator 1
+ 307 00a6 B047     		blx	r6
+ 308              	.LVL40:
+ 309              	.L24:
+ 176:asw/statemachine.c ****                 
+ 177:asw/statemachine.c ****                 //Now lets find the entry actions. Note: their might be more than one
+ 178:asw/statemachine.c ****                 if (0 != me->m_actionTable)
+ 310              		.loc 1 178 0 is_stmt 1
+ 311 00a8 D9F80830 		ldr	r3, [r9, #8]
+ 312 00ac 93B9     		cbnz	r3, .L35
+ 313              	.LBB8:
+ 314 00ae 16E0     		b	.L26
+ 315              	.LVL41:
+ 316              	.L28:
+ 179:asw/statemachine.c ****                 {
+ 180:asw/statemachine.c ****                     for (uint16_t j = 0; j < me->m_actionTableSize; j++)
+ 181:asw/statemachine.c ****                     {
+ 182:asw/statemachine.c **** 
+ 183:asw/statemachine.c ****                         if (toState == (*me->m_actionTable)[j].state)
+ 317              		.loc 1 183 0
+ 318 00b0 D9F80810 		ldr	r1, [r9, #8]
+ 319 00b4 04EB4402 		add	r2, r4, r4, lsl #1
+ 320 00b8 9300     		lsls	r3, r2, #2
+ 321 00ba CB5A     		ldrh	r3, [r1, r3]
+ 322 00bc 9D42     		cmp	r5, r3
+ 323 00be 06D1     		bne	.L27
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 10
+
+
+ 184:asw/statemachine.c ****                         {
+ 185:asw/statemachine.c ****                             acEntry = (*me->m_actionTable)[j].actionEntry;
+ 324              		.loc 1 185 0
+ 325 00c0 04EB4402 		add	r2, r4, r4, lsl #1
+ 326 00c4 9300     		lsls	r3, r2, #2
+ 327 00c6 1944     		add	r1, r1, r3
+ 328 00c8 4B68     		ldr	r3, [r1, #4]
+ 329              	.LVL42:
+ 186:asw/statemachine.c ****                             if (0 != acEntry) acEntry();
+ 330              		.loc 1 186 0
+ 331 00ca 03B1     		cbz	r3, .L27
+ 332              		.loc 1 186 0 is_stmt 0 discriminator 1
+ 333 00cc 9847     		blx	r3
+ 334              	.LVL43:
+ 335              	.L27:
+ 180:asw/statemachine.c ****                     {
+ 336              		.loc 1 180 0 is_stmt 1 discriminator 2
+ 337 00ce 0134     		adds	r4, r4, #1
+ 338              	.LVL44:
+ 339 00d0 A4B2     		uxth	r4, r4
+ 340              	.LVL45:
+ 341 00d2 00E0     		b	.L25
+ 342              	.LVL46:
+ 343              	.L35:
+ 344              	.LBE8:
+ 345 00d4 0024     		movs	r4, #0
+ 346              	.LVL47:
+ 347              	.L25:
+ 348              	.LBB9:
+ 180:asw/statemachine.c ****                     {
+ 349              		.loc 1 180 0 is_stmt 0 discriminator 1
+ 350 00d6 B9F80C30 		ldrh	r3, [r9, #12]
+ 351 00da 9C42     		cmp	r4, r3
+ 352 00dc E8D3     		bcc	.L28
+ 353              	.LVL48:
+ 354              	.L26:
+ 355              	.LBE9:
+ 187:asw/statemachine.c ****                         }
+ 188:asw/statemachine.c ****                     }
+ 189:asw/statemachine.c ****                 }
+ 190:asw/statemachine.c ****                 
+ 191:asw/statemachine.c ****                 // Set current state to next state
+ 192:asw/statemachine.c ****                 me->m_state = toState;
+ 356              		.loc 1 192 0 is_stmt 1
+ 357 00de A9F80E50 		strh	r5, [r9, #14]	@ movhi
+ 358              	.LBE5:
+ 193:asw/statemachine.c ****                 
+ 194:asw/statemachine.c ****                 //Only one transition will be fired
+ 195:asw/statemachine.c ****                 break;
+ 196:asw/statemachine.c ****             }
+ 197:asw/statemachine.c ****         }
+ 198:asw/statemachine.c ****     }
+ 199:asw/statemachine.c **** 
+ 200:asw/statemachine.c ****     return RC_SUCCESS;
+ 359              		.loc 1 200 0
+ 360 00e2 0020     		movs	r0, #0
+ 361              	.LBB10:
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 11
+
+
+ 195:asw/statemachine.c ****             }
+ 362              		.loc 1 195 0
+ 363 00e4 BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+ 364              	.LVL49:
+ 365              	.L18:
+ 147:asw/statemachine.c ****     {
+ 366              		.loc 1 147 0 discriminator 2
+ 367 00e8 0134     		adds	r4, r4, #1
+ 368              	.LVL50:
+ 369 00ea A4B2     		uxth	r4, r4
+ 370              	.LVL51:
+ 371              	.L17:
+ 147:asw/statemachine.c ****     {
+ 372              		.loc 1 147 0 is_stmt 0 discriminator 1
+ 373 00ec A642     		cmp	r6, r4
+ 374 00ee A6D8     		bhi	.L29
+ 375              	.LBE10:
+ 376              		.loc 1 200 0 is_stmt 1
+ 377 00f0 0020     		movs	r0, #0
+ 378              	.LBB11:
+ 379 00f2 BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+ 380              	.LVL52:
+ 381              	.L30:
+ 382              	.LBE11:
+ 129:asw/statemachine.c ****     }
+ 383              		.loc 1 129 0
+ 384 00f6 6FF01300 		mvn	r0, #19
+ 385              	.LVL53:
+ 386 00fa BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+ 387              	.LVL54:
+ 388              	.L32:
+ 143:asw/statemachine.c ****     }
+ 389              		.loc 1 143 0
+ 390 00fe 6FF01600 		mvn	r0, #22
+ 391              	.LVL55:
+ 392 0102 BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+ 393              	.LVL56:
+ 394              	.L33:
+ 395 0106 6FF01600 		mvn	r0, #22
+ 396              	.LVL57:
+ 201:asw/statemachine.c **** }
+ 397              		.loc 1 201 0
+ 398 010a BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+ 399              		.cfi_endproc
+ 400              	.LFE116:
+ 401              		.size	STATE_processEvent, .-STATE_processEvent
+ 402 010e 00BF     		.section	.text.STATE_getCurrentState,"ax",%progbits
+ 403              		.align	2
+ 404              		.global	STATE_getCurrentState
+ 405              		.thumb
+ 406              		.thumb_func
+ 407              		.type	STATE_getCurrentState, %function
+ 408              	STATE_getCurrentState:
+ 409              	.LFB117:
+ 202:asw/statemachine.c **** 
+ 203:asw/statemachine.c **** 
+ 204:asw/statemachine.c **** /**
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 12
+
+
+ 205:asw/statemachine.c ****  * This function will return the current state in case it is required for additional application lo
+ 206:asw/statemachine.c ****  * \param STATE_t * const me            : IN - Pointer to the state machine object
+ 207:asw/statemachine.c ****  * \return Current State of the State machine
+ 208:asw/statemachine.c ****  */
+ 209:asw/statemachine.c **** uint16_t STATE_getCurrentState(STATE_t * const me)
+ 210:asw/statemachine.c **** {
+ 410              		.loc 1 210 0
+ 411              		.cfi_startproc
+ 412              		@ args = 0, pretend = 0, frame = 0
+ 413              		@ frame_needed = 0, uses_anonymous_args = 0
+ 414              		@ link register save eliminated.
+ 415              	.LVL58:
+ 211:asw/statemachine.c ****     return me->m_state;
+ 212:asw/statemachine.c **** }
+ 416              		.loc 1 212 0
+ 417 0000 C089     		ldrh	r0, [r0, #14]
+ 418              	.LVL59:
+ 419 0002 7047     		bx	lr
+ 420              		.cfi_endproc
+ 421              	.LFE117:
+ 422              		.size	STATE_getCurrentState, .-STATE_getCurrentState
+ 423              		.text
+ 424              	.Letext0:
+ 425              		.file 2 ".\\bsw/global.h"
+ 426              		.file 3 "asw\\statemachine.h"
+ 427              		.file 4 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 428              		.file 5 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 429              		.file 6 "Generated_Source\\PSoC5/ErikaOS_1_common_ee_types.inc"
+ 430              		.file 7 "Generated_Source\\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc"
+ 431              		.file 8 "Generated_Source\\PSoC5/ErikaOS_1_ee_oo_intfunc.inc"
+ 432              		.file 9 "Generated_Source\\PSoC5/ErikaOS_1_cortex_mx_ee_context.inc"
+ 433              		.file 10 "Generated_Source\\PSoC5/ErikaOS_1_common_ee_primitives.inc"
+ 434              		.file 11 "Generated_Source\\PSoC5/core_cm3.h"
+ 435              		.section	.debug_info,"",%progbits
+ 436              	.Ldebug_info0:
+ 437 0000 3E050000 		.4byte	0x53e
+ 438 0004 0400     		.2byte	0x4
+ 439 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 440 000a 04       		.byte	0x4
+ 441 000b 01       		.uleb128 0x1
+ 442 000c C7030000 		.4byte	.LASF90
+ 443 0010 0C       		.byte	0xc
+ 444 0011 55040000 		.4byte	.LASF91
+ 445 0015 52010000 		.4byte	.LASF92
+ 446 0019 68000000 		.4byte	.Ldebug_ranges0+0x68
+ 447 001d 00000000 		.4byte	0
+ 448 0021 00000000 		.4byte	.Ldebug_line0
+ 449 0025 02       		.uleb128 0x2
+ 450 0026 01       		.byte	0x1
+ 451 0027 06       		.byte	0x6
+ 452 0028 20030000 		.4byte	.LASF0
+ 453 002c 02       		.uleb128 0x2
+ 454 002d 01       		.byte	0x1
+ 455 002e 08       		.byte	0x8
+ 456 002f E9020000 		.4byte	.LASF1
+ 457 0033 03       		.uleb128 0x3
+ 458 0034 3C020000 		.4byte	.LASF3
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 13
+
+
+ 459 0038 02       		.byte	0x2
+ 460 0039 92       		.byte	0x92
+ 461 003a 3E000000 		.4byte	0x3e
+ 462 003e 02       		.uleb128 0x2
+ 463 003f 02       		.byte	0x2
+ 464 0040 05       		.byte	0x5
+ 465 0041 7C000000 		.4byte	.LASF2
+ 466 0045 03       		.uleb128 0x3
+ 467 0046 5E030000 		.4byte	.LASF4
+ 468 004a 02       		.byte	0x2
+ 469 004b 93       		.byte	0x93
+ 470 004c 50000000 		.4byte	0x50
+ 471 0050 02       		.uleb128 0x2
+ 472 0051 02       		.byte	0x2
+ 473 0052 07       		.byte	0x7
+ 474 0053 B4030000 		.4byte	.LASF5
+ 475 0057 02       		.uleb128 0x2
+ 476 0058 04       		.byte	0x4
+ 477 0059 05       		.byte	0x5
+ 478 005a 8A040000 		.4byte	.LASF6
+ 479 005e 02       		.uleb128 0x2
+ 480 005f 04       		.byte	0x4
+ 481 0060 07       		.byte	0x7
+ 482 0061 F4040000 		.4byte	.LASF7
+ 483 0065 02       		.uleb128 0x2
+ 484 0066 04       		.byte	0x4
+ 485 0067 04       		.byte	0x4
+ 486 0068 D2010000 		.4byte	.LASF8
+ 487 006c 02       		.uleb128 0x2
+ 488 006d 08       		.byte	0x8
+ 489 006e 04       		.byte	0x4
+ 490 006f 06050000 		.4byte	.LASF9
+ 491 0073 02       		.uleb128 0x2
+ 492 0074 08       		.byte	0x8
+ 493 0075 05       		.byte	0x5
+ 494 0076 F1010000 		.4byte	.LASF10
+ 495 007a 02       		.uleb128 0x2
+ 496 007b 08       		.byte	0x8
+ 497 007c 07       		.byte	0x7
+ 498 007d 2C030000 		.4byte	.LASF11
+ 499 0081 03       		.uleb128 0x3
+ 500 0082 CD020000 		.4byte	.LASF12
+ 501 0086 02       		.byte	0x2
+ 502 0087 9C       		.byte	0x9c
+ 503 0088 2C000000 		.4byte	0x2c
+ 504 008c 02       		.uleb128 0x2
+ 505 008d 01       		.byte	0x1
+ 506 008e 08       		.byte	0x8
+ 507 008f 85040000 		.4byte	.LASF13
+ 508 0093 04       		.uleb128 0x4
+ 509 0094 01       		.byte	0x1
+ 510 0095 25000000 		.4byte	0x25
+ 511 0099 02       		.byte	0x2
+ 512 009a CF       		.byte	0xcf
+ 513 009b 3C010000 		.4byte	0x13c
+ 514 009f 05       		.uleb128 0x5
+ 515 00a0 2C000000 		.4byte	.LASF14
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 14
+
+
+ 516 00a4 00       		.byte	0
+ 517 00a5 06       		.uleb128 0x6
+ 518 00a6 9B050000 		.4byte	.LASF15
+ 519 00aa 7F       		.sleb128 -1
+ 520 00ab 06       		.uleb128 0x6
+ 521 00ac 79030000 		.4byte	.LASF16
+ 522 00b0 7E       		.sleb128 -2
+ 523 00b1 06       		.uleb128 0x6
+ 524 00b2 CB000000 		.4byte	.LASF17
+ 525 00b6 7D       		.sleb128 -3
+ 526 00b7 06       		.uleb128 0x6
+ 527 00b8 A4050000 		.4byte	.LASF18
+ 528 00bc 7C       		.sleb128 -4
+ 529 00bd 06       		.uleb128 0x6
+ 530 00be B1010000 		.4byte	.LASF19
+ 531 00c2 7B       		.sleb128 -5
+ 532 00c3 06       		.uleb128 0x6
+ 533 00c4 86000000 		.4byte	.LASF20
+ 534 00c8 7A       		.sleb128 -6
+ 535 00c9 06       		.uleb128 0x6
+ 536 00ca 4D020000 		.4byte	.LASF21
+ 537 00ce 79       		.sleb128 -7
+ 538 00cf 06       		.uleb128 0x6
+ 539 00d0 93040000 		.4byte	.LASF22
+ 540 00d4 78       		.sleb128 -8
+ 541 00d5 06       		.uleb128 0x6
+ 542 00d6 E0050000 		.4byte	.LASF23
+ 543 00da 77       		.sleb128 -9
+ 544 00db 06       		.uleb128 0x6
+ 545 00dc 91020000 		.4byte	.LASF24
+ 546 00e0 76       		.sleb128 -10
+ 547 00e1 06       		.uleb128 0x6
+ 548 00e2 FB050000 		.4byte	.LASF25
+ 549 00e6 75       		.sleb128 -11
+ 550 00e7 06       		.uleb128 0x6
+ 551 00e8 50030000 		.4byte	.LASF26
+ 552 00ec 74       		.sleb128 -12
+ 553 00ed 06       		.uleb128 0x6
+ 554 00ee 0D050000 		.4byte	.LASF27
+ 555 00f2 73       		.sleb128 -13
+ 556 00f3 06       		.uleb128 0x6
+ 557 00f4 19000000 		.4byte	.LASF28
+ 558 00f8 72       		.sleb128 -14
+ 559 00f9 06       		.uleb128 0x6
+ 560 00fa 62000000 		.4byte	.LASF29
+ 561 00fe 71       		.sleb128 -15
+ 562 00ff 06       		.uleb128 0x6
+ 563 0100 AA020000 		.4byte	.LASF30
+ 564 0104 70       		.sleb128 -16
+ 565 0105 06       		.uleb128 0x6
+ 566 0106 E1000000 		.4byte	.LASF31
+ 567 010a 6F       		.sleb128 -17
+ 568 010b 06       		.uleb128 0x6
+ 569 010c 97000000 		.4byte	.LASF32
+ 570 0110 6E       		.sleb128 -18
+ 571 0111 06       		.uleb128 0x6
+ 572 0112 18020000 		.4byte	.LASF33
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 15
+
+
+ 573 0116 6D       		.sleb128 -19
+ 574 0117 06       		.uleb128 0x6
+ 575 0118 BD040000 		.4byte	.LASF34
+ 576 011c 6C       		.sleb128 -20
+ 577 011d 06       		.uleb128 0x6
+ 578 011e BB020000 		.4byte	.LASF35
+ 579 0122 6B       		.sleb128 -21
+ 580 0123 06       		.uleb128 0x6
+ 581 0124 63050000 		.4byte	.LASF36
+ 582 0128 6A       		.sleb128 -22
+ 583 0129 06       		.uleb128 0x6
+ 584 012a 26010000 		.4byte	.LASF37
+ 585 012e 69       		.sleb128 -23
+ 586 012f 06       		.uleb128 0x6
+ 587 0130 2B020000 		.4byte	.LASF38
+ 588 0134 68       		.sleb128 -24
+ 589 0135 06       		.uleb128 0x6
+ 590 0136 D8010000 		.4byte	.LASF39
+ 591 013a 67       		.sleb128 -25
+ 592 013b 00       		.byte	0
+ 593 013c 03       		.uleb128 0x3
+ 594 013d F6050000 		.4byte	.LASF40
+ 595 0141 02       		.byte	0x2
+ 596 0142 EA       		.byte	0xea
+ 597 0143 93000000 		.4byte	0x93
+ 598 0147 03       		.uleb128 0x3
+ 599 0148 C0010000 		.4byte	.LASF41
+ 600 014c 03       		.byte	0x3
+ 601 014d 32       		.byte	0x32
+ 602 014e 52010000 		.4byte	0x152
+ 603 0152 07       		.uleb128 0x7
+ 604 0153 04       		.byte	0x4
+ 605 0154 58010000 		.4byte	0x158
+ 606 0158 08       		.uleb128 0x8
+ 607 0159 5F010000 		.4byte	0x15f
+ 608 015d 09       		.uleb128 0x9
+ 609 015e 00       		.byte	0
+ 610 015f 03       		.uleb128 0x3
+ 611 0160 A3030000 		.4byte	.LASF42
+ 612 0164 03       		.byte	0x3
+ 613 0165 37       		.byte	0x37
+ 614 0166 6A010000 		.4byte	0x16a
+ 615 016a 07       		.uleb128 0x7
+ 616 016b 04       		.byte	0x4
+ 617 016c 70010000 		.4byte	0x170
+ 618 0170 0A       		.uleb128 0xa
+ 619 0171 81000000 		.4byte	0x81
+ 620 0175 7B010000 		.4byte	0x17b
+ 621 0179 09       		.uleb128 0x9
+ 622 017a 00       		.byte	0
+ 623 017b 0B       		.uleb128 0xb
+ 624 017c 0C       		.byte	0xc
+ 625 017d 03       		.byte	0x3
+ 626 017e 3E       		.byte	0x3e
+ 627 017f B4010000 		.4byte	0x1b4
+ 628 0183 0C       		.uleb128 0xc
+ 629 0184 FD000000 		.4byte	.LASF43
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 16
+
+
+ 630 0188 03       		.byte	0x3
+ 631 0189 40       		.byte	0x40
+ 632 018a 45000000 		.4byte	0x45
+ 633 018e 00       		.byte	0
+ 634 018f 0C       		.uleb128 0xc
+ 635 0190 D8050000 		.4byte	.LASF44
+ 636 0194 03       		.byte	0x3
+ 637 0195 41       		.byte	0x41
+ 638 0196 45000000 		.4byte	0x45
+ 639 019a 02       		.byte	0x2
+ 640 019b 0C       		.uleb128 0xc
+ 641 019c 76000000 		.4byte	.LASF45
+ 642 01a0 03       		.byte	0x3
+ 643 01a1 42       		.byte	0x42
+ 644 01a2 5F010000 		.4byte	0x15f
+ 645 01a6 04       		.byte	0x4
+ 646 01a7 0C       		.uleb128 0xc
+ 647 01a8 D0040000 		.4byte	.LASF46
+ 648 01ac 03       		.byte	0x3
+ 649 01ad 43       		.byte	0x43
+ 650 01ae 47010000 		.4byte	0x147
+ 651 01b2 08       		.byte	0x8
+ 652 01b3 00       		.byte	0
+ 653 01b4 03       		.uleb128 0x3
+ 654 01b5 68040000 		.4byte	.LASF47
+ 655 01b9 03       		.byte	0x3
+ 656 01ba 45       		.byte	0x45
+ 657 01bb 7B010000 		.4byte	0x17b
+ 658 01bf 0D       		.uleb128 0xd
+ 659 01c0 B4010000 		.4byte	0x1b4
+ 660 01c4 CA010000 		.4byte	0x1ca
+ 661 01c8 0E       		.uleb128 0xe
+ 662 01c9 00       		.byte	0
+ 663 01ca 0B       		.uleb128 0xb
+ 664 01cb 0C       		.byte	0xc
+ 665 01cc 03       		.byte	0x3
+ 666 01cd 4C       		.byte	0x4c
+ 667 01ce F7010000 		.4byte	0x1f7
+ 668 01d2 0C       		.uleb128 0xc
+ 669 01d3 07000000 		.4byte	.LASF48
+ 670 01d7 03       		.byte	0x3
+ 671 01d8 4E       		.byte	0x4e
+ 672 01d9 45000000 		.4byte	0x45
+ 673 01dd 00       		.byte	0
+ 674 01de 0C       		.uleb128 0xc
+ 675 01df 5F020000 		.4byte	.LASF49
+ 676 01e3 03       		.byte	0x3
+ 677 01e4 4F       		.byte	0x4f
+ 678 01e5 FD010000 		.4byte	0x1fd
+ 679 01e9 04       		.byte	0x4
+ 680 01ea 0C       		.uleb128 0xc
+ 681 01eb 27050000 		.4byte	.LASF50
+ 682 01ef 03       		.byte	0x3
+ 683 01f0 50       		.byte	0x50
+ 684 01f1 02020000 		.4byte	0x202
+ 685 01f5 08       		.byte	0x8
+ 686 01f6 00       		.byte	0
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 17
+
+
+ 687 01f7 07       		.uleb128 0x7
+ 688 01f8 04       		.byte	0x4
+ 689 01f9 BF010000 		.4byte	0x1bf
+ 690 01fd 0F       		.uleb128 0xf
+ 691 01fe F7010000 		.4byte	0x1f7
+ 692 0202 0F       		.uleb128 0xf
+ 693 0203 45000000 		.4byte	0x45
+ 694 0207 03       		.uleb128 0x3
+ 695 0208 37000000 		.4byte	.LASF51
+ 696 020c 03       		.byte	0x3
+ 697 020d 51       		.byte	0x51
+ 698 020e CA010000 		.4byte	0x1ca
+ 699 0212 0D       		.uleb128 0xd
+ 700 0213 07020000 		.4byte	0x207
+ 701 0217 1D020000 		.4byte	0x21d
+ 702 021b 0E       		.uleb128 0xe
+ 703 021c 00       		.byte	0
+ 704 021d 0B       		.uleb128 0xb
+ 705 021e 0C       		.byte	0xc
+ 706 021f 03       		.byte	0x3
+ 707 0220 5A       		.byte	0x5a
+ 708 0221 4A020000 		.4byte	0x24a
+ 709 0225 0C       		.uleb128 0xc
+ 710 0226 D7020000 		.4byte	.LASF52
+ 711 022a 03       		.byte	0x3
+ 712 022b 5C       		.byte	0x5c
+ 713 022c 45000000 		.4byte	0x45
+ 714 0230 00       		.byte	0
+ 715 0231 0C       		.uleb128 0xc
+ 716 0232 CC050000 		.4byte	.LASF53
+ 717 0236 03       		.byte	0x3
+ 718 0237 5D       		.byte	0x5d
+ 719 0238 47010000 		.4byte	0x147
+ 720 023c 04       		.byte	0x4
+ 721 023d 0C       		.uleb128 0xc
+ 722 023e 9F020000 		.4byte	.LASF54
+ 723 0242 03       		.byte	0x3
+ 724 0243 5E       		.byte	0x5e
+ 725 0244 47010000 		.4byte	0x147
+ 726 0248 08       		.byte	0x8
+ 727 0249 00       		.byte	0
+ 728 024a 03       		.uleb128 0x3
+ 729 024b 2C050000 		.4byte	.LASF55
+ 730 024f 03       		.byte	0x3
+ 731 0250 5F       		.byte	0x5f
+ 732 0251 1D020000 		.4byte	0x21d
+ 733 0255 0D       		.uleb128 0xd
+ 734 0256 4A020000 		.4byte	0x24a
+ 735 025a 60020000 		.4byte	0x260
+ 736 025e 0E       		.uleb128 0xe
+ 737 025f 00       		.byte	0
+ 738 0260 0B       		.uleb128 0xb
+ 739 0261 10       		.byte	0x10
+ 740 0262 03       		.byte	0x3
+ 741 0263 66       		.byte	0x66
+ 742 0264 A5020000 		.4byte	0x2a5
+ 743 0268 0C       		.uleb128 0xc
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 18
+
+
+ 744 0269 51050000 		.4byte	.LASF56
+ 745 026d 03       		.byte	0x3
+ 746 026e 68       		.byte	0x68
+ 747 026f A5020000 		.4byte	0x2a5
+ 748 0273 00       		.byte	0
+ 749 0274 0C       		.uleb128 0xc
+ 750 0275 03010000 		.4byte	.LASF57
+ 751 0279 03       		.byte	0x3
+ 752 027a 69       		.byte	0x69
+ 753 027b 02020000 		.4byte	0x202
+ 754 027f 04       		.byte	0x4
+ 755 0280 0C       		.uleb128 0xc
+ 756 0281 54000000 		.4byte	.LASF58
+ 757 0285 03       		.byte	0x3
+ 758 0286 6B       		.byte	0x6b
+ 759 0287 AB020000 		.4byte	0x2ab
+ 760 028b 08       		.byte	0x8
+ 761 028c 0C       		.uleb128 0xc
+ 762 028d 67030000 		.4byte	.LASF59
+ 763 0291 03       		.byte	0x3
+ 764 0292 6C       		.byte	0x6c
+ 765 0293 02020000 		.4byte	0x202
+ 766 0297 0C       		.byte	0xc
+ 767 0298 0C       		.uleb128 0xc
+ 768 0299 11000000 		.4byte	.LASF60
+ 769 029d 03       		.byte	0x3
+ 770 029e 6E       		.byte	0x6e
+ 771 029f 45000000 		.4byte	0x45
+ 772 02a3 0E       		.byte	0xe
+ 773 02a4 00       		.byte	0
+ 774 02a5 07       		.uleb128 0x7
+ 775 02a6 04       		.byte	0x4
+ 776 02a7 12020000 		.4byte	0x212
+ 777 02ab 07       		.uleb128 0x7
+ 778 02ac 04       		.byte	0x4
+ 779 02ad 55020000 		.4byte	0x255
+ 780 02b1 03       		.uleb128 0x3
+ 781 02b2 45020000 		.4byte	.LASF61
+ 782 02b6 03       		.byte	0x3
+ 783 02b7 6F       		.byte	0x6f
+ 784 02b8 60020000 		.4byte	0x260
+ 785 02bc 03       		.uleb128 0x3
+ 786 02bd 40050000 		.4byte	.LASF62
+ 787 02c1 04       		.byte	0x4
+ 788 02c2 3F       		.byte	0x3f
+ 789 02c3 57000000 		.4byte	0x57
+ 790 02c7 10       		.uleb128 0x10
+ 791 02c8 04       		.byte	0x4
+ 792 02c9 05       		.byte	0x5
+ 793 02ca 696E7400 		.ascii	"int\000"
+ 794 02ce 02       		.uleb128 0x2
+ 795 02cf 04       		.byte	0x4
+ 796 02d0 07       		.byte	0x7
+ 797 02d1 43030000 		.4byte	.LASF63
+ 798 02d5 03       		.uleb128 0x3
+ 799 02d6 A8040000 		.4byte	.LASF64
+ 800 02da 05       		.byte	0x5
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 19
+
+
+ 801 02db 2C       		.byte	0x2c
+ 802 02dc BC020000 		.4byte	0x2bc
+ 803 02e0 02       		.uleb128 0x2
+ 804 02e1 08       		.byte	0x8
+ 805 02e2 04       		.byte	0x4
+ 806 02e3 DD020000 		.4byte	.LASF65
+ 807 02e7 03       		.uleb128 0x3
+ 808 02e8 9A030000 		.4byte	.LASF66
+ 809 02ec 06       		.byte	0x6
+ 810 02ed 53       		.byte	0x53
+ 811 02ee C7020000 		.4byte	0x2c7
+ 812 02f2 03       		.uleb128 0x3
+ 813 02f3 16030000 		.4byte	.LASF67
+ 814 02f7 06       		.byte	0x6
+ 815 02f8 54       		.byte	0x54
+ 816 02f9 CE020000 		.4byte	0x2ce
+ 817 02fd 03       		.uleb128 0x3
+ 818 02fe 1F050000 		.4byte	.LASF68
+ 819 0302 07       		.byte	0x7
+ 820 0303 4D       		.byte	0x4d
+ 821 0304 F2020000 		.4byte	0x2f2
+ 822 0308 03       		.uleb128 0x3
+ 823 0309 D9000000 		.4byte	.LASF69
+ 824 030d 07       		.byte	0x7
+ 825 030e 4F       		.byte	0x4f
+ 826 030f F2020000 		.4byte	0x2f2
+ 827 0313 03       		.uleb128 0x3
+ 828 0314 19010000 		.4byte	.LASF70
+ 829 0318 07       		.byte	0x7
+ 830 0319 78       		.byte	0x78
+ 831 031a E7020000 		.4byte	0x2e7
+ 832 031e 02       		.uleb128 0x2
+ 833 031f 04       		.byte	0x4
+ 834 0320 07       		.byte	0x7
+ 835 0321 AC000000 		.4byte	.LASF71
+ 836 0325 11       		.uleb128 0x11
+ 837 0326 75020000 		.4byte	.LASF73
+ 838 032a 01       		.byte	0x1
+ 839 032b 39       		.byte	0x39
+ 840 032c 33000000 		.4byte	0x33
+ 841 0330 00000000 		.4byte	.LFB114
+ 842 0334 2C000000 		.4byte	.LFE114-.LFB114
+ 843 0338 01       		.uleb128 0x1
+ 844 0339 9C       		.byte	0x9c
+ 845 033a 70030000 		.4byte	0x370
+ 846 033e 12       		.uleb128 0x12
+ 847 033f 6D6500   		.ascii	"me\000"
+ 848 0342 01       		.byte	0x1
+ 849 0343 39       		.byte	0x39
+ 850 0344 76030000 		.4byte	0x376
+ 851 0348 00000000 		.4byte	.LLST0
+ 852 034c 13       		.uleb128 0x13
+ 853 034d 00000000 		.4byte	.LASF72
+ 854 0351 01       		.byte	0x1
+ 855 0352 3C       		.byte	0x3c
+ 856 0353 33000000 		.4byte	0x33
+ 857 0357 7F       		.sleb128 -1
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 20
+
+
+ 858 0358 14       		.uleb128 0x14
+ 859 0359 02000000 		.4byte	.LBB2
+ 860 035d 22000000 		.4byte	.LBE2-.LBB2
+ 861 0361 15       		.uleb128 0x15
+ 862 0362 6900     		.ascii	"i\000"
+ 863 0364 01       		.byte	0x1
+ 864 0365 3E       		.byte	0x3e
+ 865 0366 45000000 		.4byte	0x45
+ 866 036a 3A000000 		.4byte	.LLST1
+ 867 036e 00       		.byte	0
+ 868 036f 00       		.byte	0
+ 869 0370 07       		.uleb128 0x7
+ 870 0371 04       		.byte	0x4
+ 871 0372 B1020000 		.4byte	0x2b1
+ 872 0376 0F       		.uleb128 0xf
+ 873 0377 70030000 		.4byte	0x370
+ 874 037b 16       		.uleb128 0x16
+ 875 037c F7020000 		.4byte	.LASF74
+ 876 0380 01       		.byte	0x1
+ 877 0381 4F       		.byte	0x4f
+ 878 0382 3C010000 		.4byte	0x13c
+ 879 0386 00000000 		.4byte	.LFB115
+ 880 038a 3A000000 		.4byte	.LFE115-.LFB115
+ 881 038e 01       		.uleb128 0x1
+ 882 038f 9C       		.byte	0x9c
+ 883 0390 C5030000 		.4byte	0x3c5
+ 884 0394 12       		.uleb128 0x12
+ 885 0395 6D6500   		.ascii	"me\000"
+ 886 0398 01       		.byte	0x1
+ 887 0399 4F       		.byte	0x4f
+ 888 039a 76030000 		.4byte	0x376
+ 889 039e 64000000 		.4byte	.LLST2
+ 890 03a2 17       		.uleb128 0x17
+ 891 03a3 F5000000 		.4byte	.LASF75
+ 892 03a7 01       		.byte	0x1
+ 893 03a8 52       		.byte	0x52
+ 894 03a9 47010000 		.4byte	0x147
+ 895 03ad A6000000 		.4byte	.LLST3
+ 896 03b1 18       		.uleb128 0x18
+ 897 03b2 00000000 		.4byte	.Ldebug_ranges0+0
+ 898 03b6 15       		.uleb128 0x15
+ 899 03b7 6A00     		.ascii	"j\000"
+ 900 03b9 01       		.byte	0x1
+ 901 03ba 59       		.byte	0x59
+ 902 03bb 45000000 		.4byte	0x45
+ 903 03bf D1000000 		.4byte	.LLST4
+ 904 03c3 00       		.byte	0
+ 905 03c4 00       		.byte	0
+ 906 03c5 16       		.uleb128 0x16
+ 907 03c6 87030000 		.4byte	.LASF76
+ 908 03ca 01       		.byte	0x1
+ 909 03cb 6D       		.byte	0x6d
+ 910 03cc 3C010000 		.4byte	0x13c
+ 911 03d0 00000000 		.4byte	.LFB116
+ 912 03d4 0E010000 		.4byte	.LFE116-.LFB116
+ 913 03d8 01       		.uleb128 0x1
+ 914 03d9 9C       		.byte	0x9c
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 21
+
+
+ 915 03da D1040000 		.4byte	0x4d1
+ 916 03de 12       		.uleb128 0x12
+ 917 03df 6D6500   		.ascii	"me\000"
+ 918 03e2 01       		.byte	0x1
+ 919 03e3 6D       		.byte	0x6d
+ 920 03e4 76030000 		.4byte	0x376
+ 921 03e8 FA000000 		.4byte	.LLST5
+ 922 03ec 12       		.uleb128 0x12
+ 923 03ed 657600   		.ascii	"ev\000"
+ 924 03f0 01       		.byte	0x1
+ 925 03f1 6E       		.byte	0x6e
+ 926 03f2 45000000 		.4byte	0x45
+ 927 03f6 18010000 		.4byte	.LLST6
+ 928 03fa 17       		.uleb128 0x17
+ 929 03fb 76000000 		.4byte	.LASF45
+ 930 03ff 01       		.byte	0x1
+ 931 0400 70       		.byte	0x70
+ 932 0401 5F010000 		.4byte	0x15f
+ 933 0405 39010000 		.4byte	.LLST7
+ 934 0409 17       		.uleb128 0x17
+ 935 040a 75050000 		.4byte	.LASF77
+ 936 040e 01       		.byte	0x1
+ 937 040f 71       		.byte	0x71
+ 938 0410 47010000 		.4byte	0x147
+ 939 0414 64010000 		.4byte	.LLST8
+ 940 0418 17       		.uleb128 0x17
+ 941 0419 F5000000 		.4byte	.LASF75
+ 942 041d 01       		.byte	0x1
+ 943 041e 72       		.byte	0x72
+ 944 041f 47010000 		.4byte	0x147
+ 945 0423 8F010000 		.4byte	.LLST9
+ 946 0427 17       		.uleb128 0x17
+ 947 0428 4A050000 		.4byte	.LASF78
+ 948 042c 01       		.byte	0x1
+ 949 042d 73       		.byte	0x73
+ 950 042e 47010000 		.4byte	0x147
+ 951 0432 C6010000 		.4byte	.LLST10
+ 952 0436 19       		.uleb128 0x19
+ 953 0437 B0040000 		.4byte	.LASF79
+ 954 043b 01       		.byte	0x1
+ 955 043c 77       		.byte	0x77
+ 956 043d 45000000 		.4byte	0x45
+ 957 0441 01       		.uleb128 0x1
+ 958 0442 5A       		.byte	0x5a
+ 959 0443 17       		.uleb128 0x17
+ 960 0444 D8050000 		.4byte	.LASF44
+ 961 0448 01       		.byte	0x1
+ 962 0449 78       		.byte	0x78
+ 963 044a 45000000 		.4byte	0x45
+ 964 044e FD010000 		.4byte	.LLST11
+ 965 0452 17       		.uleb128 0x17
+ 966 0453 20010000 		.4byte	.LASF80
+ 967 0457 01       		.byte	0x1
+ 968 0458 7C       		.byte	0x7c
+ 969 0459 33000000 		.4byte	0x33
+ 970 045d 26020000 		.4byte	.LLST12
+ 971 0461 17       		.uleb128 0x17
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 22
+
+
+ 972 0462 82050000 		.4byte	.LASF81
+ 973 0466 01       		.byte	0x1
+ 974 0467 84       		.byte	0x84
+ 975 0468 FD010000 		.4byte	0x1fd
+ 976 046c 5A020000 		.4byte	.LLST13
+ 977 0470 17       		.uleb128 0x17
+ 978 0471 07030000 		.4byte	.LASF82
+ 979 0475 01       		.byte	0x1
+ 980 0476 86       		.byte	0x86
+ 981 0477 45000000 		.4byte	0x45
+ 982 047b 83020000 		.4byte	.LLST14
+ 983 047f 1A       		.uleb128 0x1a
+ 984 0480 18000000 		.4byte	.Ldebug_ranges0+0x18
+ 985 0484 C0040000 		.4byte	0x4c0
+ 986 0488 15       		.uleb128 0x15
+ 987 0489 6900     		.ascii	"i\000"
+ 988 048b 01       		.byte	0x1
+ 989 048c 93       		.byte	0x93
+ 990 048d 45000000 		.4byte	0x45
+ 991 0491 CF020000 		.4byte	.LLST15
+ 992 0495 1A       		.uleb128 0x1a
+ 993 0496 38000000 		.4byte	.Ldebug_ranges0+0x38
+ 994 049a AC040000 		.4byte	0x4ac
+ 995 049e 15       		.uleb128 0x15
+ 996 049f 6A00     		.ascii	"j\000"
+ 997 04a1 01       		.byte	0x1
+ 998 04a2 A4       		.byte	0xa4
+ 999 04a3 45000000 		.4byte	0x45
+ 1000 04a7 03030000 		.4byte	.LLST16
+ 1001 04ab 00       		.byte	0
+ 1002 04ac 18       		.uleb128 0x18
+ 1003 04ad 50000000 		.4byte	.Ldebug_ranges0+0x50
+ 1004 04b1 15       		.uleb128 0x15
+ 1005 04b2 6A00     		.ascii	"j\000"
+ 1006 04b4 01       		.byte	0x1
+ 1007 04b5 B4       		.byte	0xb4
+ 1008 04b6 45000000 		.4byte	0x45
+ 1009 04ba 2C030000 		.4byte	.LLST17
+ 1010 04be 00       		.byte	0
+ 1011 04bf 00       		.byte	0
+ 1012 04c0 1B       		.uleb128 0x1b
+ 1013 04c1 10000000 		.4byte	.LVL21
+ 1014 04c5 25030000 		.4byte	0x325
+ 1015 04c9 1C       		.uleb128 0x1c
+ 1016 04ca 01       		.uleb128 0x1
+ 1017 04cb 50       		.byte	0x50
+ 1018 04cc 02       		.uleb128 0x2
+ 1019 04cd 79       		.byte	0x79
+ 1020 04ce 00       		.sleb128 0
+ 1021 04cf 00       		.byte	0
+ 1022 04d0 00       		.byte	0
+ 1023 04d1 11       		.uleb128 0x11
+ 1024 04d2 B5000000 		.4byte	.LASF83
+ 1025 04d6 01       		.byte	0x1
+ 1026 04d7 D1       		.byte	0xd1
+ 1027 04d8 45000000 		.4byte	0x45
+ 1028 04dc 00000000 		.4byte	.LFB117
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 23
+
+
+ 1029 04e0 04000000 		.4byte	.LFE117-.LFB117
+ 1030 04e4 01       		.uleb128 0x1
+ 1031 04e5 9C       		.byte	0x9c
+ 1032 04e6 F9040000 		.4byte	0x4f9
+ 1033 04ea 12       		.uleb128 0x12
+ 1034 04eb 6D6500   		.ascii	"me\000"
+ 1035 04ee 01       		.byte	0x1
+ 1036 04ef D1       		.byte	0xd1
+ 1037 04f0 76030000 		.4byte	0x376
+ 1038 04f4 55030000 		.4byte	.LLST18
+ 1039 04f8 00       		.byte	0
+ 1040 04f9 1D       		.uleb128 0x1d
+ 1041 04fa B4050000 		.4byte	.LASF84
+ 1042 04fe 08       		.byte	0x8
+ 1043 04ff 40       		.byte	0x40
+ 1044 0500 FD020000 		.4byte	0x2fd
+ 1045 0504 1D       		.uleb128 0x1d
+ 1046 0505 FF010000 		.4byte	.LASF85
+ 1047 0509 08       		.byte	0x8
+ 1048 050a 47       		.byte	0x47
+ 1049 050b 08030000 		.4byte	0x308
+ 1050 050f 1D       		.uleb128 0x1d
+ 1051 0510 E1040000 		.4byte	.LASF86
+ 1052 0514 08       		.byte	0x8
+ 1053 0515 4A       		.byte	0x4a
+ 1054 0516 FD020000 		.4byte	0x2fd
+ 1055 051a 1D       		.uleb128 0x1d
+ 1056 051b 98010000 		.4byte	.LASF87
+ 1057 051f 09       		.byte	0x9
+ 1058 0520 48       		.byte	0x48
+ 1059 0521 13030000 		.4byte	0x313
+ 1060 0525 1D       		.uleb128 0x1d
+ 1061 0526 3D010000 		.4byte	.LASF88
+ 1062 052a 0A       		.byte	0xa
+ 1063 052b 44       		.byte	0x44
+ 1064 052c FD020000 		.4byte	0x2fd
+ 1065 0530 1E       		.uleb128 0x1e
+ 1066 0531 8E050000 		.4byte	.LASF89
+ 1067 0535 0B       		.byte	0xb
+ 1068 0536 1207     		.2byte	0x712
+ 1069 0538 3C050000 		.4byte	0x53c
+ 1070 053c 1F       		.uleb128 0x1f
+ 1071 053d D5020000 		.4byte	0x2d5
+ 1072 0541 00       		.byte	0
+ 1073              		.section	.debug_abbrev,"",%progbits
+ 1074              	.Ldebug_abbrev0:
+ 1075 0000 01       		.uleb128 0x1
+ 1076 0001 11       		.uleb128 0x11
+ 1077 0002 01       		.byte	0x1
+ 1078 0003 25       		.uleb128 0x25
+ 1079 0004 0E       		.uleb128 0xe
+ 1080 0005 13       		.uleb128 0x13
+ 1081 0006 0B       		.uleb128 0xb
+ 1082 0007 03       		.uleb128 0x3
+ 1083 0008 0E       		.uleb128 0xe
+ 1084 0009 1B       		.uleb128 0x1b
+ 1085 000a 0E       		.uleb128 0xe
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 24
+
+
+ 1086 000b 55       		.uleb128 0x55
+ 1087 000c 17       		.uleb128 0x17
+ 1088 000d 11       		.uleb128 0x11
+ 1089 000e 01       		.uleb128 0x1
+ 1090 000f 10       		.uleb128 0x10
+ 1091 0010 17       		.uleb128 0x17
+ 1092 0011 00       		.byte	0
+ 1093 0012 00       		.byte	0
+ 1094 0013 02       		.uleb128 0x2
+ 1095 0014 24       		.uleb128 0x24
+ 1096 0015 00       		.byte	0
+ 1097 0016 0B       		.uleb128 0xb
+ 1098 0017 0B       		.uleb128 0xb
+ 1099 0018 3E       		.uleb128 0x3e
+ 1100 0019 0B       		.uleb128 0xb
+ 1101 001a 03       		.uleb128 0x3
+ 1102 001b 0E       		.uleb128 0xe
+ 1103 001c 00       		.byte	0
+ 1104 001d 00       		.byte	0
+ 1105 001e 03       		.uleb128 0x3
+ 1106 001f 16       		.uleb128 0x16
+ 1107 0020 00       		.byte	0
+ 1108 0021 03       		.uleb128 0x3
+ 1109 0022 0E       		.uleb128 0xe
+ 1110 0023 3A       		.uleb128 0x3a
+ 1111 0024 0B       		.uleb128 0xb
+ 1112 0025 3B       		.uleb128 0x3b
+ 1113 0026 0B       		.uleb128 0xb
+ 1114 0027 49       		.uleb128 0x49
+ 1115 0028 13       		.uleb128 0x13
+ 1116 0029 00       		.byte	0
+ 1117 002a 00       		.byte	0
+ 1118 002b 04       		.uleb128 0x4
+ 1119 002c 04       		.uleb128 0x4
+ 1120 002d 01       		.byte	0x1
+ 1121 002e 0B       		.uleb128 0xb
+ 1122 002f 0B       		.uleb128 0xb
+ 1123 0030 49       		.uleb128 0x49
+ 1124 0031 13       		.uleb128 0x13
+ 1125 0032 3A       		.uleb128 0x3a
+ 1126 0033 0B       		.uleb128 0xb
+ 1127 0034 3B       		.uleb128 0x3b
+ 1128 0035 0B       		.uleb128 0xb
+ 1129 0036 01       		.uleb128 0x1
+ 1130 0037 13       		.uleb128 0x13
+ 1131 0038 00       		.byte	0
+ 1132 0039 00       		.byte	0
+ 1133 003a 05       		.uleb128 0x5
+ 1134 003b 28       		.uleb128 0x28
+ 1135 003c 00       		.byte	0
+ 1136 003d 03       		.uleb128 0x3
+ 1137 003e 0E       		.uleb128 0xe
+ 1138 003f 1C       		.uleb128 0x1c
+ 1139 0040 0B       		.uleb128 0xb
+ 1140 0041 00       		.byte	0
+ 1141 0042 00       		.byte	0
+ 1142 0043 06       		.uleb128 0x6
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 25
+
+
+ 1143 0044 28       		.uleb128 0x28
+ 1144 0045 00       		.byte	0
+ 1145 0046 03       		.uleb128 0x3
+ 1146 0047 0E       		.uleb128 0xe
+ 1147 0048 1C       		.uleb128 0x1c
+ 1148 0049 0D       		.uleb128 0xd
+ 1149 004a 00       		.byte	0
+ 1150 004b 00       		.byte	0
+ 1151 004c 07       		.uleb128 0x7
+ 1152 004d 0F       		.uleb128 0xf
+ 1153 004e 00       		.byte	0
+ 1154 004f 0B       		.uleb128 0xb
+ 1155 0050 0B       		.uleb128 0xb
+ 1156 0051 49       		.uleb128 0x49
+ 1157 0052 13       		.uleb128 0x13
+ 1158 0053 00       		.byte	0
+ 1159 0054 00       		.byte	0
+ 1160 0055 08       		.uleb128 0x8
+ 1161 0056 15       		.uleb128 0x15
+ 1162 0057 01       		.byte	0x1
+ 1163 0058 01       		.uleb128 0x1
+ 1164 0059 13       		.uleb128 0x13
+ 1165 005a 00       		.byte	0
+ 1166 005b 00       		.byte	0
+ 1167 005c 09       		.uleb128 0x9
+ 1168 005d 18       		.uleb128 0x18
+ 1169 005e 00       		.byte	0
+ 1170 005f 00       		.byte	0
+ 1171 0060 00       		.byte	0
+ 1172 0061 0A       		.uleb128 0xa
+ 1173 0062 15       		.uleb128 0x15
+ 1174 0063 01       		.byte	0x1
+ 1175 0064 49       		.uleb128 0x49
+ 1176 0065 13       		.uleb128 0x13
+ 1177 0066 01       		.uleb128 0x1
+ 1178 0067 13       		.uleb128 0x13
+ 1179 0068 00       		.byte	0
+ 1180 0069 00       		.byte	0
+ 1181 006a 0B       		.uleb128 0xb
+ 1182 006b 13       		.uleb128 0x13
+ 1183 006c 01       		.byte	0x1
+ 1184 006d 0B       		.uleb128 0xb
+ 1185 006e 0B       		.uleb128 0xb
+ 1186 006f 3A       		.uleb128 0x3a
+ 1187 0070 0B       		.uleb128 0xb
+ 1188 0071 3B       		.uleb128 0x3b
+ 1189 0072 0B       		.uleb128 0xb
+ 1190 0073 01       		.uleb128 0x1
+ 1191 0074 13       		.uleb128 0x13
+ 1192 0075 00       		.byte	0
+ 1193 0076 00       		.byte	0
+ 1194 0077 0C       		.uleb128 0xc
+ 1195 0078 0D       		.uleb128 0xd
+ 1196 0079 00       		.byte	0
+ 1197 007a 03       		.uleb128 0x3
+ 1198 007b 0E       		.uleb128 0xe
+ 1199 007c 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 26
+
+
+ 1200 007d 0B       		.uleb128 0xb
+ 1201 007e 3B       		.uleb128 0x3b
+ 1202 007f 0B       		.uleb128 0xb
+ 1203 0080 49       		.uleb128 0x49
+ 1204 0081 13       		.uleb128 0x13
+ 1205 0082 38       		.uleb128 0x38
+ 1206 0083 0B       		.uleb128 0xb
+ 1207 0084 00       		.byte	0
+ 1208 0085 00       		.byte	0
+ 1209 0086 0D       		.uleb128 0xd
+ 1210 0087 01       		.uleb128 0x1
+ 1211 0088 01       		.byte	0x1
+ 1212 0089 49       		.uleb128 0x49
+ 1213 008a 13       		.uleb128 0x13
+ 1214 008b 01       		.uleb128 0x1
+ 1215 008c 13       		.uleb128 0x13
+ 1216 008d 00       		.byte	0
+ 1217 008e 00       		.byte	0
+ 1218 008f 0E       		.uleb128 0xe
+ 1219 0090 21       		.uleb128 0x21
+ 1220 0091 00       		.byte	0
+ 1221 0092 00       		.byte	0
+ 1222 0093 00       		.byte	0
+ 1223 0094 0F       		.uleb128 0xf
+ 1224 0095 26       		.uleb128 0x26
+ 1225 0096 00       		.byte	0
+ 1226 0097 49       		.uleb128 0x49
+ 1227 0098 13       		.uleb128 0x13
+ 1228 0099 00       		.byte	0
+ 1229 009a 00       		.byte	0
+ 1230 009b 10       		.uleb128 0x10
+ 1231 009c 24       		.uleb128 0x24
+ 1232 009d 00       		.byte	0
+ 1233 009e 0B       		.uleb128 0xb
+ 1234 009f 0B       		.uleb128 0xb
+ 1235 00a0 3E       		.uleb128 0x3e
+ 1236 00a1 0B       		.uleb128 0xb
+ 1237 00a2 03       		.uleb128 0x3
+ 1238 00a3 08       		.uleb128 0x8
+ 1239 00a4 00       		.byte	0
+ 1240 00a5 00       		.byte	0
+ 1241 00a6 11       		.uleb128 0x11
+ 1242 00a7 2E       		.uleb128 0x2e
+ 1243 00a8 01       		.byte	0x1
+ 1244 00a9 3F       		.uleb128 0x3f
+ 1245 00aa 19       		.uleb128 0x19
+ 1246 00ab 03       		.uleb128 0x3
+ 1247 00ac 0E       		.uleb128 0xe
+ 1248 00ad 3A       		.uleb128 0x3a
+ 1249 00ae 0B       		.uleb128 0xb
+ 1250 00af 3B       		.uleb128 0x3b
+ 1251 00b0 0B       		.uleb128 0xb
+ 1252 00b1 27       		.uleb128 0x27
+ 1253 00b2 19       		.uleb128 0x19
+ 1254 00b3 49       		.uleb128 0x49
+ 1255 00b4 13       		.uleb128 0x13
+ 1256 00b5 11       		.uleb128 0x11
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 27
+
+
+ 1257 00b6 01       		.uleb128 0x1
+ 1258 00b7 12       		.uleb128 0x12
+ 1259 00b8 06       		.uleb128 0x6
+ 1260 00b9 40       		.uleb128 0x40
+ 1261 00ba 18       		.uleb128 0x18
+ 1262 00bb 9742     		.uleb128 0x2117
+ 1263 00bd 19       		.uleb128 0x19
+ 1264 00be 01       		.uleb128 0x1
+ 1265 00bf 13       		.uleb128 0x13
+ 1266 00c0 00       		.byte	0
+ 1267 00c1 00       		.byte	0
+ 1268 00c2 12       		.uleb128 0x12
+ 1269 00c3 05       		.uleb128 0x5
+ 1270 00c4 00       		.byte	0
+ 1271 00c5 03       		.uleb128 0x3
+ 1272 00c6 08       		.uleb128 0x8
+ 1273 00c7 3A       		.uleb128 0x3a
+ 1274 00c8 0B       		.uleb128 0xb
+ 1275 00c9 3B       		.uleb128 0x3b
+ 1276 00ca 0B       		.uleb128 0xb
+ 1277 00cb 49       		.uleb128 0x49
+ 1278 00cc 13       		.uleb128 0x13
+ 1279 00cd 02       		.uleb128 0x2
+ 1280 00ce 17       		.uleb128 0x17
+ 1281 00cf 00       		.byte	0
+ 1282 00d0 00       		.byte	0
+ 1283 00d1 13       		.uleb128 0x13
+ 1284 00d2 34       		.uleb128 0x34
+ 1285 00d3 00       		.byte	0
+ 1286 00d4 03       		.uleb128 0x3
+ 1287 00d5 0E       		.uleb128 0xe
+ 1288 00d6 3A       		.uleb128 0x3a
+ 1289 00d7 0B       		.uleb128 0xb
+ 1290 00d8 3B       		.uleb128 0x3b
+ 1291 00d9 0B       		.uleb128 0xb
+ 1292 00da 49       		.uleb128 0x49
+ 1293 00db 13       		.uleb128 0x13
+ 1294 00dc 1C       		.uleb128 0x1c
+ 1295 00dd 0D       		.uleb128 0xd
+ 1296 00de 00       		.byte	0
+ 1297 00df 00       		.byte	0
+ 1298 00e0 14       		.uleb128 0x14
+ 1299 00e1 0B       		.uleb128 0xb
+ 1300 00e2 01       		.byte	0x1
+ 1301 00e3 11       		.uleb128 0x11
+ 1302 00e4 01       		.uleb128 0x1
+ 1303 00e5 12       		.uleb128 0x12
+ 1304 00e6 06       		.uleb128 0x6
+ 1305 00e7 00       		.byte	0
+ 1306 00e8 00       		.byte	0
+ 1307 00e9 15       		.uleb128 0x15
+ 1308 00ea 34       		.uleb128 0x34
+ 1309 00eb 00       		.byte	0
+ 1310 00ec 03       		.uleb128 0x3
+ 1311 00ed 08       		.uleb128 0x8
+ 1312 00ee 3A       		.uleb128 0x3a
+ 1313 00ef 0B       		.uleb128 0xb
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 28
+
+
+ 1314 00f0 3B       		.uleb128 0x3b
+ 1315 00f1 0B       		.uleb128 0xb
+ 1316 00f2 49       		.uleb128 0x49
+ 1317 00f3 13       		.uleb128 0x13
+ 1318 00f4 02       		.uleb128 0x2
+ 1319 00f5 17       		.uleb128 0x17
+ 1320 00f6 00       		.byte	0
+ 1321 00f7 00       		.byte	0
+ 1322 00f8 16       		.uleb128 0x16
+ 1323 00f9 2E       		.uleb128 0x2e
+ 1324 00fa 01       		.byte	0x1
+ 1325 00fb 3F       		.uleb128 0x3f
+ 1326 00fc 19       		.uleb128 0x19
+ 1327 00fd 03       		.uleb128 0x3
+ 1328 00fe 0E       		.uleb128 0xe
+ 1329 00ff 3A       		.uleb128 0x3a
+ 1330 0100 0B       		.uleb128 0xb
+ 1331 0101 3B       		.uleb128 0x3b
+ 1332 0102 0B       		.uleb128 0xb
+ 1333 0103 27       		.uleb128 0x27
+ 1334 0104 19       		.uleb128 0x19
+ 1335 0105 49       		.uleb128 0x49
+ 1336 0106 13       		.uleb128 0x13
+ 1337 0107 11       		.uleb128 0x11
+ 1338 0108 01       		.uleb128 0x1
+ 1339 0109 12       		.uleb128 0x12
+ 1340 010a 06       		.uleb128 0x6
+ 1341 010b 40       		.uleb128 0x40
+ 1342 010c 18       		.uleb128 0x18
+ 1343 010d 9642     		.uleb128 0x2116
+ 1344 010f 19       		.uleb128 0x19
+ 1345 0110 01       		.uleb128 0x1
+ 1346 0111 13       		.uleb128 0x13
+ 1347 0112 00       		.byte	0
+ 1348 0113 00       		.byte	0
+ 1349 0114 17       		.uleb128 0x17
+ 1350 0115 34       		.uleb128 0x34
+ 1351 0116 00       		.byte	0
+ 1352 0117 03       		.uleb128 0x3
+ 1353 0118 0E       		.uleb128 0xe
+ 1354 0119 3A       		.uleb128 0x3a
+ 1355 011a 0B       		.uleb128 0xb
+ 1356 011b 3B       		.uleb128 0x3b
+ 1357 011c 0B       		.uleb128 0xb
+ 1358 011d 49       		.uleb128 0x49
+ 1359 011e 13       		.uleb128 0x13
+ 1360 011f 02       		.uleb128 0x2
+ 1361 0120 17       		.uleb128 0x17
+ 1362 0121 00       		.byte	0
+ 1363 0122 00       		.byte	0
+ 1364 0123 18       		.uleb128 0x18
+ 1365 0124 0B       		.uleb128 0xb
+ 1366 0125 01       		.byte	0x1
+ 1367 0126 55       		.uleb128 0x55
+ 1368 0127 17       		.uleb128 0x17
+ 1369 0128 00       		.byte	0
+ 1370 0129 00       		.byte	0
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 29
+
+
+ 1371 012a 19       		.uleb128 0x19
+ 1372 012b 34       		.uleb128 0x34
+ 1373 012c 00       		.byte	0
+ 1374 012d 03       		.uleb128 0x3
+ 1375 012e 0E       		.uleb128 0xe
+ 1376 012f 3A       		.uleb128 0x3a
+ 1377 0130 0B       		.uleb128 0xb
+ 1378 0131 3B       		.uleb128 0x3b
+ 1379 0132 0B       		.uleb128 0xb
+ 1380 0133 49       		.uleb128 0x49
+ 1381 0134 13       		.uleb128 0x13
+ 1382 0135 02       		.uleb128 0x2
+ 1383 0136 18       		.uleb128 0x18
+ 1384 0137 00       		.byte	0
+ 1385 0138 00       		.byte	0
+ 1386 0139 1A       		.uleb128 0x1a
+ 1387 013a 0B       		.uleb128 0xb
+ 1388 013b 01       		.byte	0x1
+ 1389 013c 55       		.uleb128 0x55
+ 1390 013d 17       		.uleb128 0x17
+ 1391 013e 01       		.uleb128 0x1
+ 1392 013f 13       		.uleb128 0x13
+ 1393 0140 00       		.byte	0
+ 1394 0141 00       		.byte	0
+ 1395 0142 1B       		.uleb128 0x1b
+ 1396 0143 898201   		.uleb128 0x4109
+ 1397 0146 01       		.byte	0x1
+ 1398 0147 11       		.uleb128 0x11
+ 1399 0148 01       		.uleb128 0x1
+ 1400 0149 31       		.uleb128 0x31
+ 1401 014a 13       		.uleb128 0x13
+ 1402 014b 00       		.byte	0
+ 1403 014c 00       		.byte	0
+ 1404 014d 1C       		.uleb128 0x1c
+ 1405 014e 8A8201   		.uleb128 0x410a
+ 1406 0151 00       		.byte	0
+ 1407 0152 02       		.uleb128 0x2
+ 1408 0153 18       		.uleb128 0x18
+ 1409 0154 9142     		.uleb128 0x2111
+ 1410 0156 18       		.uleb128 0x18
+ 1411 0157 00       		.byte	0
+ 1412 0158 00       		.byte	0
+ 1413 0159 1D       		.uleb128 0x1d
+ 1414 015a 34       		.uleb128 0x34
+ 1415 015b 00       		.byte	0
+ 1416 015c 03       		.uleb128 0x3
+ 1417 015d 0E       		.uleb128 0xe
+ 1418 015e 3A       		.uleb128 0x3a
+ 1419 015f 0B       		.uleb128 0xb
+ 1420 0160 3B       		.uleb128 0x3b
+ 1421 0161 0B       		.uleb128 0xb
+ 1422 0162 49       		.uleb128 0x49
+ 1423 0163 13       		.uleb128 0x13
+ 1424 0164 3F       		.uleb128 0x3f
+ 1425 0165 19       		.uleb128 0x19
+ 1426 0166 3C       		.uleb128 0x3c
+ 1427 0167 19       		.uleb128 0x19
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 30
+
+
+ 1428 0168 00       		.byte	0
+ 1429 0169 00       		.byte	0
+ 1430 016a 1E       		.uleb128 0x1e
+ 1431 016b 34       		.uleb128 0x34
+ 1432 016c 00       		.byte	0
+ 1433 016d 03       		.uleb128 0x3
+ 1434 016e 0E       		.uleb128 0xe
+ 1435 016f 3A       		.uleb128 0x3a
+ 1436 0170 0B       		.uleb128 0xb
+ 1437 0171 3B       		.uleb128 0x3b
+ 1438 0172 05       		.uleb128 0x5
+ 1439 0173 49       		.uleb128 0x49
+ 1440 0174 13       		.uleb128 0x13
+ 1441 0175 3F       		.uleb128 0x3f
+ 1442 0176 19       		.uleb128 0x19
+ 1443 0177 3C       		.uleb128 0x3c
+ 1444 0178 19       		.uleb128 0x19
+ 1445 0179 00       		.byte	0
+ 1446 017a 00       		.byte	0
+ 1447 017b 1F       		.uleb128 0x1f
+ 1448 017c 35       		.uleb128 0x35
+ 1449 017d 00       		.byte	0
+ 1450 017e 49       		.uleb128 0x49
+ 1451 017f 13       		.uleb128 0x13
+ 1452 0180 00       		.byte	0
+ 1453 0181 00       		.byte	0
+ 1454 0182 00       		.byte	0
+ 1455              		.section	.debug_loc,"",%progbits
+ 1456              	.Ldebug_loc0:
+ 1457              	.LLST0:
+ 1458 0000 00000000 		.4byte	.LVL0
+ 1459 0004 18000000 		.4byte	.LVL3
+ 1460 0008 0100     		.2byte	0x1
+ 1461 000a 50       		.byte	0x50
+ 1462 000b 18000000 		.4byte	.LVL3
+ 1463 000f 1A000000 		.4byte	.LVL4
+ 1464 0013 0400     		.2byte	0x4
+ 1465 0015 F3       		.byte	0xf3
+ 1466 0016 01       		.uleb128 0x1
+ 1467 0017 50       		.byte	0x50
+ 1468 0018 9F       		.byte	0x9f
+ 1469 0019 1A000000 		.4byte	.LVL4
+ 1470 001d 28000000 		.4byte	.LVL7
+ 1471 0021 0100     		.2byte	0x1
+ 1472 0023 50       		.byte	0x50
+ 1473 0024 28000000 		.4byte	.LVL7
+ 1474 0028 2C000000 		.4byte	.LFE114
+ 1475 002c 0400     		.2byte	0x4
+ 1476 002e F3       		.byte	0xf3
+ 1477 002f 01       		.uleb128 0x1
+ 1478 0030 50       		.byte	0x50
+ 1479 0031 9F       		.byte	0x9f
+ 1480 0032 00000000 		.4byte	0
+ 1481 0036 00000000 		.4byte	0
+ 1482              	.LLST1:
+ 1483 003a 02000000 		.4byte	.LVL1
+ 1484 003e 06000000 		.4byte	.LVL2
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 31
+
+
+ 1485 0042 0200     		.2byte	0x2
+ 1486 0044 30       		.byte	0x30
+ 1487 0045 9F       		.byte	0x9f
+ 1488 0046 06000000 		.4byte	.LVL2
+ 1489 004a 1C000000 		.4byte	.LVL5
+ 1490 004e 0100     		.2byte	0x1
+ 1491 0050 53       		.byte	0x53
+ 1492 0051 1E000000 		.4byte	.LVL6
+ 1493 0055 2C000000 		.4byte	.LFE114
+ 1494 0059 0100     		.2byte	0x1
+ 1495 005b 53       		.byte	0x53
+ 1496 005c 00000000 		.4byte	0
+ 1497 0060 00000000 		.4byte	0
+ 1498              	.LLST2:
+ 1499 0064 00000000 		.4byte	.LVL8
+ 1500 0068 0C000000 		.4byte	.LVL10
+ 1501 006c 0100     		.2byte	0x1
+ 1502 006e 50       		.byte	0x50
+ 1503 006f 0C000000 		.4byte	.LVL10
+ 1504 0073 2C000000 		.4byte	.LVL15
+ 1505 0077 0100     		.2byte	0x1
+ 1506 0079 55       		.byte	0x55
+ 1507 007a 2C000000 		.4byte	.LVL15
+ 1508 007e 30000000 		.4byte	.LVL16
+ 1509 0082 0100     		.2byte	0x1
+ 1510 0084 50       		.byte	0x50
+ 1511 0085 30000000 		.4byte	.LVL16
+ 1512 0089 36000000 		.4byte	.LVL17
+ 1513 008d 0100     		.2byte	0x1
+ 1514 008f 55       		.byte	0x55
+ 1515 0090 36000000 		.4byte	.LVL17
+ 1516 0094 3A000000 		.4byte	.LFE115
+ 1517 0098 0400     		.2byte	0x4
+ 1518 009a F3       		.byte	0xf3
+ 1519 009b 01       		.uleb128 0x1
+ 1520 009c 50       		.byte	0x50
+ 1521 009d 9F       		.byte	0x9f
+ 1522 009e 00000000 		.4byte	0
+ 1523 00a2 00000000 		.4byte	0
+ 1524              	.LLST3:
+ 1525 00a6 02000000 		.4byte	.LVL9
+ 1526 00aa 0C000000 		.4byte	.LVL10
+ 1527 00ae 0200     		.2byte	0x2
+ 1528 00b0 30       		.byte	0x30
+ 1529 00b1 9F       		.byte	0x9f
+ 1530 00b2 22000000 		.4byte	.LVL11
+ 1531 00b6 25000000 		.4byte	.LVL12-1
+ 1532 00ba 0100     		.2byte	0x1
+ 1533 00bc 53       		.byte	0x53
+ 1534 00bd 2C000000 		.4byte	.LVL15
+ 1535 00c1 30000000 		.4byte	.LVL16
+ 1536 00c5 0200     		.2byte	0x2
+ 1537 00c7 30       		.byte	0x30
+ 1538 00c8 9F       		.byte	0x9f
+ 1539 00c9 00000000 		.4byte	0
+ 1540 00cd 00000000 		.4byte	0
+ 1541              	.LLST4:
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 32
+
+
+ 1542 00d1 0C000000 		.4byte	.LVL10
+ 1543 00d5 28000000 		.4byte	.LVL13
+ 1544 00d9 0100     		.2byte	0x1
+ 1545 00db 54       		.byte	0x54
+ 1546 00dc 2A000000 		.4byte	.LVL14
+ 1547 00e0 2C000000 		.4byte	.LVL15
+ 1548 00e4 0100     		.2byte	0x1
+ 1549 00e6 54       		.byte	0x54
+ 1550 00e7 30000000 		.4byte	.LVL16
+ 1551 00eb 36000000 		.4byte	.LVL17
+ 1552 00ef 0100     		.2byte	0x1
+ 1553 00f1 54       		.byte	0x54
+ 1554 00f2 00000000 		.4byte	0
+ 1555 00f6 00000000 		.4byte	0
+ 1556              	.LLST5:
+ 1557 00fa 00000000 		.4byte	.LVL18
+ 1558 00fe 0F000000 		.4byte	.LVL21-1
+ 1559 0102 0100     		.2byte	0x1
+ 1560 0104 50       		.byte	0x50
+ 1561 0105 0F000000 		.4byte	.LVL21-1
+ 1562 0109 0E010000 		.4byte	.LFE116
+ 1563 010d 0100     		.2byte	0x1
+ 1564 010f 59       		.byte	0x59
+ 1565 0110 00000000 		.4byte	0
+ 1566 0114 00000000 		.4byte	0
+ 1567              	.LLST6:
+ 1568 0118 00000000 		.4byte	.LVL18
+ 1569 011c 0F000000 		.4byte	.LVL21-1
+ 1570 0120 0100     		.2byte	0x1
+ 1571 0122 51       		.byte	0x51
+ 1572 0123 0F000000 		.4byte	.LVL21-1
+ 1573 0127 0E010000 		.4byte	.LFE116
+ 1574 012b 0400     		.2byte	0x4
+ 1575 012d F3       		.byte	0xf3
+ 1576 012e 01       		.uleb128 0x1
+ 1577 012f 51       		.byte	0x51
+ 1578 0130 9F       		.byte	0x9f
+ 1579 0131 00000000 		.4byte	0
+ 1580 0135 00000000 		.4byte	0
+ 1581              	.LLST7:
+ 1582 0139 08000000 		.4byte	.LVL19
+ 1583 013d 3E000000 		.4byte	.LVL26
+ 1584 0141 0200     		.2byte	0x2
+ 1585 0143 30       		.byte	0x30
+ 1586 0144 9F       		.byte	0x9f
+ 1587 0145 56000000 		.4byte	.LVL27
+ 1588 0149 59000000 		.4byte	.LVL28-1
+ 1589 014d 0100     		.2byte	0x1
+ 1590 014f 53       		.byte	0x53
+ 1591 0150 F6000000 		.4byte	.LVL52
+ 1592 0154 0E010000 		.4byte	.LFE116
+ 1593 0158 0200     		.2byte	0x2
+ 1594 015a 30       		.byte	0x30
+ 1595 015b 9F       		.byte	0x9f
+ 1596 015c 00000000 		.4byte	0
+ 1597 0160 00000000 		.4byte	0
+ 1598              	.LLST8:
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 33
+
+
+ 1599 0164 08000000 		.4byte	.LVL19
+ 1600 0168 6A000000 		.4byte	.LVL29
+ 1601 016c 0200     		.2byte	0x2
+ 1602 016e 30       		.byte	0x30
+ 1603 016f 9F       		.byte	0x9f
+ 1604 0170 6A000000 		.4byte	.LVL29
+ 1605 0174 E8000000 		.4byte	.LVL49
+ 1606 0178 0100     		.2byte	0x1
+ 1607 017a 56       		.byte	0x56
+ 1608 017b E8000000 		.4byte	.LVL49
+ 1609 017f 0E010000 		.4byte	.LFE116
+ 1610 0183 0200     		.2byte	0x2
+ 1611 0185 30       		.byte	0x30
+ 1612 0186 9F       		.byte	0x9f
+ 1613 0187 00000000 		.4byte	0
+ 1614 018b 00000000 		.4byte	0
+ 1615              	.LLST9:
+ 1616 018f 08000000 		.4byte	.LVL19
+ 1617 0193 B0000000 		.4byte	.LVL41
+ 1618 0197 0200     		.2byte	0x2
+ 1619 0199 30       		.byte	0x30
+ 1620 019a 9F       		.byte	0x9f
+ 1621 019b CA000000 		.4byte	.LVL42
+ 1622 019f CD000000 		.4byte	.LVL43-1
+ 1623 01a3 0100     		.2byte	0x1
+ 1624 01a5 53       		.byte	0x53
+ 1625 01a6 D4000000 		.4byte	.LVL46
+ 1626 01aa D6000000 		.4byte	.LVL47
+ 1627 01ae 0200     		.2byte	0x2
+ 1628 01b0 30       		.byte	0x30
+ 1629 01b1 9F       		.byte	0x9f
+ 1630 01b2 E8000000 		.4byte	.LVL49
+ 1631 01b6 0E010000 		.4byte	.LFE116
+ 1632 01ba 0200     		.2byte	0x2
+ 1633 01bc 30       		.byte	0x30
+ 1634 01bd 9F       		.byte	0x9f
+ 1635 01be 00000000 		.4byte	0
+ 1636 01c2 00000000 		.4byte	0
+ 1637              	.LLST10:
+ 1638 01c6 08000000 		.4byte	.LVL19
+ 1639 01ca 76000000 		.4byte	.LVL32
+ 1640 01ce 0200     		.2byte	0x2
+ 1641 01d0 30       		.byte	0x30
+ 1642 01d1 9F       		.byte	0x9f
+ 1643 01d2 90000000 		.4byte	.LVL33
+ 1644 01d6 93000000 		.4byte	.LVL34-1
+ 1645 01da 0100     		.2byte	0x1
+ 1646 01dc 53       		.byte	0x53
+ 1647 01dd 9A000000 		.4byte	.LVL37
+ 1648 01e1 9C000000 		.4byte	.LVL38
+ 1649 01e5 0200     		.2byte	0x2
+ 1650 01e7 30       		.byte	0x30
+ 1651 01e8 9F       		.byte	0x9f
+ 1652 01e9 E8000000 		.4byte	.LVL49
+ 1653 01ed 0E010000 		.4byte	.LFE116
+ 1654 01f1 0200     		.2byte	0x2
+ 1655 01f3 30       		.byte	0x30
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 34
+
+
+ 1656 01f4 9F       		.byte	0x9f
+ 1657 01f5 00000000 		.4byte	0
+ 1658 01f9 00000000 		.4byte	0
+ 1659              	.LLST11:
+ 1660 01fd 0C000000 		.4byte	.LVL20
+ 1661 0201 6E000000 		.4byte	.LVL31
+ 1662 0205 0100     		.2byte	0x1
+ 1663 0207 5A       		.byte	0x5a
+ 1664 0208 6E000000 		.4byte	.LVL31
+ 1665 020c E8000000 		.4byte	.LVL49
+ 1666 0210 0100     		.2byte	0x1
+ 1667 0212 55       		.byte	0x55
+ 1668 0213 E8000000 		.4byte	.LVL49
+ 1669 0217 0E010000 		.4byte	.LFE116
+ 1670 021b 0100     		.2byte	0x1
+ 1671 021d 5A       		.byte	0x5a
+ 1672 021e 00000000 		.4byte	0
+ 1673 0222 00000000 		.4byte	0
+ 1674              	.LLST12:
+ 1675 0226 10000000 		.4byte	.LVL21
+ 1676 022a 3E000000 		.4byte	.LVL26
+ 1677 022e 0100     		.2byte	0x1
+ 1678 0230 50       		.byte	0x50
+ 1679 0231 F6000000 		.4byte	.LVL52
+ 1680 0235 FA000000 		.4byte	.LVL53
+ 1681 0239 0100     		.2byte	0x1
+ 1682 023b 50       		.byte	0x50
+ 1683 023c FE000000 		.4byte	.LVL54
+ 1684 0240 02010000 		.4byte	.LVL55
+ 1685 0244 0100     		.2byte	0x1
+ 1686 0246 50       		.byte	0x50
+ 1687 0247 06010000 		.4byte	.LVL56
+ 1688 024b 0A010000 		.4byte	.LVL57
+ 1689 024f 0100     		.2byte	0x1
+ 1690 0251 50       		.byte	0x50
+ 1691 0252 00000000 		.4byte	0
+ 1692 0256 00000000 		.4byte	0
+ 1693              	.LLST13:
+ 1694 025a 26000000 		.4byte	.LVL22
+ 1695 025e 6C000000 		.4byte	.LVL30
+ 1696 0262 0100     		.2byte	0x1
+ 1697 0264 55       		.byte	0x55
+ 1698 0265 E8000000 		.4byte	.LVL49
+ 1699 0269 F6000000 		.4byte	.LVL52
+ 1700 026d 0100     		.2byte	0x1
+ 1701 026f 55       		.byte	0x55
+ 1702 0270 FE000000 		.4byte	.LVL54
+ 1703 0274 0E010000 		.4byte	.LFE116
+ 1704 0278 0100     		.2byte	0x1
+ 1705 027a 55       		.byte	0x55
+ 1706 027b 00000000 		.4byte	0
+ 1707 027f 00000000 		.4byte	0
+ 1708              	.LLST14:
+ 1709 0283 26000000 		.4byte	.LVL22
+ 1710 0287 2E000000 		.4byte	.LVL23
+ 1711 028b 0200     		.2byte	0x2
+ 1712 028d 30       		.byte	0x30
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 35
+
+
+ 1713 028e 9F       		.byte	0x9f
+ 1714 028f 2E000000 		.4byte	.LVL23
+ 1715 0293 30000000 		.4byte	.LVL24
+ 1716 0297 0100     		.2byte	0x1
+ 1717 0299 56       		.byte	0x56
+ 1718 029a 30000000 		.4byte	.LVL24
+ 1719 029e 32000000 		.4byte	.LVL25
+ 1720 02a2 0200     		.2byte	0x2
+ 1721 02a4 30       		.byte	0x30
+ 1722 02a5 9F       		.byte	0x9f
+ 1723 02a6 32000000 		.4byte	.LVL25
+ 1724 02aa 6A000000 		.4byte	.LVL29
+ 1725 02ae 0100     		.2byte	0x1
+ 1726 02b0 56       		.byte	0x56
+ 1727 02b1 E8000000 		.4byte	.LVL49
+ 1728 02b5 F6000000 		.4byte	.LVL52
+ 1729 02b9 0100     		.2byte	0x1
+ 1730 02bb 56       		.byte	0x56
+ 1731 02bc FE000000 		.4byte	.LVL54
+ 1732 02c0 0E010000 		.4byte	.LFE116
+ 1733 02c4 0100     		.2byte	0x1
+ 1734 02c6 56       		.byte	0x56
+ 1735 02c7 00000000 		.4byte	0
+ 1736 02cb 00000000 		.4byte	0
+ 1737              	.LLST15:
+ 1738 02cf 3E000000 		.4byte	.LVL26
+ 1739 02d3 76000000 		.4byte	.LVL32
+ 1740 02d7 0100     		.2byte	0x1
+ 1741 02d9 54       		.byte	0x54
+ 1742 02da 9A000000 		.4byte	.LVL37
+ 1743 02de 9C000000 		.4byte	.LVL38
+ 1744 02e2 0100     		.2byte	0x1
+ 1745 02e4 54       		.byte	0x54
+ 1746 02e5 E8000000 		.4byte	.LVL49
+ 1747 02e9 EA000000 		.4byte	.LVL50
+ 1748 02ed 0100     		.2byte	0x1
+ 1749 02ef 54       		.byte	0x54
+ 1750 02f0 EC000000 		.4byte	.LVL51
+ 1751 02f4 F6000000 		.4byte	.LVL52
+ 1752 02f8 0100     		.2byte	0x1
+ 1753 02fa 54       		.byte	0x54
+ 1754 02fb 00000000 		.4byte	0
+ 1755 02ff 00000000 		.4byte	0
+ 1756              	.LLST16:
+ 1757 0303 76000000 		.4byte	.LVL32
+ 1758 0307 96000000 		.4byte	.LVL35
+ 1759 030b 0100     		.2byte	0x1
+ 1760 030d 54       		.byte	0x54
+ 1761 030e 98000000 		.4byte	.LVL36
+ 1762 0312 9A000000 		.4byte	.LVL37
+ 1763 0316 0100     		.2byte	0x1
+ 1764 0318 54       		.byte	0x54
+ 1765 0319 9C000000 		.4byte	.LVL38
+ 1766 031d A4000000 		.4byte	.LVL39
+ 1767 0321 0100     		.2byte	0x1
+ 1768 0323 54       		.byte	0x54
+ 1769 0324 00000000 		.4byte	0
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 36
+
+
+ 1770 0328 00000000 		.4byte	0
+ 1771              	.LLST17:
+ 1772 032c B0000000 		.4byte	.LVL41
+ 1773 0330 D0000000 		.4byte	.LVL44
+ 1774 0334 0100     		.2byte	0x1
+ 1775 0336 54       		.byte	0x54
+ 1776 0337 D2000000 		.4byte	.LVL45
+ 1777 033b D4000000 		.4byte	.LVL46
+ 1778 033f 0100     		.2byte	0x1
+ 1779 0341 54       		.byte	0x54
+ 1780 0342 D6000000 		.4byte	.LVL47
+ 1781 0346 DE000000 		.4byte	.LVL48
+ 1782 034a 0100     		.2byte	0x1
+ 1783 034c 54       		.byte	0x54
+ 1784 034d 00000000 		.4byte	0
+ 1785 0351 00000000 		.4byte	0
+ 1786              	.LLST18:
+ 1787 0355 00000000 		.4byte	.LVL58
+ 1788 0359 02000000 		.4byte	.LVL59
+ 1789 035d 0100     		.2byte	0x1
+ 1790 035f 50       		.byte	0x50
+ 1791 0360 02000000 		.4byte	.LVL59
+ 1792 0364 04000000 		.4byte	.LFE117
+ 1793 0368 0400     		.2byte	0x4
+ 1794 036a F3       		.byte	0xf3
+ 1795 036b 01       		.uleb128 0x1
+ 1796 036c 50       		.byte	0x50
+ 1797 036d 9F       		.byte	0x9f
+ 1798 036e 00000000 		.4byte	0
+ 1799 0372 00000000 		.4byte	0
+ 1800              		.section	.debug_aranges,"",%progbits
+ 1801 0000 34000000 		.4byte	0x34
+ 1802 0004 0200     		.2byte	0x2
+ 1803 0006 00000000 		.4byte	.Ldebug_info0
+ 1804 000a 04       		.byte	0x4
+ 1805 000b 00       		.byte	0
+ 1806 000c 0000     		.2byte	0
+ 1807 000e 0000     		.2byte	0
+ 1808 0010 00000000 		.4byte	.LFB114
+ 1809 0014 2C000000 		.4byte	.LFE114-.LFB114
+ 1810 0018 00000000 		.4byte	.LFB115
+ 1811 001c 3A000000 		.4byte	.LFE115-.LFB115
+ 1812 0020 00000000 		.4byte	.LFB116
+ 1813 0024 0E010000 		.4byte	.LFE116-.LFB116
+ 1814 0028 00000000 		.4byte	.LFB117
+ 1815 002c 04000000 		.4byte	.LFE117-.LFB117
+ 1816 0030 00000000 		.4byte	0
+ 1817 0034 00000000 		.4byte	0
+ 1818              		.section	.debug_ranges,"",%progbits
+ 1819              	.Ldebug_ranges0:
+ 1820 0000 0A000000 		.4byte	.LBB3
+ 1821 0004 2E000000 		.4byte	.LBE3
+ 1822 0008 30000000 		.4byte	.LBB4
+ 1823 000c 36000000 		.4byte	.LBE4
+ 1824 0010 00000000 		.4byte	0
+ 1825 0014 00000000 		.4byte	0
+ 1826 0018 3E000000 		.4byte	.LBB5
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 37
+
+
+ 1827 001c E2000000 		.4byte	.LBE5
+ 1828 0020 E4000000 		.4byte	.LBB10
+ 1829 0024 F0000000 		.4byte	.LBE10
+ 1830 0028 F2000000 		.4byte	.LBB11
+ 1831 002c F6000000 		.4byte	.LBE11
+ 1832 0030 00000000 		.4byte	0
+ 1833 0034 00000000 		.4byte	0
+ 1834 0038 74000000 		.4byte	.LBB6
+ 1835 003c 9A000000 		.4byte	.LBE6
+ 1836 0040 9C000000 		.4byte	.LBB7
+ 1837 0044 A4000000 		.4byte	.LBE7
+ 1838 0048 00000000 		.4byte	0
+ 1839 004c 00000000 		.4byte	0
+ 1840 0050 AE000000 		.4byte	.LBB8
+ 1841 0054 D4000000 		.4byte	.LBE8
+ 1842 0058 D6000000 		.4byte	.LBB9
+ 1843 005c DE000000 		.4byte	.LBE9
+ 1844 0060 00000000 		.4byte	0
+ 1845 0064 00000000 		.4byte	0
+ 1846 0068 00000000 		.4byte	.LFB114
+ 1847 006c 2C000000 		.4byte	.LFE114
+ 1848 0070 00000000 		.4byte	.LFB115
+ 1849 0074 3A000000 		.4byte	.LFE115
+ 1850 0078 00000000 		.4byte	.LFB116
+ 1851 007c 0E010000 		.4byte	.LFE116
+ 1852 0080 00000000 		.4byte	.LFB117
+ 1853 0084 04000000 		.4byte	.LFE117
+ 1854 0088 00000000 		.4byte	0
+ 1855 008c 00000000 		.4byte	0
+ 1856              		.section	.debug_line,"",%progbits
+ 1857              	.Ldebug_line0:
+ 1858 0000 08030000 		.section	.debug_str,"MS",%progbits,1
+ 1858      02001D02 
+ 1858      00000201 
+ 1858      FB0E0D00 
+ 1858      01010101 
+ 1859              	.LASF72:
+ 1860 0000 72657375 		.ascii	"result\000"
+ 1860      6C7400
+ 1861              	.LASF48:
+ 1862 0007 66726F6D 		.ascii	"fromState\000"
+ 1862      53746174 
+ 1862      6500
+ 1863              	.LASF60:
+ 1864 0011 6D5F7374 		.ascii	"m_state\000"
+ 1864      61746500 
+ 1865              	.LASF28:
+ 1866 0019 52435F45 		.ascii	"RC_ERROR_READ_ONLY\000"
+ 1866      52524F52 
+ 1866      5F524541 
+ 1866      445F4F4E 
+ 1866      4C5900
+ 1867              	.LASF14:
+ 1868 002c 52435F53 		.ascii	"RC_SUCCESS\000"
+ 1868      55434345 
+ 1868      535300
+ 1869              	.LASF51:
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 38
+
+
+ 1870 0037 53544154 		.ascii	"STATE_stateOuterTransition_t\000"
+ 1870      455F7374 
+ 1870      6174654F 
+ 1870      75746572 
+ 1870      5472616E 
+ 1871              	.LASF58:
+ 1872 0054 6D5F6163 		.ascii	"m_actionTable\000"
+ 1872      74696F6E 
+ 1872      5461626C 
+ 1872      6500
+ 1873              	.LASF29:
+ 1874 0062 52435F45 		.ascii	"RC_ERROR_WRITE_ONLY\000"
+ 1874      52524F52 
+ 1874      5F575249 
+ 1874      54455F4F 
+ 1874      4E4C5900 
+ 1875              	.LASF45:
+ 1876 0076 67756172 		.ascii	"guard\000"
+ 1876      6400
+ 1877              	.LASF2:
+ 1878 007c 73686F72 		.ascii	"short int\000"
+ 1878      7420696E 
+ 1878      7400
+ 1879              	.LASF20:
+ 1880 0086 52435F45 		.ascii	"RC_ERROR_OVERRUN\000"
+ 1880      52524F52 
+ 1880      5F4F5645 
+ 1880      5252554E 
+ 1880      00
+ 1881              	.LASF32:
+ 1882 0097 52435F45 		.ascii	"RC_ERROR_WRITE_FAILS\000"
+ 1882      52524F52 
+ 1882      5F575249 
+ 1882      54455F46 
+ 1882      41494C53 
+ 1883              	.LASF71:
+ 1884 00ac 73697A65 		.ascii	"sizetype\000"
+ 1884      74797065 
+ 1884      00
+ 1885              	.LASF83:
+ 1886 00b5 53544154 		.ascii	"STATE_getCurrentState\000"
+ 1886      455F6765 
+ 1886      74437572 
+ 1886      72656E74 
+ 1886      53746174 
+ 1887              	.LASF17:
+ 1888 00cb 52435F45 		.ascii	"RC_ERROR_ZERO\000"
+ 1888      52524F52 
+ 1888      5F5A4552 
+ 1888      4F00
+ 1889              	.LASF69:
+ 1890 00d9 45455F46 		.ascii	"EE_FREG\000"
+ 1890      52454700 
+ 1891              	.LASF31:
+ 1892 00e1 52435F45 		.ascii	"RC_ERROR_READ_FAILS\000"
+ 1892      52524F52 
+ 1892      5F524541 
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 39
+
+
+ 1892      445F4641 
+ 1892      494C5300 
+ 1893              	.LASF75:
+ 1894 00f5 6163456E 		.ascii	"acEntry\000"
+ 1894      74727900 
+ 1895              	.LASF43:
+ 1896 00fd 6576656E 		.ascii	"event\000"
+ 1896      7400
+ 1897              	.LASF57:
+ 1898 0103 6D5F7472 		.ascii	"m_transitionTableSize\000"
+ 1898      616E7369 
+ 1898      74696F6E 
+ 1898      5461626C 
+ 1898      6553697A 
+ 1899              	.LASF70:
+ 1900 0119 45455F54 		.ascii	"EE_TID\000"
+ 1900      494400
+ 1901              	.LASF80:
+ 1902 0120 696E6465 		.ascii	"index\000"
+ 1902      7800
+ 1903              	.LASF37:
+ 1904 0126 52435F45 		.ascii	"RC_ERROR_INVALID_STATE\000"
+ 1904      52524F52 
+ 1904      5F494E56 
+ 1904      414C4944 
+ 1904      5F535441 
+ 1905              	.LASF88:
+ 1906 013d 45455F49 		.ascii	"EE_IRQ_nesting_level\000"
+ 1906      52515F6E 
+ 1906      65737469 
+ 1906      6E675F6C 
+ 1906      6576656C 
+ 1907              	.LASF92:
+ 1908 0152 433A5C55 		.ascii	"C:\\Users\\vboxuser\\Documents\\GitHub\\EAA_GasPeda"
+ 1908      73657273 
+ 1908      5C76626F 
+ 1908      78757365 
+ 1908      725C446F 
+ 1909 0180 6C5C456C 		.ascii	"l\\ElectronicClock.cydsn\000"
+ 1909      65637472 
+ 1909      6F6E6963 
+ 1909      436C6F63 
+ 1909      6B2E6379 
+ 1910              	.LASF87:
+ 1911 0198 45455F73 		.ascii	"EE_std_endcycle_next_tid\000"
+ 1911      74645F65 
+ 1911      6E646379 
+ 1911      636C655F 
+ 1911      6E657874 
+ 1912              	.LASF19:
+ 1913 01b1 52435F45 		.ascii	"RC_ERROR_RANGE\000"
+ 1913      52524F52 
+ 1913      5F52414E 
+ 1913      474500
+ 1914              	.LASF41:
+ 1915 01c0 53544154 		.ascii	"STATE_ActionPtr_t\000"
+ 1915      455F4163 
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 40
+
+
+ 1915      74696F6E 
+ 1915      5074725F 
+ 1915      7400
+ 1916              	.LASF8:
+ 1917 01d2 666C6F61 		.ascii	"float\000"
+ 1917      7400
+ 1918              	.LASF39:
+ 1919 01d8 52435F45 		.ascii	"RC_ERROR_NOT_IMPLEMENTED\000"
+ 1919      52524F52 
+ 1919      5F4E4F54 
+ 1919      5F494D50 
+ 1919      4C454D45 
+ 1920              	.LASF10:
+ 1921 01f1 6C6F6E67 		.ascii	"long long int\000"
+ 1921      206C6F6E 
+ 1921      6720696E 
+ 1921      7400
+ 1922              	.LASF85:
+ 1923 01ff 45455F6F 		.ascii	"EE_oo_IRQ_suspend_status\000"
+ 1923      6F5F4952 
+ 1923      515F7375 
+ 1923      7370656E 
+ 1923      645F7374 
+ 1924              	.LASF33:
+ 1925 0218 52435F45 		.ascii	"RC_ERROR_NOT_MATCH\000"
+ 1925      52524F52 
+ 1925      5F4E4F54 
+ 1925      5F4D4154 
+ 1925      434800
+ 1926              	.LASF38:
+ 1927 022b 52435F45 		.ascii	"RC_ERROR_UNKNOWN\000"
+ 1927      52524F52 
+ 1927      5F554E4B 
+ 1927      4E4F574E 
+ 1927      00
+ 1928              	.LASF3:
+ 1929 023c 73696E74 		.ascii	"sint16_t\000"
+ 1929      31365F74 
+ 1929      00
+ 1930              	.LASF61:
+ 1931 0245 53544154 		.ascii	"STATE_t\000"
+ 1931      455F7400 
+ 1932              	.LASF21:
+ 1933 024d 52435F45 		.ascii	"RC_ERROR_UNDERRUN\000"
+ 1933      52524F52 
+ 1933      5F554E44 
+ 1933      45525255 
+ 1933      4E00
+ 1934              	.LASF49:
+ 1935 025f 70496E6E 		.ascii	"pInnerTransitionTable\000"
+ 1935      65725472 
+ 1935      616E7369 
+ 1935      74696F6E 
+ 1935      5461626C 
+ 1936              	.LASF73:
+ 1937 0275 53544154 		.ascii	"STATE__getIndexCurrentState\000"
+ 1937      455F5F67 
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 41
+
+
+ 1937      6574496E 
+ 1937      64657843 
+ 1937      75727265 
+ 1938              	.LASF24:
+ 1939 0291 52435F45 		.ascii	"RC_ERROR_BUSY\000"
+ 1939      52524F52 
+ 1939      5F425553 
+ 1939      5900
+ 1940              	.LASF54:
+ 1941 029f 61637469 		.ascii	"actionExit\000"
+ 1941      6F6E4578 
+ 1941      697400
+ 1942              	.LASF30:
+ 1943 02aa 52435F45 		.ascii	"RC_ERROR_INVALID\000"
+ 1943      52524F52 
+ 1943      5F494E56 
+ 1943      414C4944 
+ 1943      00
+ 1944              	.LASF35:
+ 1945 02bb 52435F45 		.ascii	"RC_ERROR_BAD_DATA\000"
+ 1945      52524F52 
+ 1945      5F424144 
+ 1945      5F444154 
+ 1945      4100
+ 1946              	.LASF12:
+ 1947 02cd 626F6F6C 		.ascii	"boolean_t\000"
+ 1947      65616E5F 
+ 1947      7400
+ 1948              	.LASF52:
+ 1949 02d7 73746174 		.ascii	"state\000"
+ 1949      6500
+ 1950              	.LASF65:
+ 1951 02dd 6C6F6E67 		.ascii	"long double\000"
+ 1951      20646F75 
+ 1951      626C6500 
+ 1952              	.LASF1:
+ 1953 02e9 756E7369 		.ascii	"unsigned char\000"
+ 1953      676E6564 
+ 1953      20636861 
+ 1953      7200
+ 1954              	.LASF74:
+ 1955 02f7 53544154 		.ascii	"STATE_initState\000"
+ 1955      455F696E 
+ 1955      69745374 
+ 1955      61746500 
+ 1956              	.LASF82:
+ 1957 0307 696E6E65 		.ascii	"innerTableSize\000"
+ 1957      72546162 
+ 1957      6C655369 
+ 1957      7A6500
+ 1958              	.LASF67:
+ 1959 0316 45455F55 		.ascii	"EE_UINT32\000"
+ 1959      494E5433 
+ 1959      3200
+ 1960              	.LASF0:
+ 1961 0320 7369676E 		.ascii	"signed char\000"
+ 1961      65642063 
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 42
+
+
+ 1961      68617200 
+ 1962              	.LASF11:
+ 1963 032c 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1963      206C6F6E 
+ 1963      6720756E 
+ 1963      7369676E 
+ 1963      65642069 
+ 1964              	.LASF63:
+ 1965 0343 756E7369 		.ascii	"unsigned int\000"
+ 1965      676E6564 
+ 1965      20696E74 
+ 1965      00
+ 1966              	.LASF26:
+ 1967 0350 52435F45 		.ascii	"RC_ERROR_OPEN\000"
+ 1967      52524F52 
+ 1967      5F4F5045 
+ 1967      4E00
+ 1968              	.LASF4:
+ 1969 035e 75696E74 		.ascii	"uint16_t\000"
+ 1969      31365F74 
+ 1969      00
+ 1970              	.LASF59:
+ 1971 0367 6D5F6163 		.ascii	"m_actionTableSize\000"
+ 1971      74696F6E 
+ 1971      5461626C 
+ 1971      6553697A 
+ 1971      6500
+ 1972              	.LASF16:
+ 1973 0379 52435F45 		.ascii	"RC_ERROR_NULL\000"
+ 1973      52524F52 
+ 1973      5F4E554C 
+ 1973      4C00
+ 1974              	.LASF76:
+ 1975 0387 53544154 		.ascii	"STATE_processEvent\000"
+ 1975      455F7072 
+ 1975      6F636573 
+ 1975      73457665 
+ 1975      6E7400
+ 1976              	.LASF66:
+ 1977 039a 45455F49 		.ascii	"EE_INT32\000"
+ 1977      4E543332 
+ 1977      00
+ 1978              	.LASF42:
+ 1979 03a3 53544154 		.ascii	"STATE_GuardPtr_t\000"
+ 1979      455F4775 
+ 1979      61726450 
+ 1979      74725F74 
+ 1979      00
+ 1980              	.LASF5:
+ 1981 03b4 73686F72 		.ascii	"short unsigned int\000"
+ 1981      7420756E 
+ 1981      7369676E 
+ 1981      65642069 
+ 1981      6E7400
+ 1982              	.LASF90:
+ 1983 03c7 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1983      43313120 
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 43
+
+
+ 1983      352E342E 
+ 1983      31203230 
+ 1983      31363036 
+ 1984 03fa 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1984      20726576 
+ 1984      6973696F 
+ 1984      6E203233 
+ 1984      37373135 
+ 1985 042d 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1985      66756E63 
+ 1985      74696F6E 
+ 1985      2D736563 
+ 1985      74696F6E 
+ 1986              	.LASF91:
+ 1987 0455 6173775C 		.ascii	"asw\\statemachine.c\000"
+ 1987      73746174 
+ 1987      656D6163 
+ 1987      68696E65 
+ 1987      2E6300
+ 1988              	.LASF47:
+ 1989 0468 53544154 		.ascii	"STATE_stateInnerTransition_t\000"
+ 1989      455F7374 
+ 1989      61746549 
+ 1989      6E6E6572 
+ 1989      5472616E 
+ 1990              	.LASF13:
+ 1991 0485 63686172 		.ascii	"char\000"
+ 1991      00
+ 1992              	.LASF6:
+ 1993 048a 6C6F6E67 		.ascii	"long int\000"
+ 1993      20696E74 
+ 1993      00
+ 1994              	.LASF22:
+ 1995 0493 52435F45 		.ascii	"RC_ERROR_BUFFER_FULL\000"
+ 1995      52524F52 
+ 1995      5F425546 
+ 1995      4645525F 
+ 1995      46554C4C 
+ 1996              	.LASF64:
+ 1997 04a8 696E7433 		.ascii	"int32_t\000"
+ 1997      325F7400 
+ 1998              	.LASF79:
+ 1999 04b0 63757272 		.ascii	"currentState\000"
+ 1999      656E7453 
+ 1999      74617465 
+ 1999      00
+ 2000              	.LASF34:
+ 2001 04bd 52435F45 		.ascii	"RC_ERROR_BAD_PARAM\000"
+ 2001      52524F52 
+ 2001      5F424144 
+ 2001      5F504152 
+ 2001      414D00
+ 2002              	.LASF46:
+ 2003 04d0 61637469 		.ascii	"actionTransition\000"
+ 2003      6F6E5472 
+ 2003      616E7369 
+ 2003      74696F6E 
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 44
+
+
+ 2003      00
+ 2004              	.LASF86:
+ 2005 04e1 45455F41 		.ascii	"EE_ApplicationMode\000"
+ 2005      70706C69 
+ 2005      63617469 
+ 2005      6F6E4D6F 
+ 2005      646500
+ 2006              	.LASF7:
+ 2007 04f4 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2007      20756E73 
+ 2007      69676E65 
+ 2007      6420696E 
+ 2007      7400
+ 2008              	.LASF9:
+ 2009 0506 646F7562 		.ascii	"double\000"
+ 2009      6C6500
+ 2010              	.LASF27:
+ 2011 050d 52435F45 		.ascii	"RC_ERROR_CHECKSUM\000"
+ 2011      52524F52 
+ 2011      5F434845 
+ 2011      434B5355 
+ 2011      4D00
+ 2012              	.LASF68:
+ 2013 051f 45455F55 		.ascii	"EE_UREG\000"
+ 2013      52454700 
+ 2014              	.LASF50:
+ 2015 0527 73697A65 		.ascii	"size\000"
+ 2015      00
+ 2016              	.LASF55:
+ 2017 052c 53544154 		.ascii	"STATE_stateAction_t\000"
+ 2017      455F7374 
+ 2017      61746541 
+ 2017      6374696F 
+ 2017      6E5F7400 
+ 2018              	.LASF62:
+ 2019 0540 5F5F696E 		.ascii	"__int32_t\000"
+ 2019      7433325F 
+ 2019      7400
+ 2020              	.LASF78:
+ 2021 054a 61634578 		.ascii	"acExit\000"
+ 2021      697400
+ 2022              	.LASF56:
+ 2023 0551 6D5F7472 		.ascii	"m_transitionTable\000"
+ 2023      616E7369 
+ 2023      74696F6E 
+ 2023      5461626C 
+ 2023      6500
+ 2024              	.LASF36:
+ 2025 0563 52435F45 		.ascii	"RC_ERROR_CANCELED\000"
+ 2025      52524F52 
+ 2025      5F43414E 
+ 2025      43454C45 
+ 2025      4400
+ 2026              	.LASF77:
+ 2027 0575 61635472 		.ascii	"acTransition\000"
+ 2027      616E7369 
+ 2027      74696F6E 
+ARM GAS  C:\Users\vboxuser\AppData\Local\Temp\ccUffjqi.s 			page 45
+
+
+ 2027      00
+ 2028              	.LASF81:
+ 2029 0582 70496E6E 		.ascii	"pInnerTable\000"
+ 2029      65725461 
+ 2029      626C6500 
+ 2030              	.LASF89:
+ 2031 058e 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 2031      52784275 
+ 2031      66666572 
+ 2031      00
+ 2032              	.LASF15:
+ 2033 059b 52435F45 		.ascii	"RC_ERROR\000"
+ 2033      52524F52 
+ 2033      00
+ 2034              	.LASF18:
+ 2035 05a4 52435F45 		.ascii	"RC_ERROR_MEMORY\000"
+ 2035      52524F52 
+ 2035      5F4D454D 
+ 2035      4F525900 
+ 2036              	.LASF84:
+ 2037 05b4 45455F6F 		.ascii	"EE_oo_IRQ_disable_count\000"
+ 2037      6F5F4952 
+ 2037      515F6469 
+ 2037      7361626C 
+ 2037      655F636F 
+ 2038              	.LASF53:
+ 2039 05cc 61637469 		.ascii	"actionEntry\000"
+ 2039      6F6E456E 
+ 2039      74727900 
+ 2040              	.LASF44:
+ 2041 05d8 746F5374 		.ascii	"toState\000"
+ 2041      61746500 
+ 2042              	.LASF23:
+ 2043 05e0 52435F45 		.ascii	"RC_ERROR_BUFFER_EMTPY\000"
+ 2043      52524F52 
+ 2043      5F425546 
+ 2043      4645525F 
+ 2043      454D5450 
+ 2044              	.LASF40:
+ 2045 05f6 52435F74 		.ascii	"RC_t\000"
+ 2045      00
+ 2046              	.LASF25:
+ 2047 05fb 52435F45 		.ascii	"RC_ERROR_TIME_OUT\000"
+ 2047      52524F52 
+ 2047      5F54494D 
+ 2047      455F4F55 
+ 2047      5400
+ 2048              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

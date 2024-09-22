@@ -3,11 +3,12 @@
 <!--This file is machine generated and read. It is not intended to be edited by hand.-->
 <!--Due to this, there is no schema for this file.-->
 <CyGuid_2867d519-54d2-4c01-9830-c51cb08bc3dd type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWorkspaceSerialize" version="5" xml_contents_version="3" name="EAA_Lab" persistent="EAA_Lab.cywrk" platform="NOT_USED">
-<current_project name=".\Lab 1\GasPedal.cydsn\GasPedal.cyprj" />
+<current_project name=".\GasPedal.cydsn\GasPedal.cyprj" />
 <wrkspc_folders />
 <files />
 <projects>
-<v>.\Lab 1\GasPedal.cydsn\GasPedal.cyprj</v>
+<v>.\ElectronicClock.cydsn\ElectronicClock.cyprj</v>
+<v>.\GasPedal.cydsn\GasPedal.cyprj</v>
 </projects>
 <workspace_id v="bd4d7b3d-999e-475b-8a8c-39859ef4d8c4" />
 <WriteAppVersionLastSavedWith v="4.4.0.80" />

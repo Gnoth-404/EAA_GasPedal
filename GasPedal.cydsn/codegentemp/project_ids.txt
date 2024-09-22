@@ -1,0 +1,6 @@
+C:\Users\vboxuser\Documents\GitHub\EAA_GasPedal\Lab 1\GasPedal.cydsn\GasPedal.cyprj|9d4a1d60-e066-4f7d-a013-80d3f7457024
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|34d30a21-a5ab-4632-8566-9cf5d3df302b
+C:\Users\vboxuser\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|c35e872c-e4c3-4652-90b7-3ae079bffc6f
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|bfcae79e-d7e5-4fbf-b4e0-9ea924e3bc24
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|121648b3-b45a-440c-a6f7-7610692511c1
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|65dcdd1a-1fd9-4155-a8da-40cf890dd651
